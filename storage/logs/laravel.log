@@ -1,0 +1,960 @@
+[2026-05-20 19:22:57] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Log/LogManager.php:212)
+[stacktrace]
+#0 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(137): Illuminate/Log/LogManager->resolve(NULL, NULL)
+#1 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(124): Illuminate/Log/LogManager->get(NULL)
+#2 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(681): Illuminate/Log/LogManager->driver()
+#3 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(317): Illuminate/Log/LogManager->error('The C://xampp//ht...', Array)
+#4 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(278): Illuminate/Foundation/Exceptions/Handler->reportThrowable(Object(Exception))
+#5 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(523): Illuminate/Foundation/Exceptions/Handler->report(Object(Exception))
+#6 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(203): Illuminate/Foundation/Console/Kernel->reportException(Object(Exception))
+#7 C:/xampp/htdocs/scc-reporthub/artisan(24): Illuminate/Foundation/Console/Kernel->handle(Object(Symfony/Component/Console/Input/ArgvInput), Object(Symfony/Component/Console/Output/ConsoleOutput))
+#8 {main}
+"} 
+[2026-05-20 19:22:57] laravel.ERROR: The C:\xampp\htdocs\scc-reporthub\bootstrap\cache directory must be present and writable. {"exception":"[object] (Exception(code: 0): The C:\\xampp\\htdocs\\scc-reporthub\\bootstrap\\cache directory must be present and writable. at C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/PackageManifest.php:178)
+[stacktrace]
+#0 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/PackageManifest.php(131): Illuminate/Foundation/PackageManifest->write(Array)
+#1 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/PackageManifest.php(107): Illuminate/Foundation/PackageManifest->build()
+#2 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/PackageManifest.php(90): Illuminate/Foundation/PackageManifest->getManifest()
+#3 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/PackageManifest.php(79): Illuminate/Foundation/PackageManifest->config('aliases')
+#4 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterFacades.php(26): Illuminate/Foundation/PackageManifest->aliases()
+#5 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(286): Illuminate/Foundation/Bootstrap/RegisterFacades->bootstrap(Object(Illuminate/Foundation/Application))
+#6 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(447): Illuminate/Foundation/Application->bootstrapWith(Array)
+#7 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(199): Illuminate/Foundation/Console/Kernel->bootstrap()
+#8 C:/xampp/htdocs/scc-reporthub/artisan(24): Illuminate/Foundation/Console/Kernel->handle(Object(Symfony/Component/Console/Input/ArgvInput), Object(Symfony/Component/Console/Output/ConsoleOutput))
+#9 {main}
+"} 
+[2026-05-20 19:29:25] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Log/LogManager.php:212)
+[stacktrace]
+#0 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(137): Illuminate/Log/LogManager->resolve(NULL, NULL)
+#1 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(124): Illuminate/Log/LogManager->get(NULL)
+#2 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(681): Illuminate/Log/LogManager->driver()
+#3 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(317): Illuminate/Log/LogManager->error('Illuminate//View...', Array)
+#4 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(278): Illuminate/Foundation/Exceptions/Handler->reportThrowable(Object(TypeError))
+#5 C:/xampp/htdocs/scc-reporthub/vendor/nunomaduro/collision/src/Adapters/Laravel/ExceptionHandler.php(46): Illuminate/Foundation/Exceptions/Handler->report(Object(TypeError))
+#6 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(523): NunoMaduro/Collision/Adapters/Laravel/ExceptionHandler->report(Object(TypeError))
+#7 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(203): Illuminate/Foundation/Console/Kernel->reportException(Object(TypeError))
+#8 C:/xampp/htdocs/scc-reporthub/artisan(24): Illuminate/Foundation/Console/Kernel->handle(Object(Symfony/Component/Console/Input/ArgvInput), Object(Symfony/Component/Console/Output/ConsoleOutput))
+#9 {main}
+"} 
+[2026-05-20 19:29:25] laravel.ERROR: Illuminate\View\FileViewFinder::__construct(): Argument #2 ($paths) must be of type array, null given, called in C:\xampp\htdocs\scc-reporthub\vendor\laravel\framework\src\Illuminate\View\ViewServiceProvider.php on line 85 {"exception":"[object] (TypeError(code: 0): Illuminate\\View\\FileViewFinder::__construct(): Argument #2 ($paths) must be of type array, null given, called in C:\\xampp\\htdocs\\scc-reporthub\\vendor\\laravel\\framework\\src\\Illuminate\\View\\ViewServiceProvider.php on line 85 at C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/View/FileViewFinder.php:53)
+[stacktrace]
+#0 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/View/ViewServiceProvider.php(85): Illuminate/View/FileViewFinder->__construct(Object(Illuminate/Filesystem/Filesystem), NULL)
+#1 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Container/Container.php(908): Illuminate/View/ViewServiceProvider->Illuminate/View/{closure}(Object(Illuminate/Foundation/Application), Array)
+#2 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Container/Container.php(795): Illuminate/Container/Container->build(Object(Closure))
+#3 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(986): Illuminate/Container/Container->resolve('view.finder', Array, true)
+#4 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Container/Container.php(731): Illuminate/Foundation/Application->resolve('view.finder', Array)
+#5 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(971): Illuminate/Container/Container->make('view.finder', Array)
+#6 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Container/Container.php(1454): Illuminate/Foundation/Application->make('view.finder')
+#7 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/View/ViewServiceProvider.php(45): Illuminate/Container/Container->offsetGet('view.finder')
+#8 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Container/Container.php(908): Illuminate/View/ViewServiceProvider->Illuminate/View/{closure}(Object(Illuminate/Foundation/Application), Array)
+#9 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Container/Container.php(795): Illuminate/Container/Container->build(Object(Closure))
+#10 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(986): Illuminate/Container/Container->resolve('view', Array, true)
+#11 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Container/Container.php(731): Illuminate/Foundation/Application->resolve('view', Array)
+#12 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(971): Illuminate/Container/Container->make('view', Array)
+#13 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php(120): Illuminate/Foundation/Application->make('view', Array)
+#14 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php(1014): app('Illuminate//Cont...')
+#15 C:/xampp/htdocs/scc-reporthub/app/Providers/AppServiceProvider.php(14): view()
+#16 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(36): App/Providers/AppServiceProvider->boot()
+#17 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Container/Util.php(41): Illuminate/Container/BoundMethod::Illuminate/Container/{closure}()
+#18 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(93): Illuminate/Container/Util::unwrapIfClosure(Object(Closure))
+#19 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(35): Illuminate/Container/BoundMethod::callBoundMethod(Object(Illuminate/Foundation/Application), Array, Object(Closure))
+#20 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Container/Container.php(662): Illuminate/Container/BoundMethod::call(Object(Illuminate/Foundation/Application), Array, Array, NULL)
+#21 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1059): Illuminate/Container/Container->call(Array)
+#22 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1040): Illuminate/Foundation/Application->bootProvider(Object(App/Providers/AppServiceProvider))
+#23 [internal function]: Illuminate/Foundation/Application->Illuminate/Foundation/{closure}(Object(App/Providers/AppServiceProvider), 20)
+#24 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1039): array_walk(Array, Object(Closure))
+#25 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/BootProviders.php(17): Illuminate/Foundation/Application->boot()
+#26 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(286): Illuminate/Foundation/Bootstrap/BootProviders->bootstrap(Object(Illuminate/Foundation/Application))
+#27 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(447): Illuminate/Foundation/Application->bootstrapWith(Array)
+#28 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(199): Illuminate/Foundation/Console/Kernel->bootstrap()
+#29 C:/xampp/htdocs/scc-reporthub/artisan(24): Illuminate/Foundation/Console/Kernel->handle(Object(Symfony/Component/Console/Input/ArgvInput), Object(Symfony/Component/Console/Output/ConsoleOutput))
+#30 {main}
+"} 
+[2026-05-20 19:38:36] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Log/LogManager.php:212)
+[stacktrace]
+#0 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(137): Illuminate/Log/LogManager->resolve(NULL, NULL)
+#1 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(124): Illuminate/Log/LogManager->get(NULL)
+#2 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(681): Illuminate/Log/LogManager->driver()
+#3 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(317): Illuminate/Log/LogManager->error('Class \"App//Http...', Array)
+#4 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(278): Illuminate/Foundation/Exceptions/Handler->reportThrowable(Object(Error))
+#5 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(49): Illuminate/Foundation/Exceptions/Handler->report(Object(Error))
+#6 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(146): Illuminate/Routing/Pipeline->handleException(Object(Illuminate/Http/Request), Object(Error))
+#7 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#8 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate/Foundation/Http/Middleware/TransformsRequest->handle(Object(Illuminate/Http/Request), Object(Closure))
+#9 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull->handle(Object(Illuminate/Http/Request), Object(Closure))
+#10 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#11 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(40): Illuminate/Foundation/Http/Middleware/TransformsRequest->handle(Object(Illuminate/Http/Request), Object(Closure))
+#12 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Foundation/Http/Middleware/TrimStrings->handle(Object(Illuminate/Http/Request), Object(Closure))
+#13 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php(27): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#14 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Foundation/Http/Middleware/ValidatePostSize->handle(Object(Illuminate/Http/Request), Object(Closure))
+#15 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(99): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#16 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance->handle(Object(Illuminate/Http/Request), Object(Closure))
+#17 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php(49): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#18 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Http/Middleware/HandleCors->handle(Object(Illuminate/Http/Request), Object(Closure))
+#19 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php(39): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#20 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Http/Middleware/TrustProxies->handle(Object(Illuminate/Http/Request), Object(Closure))
+#21 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(119): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#22 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(175): Illuminate/Pipeline/Pipeline->then(Object(Closure))
+#23 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(144): Illuminate/Foundation/Http/Kernel->sendRequestThroughRouter(Object(Illuminate/Http/Request))
+#24 C:/xampp/htdocs/scc-reporthub/public/index.php(36): Illuminate/Foundation/Http/Kernel->handle(Object(Illuminate/Http/Request))
+#25 {main}
+"} 
+[2026-05-20 19:38:36] laravel.ERROR: Class "App\Http\Controllers\Controller" not found {"exception":"[object] (Error(code: 0): Class \"App\\Http\\Controllers\\Controller\" not found at C:/xampp/htdocs/scc-reporthub/app/Http/Controllers/AuthController.php:13)
+[stacktrace]
+#0 C:/xampp/htdocs/scc-reporthub/vendor/composer/ClassLoader.php(576): include()
+#1 C:/xampp/htdocs/scc-reporthub/vendor/composer/ClassLoader.php(427): Composer/Autoload/{closure}('C://xampp//htdocs...')
+#2 [internal function]: Composer/Autoload/ClassLoader->loadClass('App//Http//Contro...')
+#3 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Route.php(1096): is_a('App//Http//Contro...', 'Illuminate//Rout...', true)
+#4 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Route.php(1035): Illuminate/Routing/Route->controllerMiddleware()
+#5 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Router.php(818): Illuminate/Routing/Route->gatherMiddleware()
+#6 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Router.php(800): Illuminate/Routing/Router->gatherRouteMiddleware(Object(Illuminate/Routing/Route))
+#7 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Router.php(784): Illuminate/Routing/Router->runRouteWithinStack(Object(Illuminate/Routing/Route), Object(Illuminate/Http/Request))
+#8 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Router.php(748): Illuminate/Routing/Router->runRoute(Object(Illuminate/Http/Request), Object(Illuminate/Routing/Route))
+#9 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Router.php(737): Illuminate/Routing/Router->dispatchToRoute(Object(Illuminate/Http/Request))
+#10 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(200): Illuminate/Routing/Router->dispatch(Object(Illuminate/Http/Request))
+#11 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(144): Illuminate/Foundation/Http/Kernel->Illuminate/Foundation/Http/{closure}(Object(Illuminate/Http/Request))
+#12 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#13 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate/Foundation/Http/Middleware/TransformsRequest->handle(Object(Illuminate/Http/Request), Object(Closure))
+#14 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull->handle(Object(Illuminate/Http/Request), Object(Closure))
+#15 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#16 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(40): Illuminate/Foundation/Http/Middleware/TransformsRequest->handle(Object(Illuminate/Http/Request), Object(Closure))
+#17 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Foundation/Http/Middleware/TrimStrings->handle(Object(Illuminate/Http/Request), Object(Closure))
+#18 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php(27): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#19 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Foundation/Http/Middleware/ValidatePostSize->handle(Object(Illuminate/Http/Request), Object(Closure))
+#20 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(99): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#21 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance->handle(Object(Illuminate/Http/Request), Object(Closure))
+#22 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php(49): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#23 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Http/Middleware/HandleCors->handle(Object(Illuminate/Http/Request), Object(Closure))
+#24 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php(39): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#25 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Http/Middleware/TrustProxies->handle(Object(Illuminate/Http/Request), Object(Closure))
+#26 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(119): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#27 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(175): Illuminate/Pipeline/Pipeline->then(Object(Closure))
+#28 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(144): Illuminate/Foundation/Http/Kernel->sendRequestThroughRouter(Object(Illuminate/Http/Request))
+#29 C:/xampp/htdocs/scc-reporthub/public/index.php(36): Illuminate/Foundation/Http/Kernel->handle(Object(Illuminate/Http/Request))
+#30 {main}
+"} 
+[2026-05-22 10:10:16] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Log/LogManager.php:212)
+[stacktrace]
+#0 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(137): Illuminate/Log/LogManager->resolve(NULL, NULL)
+#1 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(124): Illuminate/Log/LogManager->get(NULL)
+#2 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(681): Illuminate/Log/LogManager->driver()
+#3 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(317): Illuminate/Log/LogManager->error('syntax error, u...', Array)
+#4 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(278): Illuminate/Foundation/Exceptions/Handler->reportThrowable(Object(Spatie/LaravelIgnition/Exceptions/ViewException))
+#5 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(49): Illuminate/Foundation/Exceptions/Handler->report(Object(Spatie/LaravelIgnition/Exceptions/ViewException))
+#6 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(146): Illuminate/Routing/Pipeline->handleException(Object(Illuminate/Http/Request), Object(Illuminate/View/ViewException))
+#7 C:/xampp/htdocs/scc-reporthub/app/Http/Middleware/MaintenanceMiddleware.php(24): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#8 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): App/Http/Middleware/MaintenanceMiddleware->handle(Object(Illuminate/Http/Request), Object(Closure))
+#9 C:/xampp/htdocs/scc-reporthub/app/Http/Middleware/CheckUserStatus.php(25): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#10 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): App/Http/Middleware/CheckUserStatus->handle(Object(Illuminate/Http/Request), Object(Closure))
+#11 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(50): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#12 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Routing/Middleware/SubstituteBindings->handle(Object(Illuminate/Http/Request), Object(Closure))
+#13 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Auth/Middleware/Authenticate.php(57): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#14 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Auth/Middleware/Authenticate->handle(Object(Illuminate/Http/Request), Object(Closure))
+#15 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/VerifyCsrfToken.php(78): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#16 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Foundation/Http/Middleware/VerifyCsrfToken->handle(Object(Illuminate/Http/Request), Object(Closure))
+#17 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/View/Middleware/ShareErrorsFromSession.php(49): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#18 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/View/Middleware/ShareErrorsFromSession->handle(Object(Illuminate/Http/Request), Object(Closure))
+#19 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(121): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#20 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(64): Illuminate/Session/Middleware/StartSession->handleStatefulRequest(Object(Illuminate/Http/Request), Object(Illuminate/Session/Store), Object(Closure))
+#21 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Session/Middleware/StartSession->handle(Object(Illuminate/Http/Request), Object(Closure))
+#22 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/AddQueuedCookiesToResponse.php(37): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#23 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Cookie/Middleware/AddQueuedCookiesToResponse->handle(Object(Illuminate/Http/Request), Object(Closure))
+#24 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/EncryptCookies.php(67): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#25 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Cookie/Middleware/EncryptCookies->handle(Object(Illuminate/Http/Request), Object(Closure))
+#26 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(119): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#27 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Router.php(805): Illuminate/Pipeline/Pipeline->then(Object(Closure))
+#28 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Router.php(784): Illuminate/Routing/Router->runRouteWithinStack(Object(Illuminate/Routing/Route), Object(Illuminate/Http/Request))
+#29 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Router.php(748): Illuminate/Routing/Router->runRoute(Object(Illuminate/Http/Request), Object(Illuminate/Routing/Route))
+#30 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Router.php(737): Illuminate/Routing/Router->dispatchToRoute(Object(Illuminate/Http/Request))
+#31 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(200): Illuminate/Routing/Router->dispatch(Object(Illuminate/Http/Request))
+#32 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(144): Illuminate/Foundation/Http/Kernel->Illuminate/Foundation/Http/{closure}(Object(Illuminate/Http/Request))
+#33 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#34 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate/Foundation/Http/Middleware/TransformsRequest->handle(Object(Illuminate/Http/Request), Object(Closure))
+#35 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull->handle(Object(Illuminate/Http/Request), Object(Closure))
+#36 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#37 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(40): Illuminate/Foundation/Http/Middleware/TransformsRequest->handle(Object(Illuminate/Http/Request), Object(Closure))
+#38 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Foundation/Http/Middleware/TrimStrings->handle(Object(Illuminate/Http/Request), Object(Closure))
+#39 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php(27): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#40 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Foundation/Http/Middleware/ValidatePostSize->handle(Object(Illuminate/Http/Request), Object(Closure))
+#41 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(99): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#42 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance->handle(Object(Illuminate/Http/Request), Object(Closure))
+#43 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php(49): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#44 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Http/Middleware/HandleCors->handle(Object(Illuminate/Http/Request), Object(Closure))
+#45 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php(39): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#46 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Http/Middleware/TrustProxies->handle(Object(Illuminate/Http/Request), Object(Closure))
+#47 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(119): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#48 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(175): Illuminate/Pipeline/Pipeline->then(Object(Closure))
+#49 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(144): Illuminate/Foundation/Http/Kernel->sendRequestThroughRouter(Object(Illuminate/Http/Request))
+#50 C:/xampp/htdocs/scc-reporthub/public/index.php(36): Illuminate/Foundation/Http/Kernel->handle(Object(Illuminate/Http/Request))
+#51 {main}
+"} 
+[2026-05-22 10:10:16] laravel.ERROR: syntax error, unexpected token "endif", expecting end of file {"view":{"view":"C:\\xampp\\htdocs\\scc-reporthub\\resources\\views\\layouts\\app.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-1728900226 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#372</a><samp data-depth=1 class=sf-dump-expanded>
+  #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
+</samp>}
+</pre><script>Sfdump(\"sf-dump-1728900226\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","stats":"<pre class=sf-dump id=sf-dump-1824157029 data-indent-pad=\"  \"><span class=sf-dump-note>array:4</span> [<samp data-depth=1 class=sf-dump-expanded>
+  \"<span class=sf-dump-key>assigned_tasks</span>\" => <span class=sf-dump-num>1</span>
+  \"<span class=sf-dump-key>completed_tasks</span>\" => <span class=sf-dump-num>1</span>
+  \"<span class=sf-dump-key>resolved_tasks</span>\" => <span class=sf-dump-num>0</span>
+  \"<span class=sf-dump-key>urgent_tasks</span>\" => <span class=sf-dump-num>0</span>
+</samp>]
+</pre><script>Sfdump(\"sf-dump-1824157029\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","assignedTickets":"<pre class=sf-dump id=sf-dump-1542907893 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Database\\Eloquent\\Collection</span> {<a class=sf-dump-ref>#1104</a><samp data-depth=1 class=sf-dump-expanded>
+  #<span class=sf-dump-protected title=\"Protected property\">items</span>: <span class=sf-dump-note>array:1</span> [<samp data-depth=2 class=sf-dump-compact>
+    <span class=sf-dump-index>0</span> => <span class=\"sf-dump-note sf-dump-ellipsization\" title=\"App\\Models\\Ticket
+\"><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">App\\Models</span><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">\\</span><span class=\"sf-dump-ellipsis-tail\">Ticket</span></span> {<a class=sf-dump-ref>#1095</a><samp data-depth=3 class=sf-dump-compact>
+      #<span class=sf-dump-protected title=\"Protected property\">connection</span>: \"<span class=sf-dump-str title=\"5 characters\">mysql</span>\"
+      #<span class=sf-dump-protected title=\"Protected property\">table</span>: \"<span class=sf-dump-str title=\"7 characters\">tickets</span>\"
+      #<span class=sf-dump-protected title=\"Protected property\">primaryKey</span>: \"<span class=sf-dump-str title=\"2 characters\">id</span>\"
+      #<span class=sf-dump-protected title=\"Protected property\">keyType</span>: \"<span class=sf-dump-str title=\"3 characters\">int</span>\"
+      +<span class=sf-dump-public title=\"Public property\">incrementing</span>: <span class=sf-dump-const>true</span>
+      #<span class=sf-dump-protected title=\"Protected property\">with</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">withCount</span>: []
+      +<span class=sf-dump-public title=\"Public property\">preventsLazyLoading</span>: <span class=sf-dump-const>false</span>
+      #<span class=sf-dump-protected title=\"Protected property\">perPage</span>: <span class=sf-dump-num>15</span>
+      +<span class=sf-dump-public title=\"Public property\">exists</span>: <span class=sf-dump-const>true</span>
+      +<span class=sf-dump-public title=\"Public property\">wasRecentlyCreated</span>: <span class=sf-dump-const>false</span>
+      #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
+      #<span class=sf-dump-protected title=\"Protected property\">attributes</span>: <span class=sf-dump-note>array:16</span> [ &#8230;16]
+      #<span class=sf-dump-protected title=\"Protected property\">original</span>: <span class=sf-dump-note>array:16</span> [ &#8230;16]
+      #<span class=sf-dump-protected title=\"Protected property\">changes</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">casts</span>: <span class=sf-dump-note>array:2</span> [ &#8230;2]
+      #<span class=sf-dump-protected title=\"Protected property\">classCastCache</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">attributeCastCache</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">dateFormat</span>: <span class=sf-dump-const>null</span>
+      #<span class=sf-dump-protected title=\"Protected property\">appends</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">dispatchesEvents</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">observables</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">relations</span>: <span class=sf-dump-note>array:2</span> [ &#8230;2]
+      #<span class=sf-dump-protected title=\"Protected property\">touches</span>: []
+      +<span class=sf-dump-public title=\"Public property\">timestamps</span>: <span class=sf-dump-const>true</span>
+      +<span class=sf-dump-public title=\"Public property\">usesUniqueIds</span>: <span class=sf-dump-const>false</span>
+      #<span class=sf-dump-protected title=\"Protected property\">hidden</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">visible</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">fillable</span>: <span class=sf-dump-note>array:13</span> [ &#8230;13]
+      #<span class=sf-dump-protected title=\"Protected property\">guarded</span>: <span class=sf-dump-note>array:1</span> [ &#8230;1]
+    </samp>}
+  </samp>]
+  #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
+</samp>}
+</pre><script>Sfdump(\"sf-dump-1542907893\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","recentCompleted":"<pre class=sf-dump id=sf-dump-1973497063 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Database\\Eloquent\\Collection</span> {<a class=sf-dump-ref>#1120</a><samp data-depth=1 class=sf-dump-expanded>
+  #<span class=sf-dump-protected title=\"Protected property\">items</span>: <span class=sf-dump-note>array:1</span> [<samp data-depth=2 class=sf-dump-compact>
+    <span class=sf-dump-index>0</span> => <span class=\"sf-dump-note sf-dump-ellipsization\" title=\"App\\Models\\Ticket
+\"><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">App\\Models</span><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">\\</span><span class=\"sf-dump-ellipsis-tail\">Ticket</span></span> {<a class=sf-dump-ref>#1111</a><samp data-depth=3 class=sf-dump-compact>
+      #<span class=sf-dump-protected title=\"Protected property\">connection</span>: \"<span class=sf-dump-str title=\"5 characters\">mysql</span>\"
+      #<span class=sf-dump-protected title=\"Protected property\">table</span>: \"<span class=sf-dump-str title=\"7 characters\">tickets</span>\"
+      #<span class=sf-dump-protected title=\"Protected property\">primaryKey</span>: \"<span class=sf-dump-str title=\"2 characters\">id</span>\"
+      #<span class=sf-dump-protected title=\"Protected property\">keyType</span>: \"<span class=sf-dump-str title=\"3 characters\">int</span>\"
+      +<span class=sf-dump-public title=\"Public property\">incrementing</span>: <span class=sf-dump-const>true</span>
+      #<span class=sf-dump-protected title=\"Protected property\">with</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">withCount</span>: []
+      +<span class=sf-dump-public title=\"Public property\">preventsLazyLoading</span>: <span class=sf-dump-const>false</span>
+      #<span class=sf-dump-protected title=\"Protected property\">perPage</span>: <span class=sf-dump-num>15</span>
+      +<span class=sf-dump-public title=\"Public property\">exists</span>: <span class=sf-dump-const>true</span>
+      +<span class=sf-dump-public title=\"Public property\">wasRecentlyCreated</span>: <span class=sf-dump-const>false</span>
+      #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
+      #<span class=sf-dump-protected title=\"Protected property\">attributes</span>: <span class=sf-dump-note>array:16</span> [ &#8230;16]
+      #<span class=sf-dump-protected title=\"Protected property\">original</span>: <span class=sf-dump-note>array:16</span> [ &#8230;16]
+      #<span class=sf-dump-protected title=\"Protected property\">changes</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">casts</span>: <span class=sf-dump-note>array:2</span> [ &#8230;2]
+      #<span class=sf-dump-protected title=\"Protected property\">classCastCache</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">attributeCastCache</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">dateFormat</span>: <span class=sf-dump-const>null</span>
+      #<span class=sf-dump-protected title=\"Protected property\">appends</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">dispatchesEvents</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">observables</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">relations</span>: <span class=sf-dump-note>array:2</span> [ &#8230;2]
+      #<span class=sf-dump-protected title=\"Protected property\">touches</span>: []
+      +<span class=sf-dump-public title=\"Public property\">timestamps</span>: <span class=sf-dump-const>true</span>
+      +<span class=sf-dump-public title=\"Public property\">usesUniqueIds</span>: <span class=sf-dump-const>false</span>
+      #<span class=sf-dump-protected title=\"Protected property\">hidden</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">visible</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">fillable</span>: <span class=sf-dump-note>array:13</span> [ &#8230;13]
+      #<span class=sf-dump-protected title=\"Protected property\">guarded</span>: <span class=sf-dump-note>array:1</span> [ &#8230;1]
+    </samp>}
+  </samp>]
+  #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
+</samp>}
+</pre><script>Sfdump(\"sf-dump-1973497063\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","unreadNotificationCount":"<pre class=sf-dump id=sf-dump-1130250551 data-indent-pad=\"  \"><span class=sf-dump-num>2</span>
+</pre><script>Sfdump(\"sf-dump-1130250551\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+"}},"userId":4,"exception":"[object] (Spatie\\LaravelIgnition\\Exceptions\\ViewException(code: 0): syntax error, unexpected token \"endif\", expecting end of file at C:/xampp/htdocs/scc-reporthub/resources/views/layouts/app.blade.php:155)
+[stacktrace]
+#0 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Filesystem/Filesystem.php(123): require('C://xampp//htdocs...')
+#1 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Filesystem/Filesystem.php(124): Illuminate/Filesystem/Filesystem::Illuminate/Filesystem/{closure}()
+#2 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/View/Engines/PhpEngine.php(58): Illuminate/Filesystem/Filesystem->getRequire('C://xampp//htdocs...', Array)
+#3 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/View/Engines/CompilerEngine.php(72): Illuminate/View/Engines/PhpEngine->evaluatePath('C://xampp//htdocs...', Array)
+#4 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/View/View.php(207): Illuminate/View/Engines/CompilerEngine->get('C://xampp//htdocs...', Array)
+#5 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/View/View.php(190): Illuminate/View/View->getContents()
+#6 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/View/View.php(159): Illuminate/View/View->renderContents()
+#7 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Http/Response.php(69): Illuminate/View/View->render()
+#8 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Http/Response.php(35): Illuminate/Http/Response->setContent(Object(Illuminate/View/View))
+#9 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Router.php(918): Illuminate/Http/Response->__construct(Object(Illuminate/View/View), 200, Array)
+#10 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Router.php(885): Illuminate/Routing/Router::toResponse(Object(Illuminate/Http/Request), Object(Illuminate/View/View))
+#11 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Router.php(805): Illuminate/Routing/Router->prepareResponse(Object(Illuminate/Http/Request), Object(Illuminate/View/View))
+#12 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(144): Illuminate/Routing/Router->Illuminate/Routing/{closure}(Object(Illuminate/Http/Request))
+#13 C:/xampp/htdocs/scc-reporthub/app/Http/Middleware/MaintenanceMiddleware.php(24): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#14 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): App/Http/Middleware/MaintenanceMiddleware->handle(Object(Illuminate/Http/Request), Object(Closure))
+#15 C:/xampp/htdocs/scc-reporthub/app/Http/Middleware/CheckUserStatus.php(25): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#16 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): App/Http/Middleware/CheckUserStatus->handle(Object(Illuminate/Http/Request), Object(Closure))
+#17 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(50): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#18 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Routing/Middleware/SubstituteBindings->handle(Object(Illuminate/Http/Request), Object(Closure))
+#19 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Auth/Middleware/Authenticate.php(57): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#20 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Auth/Middleware/Authenticate->handle(Object(Illuminate/Http/Request), Object(Closure))
+#21 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/VerifyCsrfToken.php(78): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#22 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Foundation/Http/Middleware/VerifyCsrfToken->handle(Object(Illuminate/Http/Request), Object(Closure))
+#23 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/View/Middleware/ShareErrorsFromSession.php(49): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#24 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/View/Middleware/ShareErrorsFromSession->handle(Object(Illuminate/Http/Request), Object(Closure))
+#25 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(121): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#26 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(64): Illuminate/Session/Middleware/StartSession->handleStatefulRequest(Object(Illuminate/Http/Request), Object(Illuminate/Session/Store), Object(Closure))
+#27 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Session/Middleware/StartSession->handle(Object(Illuminate/Http/Request), Object(Closure))
+#28 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/AddQueuedCookiesToResponse.php(37): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#29 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Cookie/Middleware/AddQueuedCookiesToResponse->handle(Object(Illuminate/Http/Request), Object(Closure))
+#30 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/EncryptCookies.php(67): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#31 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Cookie/Middleware/EncryptCookies->handle(Object(Illuminate/Http/Request), Object(Closure))
+#32 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(119): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#33 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Router.php(805): Illuminate/Pipeline/Pipeline->then(Object(Closure))
+#34 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Router.php(784): Illuminate/Routing/Router->runRouteWithinStack(Object(Illuminate/Routing/Route), Object(Illuminate/Http/Request))
+#35 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Router.php(748): Illuminate/Routing/Router->runRoute(Object(Illuminate/Http/Request), Object(Illuminate/Routing/Route))
+#36 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Router.php(737): Illuminate/Routing/Router->dispatchToRoute(Object(Illuminate/Http/Request))
+#37 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(200): Illuminate/Routing/Router->dispatch(Object(Illuminate/Http/Request))
+#38 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(144): Illuminate/Foundation/Http/Kernel->Illuminate/Foundation/Http/{closure}(Object(Illuminate/Http/Request))
+#39 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#40 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate/Foundation/Http/Middleware/TransformsRequest->handle(Object(Illuminate/Http/Request), Object(Closure))
+#41 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull->handle(Object(Illuminate/Http/Request), Object(Closure))
+#42 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#43 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(40): Illuminate/Foundation/Http/Middleware/TransformsRequest->handle(Object(Illuminate/Http/Request), Object(Closure))
+#44 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Foundation/Http/Middleware/TrimStrings->handle(Object(Illuminate/Http/Request), Object(Closure))
+#45 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php(27): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#46 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Foundation/Http/Middleware/ValidatePostSize->handle(Object(Illuminate/Http/Request), Object(Closure))
+#47 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(99): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#48 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance->handle(Object(Illuminate/Http/Request), Object(Closure))
+#49 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php(49): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#50 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Http/Middleware/HandleCors->handle(Object(Illuminate/Http/Request), Object(Closure))
+#51 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php(39): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#52 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Http/Middleware/TrustProxies->handle(Object(Illuminate/Http/Request), Object(Closure))
+#53 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(119): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#54 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(175): Illuminate/Pipeline/Pipeline->then(Object(Closure))
+#55 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(144): Illuminate/Foundation/Http/Kernel->sendRequestThroughRouter(Object(Illuminate/Http/Request))
+#56 C:/xampp/htdocs/scc-reporthub/public/index.php(36): Illuminate/Foundation/Http/Kernel->handle(Object(Illuminate/Http/Request))
+#57 {main}
+
+[previous exception] [object] (ParseError(code: 0): syntax error, unexpected token \"endif\", expecting end of file at C:/xampp/htdocs/scc-reporthub/storage/framework/views/363a56861a687d8bc32d00f02e706740.php:155)
+[stacktrace]
+#0 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Filesystem/Filesystem.php(124): Illuminate/Filesystem/Filesystem::Illuminate/Filesystem/{closure}()
+#1 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/View/Engines/PhpEngine.php(58): Illuminate/Filesystem/Filesystem->getRequire('C://xampp//htdocs...', Array)
+#2 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/View/Engines/CompilerEngine.php(72): Illuminate/View/Engines/PhpEngine->evaluatePath('C://xampp//htdocs...', Array)
+#3 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/View/View.php(207): Illuminate/View/Engines/CompilerEngine->get('C://xampp//htdocs...', Array)
+#4 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/View/View.php(190): Illuminate/View/View->getContents()
+#5 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/View/View.php(159): Illuminate/View/View->renderContents()
+#6 C:/xampp/htdocs/scc-reporthub/storage/framework/views/9a2a92aa5116a2ed6e30a53e723abbbc.php(122): Illuminate/View/View->render()
+#7 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Filesystem/Filesystem.php(123): require('C://xampp//htdocs...')
+#8 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Filesystem/Filesystem.php(124): Illuminate/Filesystem/Filesystem::Illuminate/Filesystem/{closure}()
+#9 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/View/Engines/PhpEngine.php(58): Illuminate/Filesystem/Filesystem->getRequire('C://xampp//htdocs...', Array)
+#10 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/View/Engines/CompilerEngine.php(72): Illuminate/View/Engines/PhpEngine->evaluatePath('C://xampp//htdocs...', Array)
+#11 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/View/View.php(207): Illuminate/View/Engines/CompilerEngine->get('C://xampp//htdocs...', Array)
+#12 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/View/View.php(190): Illuminate/View/View->getContents()
+#13 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/View/View.php(159): Illuminate/View/View->renderContents()
+#14 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Http/Response.php(69): Illuminate/View/View->render()
+#15 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Http/Response.php(35): Illuminate/Http/Response->setContent(Object(Illuminate/View/View))
+#16 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Router.php(918): Illuminate/Http/Response->__construct(Object(Illuminate/View/View), 200, Array)
+#17 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Router.php(885): Illuminate/Routing/Router::toResponse(Object(Illuminate/Http/Request), Object(Illuminate/View/View))
+#18 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Router.php(805): Illuminate/Routing/Router->prepareResponse(Object(Illuminate/Http/Request), Object(Illuminate/View/View))
+#19 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(144): Illuminate/Routing/Router->Illuminate/Routing/{closure}(Object(Illuminate/Http/Request))
+#20 C:/xampp/htdocs/scc-reporthub/app/Http/Middleware/MaintenanceMiddleware.php(24): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#21 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): App/Http/Middleware/MaintenanceMiddleware->handle(Object(Illuminate/Http/Request), Object(Closure))
+#22 C:/xampp/htdocs/scc-reporthub/app/Http/Middleware/CheckUserStatus.php(25): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#23 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): App/Http/Middleware/CheckUserStatus->handle(Object(Illuminate/Http/Request), Object(Closure))
+#24 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(50): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#25 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Routing/Middleware/SubstituteBindings->handle(Object(Illuminate/Http/Request), Object(Closure))
+#26 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Auth/Middleware/Authenticate.php(57): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#27 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Auth/Middleware/Authenticate->handle(Object(Illuminate/Http/Request), Object(Closure))
+#28 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/VerifyCsrfToken.php(78): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#29 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Foundation/Http/Middleware/VerifyCsrfToken->handle(Object(Illuminate/Http/Request), Object(Closure))
+#30 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/View/Middleware/ShareErrorsFromSession.php(49): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#31 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/View/Middleware/ShareErrorsFromSession->handle(Object(Illuminate/Http/Request), Object(Closure))
+#32 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(121): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#33 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(64): Illuminate/Session/Middleware/StartSession->handleStatefulRequest(Object(Illuminate/Http/Request), Object(Illuminate/Session/Store), Object(Closure))
+#34 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Session/Middleware/StartSession->handle(Object(Illuminate/Http/Request), Object(Closure))
+#35 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/AddQueuedCookiesToResponse.php(37): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#36 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Cookie/Middleware/AddQueuedCookiesToResponse->handle(Object(Illuminate/Http/Request), Object(Closure))
+#37 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/EncryptCookies.php(67): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#38 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Cookie/Middleware/EncryptCookies->handle(Object(Illuminate/Http/Request), Object(Closure))
+#39 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(119): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#40 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Router.php(805): Illuminate/Pipeline/Pipeline->then(Object(Closure))
+#41 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Router.php(784): Illuminate/Routing/Router->runRouteWithinStack(Object(Illuminate/Routing/Route), Object(Illuminate/Http/Request))
+#42 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Router.php(748): Illuminate/Routing/Router->runRoute(Object(Illuminate/Http/Request), Object(Illuminate/Routing/Route))
+#43 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Router.php(737): Illuminate/Routing/Router->dispatchToRoute(Object(Illuminate/Http/Request))
+#44 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(200): Illuminate/Routing/Router->dispatch(Object(Illuminate/Http/Request))
+#45 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(144): Illuminate/Foundation/Http/Kernel->Illuminate/Foundation/Http/{closure}(Object(Illuminate/Http/Request))
+#46 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#47 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate/Foundation/Http/Middleware/TransformsRequest->handle(Object(Illuminate/Http/Request), Object(Closure))
+#48 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull->handle(Object(Illuminate/Http/Request), Object(Closure))
+#49 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#50 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(40): Illuminate/Foundation/Http/Middleware/TransformsRequest->handle(Object(Illuminate/Http/Request), Object(Closure))
+#51 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Foundation/Http/Middleware/TrimStrings->handle(Object(Illuminate/Http/Request), Object(Closure))
+#52 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php(27): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#53 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Foundation/Http/Middleware/ValidatePostSize->handle(Object(Illuminate/Http/Request), Object(Closure))
+#54 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(99): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#55 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance->handle(Object(Illuminate/Http/Request), Object(Closure))
+#56 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php(49): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#57 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Http/Middleware/HandleCors->handle(Object(Illuminate/Http/Request), Object(Closure))
+#58 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php(39): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#59 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Http/Middleware/TrustProxies->handle(Object(Illuminate/Http/Request), Object(Closure))
+#60 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(119): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#61 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(175): Illuminate/Pipeline/Pipeline->then(Object(Closure))
+#62 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(144): Illuminate/Foundation/Http/Kernel->sendRequestThroughRouter(Object(Illuminate/Http/Request))
+#63 C:/xampp/htdocs/scc-reporthub/public/index.php(36): Illuminate/Foundation/Http/Kernel->handle(Object(Illuminate/Http/Request))
+#64 {main}
+"} 
+[2026-05-22 10:10:19] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Log/LogManager.php:212)
+[stacktrace]
+#0 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(137): Illuminate/Log/LogManager->resolve(NULL, NULL)
+#1 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(124): Illuminate/Log/LogManager->get(NULL)
+#2 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(681): Illuminate/Log/LogManager->driver()
+#3 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(317): Illuminate/Log/LogManager->error('syntax error, u...', Array)
+#4 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(278): Illuminate/Foundation/Exceptions/Handler->reportThrowable(Object(Spatie/LaravelIgnition/Exceptions/ViewException))
+#5 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(49): Illuminate/Foundation/Exceptions/Handler->report(Object(Spatie/LaravelIgnition/Exceptions/ViewException))
+#6 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(146): Illuminate/Routing/Pipeline->handleException(Object(Illuminate/Http/Request), Object(Illuminate/View/ViewException))
+#7 C:/xampp/htdocs/scc-reporthub/app/Http/Middleware/MaintenanceMiddleware.php(24): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#8 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): App/Http/Middleware/MaintenanceMiddleware->handle(Object(Illuminate/Http/Request), Object(Closure))
+#9 C:/xampp/htdocs/scc-reporthub/app/Http/Middleware/CheckUserStatus.php(25): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#10 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): App/Http/Middleware/CheckUserStatus->handle(Object(Illuminate/Http/Request), Object(Closure))
+#11 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(50): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#12 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Routing/Middleware/SubstituteBindings->handle(Object(Illuminate/Http/Request), Object(Closure))
+#13 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Auth/Middleware/Authenticate.php(57): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#14 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Auth/Middleware/Authenticate->handle(Object(Illuminate/Http/Request), Object(Closure))
+#15 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/VerifyCsrfToken.php(78): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#16 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Foundation/Http/Middleware/VerifyCsrfToken->handle(Object(Illuminate/Http/Request), Object(Closure))
+#17 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/View/Middleware/ShareErrorsFromSession.php(49): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#18 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/View/Middleware/ShareErrorsFromSession->handle(Object(Illuminate/Http/Request), Object(Closure))
+#19 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(121): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#20 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(64): Illuminate/Session/Middleware/StartSession->handleStatefulRequest(Object(Illuminate/Http/Request), Object(Illuminate/Session/Store), Object(Closure))
+#21 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Session/Middleware/StartSession->handle(Object(Illuminate/Http/Request), Object(Closure))
+#22 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/AddQueuedCookiesToResponse.php(37): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#23 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Cookie/Middleware/AddQueuedCookiesToResponse->handle(Object(Illuminate/Http/Request), Object(Closure))
+#24 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/EncryptCookies.php(67): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#25 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Cookie/Middleware/EncryptCookies->handle(Object(Illuminate/Http/Request), Object(Closure))
+#26 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(119): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#27 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Router.php(805): Illuminate/Pipeline/Pipeline->then(Object(Closure))
+#28 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Router.php(784): Illuminate/Routing/Router->runRouteWithinStack(Object(Illuminate/Routing/Route), Object(Illuminate/Http/Request))
+#29 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Router.php(748): Illuminate/Routing/Router->runRoute(Object(Illuminate/Http/Request), Object(Illuminate/Routing/Route))
+#30 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Router.php(737): Illuminate/Routing/Router->dispatchToRoute(Object(Illuminate/Http/Request))
+#31 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(200): Illuminate/Routing/Router->dispatch(Object(Illuminate/Http/Request))
+#32 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(144): Illuminate/Foundation/Http/Kernel->Illuminate/Foundation/Http/{closure}(Object(Illuminate/Http/Request))
+#33 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#34 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate/Foundation/Http/Middleware/TransformsRequest->handle(Object(Illuminate/Http/Request), Object(Closure))
+#35 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull->handle(Object(Illuminate/Http/Request), Object(Closure))
+#36 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#37 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(40): Illuminate/Foundation/Http/Middleware/TransformsRequest->handle(Object(Illuminate/Http/Request), Object(Closure))
+#38 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Foundation/Http/Middleware/TrimStrings->handle(Object(Illuminate/Http/Request), Object(Closure))
+#39 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php(27): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#40 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Foundation/Http/Middleware/ValidatePostSize->handle(Object(Illuminate/Http/Request), Object(Closure))
+#41 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(99): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#42 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance->handle(Object(Illuminate/Http/Request), Object(Closure))
+#43 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php(49): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#44 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Http/Middleware/HandleCors->handle(Object(Illuminate/Http/Request), Object(Closure))
+#45 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php(39): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#46 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Http/Middleware/TrustProxies->handle(Object(Illuminate/Http/Request), Object(Closure))
+#47 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(119): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#48 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(175): Illuminate/Pipeline/Pipeline->then(Object(Closure))
+#49 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(144): Illuminate/Foundation/Http/Kernel->sendRequestThroughRouter(Object(Illuminate/Http/Request))
+#50 C:/xampp/htdocs/scc-reporthub/public/index.php(36): Illuminate/Foundation/Http/Kernel->handle(Object(Illuminate/Http/Request))
+#51 {main}
+"} 
+[2026-05-22 10:10:19] laravel.ERROR: syntax error, unexpected token "endif", expecting end of file {"view":{"view":"C:\\xampp\\htdocs\\scc-reporthub\\resources\\views\\layouts\\app.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-1519063164 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#372</a><samp data-depth=1 class=sf-dump-expanded>
+  #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
+</samp>}
+</pre><script>Sfdump(\"sf-dump-1519063164\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","stats":"<pre class=sf-dump id=sf-dump-1357668496 data-indent-pad=\"  \"><span class=sf-dump-note>array:4</span> [<samp data-depth=1 class=sf-dump-expanded>
+  \"<span class=sf-dump-key>assigned_tasks</span>\" => <span class=sf-dump-num>1</span>
+  \"<span class=sf-dump-key>completed_tasks</span>\" => <span class=sf-dump-num>1</span>
+  \"<span class=sf-dump-key>resolved_tasks</span>\" => <span class=sf-dump-num>0</span>
+  \"<span class=sf-dump-key>urgent_tasks</span>\" => <span class=sf-dump-num>0</span>
+</samp>]
+</pre><script>Sfdump(\"sf-dump-1357668496\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","assignedTickets":"<pre class=sf-dump id=sf-dump-1152571808 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Database\\Eloquent\\Collection</span> {<a class=sf-dump-ref>#1104</a><samp data-depth=1 class=sf-dump-expanded>
+  #<span class=sf-dump-protected title=\"Protected property\">items</span>: <span class=sf-dump-note>array:1</span> [<samp data-depth=2 class=sf-dump-compact>
+    <span class=sf-dump-index>0</span> => <span class=\"sf-dump-note sf-dump-ellipsization\" title=\"App\\Models\\Ticket
+\"><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">App\\Models</span><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">\\</span><span class=\"sf-dump-ellipsis-tail\">Ticket</span></span> {<a class=sf-dump-ref>#1095</a><samp data-depth=3 class=sf-dump-compact>
+      #<span class=sf-dump-protected title=\"Protected property\">connection</span>: \"<span class=sf-dump-str title=\"5 characters\">mysql</span>\"
+      #<span class=sf-dump-protected title=\"Protected property\">table</span>: \"<span class=sf-dump-str title=\"7 characters\">tickets</span>\"
+      #<span class=sf-dump-protected title=\"Protected property\">primaryKey</span>: \"<span class=sf-dump-str title=\"2 characters\">id</span>\"
+      #<span class=sf-dump-protected title=\"Protected property\">keyType</span>: \"<span class=sf-dump-str title=\"3 characters\">int</span>\"
+      +<span class=sf-dump-public title=\"Public property\">incrementing</span>: <span class=sf-dump-const>true</span>
+      #<span class=sf-dump-protected title=\"Protected property\">with</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">withCount</span>: []
+      +<span class=sf-dump-public title=\"Public property\">preventsLazyLoading</span>: <span class=sf-dump-const>false</span>
+      #<span class=sf-dump-protected title=\"Protected property\">perPage</span>: <span class=sf-dump-num>15</span>
+      +<span class=sf-dump-public title=\"Public property\">exists</span>: <span class=sf-dump-const>true</span>
+      +<span class=sf-dump-public title=\"Public property\">wasRecentlyCreated</span>: <span class=sf-dump-const>false</span>
+      #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
+      #<span class=sf-dump-protected title=\"Protected property\">attributes</span>: <span class=sf-dump-note>array:16</span> [ &#8230;16]
+      #<span class=sf-dump-protected title=\"Protected property\">original</span>: <span class=sf-dump-note>array:16</span> [ &#8230;16]
+      #<span class=sf-dump-protected title=\"Protected property\">changes</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">casts</span>: <span class=sf-dump-note>array:2</span> [ &#8230;2]
+      #<span class=sf-dump-protected title=\"Protected property\">classCastCache</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">attributeCastCache</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">dateFormat</span>: <span class=sf-dump-const>null</span>
+      #<span class=sf-dump-protected title=\"Protected property\">appends</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">dispatchesEvents</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">observables</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">relations</span>: <span class=sf-dump-note>array:2</span> [ &#8230;2]
+      #<span class=sf-dump-protected title=\"Protected property\">touches</span>: []
+      +<span class=sf-dump-public title=\"Public property\">timestamps</span>: <span class=sf-dump-const>true</span>
+      +<span class=sf-dump-public title=\"Public property\">usesUniqueIds</span>: <span class=sf-dump-const>false</span>
+      #<span class=sf-dump-protected title=\"Protected property\">hidden</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">visible</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">fillable</span>: <span class=sf-dump-note>array:13</span> [ &#8230;13]
+      #<span class=sf-dump-protected title=\"Protected property\">guarded</span>: <span class=sf-dump-note>array:1</span> [ &#8230;1]
+    </samp>}
+  </samp>]
+  #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
+</samp>}
+</pre><script>Sfdump(\"sf-dump-1152571808\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","recentCompleted":"<pre class=sf-dump id=sf-dump-276891597 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Database\\Eloquent\\Collection</span> {<a class=sf-dump-ref>#1120</a><samp data-depth=1 class=sf-dump-expanded>
+  #<span class=sf-dump-protected title=\"Protected property\">items</span>: <span class=sf-dump-note>array:1</span> [<samp data-depth=2 class=sf-dump-compact>
+    <span class=sf-dump-index>0</span> => <span class=\"sf-dump-note sf-dump-ellipsization\" title=\"App\\Models\\Ticket
+\"><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">App\\Models</span><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">\\</span><span class=\"sf-dump-ellipsis-tail\">Ticket</span></span> {<a class=sf-dump-ref>#1111</a><samp data-depth=3 class=sf-dump-compact>
+      #<span class=sf-dump-protected title=\"Protected property\">connection</span>: \"<span class=sf-dump-str title=\"5 characters\">mysql</span>\"
+      #<span class=sf-dump-protected title=\"Protected property\">table</span>: \"<span class=sf-dump-str title=\"7 characters\">tickets</span>\"
+      #<span class=sf-dump-protected title=\"Protected property\">primaryKey</span>: \"<span class=sf-dump-str title=\"2 characters\">id</span>\"
+      #<span class=sf-dump-protected title=\"Protected property\">keyType</span>: \"<span class=sf-dump-str title=\"3 characters\">int</span>\"
+      +<span class=sf-dump-public title=\"Public property\">incrementing</span>: <span class=sf-dump-const>true</span>
+      #<span class=sf-dump-protected title=\"Protected property\">with</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">withCount</span>: []
+      +<span class=sf-dump-public title=\"Public property\">preventsLazyLoading</span>: <span class=sf-dump-const>false</span>
+      #<span class=sf-dump-protected title=\"Protected property\">perPage</span>: <span class=sf-dump-num>15</span>
+      +<span class=sf-dump-public title=\"Public property\">exists</span>: <span class=sf-dump-const>true</span>
+      +<span class=sf-dump-public title=\"Public property\">wasRecentlyCreated</span>: <span class=sf-dump-const>false</span>
+      #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
+      #<span class=sf-dump-protected title=\"Protected property\">attributes</span>: <span class=sf-dump-note>array:16</span> [ &#8230;16]
+      #<span class=sf-dump-protected title=\"Protected property\">original</span>: <span class=sf-dump-note>array:16</span> [ &#8230;16]
+      #<span class=sf-dump-protected title=\"Protected property\">changes</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">casts</span>: <span class=sf-dump-note>array:2</span> [ &#8230;2]
+      #<span class=sf-dump-protected title=\"Protected property\">classCastCache</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">attributeCastCache</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">dateFormat</span>: <span class=sf-dump-const>null</span>
+      #<span class=sf-dump-protected title=\"Protected property\">appends</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">dispatchesEvents</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">observables</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">relations</span>: <span class=sf-dump-note>array:2</span> [ &#8230;2]
+      #<span class=sf-dump-protected title=\"Protected property\">touches</span>: []
+      +<span class=sf-dump-public title=\"Public property\">timestamps</span>: <span class=sf-dump-const>true</span>
+      +<span class=sf-dump-public title=\"Public property\">usesUniqueIds</span>: <span class=sf-dump-const>false</span>
+      #<span class=sf-dump-protected title=\"Protected property\">hidden</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">visible</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">fillable</span>: <span class=sf-dump-note>array:13</span> [ &#8230;13]
+      #<span class=sf-dump-protected title=\"Protected property\">guarded</span>: <span class=sf-dump-note>array:1</span> [ &#8230;1]
+    </samp>}
+  </samp>]
+  #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
+</samp>}
+</pre><script>Sfdump(\"sf-dump-276891597\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","unreadNotificationCount":"<pre class=sf-dump id=sf-dump-647268491 data-indent-pad=\"  \"><span class=sf-dump-num>2</span>
+</pre><script>Sfdump(\"sf-dump-647268491\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+"}},"userId":4,"exception":"[object] (Spatie\\LaravelIgnition\\Exceptions\\ViewException(code: 0): syntax error, unexpected token \"endif\", expecting end of file at C:/xampp/htdocs/scc-reporthub/resources/views/layouts/app.blade.php:155)
+[stacktrace]
+#0 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Filesystem/Filesystem.php(123): require('C://xampp//htdocs...')
+#1 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Filesystem/Filesystem.php(124): Illuminate/Filesystem/Filesystem::Illuminate/Filesystem/{closure}()
+#2 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/View/Engines/PhpEngine.php(58): Illuminate/Filesystem/Filesystem->getRequire('C://xampp//htdocs...', Array)
+#3 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/View/Engines/CompilerEngine.php(72): Illuminate/View/Engines/PhpEngine->evaluatePath('C://xampp//htdocs...', Array)
+#4 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/View/View.php(207): Illuminate/View/Engines/CompilerEngine->get('C://xampp//htdocs...', Array)
+#5 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/View/View.php(190): Illuminate/View/View->getContents()
+#6 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/View/View.php(159): Illuminate/View/View->renderContents()
+#7 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Http/Response.php(69): Illuminate/View/View->render()
+#8 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Http/Response.php(35): Illuminate/Http/Response->setContent(Object(Illuminate/View/View))
+#9 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Router.php(918): Illuminate/Http/Response->__construct(Object(Illuminate/View/View), 200, Array)
+#10 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Router.php(885): Illuminate/Routing/Router::toResponse(Object(Illuminate/Http/Request), Object(Illuminate/View/View))
+#11 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Router.php(805): Illuminate/Routing/Router->prepareResponse(Object(Illuminate/Http/Request), Object(Illuminate/View/View))
+#12 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(144): Illuminate/Routing/Router->Illuminate/Routing/{closure}(Object(Illuminate/Http/Request))
+#13 C:/xampp/htdocs/scc-reporthub/app/Http/Middleware/MaintenanceMiddleware.php(24): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#14 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): App/Http/Middleware/MaintenanceMiddleware->handle(Object(Illuminate/Http/Request), Object(Closure))
+#15 C:/xampp/htdocs/scc-reporthub/app/Http/Middleware/CheckUserStatus.php(25): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#16 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): App/Http/Middleware/CheckUserStatus->handle(Object(Illuminate/Http/Request), Object(Closure))
+#17 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(50): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#18 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Routing/Middleware/SubstituteBindings->handle(Object(Illuminate/Http/Request), Object(Closure))
+#19 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Auth/Middleware/Authenticate.php(57): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#20 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Auth/Middleware/Authenticate->handle(Object(Illuminate/Http/Request), Object(Closure))
+#21 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/VerifyCsrfToken.php(78): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#22 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Foundation/Http/Middleware/VerifyCsrfToken->handle(Object(Illuminate/Http/Request), Object(Closure))
+#23 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/View/Middleware/ShareErrorsFromSession.php(49): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#24 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/View/Middleware/ShareErrorsFromSession->handle(Object(Illuminate/Http/Request), Object(Closure))
+#25 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(121): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#26 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(64): Illuminate/Session/Middleware/StartSession->handleStatefulRequest(Object(Illuminate/Http/Request), Object(Illuminate/Session/Store), Object(Closure))
+#27 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Session/Middleware/StartSession->handle(Object(Illuminate/Http/Request), Object(Closure))
+#28 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/AddQueuedCookiesToResponse.php(37): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#29 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Cookie/Middleware/AddQueuedCookiesToResponse->handle(Object(Illuminate/Http/Request), Object(Closure))
+#30 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/EncryptCookies.php(67): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#31 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Cookie/Middleware/EncryptCookies->handle(Object(Illuminate/Http/Request), Object(Closure))
+#32 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(119): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#33 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Router.php(805): Illuminate/Pipeline/Pipeline->then(Object(Closure))
+#34 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Router.php(784): Illuminate/Routing/Router->runRouteWithinStack(Object(Illuminate/Routing/Route), Object(Illuminate/Http/Request))
+#35 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Router.php(748): Illuminate/Routing/Router->runRoute(Object(Illuminate/Http/Request), Object(Illuminate/Routing/Route))
+#36 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Router.php(737): Illuminate/Routing/Router->dispatchToRoute(Object(Illuminate/Http/Request))
+#37 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(200): Illuminate/Routing/Router->dispatch(Object(Illuminate/Http/Request))
+#38 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(144): Illuminate/Foundation/Http/Kernel->Illuminate/Foundation/Http/{closure}(Object(Illuminate/Http/Request))
+#39 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#40 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate/Foundation/Http/Middleware/TransformsRequest->handle(Object(Illuminate/Http/Request), Object(Closure))
+#41 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull->handle(Object(Illuminate/Http/Request), Object(Closure))
+#42 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#43 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(40): Illuminate/Foundation/Http/Middleware/TransformsRequest->handle(Object(Illuminate/Http/Request), Object(Closure))
+#44 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Foundation/Http/Middleware/TrimStrings->handle(Object(Illuminate/Http/Request), Object(Closure))
+#45 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php(27): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#46 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Foundation/Http/Middleware/ValidatePostSize->handle(Object(Illuminate/Http/Request), Object(Closure))
+#47 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(99): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#48 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance->handle(Object(Illuminate/Http/Request), Object(Closure))
+#49 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php(49): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#50 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Http/Middleware/HandleCors->handle(Object(Illuminate/Http/Request), Object(Closure))
+#51 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php(39): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#52 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Http/Middleware/TrustProxies->handle(Object(Illuminate/Http/Request), Object(Closure))
+#53 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(119): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#54 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(175): Illuminate/Pipeline/Pipeline->then(Object(Closure))
+#55 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(144): Illuminate/Foundation/Http/Kernel->sendRequestThroughRouter(Object(Illuminate/Http/Request))
+#56 C:/xampp/htdocs/scc-reporthub/public/index.php(36): Illuminate/Foundation/Http/Kernel->handle(Object(Illuminate/Http/Request))
+#57 {main}
+
+[previous exception] [object] (ParseError(code: 0): syntax error, unexpected token \"endif\", expecting end of file at C:/xampp/htdocs/scc-reporthub/storage/framework/views/363a56861a687d8bc32d00f02e706740.php:155)
+[stacktrace]
+#0 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Filesystem/Filesystem.php(124): Illuminate/Filesystem/Filesystem::Illuminate/Filesystem/{closure}()
+#1 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/View/Engines/PhpEngine.php(58): Illuminate/Filesystem/Filesystem->getRequire('C://xampp//htdocs...', Array)
+#2 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/View/Engines/CompilerEngine.php(72): Illuminate/View/Engines/PhpEngine->evaluatePath('C://xampp//htdocs...', Array)
+#3 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/View/View.php(207): Illuminate/View/Engines/CompilerEngine->get('C://xampp//htdocs...', Array)
+#4 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/View/View.php(190): Illuminate/View/View->getContents()
+#5 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/View/View.php(159): Illuminate/View/View->renderContents()
+#6 C:/xampp/htdocs/scc-reporthub/storage/framework/views/9a2a92aa5116a2ed6e30a53e723abbbc.php(122): Illuminate/View/View->render()
+#7 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Filesystem/Filesystem.php(123): require('C://xampp//htdocs...')
+#8 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Filesystem/Filesystem.php(124): Illuminate/Filesystem/Filesystem::Illuminate/Filesystem/{closure}()
+#9 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/View/Engines/PhpEngine.php(58): Illuminate/Filesystem/Filesystem->getRequire('C://xampp//htdocs...', Array)
+#10 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/View/Engines/CompilerEngine.php(72): Illuminate/View/Engines/PhpEngine->evaluatePath('C://xampp//htdocs...', Array)
+#11 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/View/View.php(207): Illuminate/View/Engines/CompilerEngine->get('C://xampp//htdocs...', Array)
+#12 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/View/View.php(190): Illuminate/View/View->getContents()
+#13 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/View/View.php(159): Illuminate/View/View->renderContents()
+#14 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Http/Response.php(69): Illuminate/View/View->render()
+#15 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Http/Response.php(35): Illuminate/Http/Response->setContent(Object(Illuminate/View/View))
+#16 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Router.php(918): Illuminate/Http/Response->__construct(Object(Illuminate/View/View), 200, Array)
+#17 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Router.php(885): Illuminate/Routing/Router::toResponse(Object(Illuminate/Http/Request), Object(Illuminate/View/View))
+#18 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Router.php(805): Illuminate/Routing/Router->prepareResponse(Object(Illuminate/Http/Request), Object(Illuminate/View/View))
+#19 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(144): Illuminate/Routing/Router->Illuminate/Routing/{closure}(Object(Illuminate/Http/Request))
+#20 C:/xampp/htdocs/scc-reporthub/app/Http/Middleware/MaintenanceMiddleware.php(24): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#21 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): App/Http/Middleware/MaintenanceMiddleware->handle(Object(Illuminate/Http/Request), Object(Closure))
+#22 C:/xampp/htdocs/scc-reporthub/app/Http/Middleware/CheckUserStatus.php(25): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#23 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): App/Http/Middleware/CheckUserStatus->handle(Object(Illuminate/Http/Request), Object(Closure))
+#24 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(50): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#25 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Routing/Middleware/SubstituteBindings->handle(Object(Illuminate/Http/Request), Object(Closure))
+#26 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Auth/Middleware/Authenticate.php(57): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#27 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Auth/Middleware/Authenticate->handle(Object(Illuminate/Http/Request), Object(Closure))
+#28 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/VerifyCsrfToken.php(78): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#29 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Foundation/Http/Middleware/VerifyCsrfToken->handle(Object(Illuminate/Http/Request), Object(Closure))
+#30 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/View/Middleware/ShareErrorsFromSession.php(49): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#31 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/View/Middleware/ShareErrorsFromSession->handle(Object(Illuminate/Http/Request), Object(Closure))
+#32 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(121): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#33 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(64): Illuminate/Session/Middleware/StartSession->handleStatefulRequest(Object(Illuminate/Http/Request), Object(Illuminate/Session/Store), Object(Closure))
+#34 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Session/Middleware/StartSession->handle(Object(Illuminate/Http/Request), Object(Closure))
+#35 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/AddQueuedCookiesToResponse.php(37): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#36 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Cookie/Middleware/AddQueuedCookiesToResponse->handle(Object(Illuminate/Http/Request), Object(Closure))
+#37 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/EncryptCookies.php(67): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#38 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Cookie/Middleware/EncryptCookies->handle(Object(Illuminate/Http/Request), Object(Closure))
+#39 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(119): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#40 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Router.php(805): Illuminate/Pipeline/Pipeline->then(Object(Closure))
+#41 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Router.php(784): Illuminate/Routing/Router->runRouteWithinStack(Object(Illuminate/Routing/Route), Object(Illuminate/Http/Request))
+#42 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Router.php(748): Illuminate/Routing/Router->runRoute(Object(Illuminate/Http/Request), Object(Illuminate/Routing/Route))
+#43 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Router.php(737): Illuminate/Routing/Router->dispatchToRoute(Object(Illuminate/Http/Request))
+#44 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(200): Illuminate/Routing/Router->dispatch(Object(Illuminate/Http/Request))
+#45 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(144): Illuminate/Foundation/Http/Kernel->Illuminate/Foundation/Http/{closure}(Object(Illuminate/Http/Request))
+#46 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#47 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate/Foundation/Http/Middleware/TransformsRequest->handle(Object(Illuminate/Http/Request), Object(Closure))
+#48 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull->handle(Object(Illuminate/Http/Request), Object(Closure))
+#49 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#50 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(40): Illuminate/Foundation/Http/Middleware/TransformsRequest->handle(Object(Illuminate/Http/Request), Object(Closure))
+#51 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Foundation/Http/Middleware/TrimStrings->handle(Object(Illuminate/Http/Request), Object(Closure))
+#52 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php(27): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#53 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Foundation/Http/Middleware/ValidatePostSize->handle(Object(Illuminate/Http/Request), Object(Closure))
+#54 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(99): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#55 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance->handle(Object(Illuminate/Http/Request), Object(Closure))
+#56 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php(49): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#57 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Http/Middleware/HandleCors->handle(Object(Illuminate/Http/Request), Object(Closure))
+#58 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php(39): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#59 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Http/Middleware/TrustProxies->handle(Object(Illuminate/Http/Request), Object(Closure))
+#60 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(119): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#61 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(175): Illuminate/Pipeline/Pipeline->then(Object(Closure))
+#62 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(144): Illuminate/Foundation/Http/Kernel->sendRequestThroughRouter(Object(Illuminate/Http/Request))
+#63 C:/xampp/htdocs/scc-reporthub/public/index.php(36): Illuminate/Foundation/Http/Kernel->handle(Object(Illuminate/Http/Request))
+#64 {main}
+"} 
+[2026-05-22 10:10:25] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Log/LogManager.php:212)
+[stacktrace]
+#0 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(137): Illuminate/Log/LogManager->resolve(NULL, NULL)
+#1 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(124): Illuminate/Log/LogManager->get(NULL)
+#2 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(681): Illuminate/Log/LogManager->driver()
+#3 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(317): Illuminate/Log/LogManager->error('syntax error, u...', Array)
+#4 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(278): Illuminate/Foundation/Exceptions/Handler->reportThrowable(Object(Spatie/LaravelIgnition/Exceptions/ViewException))
+#5 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(49): Illuminate/Foundation/Exceptions/Handler->report(Object(Spatie/LaravelIgnition/Exceptions/ViewException))
+#6 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(146): Illuminate/Routing/Pipeline->handleException(Object(Illuminate/Http/Request), Object(Illuminate/View/ViewException))
+#7 C:/xampp/htdocs/scc-reporthub/app/Http/Middleware/MaintenanceMiddleware.php(24): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#8 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): App/Http/Middleware/MaintenanceMiddleware->handle(Object(Illuminate/Http/Request), Object(Closure))
+#9 C:/xampp/htdocs/scc-reporthub/app/Http/Middleware/CheckUserStatus.php(25): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#10 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): App/Http/Middleware/CheckUserStatus->handle(Object(Illuminate/Http/Request), Object(Closure))
+#11 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(50): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#12 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Routing/Middleware/SubstituteBindings->handle(Object(Illuminate/Http/Request), Object(Closure))
+#13 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Auth/Middleware/Authenticate.php(57): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#14 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Auth/Middleware/Authenticate->handle(Object(Illuminate/Http/Request), Object(Closure))
+#15 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/VerifyCsrfToken.php(78): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#16 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Foundation/Http/Middleware/VerifyCsrfToken->handle(Object(Illuminate/Http/Request), Object(Closure))
+#17 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/View/Middleware/ShareErrorsFromSession.php(49): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#18 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/View/Middleware/ShareErrorsFromSession->handle(Object(Illuminate/Http/Request), Object(Closure))
+#19 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(121): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#20 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(64): Illuminate/Session/Middleware/StartSession->handleStatefulRequest(Object(Illuminate/Http/Request), Object(Illuminate/Session/Store), Object(Closure))
+#21 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Session/Middleware/StartSession->handle(Object(Illuminate/Http/Request), Object(Closure))
+#22 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/AddQueuedCookiesToResponse.php(37): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#23 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Cookie/Middleware/AddQueuedCookiesToResponse->handle(Object(Illuminate/Http/Request), Object(Closure))
+#24 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/EncryptCookies.php(67): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#25 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Cookie/Middleware/EncryptCookies->handle(Object(Illuminate/Http/Request), Object(Closure))
+#26 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(119): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#27 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Router.php(805): Illuminate/Pipeline/Pipeline->then(Object(Closure))
+#28 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Router.php(784): Illuminate/Routing/Router->runRouteWithinStack(Object(Illuminate/Routing/Route), Object(Illuminate/Http/Request))
+#29 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Router.php(748): Illuminate/Routing/Router->runRoute(Object(Illuminate/Http/Request), Object(Illuminate/Routing/Route))
+#30 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Router.php(737): Illuminate/Routing/Router->dispatchToRoute(Object(Illuminate/Http/Request))
+#31 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(200): Illuminate/Routing/Router->dispatch(Object(Illuminate/Http/Request))
+#32 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(144): Illuminate/Foundation/Http/Kernel->Illuminate/Foundation/Http/{closure}(Object(Illuminate/Http/Request))
+#33 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#34 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate/Foundation/Http/Middleware/TransformsRequest->handle(Object(Illuminate/Http/Request), Object(Closure))
+#35 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull->handle(Object(Illuminate/Http/Request), Object(Closure))
+#36 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#37 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(40): Illuminate/Foundation/Http/Middleware/TransformsRequest->handle(Object(Illuminate/Http/Request), Object(Closure))
+#38 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Foundation/Http/Middleware/TrimStrings->handle(Object(Illuminate/Http/Request), Object(Closure))
+#39 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php(27): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#40 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Foundation/Http/Middleware/ValidatePostSize->handle(Object(Illuminate/Http/Request), Object(Closure))
+#41 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(99): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#42 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance->handle(Object(Illuminate/Http/Request), Object(Closure))
+#43 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php(49): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#44 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Http/Middleware/HandleCors->handle(Object(Illuminate/Http/Request), Object(Closure))
+#45 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php(39): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#46 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Http/Middleware/TrustProxies->handle(Object(Illuminate/Http/Request), Object(Closure))
+#47 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(119): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#48 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(175): Illuminate/Pipeline/Pipeline->then(Object(Closure))
+#49 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(144): Illuminate/Foundation/Http/Kernel->sendRequestThroughRouter(Object(Illuminate/Http/Request))
+#50 C:/xampp/htdocs/scc-reporthub/public/index.php(36): Illuminate/Foundation/Http/Kernel->handle(Object(Illuminate/Http/Request))
+#51 {main}
+"} 
+[2026-05-22 10:10:25] laravel.ERROR: syntax error, unexpected token "endif", expecting end of file {"view":{"view":"C:\\xampp\\htdocs\\scc-reporthub\\resources\\views\\layouts\\app.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-1838995672 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#372</a><samp data-depth=1 class=sf-dump-expanded>
+  #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
+</samp>}
+</pre><script>Sfdump(\"sf-dump-1838995672\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","stats":"<pre class=sf-dump id=sf-dump-113290462 data-indent-pad=\"  \"><span class=sf-dump-note>array:4</span> [<samp data-depth=1 class=sf-dump-expanded>
+  \"<span class=sf-dump-key>assigned_tasks</span>\" => <span class=sf-dump-num>1</span>
+  \"<span class=sf-dump-key>completed_tasks</span>\" => <span class=sf-dump-num>1</span>
+  \"<span class=sf-dump-key>resolved_tasks</span>\" => <span class=sf-dump-num>0</span>
+  \"<span class=sf-dump-key>urgent_tasks</span>\" => <span class=sf-dump-num>0</span>
+</samp>]
+</pre><script>Sfdump(\"sf-dump-113290462\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","assignedTickets":"<pre class=sf-dump id=sf-dump-2075778054 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Database\\Eloquent\\Collection</span> {<a class=sf-dump-ref>#1104</a><samp data-depth=1 class=sf-dump-expanded>
+  #<span class=sf-dump-protected title=\"Protected property\">items</span>: <span class=sf-dump-note>array:1</span> [<samp data-depth=2 class=sf-dump-compact>
+    <span class=sf-dump-index>0</span> => <span class=\"sf-dump-note sf-dump-ellipsization\" title=\"App\\Models\\Ticket
+\"><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">App\\Models</span><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">\\</span><span class=\"sf-dump-ellipsis-tail\">Ticket</span></span> {<a class=sf-dump-ref>#1095</a><samp data-depth=3 class=sf-dump-compact>
+      #<span class=sf-dump-protected title=\"Protected property\">connection</span>: \"<span class=sf-dump-str title=\"5 characters\">mysql</span>\"
+      #<span class=sf-dump-protected title=\"Protected property\">table</span>: \"<span class=sf-dump-str title=\"7 characters\">tickets</span>\"
+      #<span class=sf-dump-protected title=\"Protected property\">primaryKey</span>: \"<span class=sf-dump-str title=\"2 characters\">id</span>\"
+      #<span class=sf-dump-protected title=\"Protected property\">keyType</span>: \"<span class=sf-dump-str title=\"3 characters\">int</span>\"
+      +<span class=sf-dump-public title=\"Public property\">incrementing</span>: <span class=sf-dump-const>true</span>
+      #<span class=sf-dump-protected title=\"Protected property\">with</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">withCount</span>: []
+      +<span class=sf-dump-public title=\"Public property\">preventsLazyLoading</span>: <span class=sf-dump-const>false</span>
+      #<span class=sf-dump-protected title=\"Protected property\">perPage</span>: <span class=sf-dump-num>15</span>
+      +<span class=sf-dump-public title=\"Public property\">exists</span>: <span class=sf-dump-const>true</span>
+      +<span class=sf-dump-public title=\"Public property\">wasRecentlyCreated</span>: <span class=sf-dump-const>false</span>
+      #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
+      #<span class=sf-dump-protected title=\"Protected property\">attributes</span>: <span class=sf-dump-note>array:16</span> [ &#8230;16]
+      #<span class=sf-dump-protected title=\"Protected property\">original</span>: <span class=sf-dump-note>array:16</span> [ &#8230;16]
+      #<span class=sf-dump-protected title=\"Protected property\">changes</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">casts</span>: <span class=sf-dump-note>array:2</span> [ &#8230;2]
+      #<span class=sf-dump-protected title=\"Protected property\">classCastCache</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">attributeCastCache</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">dateFormat</span>: <span class=sf-dump-const>null</span>
+      #<span class=sf-dump-protected title=\"Protected property\">appends</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">dispatchesEvents</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">observables</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">relations</span>: <span class=sf-dump-note>array:2</span> [ &#8230;2]
+      #<span class=sf-dump-protected title=\"Protected property\">touches</span>: []
+      +<span class=sf-dump-public title=\"Public property\">timestamps</span>: <span class=sf-dump-const>true</span>
+      +<span class=sf-dump-public title=\"Public property\">usesUniqueIds</span>: <span class=sf-dump-const>false</span>
+      #<span class=sf-dump-protected title=\"Protected property\">hidden</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">visible</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">fillable</span>: <span class=sf-dump-note>array:13</span> [ &#8230;13]
+      #<span class=sf-dump-protected title=\"Protected property\">guarded</span>: <span class=sf-dump-note>array:1</span> [ &#8230;1]
+    </samp>}
+  </samp>]
+  #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
+</samp>}
+</pre><script>Sfdump(\"sf-dump-2075778054\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","recentCompleted":"<pre class=sf-dump id=sf-dump-927820211 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Database\\Eloquent\\Collection</span> {<a class=sf-dump-ref>#1120</a><samp data-depth=1 class=sf-dump-expanded>
+  #<span class=sf-dump-protected title=\"Protected property\">items</span>: <span class=sf-dump-note>array:1</span> [<samp data-depth=2 class=sf-dump-compact>
+    <span class=sf-dump-index>0</span> => <span class=\"sf-dump-note sf-dump-ellipsization\" title=\"App\\Models\\Ticket
+\"><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">App\\Models</span><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">\\</span><span class=\"sf-dump-ellipsis-tail\">Ticket</span></span> {<a class=sf-dump-ref>#1111</a><samp data-depth=3 class=sf-dump-compact>
+      #<span class=sf-dump-protected title=\"Protected property\">connection</span>: \"<span class=sf-dump-str title=\"5 characters\">mysql</span>\"
+      #<span class=sf-dump-protected title=\"Protected property\">table</span>: \"<span class=sf-dump-str title=\"7 characters\">tickets</span>\"
+      #<span class=sf-dump-protected title=\"Protected property\">primaryKey</span>: \"<span class=sf-dump-str title=\"2 characters\">id</span>\"
+      #<span class=sf-dump-protected title=\"Protected property\">keyType</span>: \"<span class=sf-dump-str title=\"3 characters\">int</span>\"
+      +<span class=sf-dump-public title=\"Public property\">incrementing</span>: <span class=sf-dump-const>true</span>
+      #<span class=sf-dump-protected title=\"Protected property\">with</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">withCount</span>: []
+      +<span class=sf-dump-public title=\"Public property\">preventsLazyLoading</span>: <span class=sf-dump-const>false</span>
+      #<span class=sf-dump-protected title=\"Protected property\">perPage</span>: <span class=sf-dump-num>15</span>
+      +<span class=sf-dump-public title=\"Public property\">exists</span>: <span class=sf-dump-const>true</span>
+      +<span class=sf-dump-public title=\"Public property\">wasRecentlyCreated</span>: <span class=sf-dump-const>false</span>
+      #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
+      #<span class=sf-dump-protected title=\"Protected property\">attributes</span>: <span class=sf-dump-note>array:16</span> [ &#8230;16]
+      #<span class=sf-dump-protected title=\"Protected property\">original</span>: <span class=sf-dump-note>array:16</span> [ &#8230;16]
+      #<span class=sf-dump-protected title=\"Protected property\">changes</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">casts</span>: <span class=sf-dump-note>array:2</span> [ &#8230;2]
+      #<span class=sf-dump-protected title=\"Protected property\">classCastCache</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">attributeCastCache</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">dateFormat</span>: <span class=sf-dump-const>null</span>
+      #<span class=sf-dump-protected title=\"Protected property\">appends</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">dispatchesEvents</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">observables</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">relations</span>: <span class=sf-dump-note>array:2</span> [ &#8230;2]
+      #<span class=sf-dump-protected title=\"Protected property\">touches</span>: []
+      +<span class=sf-dump-public title=\"Public property\">timestamps</span>: <span class=sf-dump-const>true</span>
+      +<span class=sf-dump-public title=\"Public property\">usesUniqueIds</span>: <span class=sf-dump-const>false</span>
+      #<span class=sf-dump-protected title=\"Protected property\">hidden</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">visible</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">fillable</span>: <span class=sf-dump-note>array:13</span> [ &#8230;13]
+      #<span class=sf-dump-protected title=\"Protected property\">guarded</span>: <span class=sf-dump-note>array:1</span> [ &#8230;1]
+    </samp>}
+  </samp>]
+  #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
+</samp>}
+</pre><script>Sfdump(\"sf-dump-927820211\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","unreadNotificationCount":"<pre class=sf-dump id=sf-dump-1974759451 data-indent-pad=\"  \"><span class=sf-dump-num>2</span>
+</pre><script>Sfdump(\"sf-dump-1974759451\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+"}},"userId":4,"exception":"[object] (Spatie\\LaravelIgnition\\Exceptions\\ViewException(code: 0): syntax error, unexpected token \"endif\", expecting end of file at C:/xampp/htdocs/scc-reporthub/resources/views/layouts/app.blade.php:155)
+[stacktrace]
+#0 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Filesystem/Filesystem.php(123): require('C://xampp//htdocs...')
+#1 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Filesystem/Filesystem.php(124): Illuminate/Filesystem/Filesystem::Illuminate/Filesystem/{closure}()
+#2 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/View/Engines/PhpEngine.php(58): Illuminate/Filesystem/Filesystem->getRequire('C://xampp//htdocs...', Array)
+#3 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/View/Engines/CompilerEngine.php(72): Illuminate/View/Engines/PhpEngine->evaluatePath('C://xampp//htdocs...', Array)
+#4 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/View/View.php(207): Illuminate/View/Engines/CompilerEngine->get('C://xampp//htdocs...', Array)
+#5 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/View/View.php(190): Illuminate/View/View->getContents()
+#6 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/View/View.php(159): Illuminate/View/View->renderContents()
+#7 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Http/Response.php(69): Illuminate/View/View->render()
+#8 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Http/Response.php(35): Illuminate/Http/Response->setContent(Object(Illuminate/View/View))
+#9 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Router.php(918): Illuminate/Http/Response->__construct(Object(Illuminate/View/View), 200, Array)
+#10 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Router.php(885): Illuminate/Routing/Router::toResponse(Object(Illuminate/Http/Request), Object(Illuminate/View/View))
+#11 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Router.php(805): Illuminate/Routing/Router->prepareResponse(Object(Illuminate/Http/Request), Object(Illuminate/View/View))
+#12 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(144): Illuminate/Routing/Router->Illuminate/Routing/{closure}(Object(Illuminate/Http/Request))
+#13 C:/xampp/htdocs/scc-reporthub/app/Http/Middleware/MaintenanceMiddleware.php(24): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#14 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): App/Http/Middleware/MaintenanceMiddleware->handle(Object(Illuminate/Http/Request), Object(Closure))
+#15 C:/xampp/htdocs/scc-reporthub/app/Http/Middleware/CheckUserStatus.php(25): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#16 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): App/Http/Middleware/CheckUserStatus->handle(Object(Illuminate/Http/Request), Object(Closure))
+#17 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(50): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#18 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Routing/Middleware/SubstituteBindings->handle(Object(Illuminate/Http/Request), Object(Closure))
+#19 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Auth/Middleware/Authenticate.php(57): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#20 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Auth/Middleware/Authenticate->handle(Object(Illuminate/Http/Request), Object(Closure))
+#21 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/VerifyCsrfToken.php(78): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#22 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Foundation/Http/Middleware/VerifyCsrfToken->handle(Object(Illuminate/Http/Request), Object(Closure))
+#23 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/View/Middleware/ShareErrorsFromSession.php(49): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#24 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/View/Middleware/ShareErrorsFromSession->handle(Object(Illuminate/Http/Request), Object(Closure))
+#25 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(121): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#26 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(64): Illuminate/Session/Middleware/StartSession->handleStatefulRequest(Object(Illuminate/Http/Request), Object(Illuminate/Session/Store), Object(Closure))
+#27 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Session/Middleware/StartSession->handle(Object(Illuminate/Http/Request), Object(Closure))
+#28 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/AddQueuedCookiesToResponse.php(37): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#29 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Cookie/Middleware/AddQueuedCookiesToResponse->handle(Object(Illuminate/Http/Request), Object(Closure))
+#30 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/EncryptCookies.php(67): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#31 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Cookie/Middleware/EncryptCookies->handle(Object(Illuminate/Http/Request), Object(Closure))
+#32 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(119): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#33 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Router.php(805): Illuminate/Pipeline/Pipeline->then(Object(Closure))
+#34 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Router.php(784): Illuminate/Routing/Router->runRouteWithinStack(Object(Illuminate/Routing/Route), Object(Illuminate/Http/Request))
+#35 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Router.php(748): Illuminate/Routing/Router->runRoute(Object(Illuminate/Http/Request), Object(Illuminate/Routing/Route))
+#36 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Router.php(737): Illuminate/Routing/Router->dispatchToRoute(Object(Illuminate/Http/Request))
+#37 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(200): Illuminate/Routing/Router->dispatch(Object(Illuminate/Http/Request))
+#38 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(144): Illuminate/Foundation/Http/Kernel->Illuminate/Foundation/Http/{closure}(Object(Illuminate/Http/Request))
+#39 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#40 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate/Foundation/Http/Middleware/TransformsRequest->handle(Object(Illuminate/Http/Request), Object(Closure))
+#41 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull->handle(Object(Illuminate/Http/Request), Object(Closure))
+#42 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#43 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(40): Illuminate/Foundation/Http/Middleware/TransformsRequest->handle(Object(Illuminate/Http/Request), Object(Closure))
+#44 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Foundation/Http/Middleware/TrimStrings->handle(Object(Illuminate/Http/Request), Object(Closure))
+#45 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php(27): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#46 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Foundation/Http/Middleware/ValidatePostSize->handle(Object(Illuminate/Http/Request), Object(Closure))
+#47 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(99): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#48 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance->handle(Object(Illuminate/Http/Request), Object(Closure))
+#49 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php(49): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#50 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Http/Middleware/HandleCors->handle(Object(Illuminate/Http/Request), Object(Closure))
+#51 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php(39): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#52 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Http/Middleware/TrustProxies->handle(Object(Illuminate/Http/Request), Object(Closure))
+#53 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(119): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#54 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(175): Illuminate/Pipeline/Pipeline->then(Object(Closure))
+#55 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(144): Illuminate/Foundation/Http/Kernel->sendRequestThroughRouter(Object(Illuminate/Http/Request))
+#56 C:/xampp/htdocs/scc-reporthub/public/index.php(36): Illuminate/Foundation/Http/Kernel->handle(Object(Illuminate/Http/Request))
+#57 {main}
+
+[previous exception] [object] (ParseError(code: 0): syntax error, unexpected token \"endif\", expecting end of file at C:/xampp/htdocs/scc-reporthub/storage/framework/views/363a56861a687d8bc32d00f02e706740.php:155)
+[stacktrace]
+#0 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Filesystem/Filesystem.php(124): Illuminate/Filesystem/Filesystem::Illuminate/Filesystem/{closure}()
+#1 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/View/Engines/PhpEngine.php(58): Illuminate/Filesystem/Filesystem->getRequire('C://xampp//htdocs...', Array)
+#2 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/View/Engines/CompilerEngine.php(72): Illuminate/View/Engines/PhpEngine->evaluatePath('C://xampp//htdocs...', Array)
+#3 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/View/View.php(207): Illuminate/View/Engines/CompilerEngine->get('C://xampp//htdocs...', Array)
+#4 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/View/View.php(190): Illuminate/View/View->getContents()
+#5 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/View/View.php(159): Illuminate/View/View->renderContents()
+#6 C:/xampp/htdocs/scc-reporthub/storage/framework/views/9a2a92aa5116a2ed6e30a53e723abbbc.php(122): Illuminate/View/View->render()
+#7 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Filesystem/Filesystem.php(123): require('C://xampp//htdocs...')
+#8 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Filesystem/Filesystem.php(124): Illuminate/Filesystem/Filesystem::Illuminate/Filesystem/{closure}()
+#9 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/View/Engines/PhpEngine.php(58): Illuminate/Filesystem/Filesystem->getRequire('C://xampp//htdocs...', Array)
+#10 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/View/Engines/CompilerEngine.php(72): Illuminate/View/Engines/PhpEngine->evaluatePath('C://xampp//htdocs...', Array)
+#11 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/View/View.php(207): Illuminate/View/Engines/CompilerEngine->get('C://xampp//htdocs...', Array)
+#12 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/View/View.php(190): Illuminate/View/View->getContents()
+#13 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/View/View.php(159): Illuminate/View/View->renderContents()
+#14 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Http/Response.php(69): Illuminate/View/View->render()
+#15 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Http/Response.php(35): Illuminate/Http/Response->setContent(Object(Illuminate/View/View))
+#16 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Router.php(918): Illuminate/Http/Response->__construct(Object(Illuminate/View/View), 200, Array)
+#17 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Router.php(885): Illuminate/Routing/Router::toResponse(Object(Illuminate/Http/Request), Object(Illuminate/View/View))
+#18 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Router.php(805): Illuminate/Routing/Router->prepareResponse(Object(Illuminate/Http/Request), Object(Illuminate/View/View))
+#19 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(144): Illuminate/Routing/Router->Illuminate/Routing/{closure}(Object(Illuminate/Http/Request))
+#20 C:/xampp/htdocs/scc-reporthub/app/Http/Middleware/MaintenanceMiddleware.php(24): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#21 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): App/Http/Middleware/MaintenanceMiddleware->handle(Object(Illuminate/Http/Request), Object(Closure))
+#22 C:/xampp/htdocs/scc-reporthub/app/Http/Middleware/CheckUserStatus.php(25): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#23 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): App/Http/Middleware/CheckUserStatus->handle(Object(Illuminate/Http/Request), Object(Closure))
+#24 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(50): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#25 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Routing/Middleware/SubstituteBindings->handle(Object(Illuminate/Http/Request), Object(Closure))
+#26 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Auth/Middleware/Authenticate.php(57): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#27 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Auth/Middleware/Authenticate->handle(Object(Illuminate/Http/Request), Object(Closure))
+#28 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/VerifyCsrfToken.php(78): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#29 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Foundation/Http/Middleware/VerifyCsrfToken->handle(Object(Illuminate/Http/Request), Object(Closure))
+#30 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/View/Middleware/ShareErrorsFromSession.php(49): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#31 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/View/Middleware/ShareErrorsFromSession->handle(Object(Illuminate/Http/Request), Object(Closure))
+#32 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(121): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#33 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(64): Illuminate/Session/Middleware/StartSession->handleStatefulRequest(Object(Illuminate/Http/Request), Object(Illuminate/Session/Store), Object(Closure))
+#34 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Session/Middleware/StartSession->handle(Object(Illuminate/Http/Request), Object(Closure))
+#35 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/AddQueuedCookiesToResponse.php(37): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#36 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Cookie/Middleware/AddQueuedCookiesToResponse->handle(Object(Illuminate/Http/Request), Object(Closure))
+#37 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/EncryptCookies.php(67): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#38 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Cookie/Middleware/EncryptCookies->handle(Object(Illuminate/Http/Request), Object(Closure))
+#39 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(119): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#40 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Router.php(805): Illuminate/Pipeline/Pipeline->then(Object(Closure))
+#41 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Router.php(784): Illuminate/Routing/Router->runRouteWithinStack(Object(Illuminate/Routing/Route), Object(Illuminate/Http/Request))
+#42 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Router.php(748): Illuminate/Routing/Router->runRoute(Object(Illuminate/Http/Request), Object(Illuminate/Routing/Route))
+#43 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Routing/Router.php(737): Illuminate/Routing/Router->dispatchToRoute(Object(Illuminate/Http/Request))
+#44 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(200): Illuminate/Routing/Router->dispatch(Object(Illuminate/Http/Request))
+#45 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(144): Illuminate/Foundation/Http/Kernel->Illuminate/Foundation/Http/{closure}(Object(Illuminate/Http/Request))
+#46 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#47 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate/Foundation/Http/Middleware/TransformsRequest->handle(Object(Illuminate/Http/Request), Object(Closure))
+#48 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull->handle(Object(Illuminate/Http/Request), Object(Closure))
+#49 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#50 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(40): Illuminate/Foundation/Http/Middleware/TransformsRequest->handle(Object(Illuminate/Http/Request), Object(Closure))
+#51 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Foundation/Http/Middleware/TrimStrings->handle(Object(Illuminate/Http/Request), Object(Closure))
+#52 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php(27): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#53 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Foundation/Http/Middleware/ValidatePostSize->handle(Object(Illuminate/Http/Request), Object(Closure))
+#54 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(99): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#55 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance->handle(Object(Illuminate/Http/Request), Object(Closure))
+#56 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php(49): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#57 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Http/Middleware/HandleCors->handle(Object(Illuminate/Http/Request), Object(Closure))
+#58 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php(39): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#59 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(183): Illuminate/Http/Middleware/TrustProxies->handle(Object(Illuminate/Http/Request), Object(Closure))
+#60 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(119): Illuminate/Pipeline/Pipeline->Illuminate/Pipeline/{closure}(Object(Illuminate/Http/Request))
+#61 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(175): Illuminate/Pipeline/Pipeline->then(Object(Closure))
+#62 C:/xampp/htdocs/scc-reporthub/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(144): Illuminate/Foundation/Http/Kernel->sendRequestThroughRouter(Object(Illuminate/Http/Request))
+#63 C:/xampp/htdocs/scc-reporthub/public/index.php(36): Illuminate/Foundation/Http/Kernel->handle(Object(Illuminate/Http/Request))
+#64 {main}
+"} 

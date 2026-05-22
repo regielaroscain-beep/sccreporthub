@@ -1,0 +1,40 @@
+@extends('layouts.app')
+@section('title', 'Change Password')
+
+@section('content')
+<div class="page-header mb-4">
+    <h4 class="fw-bold"><i class="fas fa-shield-halved me-2 text-primary"></i>Security Settings</h4>
+</div>
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow-sm">
+            <div class="card-body p-4">
+                <form method="POST" action="{{ route('password.update') }}">
+                    @csrf
+                    <div class="mb-3">
+                        <label class="form-label">Current Password</label>
+                        <input type="password" name="current_password"
+                               class="form-control @error('current_password') is-invalid @enderror" required>
+                        @error('current_password')<div class="invalid-feedback">{{ $message }}</div>@enderror
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">New Password</label>
+                        <input type="password" name="password"
+                               class="form-control @error('password') is-invalid @enderror"
+                               placeholder="Min. 8 characters" required>
+                        @error('password')<div class="invalid-feedback">{{ $message }}</div>@enderror
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label">Confirm New Password</label>
+                        <input type="password" name="password_confirmation" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">
+                        <i class="fas fa-save me-2"></i>Update Password
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
