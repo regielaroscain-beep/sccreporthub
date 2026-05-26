@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Cloudinary\Cloudinary;
+use Cloudinary\Configuration\Configuration;
 use App\Models\Facility;
 use App\Models\Notification;
 use App\Models\Ticket;
@@ -59,7 +61,9 @@ class TicketController extends Controller
 
         $photoPath = null;
         if ($request->hasFile('photo')) {
-            $photoPath = $request->file('photo')->store('ticket_photos', 'public');
+            $cloudinary = new Cloudinary(Configuration::instance(env('CLOUDINARY_URL')));
+            $result = $cloudinary->uploadApi()->upload($request->file('photo')->getRealPath(), ['folder' => 'scc-reporthub/ticket_photos']);
+            $photoPath = $result['secure_url'];
         }
 
         // ── Auto-detect priority based on same category + same location ───────

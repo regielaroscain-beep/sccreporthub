@@ -98,6 +98,10 @@ class Ticket extends Model
     public function getPhotoUrlAttribute(): ?string
     {
         if ($this->photo_path) {
+            // Cloudinary returns full URL
+            if (str_starts_with($this->photo_path, 'http')) {
+                return $this->photo_path;
+            }
             return asset('storage/' . $this->photo_path);
         }
         return null;
