@@ -9,10 +9,35 @@ class Ticket extends Model
 {
     use HasFactory;
 
+    // Issue category options
+    const CATEGORIES = [
+        'electrical' => 'Electrical',
+        'plumbing'   => 'Plumbing',
+        'structural' => 'Structural',
+        'hvac'       => 'HVAC / Aircon',
+        'furniture'  => 'Furniture',
+        'sanitation' => 'Sanitation',
+        'network'    => 'Network / IT',
+        'others'     => 'Others',
+    ];
+
+    // Category icon map for display
+    const CATEGORY_ICONS = [
+        'electrical' => 'fa-bolt',
+        'plumbing'   => 'fa-faucet',
+        'structural' => 'fa-building',
+        'hvac'       => 'fa-wind',
+        'furniture'  => 'fa-chair',
+        'sanitation' => 'fa-broom',
+        'network'    => 'fa-network-wired',
+        'others'     => 'fa-wrench',
+    ];
+
     protected $fillable = [
         'ticket_number',
         'user_id',
         'category_id',
+        'issue_category',
         'location_id',
         'title',
         'description',
@@ -76,6 +101,16 @@ class Ticket extends Model
             return asset('storage/' . $this->photo_path);
         }
         return null;
+    }
+
+    public function getCategoryLabelAttribute(): string
+    {
+        return self::CATEGORIES[$this->issue_category] ?? ucfirst($this->issue_category);
+    }
+
+    public function getCategoryIconAttribute(): string
+    {
+        return self::CATEGORY_ICONS[$this->issue_category] ?? 'fa-wrench';
     }
 
     // ─── Relationships ────────────────────────────────────────────────────────

@@ -50,10 +50,11 @@ class TicketController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title'       => ['required', 'string', 'max:255'],
-            'description' => ['required', 'string', 'min:10'],
-            'location_id' => ['nullable', 'exists:facilities,id'],
-            'photo'       => ['nullable', 'image', 'mimes:jpg,jpeg,png,gif', 'max:10240'],
+            'title'          => ['required', 'string', 'max:255'],
+            'description'    => ['required', 'string', 'min:10'],
+            'issue_category' => ['required', 'in:' . implode(',', array_keys(Ticket::CATEGORIES))],
+            'location_id'    => ['nullable', 'exists:facilities,id'],
+            'photo'          => ['nullable', 'image', 'max:10240'],
         ]);
 
         $photoPath = null;
@@ -61,12 +62,13 @@ class TicketController extends Controller
             $photoPath = $request->file('photo')->store('ticket_photos', 'public');
         }
 
-        // ── Auto-detect priority based on similar active reports ──────────────
-        $priority = $this->detectPriority($request->location_id, $request->title);
+        // ── Auto-detect priority based on same category + same location ───────
+        $priority = $this->detectPriority($request->location_id, $request->issue_category);
 
         $ticket = Ticket::create([
             'ticket_number'  => $this->generateTicketNumber(),
             'user_id'        => Auth::id(),
+            'issue_category' => $request->issue_category,
             'location_id'    => $request->location_id,
             'title'          => $request->title,
             'description'    => $request->description,
@@ -76,7 +78,7 @@ class TicketController extends Controller
         ]);
 
         // Re-escalate all existing similar active tickets
-        $this->escalateSimilarTickets($request->location_id, $request->title, $ticket->id);
+        $this->escalateSimilarTickets($request->location_id, $request->issue_category, $ticket->id);
 
         // Notify admins
         $this->notifyAdmins($ticket);
@@ -85,11 +87,11 @@ class TicketController extends Controller
             ->with('success', "Ticket #{$ticket->ticket_number} submitted successfully. Awaiting admin review.");
     }
 
-    // ─── Helper: Detect priority based on similar active reports ─────────────
+    // ─── Helper: Detect priority based on same category + location ───────────
 
-    private function detectPriority(?int $locationId, string $title): string
+    private function detectPriority(?int $locationId, string $category): string
     {
-        $similarCount = $this->countSimilarTickets($locationId, $title);
+        $similarCount = $this->countSimilarTickets($locationId, $category);
         // +1 for the current ticket being submitted
         $total = $similarCount + 1;
 
@@ -98,28 +100,15 @@ class TicketController extends Controller
         return Ticket::PRIORITY_NORMAL;
     }
 
-    // ─── Helper: Count similar active tickets ────────────────────────────────
+    // ─── Helper: Count similar active tickets (same category + location) ─────
 
-    private function countSimilarTickets(?int $locationId, string $title, ?int $excludeId = null): int
+    private function countSimilarTickets(?int $locationId, string $category, ?int $excludeId = null): int
     {
-        $query = Ticket::whereNotIn('status', ['completed', 'rejected']);
+        $query = Ticket::whereNotIn('status', ['completed', 'rejected'])
+            ->where('issue_category', $category);
 
         if ($locationId) {
-            // Same location = similar report
             $query->where('location_id', $locationId);
-        } else {
-            // No location — match by first significant keyword in title
-            $keywords = collect(explode(' ', strtolower($title)))
-                ->filter(fn($w) => strlen($w) > 3)
-                ->take(2);
-
-            if ($keywords->isNotEmpty()) {
-                $query->where(function ($q) use ($keywords) {
-                    foreach ($keywords as $word) {
-                        $q->orWhere('title', 'like', "%{$word}%");
-                    }
-                });
-            }
         }
 
         if ($excludeId) {
@@ -131,27 +120,25 @@ class TicketController extends Controller
 
     // ─── Helper: Escalate existing similar tickets ────────────────────────────
 
-    private function escalateSimilarTickets(?int $locationId, string $title, int $newTicketId): void
+    private function escalateSimilarTickets(?int $locationId, string $category, int $newTicketId): void
     {
-        $total = $this->countSimilarTickets($locationId, $title, $newTicketId) + 1;
+        $total = $this->countSimilarTickets($locationId, $category, $newTicketId) + 1;
 
         if ($total < 2) return;
 
         $newPriority = $total >= 3 ? Ticket::PRIORITY_URGENT : Ticket::PRIORITY_HIGH;
         $priorityOrder = ['normal' => 1, 'high' => 2, 'urgent' => 3];
 
-        $query = Ticket::whereNotIn('status', ['completed', 'rejected'])
-            ->where('id', '!=', $newTicketId);
-
-        if ($locationId) {
-            $query->where('location_id', $locationId);
-        }
-
-        $query->get()->each(function ($t) use ($newPriority, $priorityOrder) {
-            if (($priorityOrder[$t->priority_level] ?? 1) < $priorityOrder[$newPriority]) {
-                $t->update(['priority_level' => $newPriority]);
-            }
-        });
+        Ticket::whereNotIn('status', ['completed', 'rejected'])
+            ->where('id', '!=', $newTicketId)
+            ->where('issue_category', $category)
+            ->when($locationId, fn($q) => $q->where('location_id', $locationId))
+            ->get()
+            ->each(function ($t) use ($newPriority, $priorityOrder) {
+                if (($priorityOrder[$t->priority_level] ?? 1) < $priorityOrder[$newPriority]) {
+                    $t->update(['priority_level' => $newPriority]);
+                }
+            });
     }
 
     // ─── Faculty: Show Ticket Details ─────────────────────────────────────────

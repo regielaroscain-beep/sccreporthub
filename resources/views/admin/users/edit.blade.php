@@ -31,9 +31,9 @@
                         </div>
                         <div class="col-md-6">
                             <label class="form-label">Role <span class="text-danger">*</span></label>
-                            <select name="role_id" class="form-select @error('role_id') is-invalid @enderror" required>
+                            <select name="role_id" id="roleSelect" class="form-select @error('role_id') is-invalid @enderror" required>
                                 @foreach($roles as $role)
-                                <option value="{{ $role->id }}" {{ old('role_id', $user->role_id) == $role->id ? 'selected' : '' }}>{{ $role->name }}</option>
+                                <option value="{{ $role->id }}" data-slug="{{ $role->slug }}" {{ old('role_id', $user->role_id) == $role->id ? 'selected' : '' }}>{{ $role->name }}</option>
                                 @endforeach
                             </select>
                             @error('role_id')<div class="invalid-feedback">{{ $message }}</div>@enderror
@@ -42,6 +42,16 @@
                             <label class="form-label">Department <span class="text-danger">*</span></label>
                             <input type="text" name="department" class="form-control @error('department') is-invalid @enderror" value="{{ old('department', $user->department) }}" required>
                             @error('department')<div class="invalid-feedback">{{ $message }}</div>@enderror
+                        </div>
+                        <div class="col-md-6" id="specializationField">
+                            <label class="form-label">Specialization</label>
+                            <select name="specialization" class="form-select @error('specialization') is-invalid @enderror">
+                                <option value="">-- Select Specialization --</option>
+                                @foreach(\App\Models\User::SPECIALIZATIONS as $value => $label)
+                                <option value="{{ $value }}" {{ old('specialization', $user->specialization) == $value ? 'selected' : '' }}>{{ $label }}</option>
+                                @endforeach
+                            </select>
+                            @error('specialization')<div class="invalid-feedback">{{ $message }}</div>@enderror
                         </div>
                         <div class="col-md-6">
                             <label class="form-label">Contact Number <span class="text-danger">*</span></label>
@@ -66,12 +76,10 @@
                         </div>
                         <div class="col-12">
                             <label class="form-label">Profile Photo</label>
-                            @if($user->profile_photo)
                             <div class="mb-2">
-                                <img src="{{ $user->profile_photo_url }}" alt="Current Photo" class="rounded-circle" width="60" height="60" style="object-fit:cover;">
-                                <span class="text-muted small ms-2">Current photo</span>
+                                <img src="{{ $user->profile_photo_url }}" alt="Current Photo" class="rounded-circle" width="60" height="60" style="object-fit:cover;" onerror="this.onerror=null;this.src='{{ asset('images/default-avatar.png') }}'">
+                                <span class="text-muted small ms-2">{{ $user->profile_photo ? 'Current photo' : 'Default avatar' }}</span>
                             </div>
-                            @endif
                             <input type="file" name="profile_photo" class="form-control @error('profile_photo') is-invalid @enderror" accept="image/*">
                             @error('profile_photo')<div class="invalid-feedback">{{ $message }}</div>@enderror
                         </div>
@@ -86,3 +94,20 @@
     </div>
 </div>
 @endsection
+
+@push('scripts')
+<script>
+function toggleSpecialization() {
+    const select = document.getElementById('roleSelect');
+    const selected = select.options[select.selectedIndex];
+    const slug = selected ? selected.getAttribute('data-slug') : '';
+    const field = document.getElementById('specializationField');
+    field.style.display = slug === 'maintenance' ? '' : 'none';
+}
+document.addEventListener('DOMContentLoaded', function () {
+    const roleSelect = document.getElementById('roleSelect');
+    roleSelect.addEventListener('change', toggleSpecialization);
+    toggleSpecialization();
+});
+</script>
+@endpush

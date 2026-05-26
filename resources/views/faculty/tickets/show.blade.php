@@ -7,12 +7,18 @@
         <h4 class="fw-bold mb-0"><i class="fas fa-ticket-alt me-2 text-primary"></i>Ticket Details</h4>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb mb-0 small">
-                <li class="breadcrumb-item"><a href="{{ route('faculty.tickets.index') }}">Request Monitoring</a></li>
+                <li class="breadcrumb-item">
+                    @if(request('from') === 'history')
+                        <a href="{{ route('faculty.history') }}">History</a>
+                    @else
+                        <a href="{{ route('faculty.tickets.index') }}">Request Monitoring</a>
+                    @endif
+                </li>
                 <li class="breadcrumb-item active">{{ $ticket->ticket_number }}</li>
             </ol>
         </nav>
     </div>
-    <a href="{{ route('faculty.tickets.index') }}" class="btn btn-outline-secondary">
+    <a href="{{ request('from') === 'history' ? route('faculty.history') : route('faculty.tickets.index') }}" class="btn btn-outline-secondary">
         <i class="fas fa-arrow-left me-1"></i>Back
     </a>
 </div>
@@ -49,6 +55,13 @@
                     <div class="col-md-6">
                         <label class="text-muted small">Location</label>
                         <div>{{ $ticket->facility?->full_location ?? 'Not specified' }}</div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="text-muted small">Issue Category</label>
+                        <div>
+                            <i class="fas {{ $ticket->category_icon }} me-1 text-primary"></i>
+                            {{ $ticket->category_label }}
+                        </div>
                     </div>
                     <div class="col-md-6">
                         <label class="text-muted small">Assigned To</label>

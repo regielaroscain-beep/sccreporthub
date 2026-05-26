@@ -7,7 +7,13 @@
         <h4 class="fw-bold mb-0"><i class="fas fa-ticket-alt me-2 text-primary"></i>Ticket Details</h4>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb mb-0 small">
-                <li class="breadcrumb-item"><a href="{{ route('admin.tickets.index') }}">Tickets</a></li>
+                <li class="breadcrumb-item">
+                    @if(request('from') === 'history')
+                        <a href="{{ route('admin.history') }}">History</a>
+                    @else
+                        <a href="{{ route('admin.tickets.index') }}">Tickets</a>
+                    @endif
+                </li>
                 <li class="breadcrumb-item active">{{ $ticket->ticket_number }}</li>
             </ol>
         </nav>
@@ -18,7 +24,7 @@
             <i class="fas fa-print me-1"></i>Print Receipt
         </a>
         @endif
-        <a href="{{ route('admin.tickets.index') }}" class="btn btn-outline-secondary">
+        <a href="{{ request('from') === 'history' ? route('admin.history') : route('admin.tickets.index') }}" class="btn btn-outline-secondary">
             <i class="fas fa-arrow-left me-1"></i>Back
         </a>
     </div>
@@ -60,6 +66,13 @@
                     <div class="col-md-6">
                         <label class="text-muted small">Facility Location</label>
                         <div>{{ $ticket->facility?->full_location ?? 'Not specified' }}</div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="text-muted small">Issue Category</label>
+                        <div>
+                            <i class="fas {{ $ticket->category_icon }} me-1 text-primary"></i>
+                            {{ $ticket->category_label }}
+                        </div>
                     </div>
                     <div class="col-md-6">
                         <label class="text-muted small">Submitted By</label>
@@ -226,7 +239,7 @@
 
 <!-- Reject Modal -->
 <div class="modal fade" id="rejectModal" tabindex="-1">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <form method="POST" action="{{ route('admin.tickets.reject', $ticket) }}">
                 @csrf
@@ -249,7 +262,7 @@
 
 <!-- Assign Modal -->
 <div class="modal fade" id="assignModal" tabindex="-1">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <form method="POST" action="{{ route('admin.tickets.assign', $ticket) }}">
                 @csrf
@@ -258,12 +271,49 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <label class="form-label">Select Maintenance Staff <span class="text-danger">*</span></label>
+                    <div class="mb-3 p-2 bg-light rounded small">
+                        <i class="fas {{ $ticket->category_icon }} me-1 text-primary"></i>
+                        <strong>{{ $ticket->category_label }}</strong>
+                        <span class="text-muted ms-1">— matched staff are marked ✓</span>
+                    </div>
+                    <label class="form-label fw-semibold">Select Maintenance Staff <span class="text-danger">*</span></label>
                     <select name="assigned_to" class="form-select" required>
                         <option value="">-- Select Staff --</option>
-                        @foreach($maintenanceStaff as $staff)
-                        <option value="{{ $staff->id }}">{{ $staff->full_name }} — {{ $staff->department }}</option>
-                        @endforeach
+                        @php
+                            $matched = $maintenanceStaff->filter(fn($s) =>
+                                $s->specialization &&
+                                in_array($ticket->issue_category, \App\Models\User::SPECIALIZATION_CATEGORIES[$s->specialization] ?? [])
+                            );
+                            $others = $maintenanceStaff->filter(fn($s) =>
+                                !$s->specialization ||
+                                !in_array($ticket->issue_category, \App\Models\User::SPECIALIZATION_CATEGORIES[$s->specialization] ?? [])
+                            );
+                        @endphp
+
+                        @if($matched->count())
+                        <optgroup label="✓ Matched Specialization">
+                            @foreach($matched as $staff)
+                            <option value="{{ $staff->id }}">
+                                ✓ {{ $staff->full_name }} — {{ \App\Models\User::SPECIALIZATIONS[$staff->specialization] ?? $staff->specialization }}
+                            </option>
+                            @endforeach
+                        </optgroup>
+                        @endif
+
+                        @if($others->count())
+                        <optgroup label="Other Staff">
+                            @foreach($others as $staff)
+                            <option value="{{ $staff->id }}">
+                                {{ $staff->full_name }}
+                                @if($staff->specialization)
+                                    — {{ \App\Models\User::SPECIALIZATIONS[$staff->specialization] ?? $staff->specialization }}
+                                @else
+                                    — General
+                                @endif
+                            </option>
+                            @endforeach
+                        </optgroup>
+                        @endif
                     </select>
                 </div>
                 <div class="modal-footer">

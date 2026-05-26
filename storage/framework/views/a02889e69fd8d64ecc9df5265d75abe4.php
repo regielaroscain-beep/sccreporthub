@@ -18,9 +18,8 @@
                 <label class="form-label small">Status</label>
                 <select name="status" class="form-select form-select-sm">
                     <option value="">All Status</option>
-                    <?php $__currentLoopData = ['pending','approved','assigned','ongoing','resolved']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $s): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <option value="<?php echo e($s); ?>" <?php echo e(request('status') == $s ? 'selected' : ''); ?>><?php echo e(ucfirst($s)); ?></option>
-                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    <option value="pending"  <?php echo e(request('status') == 'pending'  ? 'selected' : ''); ?>>Pending</option>
+                    <option value="approved" <?php echo e(request('status') == 'approved' ? 'selected' : ''); ?>>Approved</option>
                 </select>
             </div>
             <div class="col-md-2">
@@ -33,9 +32,18 @@
                 </select>
             </div>
             <div class="col-md-2">
-                <button type="submit" class="btn btn-primary btn-sm w-100"><i class="fas fa-search me-1"></i>Filter</button>
+                <label class="form-label small">Category</label>
+                <select name="category" class="form-select form-select-sm">
+                    <option value="">All Categories</option>
+                    <?php $__currentLoopData = \App\Models\Ticket::CATEGORIES; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $value => $label): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <option value="<?php echo e($value); ?>" <?php echo e(request('category') == $value ? 'selected' : ''); ?>><?php echo e($label); ?></option>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                </select>
             </div>
             <div class="col-md-2">
+                <button type="submit" class="btn btn-primary btn-sm w-100"><i class="fas fa-search me-1"></i>Filter</button>
+            </div>
+            <div class="col-md-1">
                 <a href="<?php echo e(route('admin.tickets.index')); ?>" class="btn btn-outline-secondary btn-sm w-100"><i class="fas fa-times me-1"></i>Clear</a>
             </div>
         </form>
@@ -54,7 +62,6 @@
                         <th>Location</th>
                         <th>Priority</th>
                         <th>Status</th>
-                        <th>Assigned To</th>
                         <th>Date</th>
                         <th>Actions</th>
                     </tr>
@@ -63,7 +70,13 @@
                     <?php $__empty_1 = true; $__currentLoopData = $tickets; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $ticket): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                     <tr>
                         <td><code class="small"><?php echo e($ticket->ticket_number); ?></code></td>
-                        <td><?php echo e(Str::limit($ticket->title, 35)); ?></td>
+                        <td>
+                            <div><?php echo e(Str::limit($ticket->title, 35)); ?></div>
+                            <div class="text-muted" style="font-size:0.75rem;">
+                                <i class="fas <?php echo e($ticket->category_icon); ?> me-1"></i><?php echo e($ticket->category_label); ?>
+
+                            </div>
+                        </td>
                         <td>
                             <div class="small"><?php echo e($ticket->user->full_name); ?></div>
                             <div class="text-muted" style="font-size:0.75rem;"><?php echo e($ticket->user->department); ?></div>
@@ -79,7 +92,6 @@
                         <td>
                             <span class="badge bg-<?php echo e($ticket->status_badge); ?> text-capitalize"><?php echo e($ticket->status); ?></span>
                         </td>
-                        <td class="small"><?php echo e($ticket->assignedStaff?->full_name ?? '—'); ?></td>
                         <td class="small"><?php echo e($ticket->created_at->format('M d, Y')); ?></td>
                         <td>
                             <a href="<?php echo e(route('admin.tickets.show', $ticket)); ?>" class="btn btn-sm btn-outline-primary" title="View">
@@ -88,7 +100,7 @@
                         </td>
                     </tr>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
-                    <tr><td colspan="9" class="text-center text-muted py-4">No tickets found.</td></tr>
+                    <tr><td colspan="8" class="text-center text-muted py-4">No tickets found.</td></tr>
                     <?php endif; ?>
                 </tbody>
             </table>

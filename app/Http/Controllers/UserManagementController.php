@@ -56,6 +56,7 @@ class UserManagementController extends Controller
             'last_name'      => ['required', 'string', 'max:100'],
             'email'          => ['required', 'email', 'unique:users,email'],
             'department'     => ['required', 'string', 'max:150'],
+            'specialization' => ['nullable', 'string', 'max:100'],
             'contact_number' => ['required', 'string', 'max:20'],
             'password'       => ['required', 'confirmed', Password::min(8)],
             'profile_photo'  => ['nullable', 'image', 'mimes:jpg,jpeg,png', 'max:10240'],
@@ -73,8 +74,9 @@ class UserManagementController extends Controller
             'email'          => $request->email,
             'password'       => Hash::make($request->password),
             'department'     => $request->department,
+            'specialization' => $request->specialization,
             'contact_number' => $request->contact_number,
-            'profile_photo'  => $photoPath,
+            'profile_photo'  => $photoPath ?? null,
             'status'         => 'active',
         ]);
 
@@ -99,12 +101,13 @@ class UserManagementController extends Controller
             'last_name'      => ['required', 'string', 'max:100'],
             'email'          => ['required', 'email', 'unique:users,email,' . $user->id],
             'department'     => ['required', 'string', 'max:150'],
+            'specialization' => ['nullable', 'string', 'max:100'],
             'contact_number' => ['required', 'string', 'max:20'],
             'status'         => ['required', 'in:active,inactive'],
             'profile_photo'  => ['nullable', 'image', 'mimes:jpg,jpeg,png', 'max:10240'],
         ]);
 
-        $data = $request->only('role_id', 'first_name', 'last_name', 'email', 'department', 'contact_number', 'status');
+        $data = $request->only('role_id', 'first_name', 'last_name', 'email', 'department', 'specialization', 'contact_number', 'status');
 
         if ($request->hasFile('profile_photo')) {
             $data['profile_photo'] = $request->file('profile_photo')->store('profile_photos', 'public');

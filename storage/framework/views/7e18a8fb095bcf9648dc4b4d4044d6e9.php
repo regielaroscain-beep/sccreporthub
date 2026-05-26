@@ -19,7 +19,7 @@
                         <i class="fas fa-circle-user"></i>
                     </div>
                     <h5 class="fw-bold mb-1">
-                        <?php if(auth()->user()->isAdmin()): ?> Admin Profile
+                        <?php if(auth()->user()->isAdmin()): ?> Profile
                         <?php else: ?> Edit Profile
                         <?php endif; ?>
                     </h5>

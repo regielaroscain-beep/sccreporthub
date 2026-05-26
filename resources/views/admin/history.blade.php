@@ -64,7 +64,7 @@
                         <td><span class="badge bg-{{ $ticket->status_badge }} text-capitalize">{{ $ticket->status }}</span></td>
                         <td class="small">{{ $ticket->completed_at?->format('M d, Y') ?? '—' }}</td>
                         <td>
-                            <a href="{{ route('admin.tickets.show', $ticket) }}" class="btn btn-sm btn-outline-primary">
+                            <a href="{{ route('admin.tickets.show', [$ticket, 'from' => 'history']) }}" class="btn btn-sm btn-outline-primary">
                                 <i class="fas fa-eye"></i>
                             </a>
                             @if($ticket->status === 'completed')

@@ -85,6 +85,7 @@ class DashboardController extends Controller
     public function maintenanceDashboard()
     {
         $user = Auth::user();
+        $specializationCategories = $user->specialization_categories;
 
         $stats = [
             'assigned_tasks'   => Ticket::where('assigned_to', $user->id)->whereIn('status', ['assigned', 'ongoing'])->count(),
@@ -93,12 +94,18 @@ class DashboardController extends Controller
             'urgent_tasks'     => Ticket::where('assigned_to', $user->id)->where('priority_level', 'urgent')->whereIn('status', ['assigned', 'ongoing'])->count(),
         ];
 
-        $assignedTickets = Ticket::where('assigned_to', $user->id)
+        $ticketQuery = Ticket::where('assigned_to', $user->id)
             ->whereIn('status', ['assigned', 'ongoing'])
             ->with(['user', 'facility'])
             ->orderByRaw("FIELD(priority_level, 'urgent', 'high', 'normal')")
-            ->latest()
-            ->get();
+            ->latest();
+
+        // Auto-filter by specialization on dashboard
+        if (!empty($specializationCategories)) {
+            $ticketQuery->whereIn('issue_category', $specializationCategories);
+        }
+
+        $assignedTickets = $ticketQuery->get();
 
         $recentCompleted = Ticket::where('assigned_to', $user->id)
             ->where('status', 'completed')
@@ -107,7 +114,7 @@ class DashboardController extends Controller
             ->take(5)
             ->get();
 
-        return view('maintenance.dashboard', compact('stats', 'assignedTickets', 'recentCompleted'));
+        return view('maintenance.dashboard', compact('stats', 'assignedTickets', 'recentCompleted', 'specializationCategories'));
     }
 
     // ─── Helper: Monthly Ticket Data ──────────────────────────────────────────

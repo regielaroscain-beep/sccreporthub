@@ -53,7 +53,7 @@
                 <li class="nav-item {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">
                     <a href="{{ route('admin.dashboard') }}"><i class="fas fa-chart-pie"></i> Dashboard</a>
                 </li>
-                <li class="nav-item {{ request()->routeIs('admin.tickets.*') ? 'active' : '' }}">
+                <li class="nav-item {{ (request()->routeIs('admin.tickets.*') && request()->get('from') !== 'history') ? 'active' : '' }}">
                     <a href="{{ route('admin.tickets.index') }}"><i class="fas fa-clipboard-list"></i> Ticket Request Management</a>
                 </li>
                 <li class="nav-item {{ request()->routeIs('admin.monitoring.*') ? 'active' : '' }}">
@@ -62,7 +62,7 @@
                 <li class="nav-item {{ request()->routeIs('admin.users.*') ? 'active' : '' }}">
                     <a href="{{ route('admin.users.index') }}"><i class="fas fa-users"></i> User Management</a>
                 </li>
-                <li class="nav-item {{ request()->routeIs('admin.history') || request()->routeIs('admin.feedback') ? 'active' : '' }}">
+                <li class="nav-item {{ request()->routeIs('admin.history') || request()->routeIs('admin.feedback') || request()->get('from') === 'history' ? 'active' : '' }}">
                     <a href="{{ route('admin.history') }}"><i class="fas fa-clock-rotate-left"></i> History</a>
                 </li>
                 <li class="nav-item {{ request()->routeIs('admin.facilities.*') ? 'active' : '' }}">
@@ -83,10 +83,10 @@
                 <li class="nav-item {{ request()->routeIs('faculty.tickets.create') ? 'active' : '' }}">
                     <a href="{{ route('faculty.tickets.create') }}"><i class="fas fa-circle-plus"></i> Create Ticket Request</a>
                 </li>
-                <li class="nav-item {{ request()->routeIs('faculty.tickets.index') || request()->routeIs('faculty.tickets.show') || request()->routeIs('faculty.tickets.track') ? 'active' : '' }}">
+                <li class="nav-item {{ (request()->routeIs('faculty.tickets.index') || request()->routeIs('faculty.tickets.show') || request()->routeIs('faculty.tickets.track')) && request()->get('from') !== 'history' ? 'active' : '' }}">
                     <a href="{{ route('faculty.tickets.index') }}"><i class="fas fa-magnifying-glass-chart"></i> Request Monitoring</a>
                 </li>
-                <li class="nav-item {{ request()->routeIs('faculty.history') ? 'active' : '' }}">
+                <li class="nav-item {{ request()->routeIs('faculty.history') || request()->get('from') === 'history' ? 'active' : '' }}">
                     <a href="{{ route('faculty.history') }}"><i class="fas fa-clock-rotate-left"></i> History</a>
                 </li>
 
@@ -100,10 +100,10 @@
                 <li class="nav-item {{ request()->routeIs('maintenance.dashboard') ? 'active' : '' }}">
                     <a href="{{ route('maintenance.dashboard') }}"><i class="fas fa-chart-pie"></i> Dashboard</a>
                 </li>
-                <li class="nav-item {{ request()->routeIs('maintenance.tasks.index') || request()->routeIs('maintenance.tasks.show') ? 'active' : '' }}">
+                <li class="nav-item {{ (request()->routeIs('maintenance.tasks.index') || request()->routeIs('maintenance.tasks.show')) && request()->get('from') !== 'history' ? 'active' : '' }}">
                     <a href="{{ route('maintenance.tasks.index') }}"><i class="fas fa-screwdriver-wrench"></i> Assigned Maintenance Tasks</a>
                 </li>
-                <li class="nav-item {{ request()->routeIs('maintenance.tasks.completed') ? 'active' : '' }}">
+                <li class="nav-item {{ request()->routeIs('maintenance.tasks.completed') || request()->get('from') === 'history' ? 'active' : '' }}">
                     <a href="{{ route('maintenance.tasks.completed') }}"><i class="fas fa-clock-rotate-left"></i> Tasks History</a>
                 </li>
 

@@ -19,7 +19,7 @@
                         <i class="fas fa-circle-user"></i>
                     </div>
                     <h5 class="fw-bold mb-1">
-                        @if(auth()->user()->isAdmin()) Admin Profile
+                        @if(auth()->user()->isAdmin()) Profile
                         @else Edit Profile
                         @endif
                     </h5>

@@ -12,6 +12,38 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    // ─── Specialization → Issue Category mapping ──────────────────────────────
+
+    const SPECIALIZATIONS = [
+        'electrician'      => 'Electrician',
+        'plumber'          => 'Plumber',
+        'carpenter'        => 'Carpenter',
+        'hvac_technician'  => 'HVAC Technician',
+        'janitor'          => 'Janitor',
+        'it_technician'    => 'IT Technician',
+        'general'          => 'General (All)',
+    ];
+
+    const SPECIALIZATION_CATEGORIES = [
+        'electrician'      => ['electrical'],
+        'plumber'          => ['plumbing'],
+        'carpenter'        => ['structural', 'furniture'],
+        'hvac_technician'  => ['hvac'],
+        'janitor'          => ['sanitation'],
+        'it_technician'    => ['network'],
+        'general'          => [], // empty = sees all
+    ];
+
+    /**
+     * Returns the issue_category values this user's specialization covers.
+     * Empty array means no filter (sees all).
+     */
+    public function getSpecializationCategoriesAttribute(): array
+    {
+        if (!$this->specialization) return [];
+        return self::SPECIALIZATION_CATEGORIES[$this->specialization] ?? [];
+    }
+
     protected $fillable = [
         'role_id',
         'first_name',
@@ -19,6 +51,7 @@ class User extends Authenticatable
         'email',
         'password',
         'department',
+        'specialization',
         'contact_number',
         'profile_photo',
         'status',
@@ -46,10 +79,11 @@ class User extends Authenticatable
 
     /**
      * Profile photo URL accessor.
+     * Falls back to default-avatar.png when no photo is set.
      */
     public function getProfilePhotoUrlAttribute(): string
     {
-        if ($this->profile_photo) {
+        if (!empty($this->profile_photo)) {
             return asset('storage/' . $this->profile_photo);
         }
         return asset('images/default-avatar.png');

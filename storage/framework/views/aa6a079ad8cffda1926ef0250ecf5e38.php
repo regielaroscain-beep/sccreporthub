@@ -18,7 +18,7 @@
                     <div class="settings-icon mb-3" style="background: linear-gradient(135deg, #4f46e5, #818cf8);">
                         <i class="fas fa-circle-user"></i>
                     </div>
-                    <h5 class="fw-bold mb-1">Admin Profile</h5>
+                    <h5 class="fw-bold mb-1">Profile</h5>
                     <p class="text-muted small mb-0">Update your name, department, contact number, and profile photo</p>
                 </div>
                 <div class="card-footer bg-transparent border-top text-center py-2">

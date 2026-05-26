@@ -7,7 +7,13 @@
         <h4 class="fw-bold mb-0"><i class="fas fa-ticket-alt me-2 text-primary"></i>Ticket Details</h4>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb mb-0 small">
-                <li class="breadcrumb-item"><a href="<?php echo e(route('admin.tickets.index')); ?>">Tickets</a></li>
+                <li class="breadcrumb-item">
+                    <?php if(request('from') === 'history'): ?>
+                        <a href="<?php echo e(route('admin.history')); ?>">History</a>
+                    <?php else: ?>
+                        <a href="<?php echo e(route('admin.tickets.index')); ?>">Tickets</a>
+                    <?php endif; ?>
+                </li>
                 <li class="breadcrumb-item active"><?php echo e($ticket->ticket_number); ?></li>
             </ol>
         </nav>
@@ -18,7 +24,7 @@
             <i class="fas fa-print me-1"></i>Print Receipt
         </a>
         <?php endif; ?>
-        <a href="<?php echo e(route('admin.tickets.index')); ?>" class="btn btn-outline-secondary">
+        <a href="<?php echo e(request('from') === 'history' ? route('admin.history') : route('admin.tickets.index')); ?>" class="btn btn-outline-secondary">
             <i class="fas fa-arrow-left me-1"></i>Back
         </a>
     </div>
@@ -62,6 +68,14 @@
                     <div class="col-md-6">
                         <label class="text-muted small">Facility Location</label>
                         <div><?php echo e($ticket->facility?->full_location ?? 'Not specified'); ?></div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="text-muted small">Issue Category</label>
+                        <div>
+                            <i class="fas <?php echo e($ticket->category_icon); ?> me-1 text-primary"></i>
+                            <?php echo e($ticket->category_label); ?>
+
+                        </div>
                     </div>
                     <div class="col-md-6">
                         <label class="text-muted small">Submitted By</label>
@@ -228,7 +242,7 @@
 
 <!-- Reject Modal -->
 <div class="modal fade" id="rejectModal" tabindex="-1">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <form method="POST" action="<?php echo e(route('admin.tickets.reject', $ticket)); ?>">
                 <?php echo csrf_field(); ?>
@@ -251,7 +265,7 @@
 
 <!-- Assign Modal -->
 <div class="modal fade" id="assignModal" tabindex="-1">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <form method="POST" action="<?php echo e(route('admin.tickets.assign', $ticket)); ?>">
                 <?php echo csrf_field(); ?>
@@ -260,12 +274,52 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <label class="form-label">Select Maintenance Staff <span class="text-danger">*</span></label>
+                    <div class="mb-3 p-2 bg-light rounded small">
+                        <i class="fas <?php echo e($ticket->category_icon); ?> me-1 text-primary"></i>
+                        <strong><?php echo e($ticket->category_label); ?></strong>
+                        <span class="text-muted ms-1">— matched staff are marked ✓</span>
+                    </div>
+                    <label class="form-label fw-semibold">Select Maintenance Staff <span class="text-danger">*</span></label>
                     <select name="assigned_to" class="form-select" required>
                         <option value="">-- Select Staff --</option>
-                        <?php $__currentLoopData = $maintenanceStaff; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $staff): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <option value="<?php echo e($staff->id); ?>"><?php echo e($staff->full_name); ?> — <?php echo e($staff->department); ?></option>
-                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        <?php
+                            $matched = $maintenanceStaff->filter(fn($s) =>
+                                $s->specialization &&
+                                in_array($ticket->issue_category, \App\Models\User::SPECIALIZATION_CATEGORIES[$s->specialization] ?? [])
+                            );
+                            $others = $maintenanceStaff->filter(fn($s) =>
+                                !$s->specialization ||
+                                !in_array($ticket->issue_category, \App\Models\User::SPECIALIZATION_CATEGORIES[$s->specialization] ?? [])
+                            );
+                        ?>
+
+                        <?php if($matched->count()): ?>
+                        <optgroup label="✓ Matched Specialization">
+                            <?php $__currentLoopData = $matched; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $staff): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <option value="<?php echo e($staff->id); ?>">
+                                ✓ <?php echo e($staff->full_name); ?> — <?php echo e(\App\Models\User::SPECIALIZATIONS[$staff->specialization] ?? $staff->specialization); ?>
+
+                            </option>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        </optgroup>
+                        <?php endif; ?>
+
+                        <?php if($others->count()): ?>
+                        <optgroup label="Other Staff">
+                            <?php $__currentLoopData = $others; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $staff): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <option value="<?php echo e($staff->id); ?>">
+                                <?php echo e($staff->full_name); ?>
+
+                                <?php if($staff->specialization): ?>
+                                    — <?php echo e(\App\Models\User::SPECIALIZATIONS[$staff->specialization] ?? $staff->specialization); ?>
+
+                                <?php else: ?>
+                                    — General
+                                <?php endif; ?>
+                            </option>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        </optgroup>
+                        <?php endif; ?>
                     </select>
                 </div>
                 <div class="modal-footer">

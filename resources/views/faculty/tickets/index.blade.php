@@ -35,6 +35,9 @@
                             @if($ticket->facility)
                             <div class="text-muted" style="font-size:0.75rem;"><i class="fas fa-location-dot me-1"></i>{{ $ticket->facility->full_location }}</div>
                             @endif
+                            <div class="text-muted" style="font-size:0.75rem;">
+                                <i class="fas {{ $ticket->category_icon }} me-1"></i>{{ $ticket->category_label }}
+                            </div>
                         </td>
                         <td><span class="badge bg-{{ $ticket->priority_badge }} text-capitalize">{{ $ticket->priority_level }}</span></td>
                         <td><span class="badge bg-{{ $ticket->status_badge }} text-capitalize">{{ $ticket->status }}</span></td>

@@ -61,7 +61,13 @@
                     <?php $__empty_1 = true; $__currentLoopData = $tickets; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $ticket): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                     <tr>
                         <td><code class="small"><?php echo e($ticket->ticket_number); ?></code></td>
-                        <td><?php echo e(Str::limit($ticket->title, 35)); ?></td>
+                        <td>
+                            <div><?php echo e(Str::limit($ticket->title, 35)); ?></div>
+                            <div class="text-muted" style="font-size:0.75rem;">
+                                <i class="fas <?php echo e($ticket->category_icon); ?> me-1"></i><?php echo e($ticket->category_label); ?>
+
+                            </div>
+                        </td>
                         <td>
                             <div class="small"><?php echo e($ticket->user->full_name); ?></div>
                             <div class="text-muted" style="font-size:0.75rem;"><?php echo e($ticket->user->department); ?></div>

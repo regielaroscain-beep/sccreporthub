@@ -61,7 +61,7 @@
                     <tr>
                         <td>
                             <div class="d-flex align-items-center gap-2">
-                                <img src="<?php echo e($user->profile_photo_url); ?>" alt="Avatar" class="rounded-circle" width="36" height="36" style="object-fit:cover;">
+                                <img src="<?php echo e($user->profile_photo_url); ?>" alt="Avatar" class="rounded-circle" width="36" height="36" style="object-fit:cover;" onerror="this.onerror=null;this.src='<?php echo e(asset('images/default-avatar.png')); ?>'">
                                 <div>
                                     <div class="fw-semibold small"><?php echo e($user->full_name); ?></div>
                                     <div class="text-muted" style="font-size:0.75rem;"><?php echo e($user->contact_number); ?></div>

@@ -5,7 +5,15 @@
 <div class="page-header mb-4">
     <div>
         <h4 class="fw-bold mb-0"><i class="fas fa-chart-pie me-2 text-primary"></i>Dashboard</h4>
-        <p class="text-muted small mb-0">Welcome, <?php echo e(auth()->user()->full_name); ?></p>
+        <p class="text-muted small mb-0">Welcome, <?php echo e(auth()->user()->full_name); ?>
+
+            <?php if(auth()->user()->specialization): ?>
+            &nbsp;·&nbsp;<span class="badge bg-primary">
+                <i class="fas fa-id-badge me-1"></i><?php echo e(\App\Models\User::SPECIALIZATIONS[auth()->user()->specialization] ?? auth()->user()->specialization); ?>
+
+            </span>
+            <?php endif; ?>
+        </p>
     </div>
     <span class="text-muted small"><?php echo e(now()->format('l, F d, Y')); ?></span>
 </div>
@@ -66,6 +74,10 @@
                             <div class="d-flex align-items-center gap-2 mb-1">
                                 <span class="badge bg-<?php echo e($ticket->priority_badge); ?> text-capitalize"><?php echo e($ticket->priority_level); ?></span>
                                 <span class="badge bg-<?php echo e($ticket->status_badge); ?> text-capitalize"><?php echo e($ticket->status); ?></span>
+                                <span class="badge bg-light text-dark border" style="font-size:0.7rem;">
+                                    <i class="fas <?php echo e($ticket->category_icon); ?> me-1"></i><?php echo e($ticket->category_label); ?>
+
+                                </span>
                                 <code class="small text-muted"><?php echo e($ticket->ticket_number); ?></code>
                             </div>
                             <div class="fw-semibold"><?php echo e($ticket->title); ?></div>

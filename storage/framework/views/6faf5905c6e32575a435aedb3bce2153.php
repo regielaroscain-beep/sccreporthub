@@ -11,7 +11,7 @@
 
 <div class="list-group shadow-sm">
     <?php $__empty_1 = true; $__currentLoopData = $tickets; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $ticket): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
-    <a href="<?php echo e(route('faculty.tickets.show', $ticket)); ?>"
+    <a href="<?php echo e(route('faculty.tickets.show', [$ticket, 'from' => 'history'])); ?>"
        class="list-group-item list-group-item-action px-3 py-3">
         <div class="d-flex justify-content-between align-items-start gap-2">
             <div class="flex-grow-1 min-width-0">

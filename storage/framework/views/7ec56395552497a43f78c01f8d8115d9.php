@@ -73,7 +73,7 @@ unset($__errorArgs, $__bag); ?>
                         </div>
                         <div class="col-md-6">
                             <label class="form-label">Role <span class="text-danger">*</span></label>
-                            <select name="role_id" class="form-select <?php $__errorArgs = ['role_id'];
+                            <select name="role_id" id="roleSelect" class="form-select <?php $__errorArgs = ['role_id'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
@@ -83,7 +83,7 @@ endif;
 unset($__errorArgs, $__bag); ?>" required>
                                 <option value="">-- Select Role --</option>
                                 <?php $__currentLoopData = $roles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $role): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <option value="<?php echo e($role->id); ?>" <?php echo e(old('role_id') == $role->id ? 'selected' : ''); ?>><?php echo e($role->name); ?></option>
+                                <option value="<?php echo e($role->id); ?>" data-slug="<?php echo e($role->slug); ?>" <?php echo e(old('role_id') == $role->id ? 'selected' : ''); ?>><?php echo e($role->name); ?></option>
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </select>
                             <?php $__errorArgs = ['role_id'];
@@ -106,6 +106,30 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>" value="<?php echo e(old('department')); ?>" required>
                             <?php $__errorArgs = ['department'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?><div class="invalid-feedback"><?php echo e($message); ?></div><?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+                        </div>
+                        <div class="col-md-6" id="specializationField" style="display:none;">
+                            <label class="form-label">Specialization</label>
+                            <select name="specialization" class="form-select <?php $__errorArgs = ['specialization'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>">
+                                <option value="">-- Select Specialization --</option>
+                                <?php $__currentLoopData = \App\Models\User::SPECIALIZATIONS; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $value => $label): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <option value="<?php echo e($value); ?>" <?php echo e(old('specialization') == $value ? 'selected' : ''); ?>><?php echo e($label); ?></option>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            </select>
+                            <?php $__errorArgs = ['specialization'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
@@ -186,5 +210,22 @@ unset($__errorArgs, $__bag); ?>
     </div>
 </div>
 <?php $__env->stopSection(); ?>
+
+<?php $__env->startPush('scripts'); ?>
+<script>
+function toggleSpecialization() {
+    const select = document.getElementById('roleSelect');
+    const selected = select.options[select.selectedIndex];
+    const slug = selected ? selected.getAttribute('data-slug') : '';
+    const field = document.getElementById('specializationField');
+    field.style.display = slug === 'maintenance' ? '' : 'none';
+}
+document.addEventListener('DOMContentLoaded', function () {
+    const roleSelect = document.getElementById('roleSelect');
+    roleSelect.addEventListener('change', toggleSpecialization);
+    toggleSpecialization(); // run on load in case of old() value
+});
+</script>
+<?php $__env->stopPush(); ?>
 
 <?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\scc-reporthub\resources\views/admin/users/create.blade.php ENDPATH**/ ?>

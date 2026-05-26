@@ -61,7 +61,12 @@
                     @forelse($tickets as $ticket)
                     <tr>
                         <td><code class="small">{{ $ticket->ticket_number }}</code></td>
-                        <td>{{ Str::limit($ticket->title, 35) }}</td>
+                        <td>
+                            <div>{{ Str::limit($ticket->title, 35) }}</div>
+                            <div class="text-muted" style="font-size:0.75rem;">
+                                <i class="fas {{ $ticket->category_icon }} me-1"></i>{{ $ticket->category_label }}
+                            </div>
+                        </td>
                         <td>
                             <div class="small">{{ $ticket->user->full_name }}</div>
                             <div class="text-muted" style="font-size:0.75rem;">{{ $ticket->user->department }}</div>

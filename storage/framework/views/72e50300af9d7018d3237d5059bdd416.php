@@ -58,6 +58,14 @@
                         <div><?php echo e($ticket->facility?->full_location ?? 'Not specified'); ?></div>
                     </div>
                     <div class="col-md-6">
+                        <label class="text-muted small">Issue Category</label>
+                        <div>
+                            <i class="fas <?php echo e($ticket->category_icon); ?> me-1 text-primary"></i>
+                            <?php echo e($ticket->category_label); ?>
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
                         <label class="text-muted small">Submitted By</label>
                         <div><?php echo e($ticket->user->full_name); ?></div>
                         <div class="text-muted small"><?php echo e($ticket->user->department); ?></div>

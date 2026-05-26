@@ -34,7 +34,7 @@
                         <td class="small">₱<?php echo e(number_format($ticket->maintenanceLogs->sum('repair_cost'), 2)); ?></td>
                         <td class="small"><?php echo e($ticket->completed_at?->format('M d, Y') ?? $ticket->updated_at->format('M d, Y')); ?></td>
                         <td>
-                            <a href="<?php echo e(route('maintenance.tasks.show', $ticket)); ?>" class="btn btn-sm btn-outline-primary">
+                            <a href="<?php echo e(route('maintenance.tasks.show', [$ticket, 'from' => 'history'])); ?>" class="btn btn-sm btn-outline-primary">
                                 <i class="fas fa-eye"></i>
                             </a>
                         </td>

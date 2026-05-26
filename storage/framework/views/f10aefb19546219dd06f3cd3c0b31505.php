@@ -3,7 +3,7 @@
 
 <?php $__env->startSection('content'); ?>
 <div class="page-header mb-4">
-    <h4 class="fw-bold mb-0"><i class="fas fa-circle-user me-2 text-primary"></i>Admin Profile</h4>
+    <h4 class="fw-bold mb-0"><i class="fas fa-circle-user me-2 text-primary"></i>Profile</h4>
 </div>
 
 <div class="row justify-content-center">

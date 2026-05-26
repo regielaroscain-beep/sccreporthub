@@ -14,9 +14,19 @@ class MaintenanceController extends Controller
 
     public function assignedTasks(Request $request)
     {
-        $query = Ticket::where('assigned_to', Auth::id())
+        $user = Auth::user();
+
+        $query = Ticket::where('assigned_to', $user->id)
             ->whereIn('status', ['assigned', 'ongoing'])
             ->with(['user', 'facility']);
+
+        // Auto-filter by specialization unless "show_all" is requested
+        $specializationCategories = $user->specialization_categories;
+        $isFiltered = !empty($specializationCategories) && !$request->boolean('show_all');
+
+        if ($isFiltered) {
+            $query->whereIn('issue_category', $specializationCategories);
+        }
 
         if ($request->filled('priority')) {
             $query->where('priority_level', $request->priority);
@@ -24,7 +34,7 @@ class MaintenanceController extends Controller
 
         $tickets = $query->orderByRaw("FIELD(priority_level, 'urgent', 'high', 'normal')")->paginate(10);
 
-        return view('maintenance.tasks.index', compact('tickets'));
+        return view('maintenance.tasks.index', compact('tickets', 'isFiltered', 'specializationCategories'));
     }
 
     // ─── View Task Detail ─────────────────────────────────────────────────────

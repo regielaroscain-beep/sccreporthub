@@ -7,12 +7,18 @@
         <h4 class="fw-bold mb-0"><i class="fas fa-screwdriver-wrench me-2 text-primary"></i>View Task Details</h4>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb mb-0 small">
-                <li class="breadcrumb-item"><a href="<?php echo e(route('maintenance.tasks.index')); ?>">Assigned Maintenance Tasks</a></li>
+                <li class="breadcrumb-item">
+                    <?php if(request('from') === 'history'): ?>
+                        <a href="<?php echo e(route('maintenance.tasks.completed')); ?>">Tasks History</a>
+                    <?php else: ?>
+                        <a href="<?php echo e(route('maintenance.tasks.index')); ?>">Assigned Maintenance Tasks</a>
+                    <?php endif; ?>
+                </li>
                 <li class="breadcrumb-item active"><?php echo e($ticket->ticket_number); ?></li>
             </ol>
         </nav>
     </div>
-    <a href="<?php echo e(route('maintenance.tasks.index')); ?>" class="btn btn-outline-secondary"><i class="fas fa-arrow-left me-1"></i>Back</a>
+    <a href="<?php echo e(request('from') === 'history' ? route('maintenance.tasks.completed') : route('maintenance.tasks.index')); ?>" class="btn btn-outline-secondary"><i class="fas fa-arrow-left me-1"></i>Back</a>
 </div>
 
 <div class="row g-4">

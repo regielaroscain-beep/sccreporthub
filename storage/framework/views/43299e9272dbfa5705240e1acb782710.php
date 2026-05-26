@@ -64,7 +64,7 @@
                         <td><span class="badge bg-<?php echo e($ticket->status_badge); ?> text-capitalize"><?php echo e($ticket->status); ?></span></td>
                         <td class="small"><?php echo e($ticket->completed_at?->format('M d, Y') ?? '—'); ?></td>
                         <td>
-                            <a href="<?php echo e(route('admin.tickets.show', $ticket)); ?>" class="btn btn-sm btn-outline-primary">
+                            <a href="<?php echo e(route('admin.tickets.show', [$ticket, 'from' => 'history'])); ?>" class="btn btn-sm btn-outline-primary">
                                 <i class="fas fa-eye"></i>
                             </a>
                             <?php if($ticket->status === 'completed'): ?>

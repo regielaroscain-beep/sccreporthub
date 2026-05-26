@@ -18,9 +18,8 @@
                 <label class="form-label small">Status</label>
                 <select name="status" class="form-select form-select-sm">
                     <option value="">All Status</option>
-                    @foreach(['pending','approved','assigned','ongoing','resolved'] as $s)
-                        <option value="{{ $s }}" {{ request('status') == $s ? 'selected' : '' }}>{{ ucfirst($s) }}</option>
-                    @endforeach
+                    <option value="pending"  {{ request('status') == 'pending'  ? 'selected' : '' }}>Pending</option>
+                    <option value="approved" {{ request('status') == 'approved' ? 'selected' : '' }}>Approved</option>
                 </select>
             </div>
             <div class="col-md-2">
@@ -33,9 +32,18 @@
                 </select>
             </div>
             <div class="col-md-2">
-                <button type="submit" class="btn btn-primary btn-sm w-100"><i class="fas fa-search me-1"></i>Filter</button>
+                <label class="form-label small">Category</label>
+                <select name="category" class="form-select form-select-sm">
+                    <option value="">All Categories</option>
+                    @foreach(\App\Models\Ticket::CATEGORIES as $value => $label)
+                    <option value="{{ $value }}" {{ request('category') == $value ? 'selected' : '' }}>{{ $label }}</option>
+                    @endforeach
+                </select>
             </div>
             <div class="col-md-2">
+                <button type="submit" class="btn btn-primary btn-sm w-100"><i class="fas fa-search me-1"></i>Filter</button>
+            </div>
+            <div class="col-md-1">
                 <a href="{{ route('admin.tickets.index') }}" class="btn btn-outline-secondary btn-sm w-100"><i class="fas fa-times me-1"></i>Clear</a>
             </div>
         </form>
@@ -54,7 +62,6 @@
                         <th>Location</th>
                         <th>Priority</th>
                         <th>Status</th>
-                        <th>Assigned To</th>
                         <th>Date</th>
                         <th>Actions</th>
                     </tr>
@@ -63,7 +70,12 @@
                     @forelse($tickets as $ticket)
                     <tr>
                         <td><code class="small">{{ $ticket->ticket_number }}</code></td>
-                        <td>{{ Str::limit($ticket->title, 35) }}</td>
+                        <td>
+                            <div>{{ Str::limit($ticket->title, 35) }}</div>
+                            <div class="text-muted" style="font-size:0.75rem;">
+                                <i class="fas {{ $ticket->category_icon }} me-1"></i>{{ $ticket->category_label }}
+                            </div>
+                        </td>
                         <td>
                             <div class="small">{{ $ticket->user->full_name }}</div>
                             <div class="text-muted" style="font-size:0.75rem;">{{ $ticket->user->department }}</div>
@@ -78,7 +90,6 @@
                         <td>
                             <span class="badge bg-{{ $ticket->status_badge }} text-capitalize">{{ $ticket->status }}</span>
                         </td>
-                        <td class="small">{{ $ticket->assignedStaff?->full_name ?? '—' }}</td>
                         <td class="small">{{ $ticket->created_at->format('M d, Y') }}</td>
                         <td>
                             <a href="{{ route('admin.tickets.show', $ticket) }}" class="btn btn-sm btn-outline-primary" title="View">
@@ -87,7 +98,7 @@
                         </td>
                     </tr>
                     @empty
-                    <tr><td colspan="9" class="text-center text-muted py-4">No tickets found.</td></tr>
+                    <tr><td colspan="8" class="text-center text-muted py-4">No tickets found.</td></tr>
                     @endforelse
                 </tbody>
             </table>

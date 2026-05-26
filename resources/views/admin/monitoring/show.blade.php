@@ -58,6 +58,13 @@
                         <div>{{ $ticket->facility?->full_location ?? 'Not specified' }}</div>
                     </div>
                     <div class="col-md-6">
+                        <label class="text-muted small">Issue Category</label>
+                        <div>
+                            <i class="fas {{ $ticket->category_icon }} me-1 text-primary"></i>
+                            {{ $ticket->category_label }}
+                        </div>
+                    </div>
+                    <div class="col-md-6">
                         <label class="text-muted small">Submitted By</label>
                         <div>{{ $ticket->user->full_name }}</div>
                         <div class="text-muted small">{{ $ticket->user->department }}</div>

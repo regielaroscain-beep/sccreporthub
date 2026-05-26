@@ -61,7 +61,7 @@
                     <tr>
                         <td>
                             <div class="d-flex align-items-center gap-2">
-                                <img src="{{ $user->profile_photo_url }}" alt="Avatar" class="rounded-circle" width="36" height="36" style="object-fit:cover;">
+                                <img src="{{ $user->profile_photo_url }}" alt="Avatar" class="rounded-circle" width="36" height="36" style="object-fit:cover;" onerror="this.onerror=null;this.src='{{ asset('images/default-avatar.png') }}'">
                                 <div>
                                     <div class="fw-semibold small">{{ $user->full_name }}</div>
                                     <div class="text-muted" style="font-size:0.75rem;">{{ $user->contact_number }}</div>

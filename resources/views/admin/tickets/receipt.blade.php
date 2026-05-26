@@ -4,148 +4,310 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Repair Receipt – {{ $ticket->ticket_number }}</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
-        body { font-family: 'Segoe UI', sans-serif; background: #f8f9fa; }
-        .receipt-wrapper { max-width: 800px; margin: 30px auto; background: #fff; border: 1px solid #dee2e6; border-radius: 8px; overflow: hidden; }
-        .receipt-header { background: linear-gradient(135deg, #0d6efd, #0a58ca); color: #fff; padding: 30px; text-align: center; }
-        .receipt-header img { height: 60px; margin-bottom: 10px; }
-        .receipt-body { padding: 30px; }
-        .receipt-footer { background: #f8f9fa; padding: 20px 30px; border-top: 1px solid #dee2e6; text-align: center; }
-        .info-row { display: flex; border-bottom: 1px solid #f0f0f0; padding: 10px 0; }
-        .info-label { width: 200px; font-weight: 600; color: #6c757d; flex-shrink: 0; }
-        .info-value { flex: 1; }
-        .status-badge { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; }
-        .status-completed { background: #d1e7dd; color: #0f5132; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            font-size: 11px;
+            background: #f0f0f0;
+            color: #1a1a1a;
+        }
+
+        .receipt-wrapper {
+            width: 720px;
+            margin: 20px auto;
+            background: #fff;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        /* Header */
+        .receipt-header {
+            background: linear-gradient(135deg, #4f46e5, #3730a3);
+            color: #fff;
+            padding: 14px 20px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .receipt-header img { height: 48px; width: 48px; border-radius: 50%; object-fit: contain; background: #fff; padding: 2px; }
+        .receipt-header .school-name { font-size: 13px; font-weight: 700; letter-spacing: 0.3px; }
+        .receipt-header .doc-title { font-size: 10px; opacity: 0.85; margin-top: 2px; }
+        .receipt-header .ticket-no { margin-left: auto; text-align: right; }
+        .receipt-header .ticket-no .label { font-size: 9px; opacity: 0.75; }
+        .receipt-header .ticket-no .value { font-size: 13px; font-weight: 700; letter-spacing: 0.5px; }
+
+        /* Body */
+        .receipt-body { padding: 14px 20px; }
+
+        /* Meta row */
+        .meta-row {
+            display: flex;
+            justify-content: space-between;
+            background: #f8f8f8;
+            border: 1px solid #e8e8e8;
+            border-radius: 4px;
+            padding: 7px 12px;
+            margin-bottom: 12px;
+            font-size: 10px;
+        }
+        .meta-row .meta-item { display: flex; flex-direction: column; }
+        .meta-row .meta-label { color: #888; font-size: 9px; text-transform: uppercase; letter-spacing: 0.4px; }
+        .meta-row .meta-value { font-weight: 600; color: #1a1a1a; margin-top: 1px; }
+
+        /* Section title */
+        .section-title {
+            font-size: 9px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: #4f46e5;
+            border-bottom: 1.5px solid #4f46e5;
+            padding-bottom: 3px;
+            margin-bottom: 6px;
+            margin-top: 10px;
+        }
+
+        /* Info grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            border: 1px solid #e8e8e8;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .info-grid.single { grid-template-columns: 1fr; }
+        .info-cell {
+            padding: 5px 10px;
+            border-bottom: 1px solid #f0f0f0;
+            border-right: 1px solid #f0f0f0;
+        }
+        .info-cell:nth-child(even) { border-right: none; }
+        .info-cell:last-child, .info-cell:nth-last-child(2):nth-child(odd) { border-bottom: none; }
+        .info-cell .cell-label { font-size: 9px; color: #888; text-transform: uppercase; letter-spacing: 0.3px; }
+        .info-cell .cell-value { font-size: 11px; font-weight: 500; color: #1a1a1a; margin-top: 1px; }
+        .info-cell .cell-value.highlight { color: #059669; font-weight: 700; }
+        .info-cell .cell-value.priority-urgent { color: #dc2626; font-weight: 700; }
+        .info-cell .cell-value.priority-high { color: #d97706; font-weight: 700; }
+        .info-cell .cell-value.priority-normal { color: #059669; font-weight: 700; }
+
+        /* Status badge */
+        .badge-completed {
+            display: inline-block;
+            background: #d1fae5;
+            color: #065f46;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 10px;
+            font-weight: 600;
+        }
+
+        /* Signature */
+        .signature-row {
+            display: flex;
+            gap: 12px;
+            margin-top: 14px;
+        }
+        .sig-box {
+            flex: 1;
+            text-align: center;
+            padding-top: 28px;
+            border-top: 1px solid #333;
+        }
+        .sig-box .sig-name { font-size: 10px; font-weight: 600; color: #1a1a1a; }
+        .sig-box .sig-role { font-size: 9px; color: #888; margin-top: 1px; }
+
+        /* Footer */
+        .receipt-footer {
+            background: #f8f8f8;
+            border-top: 1px solid #e8e8e8;
+            padding: 8px 20px;
+            text-align: center;
+            font-size: 9px;
+            color: #888;
+            margin-top: 12px;
+        }
+
+        /* Print button */
+        .no-print {
+            text-align: center;
+            padding: 16px;
+        }
+        .no-print button {
+            padding: 8px 20px;
+            border-radius: 6px;
+            font-size: 13px;
+            cursor: pointer;
+            margin: 0 4px;
+        }
+        .btn-print { background: #4f46e5; color: #fff; border: none; }
+        .btn-close-btn { background: #fff; color: #555; border: 1px solid #ccc; }
+
+        /* ── PRINT ── */
         @media print {
-            body { background: #fff; }
-            .receipt-wrapper { border: none; margin: 0; box-shadow: none; }
+            @page {
+                size: A4 portrait;
+                margin: 10mm 12mm;
+            }
+            html, body { background: #fff !important; }
             .no-print { display: none !important; }
+            .receipt-wrapper {
+                width: 100%;
+                margin: 0;
+                border: none;
+                border-radius: 0;
+                box-shadow: none;
+            }
+            .receipt-header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .badge-completed { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
         }
     </style>
 </head>
 <body>
 
 <div class="receipt-wrapper">
-    <!-- Header -->
+
+    {{-- Header --}}
     <div class="receipt-header">
-        <h3 class="mb-1 fw-bold">SOUTHERN CHRISTIAN COLLEGE</h3>
-        <p class="mb-1 opacity-75">SCC ReportHub – Facility Maintenance System</p>
-        <h5 class="mt-3 mb-0">REPAIR COMPLETION RECEIPT</h5>
+        <img src="{{ asset('images/scc-logo.png') }}" alt="SCC Logo">
+        <div>
+            <div class="school-name">SOUTHERN CHRISTIAN COLLEGE</div>
+            <div class="doc-title">SCC ReportHub &mdash; Repair Completion Receipt</div>
+        </div>
+        <div class="ticket-no">
+            <div class="label">TICKET NO.</div>
+            <div class="value">{{ $ticket->ticket_number }}</div>
+        </div>
     </div>
 
-    <!-- Body -->
+    {{-- Body --}}
     <div class="receipt-body">
-        <div class="d-flex justify-content-between align-items-start mb-4">
-            <div>
-                <div class="text-muted small">Receipt Generated</div>
-                <div class="fw-semibold">{{ now()->format('F d, Y h:i A') }}</div>
-            </div>
-            <div class="text-end">
-                <div class="text-muted small">Ticket Number</div>
-                <div class="fw-bold fs-5 text-primary">{{ $ticket->ticket_number }}</div>
-            </div>
-        </div>
 
-        <h6 class="text-primary fw-bold border-bottom pb-2 mb-3">TICKET INFORMATION</h6>
-
-        <div class="info-row">
-            <div class="info-label">Title</div>
-            <div class="info-value">{{ $ticket->title }}</div>
-        </div>
-        <div class="info-row">
-            <div class="info-label">Description</div>
-            <div class="info-value">{{ $ticket->description }}</div>
-        </div>
-        <div class="info-row">
-            <div class="info-label">Facility Location</div>
-            <div class="info-value">{{ $ticket->facility?->full_location ?? 'Not specified' }}</div>
-        </div>
-        <div class="info-row">
-            <div class="info-label">Priority Level</div>
-            <div class="info-value text-capitalize fw-semibold">{{ $ticket->priority_level }}</div>
-        </div>
-        <div class="info-row">
-            <div class="info-label">Status</div>
-            <div class="info-value">
-                <span class="status-badge status-completed">{{ ucfirst($ticket->status) }}</span>
+        {{-- Meta --}}
+        <div class="meta-row">
+            <div class="meta-item">
+                <span class="meta-label">Date Generated</span>
+                <span class="meta-value">{{ now()->format('F d, Y h:i A') }}</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Date Submitted</span>
+                <span class="meta-value">{{ $ticket->created_at->format('F d, Y') }}</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Completion Date</span>
+                <span class="meta-value">{{ $ticket->completed_at?->format('F d, Y') ?? '—' }}</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Status</span>
+                <span class="meta-value"><span class="badge-completed">{{ ucfirst($ticket->status) }}</span></span>
             </div>
         </div>
-        <div class="info-row">
-            <div class="info-label">Submitted By</div>
-            <div class="info-value">{{ $ticket->user->full_name }} — {{ $ticket->user->department }}</div>
-        </div>
-        <div class="info-row">
-            <div class="info-label">Date Submitted</div>
-            <div class="info-value">{{ $ticket->created_at->format('F d, Y h:i A') }}</div>
+
+        {{-- Ticket Info --}}
+        <div class="section-title">Ticket Information</div>
+        <div class="info-grid">
+            <div class="info-cell">
+                <div class="cell-label">Title</div>
+                <div class="cell-value">{{ $ticket->title }}</div>
+            </div>
+            <div class="info-cell">
+                <div class="cell-label">Issue Category</div>
+                <div class="cell-value">{{ $ticket->category_label }}</div>
+            </div>
+            <div class="info-cell">
+                <div class="cell-label">Facility Location</div>
+                <div class="cell-value">{{ $ticket->facility?->full_location ?? 'Not specified' }}</div>
+            </div>
+            <div class="info-cell">
+                <div class="cell-label">Priority Level</div>
+                <div class="cell-value priority-{{ $ticket->priority_level }} text-capitalize">{{ $ticket->priority_level }}</div>
+            </div>
+            <div class="info-cell">
+                <div class="cell-label">Submitted By</div>
+                <div class="cell-value">{{ $ticket->user->full_name }}</div>
+            </div>
+            <div class="info-cell">
+                <div class="cell-label">Department</div>
+                <div class="cell-value">{{ $ticket->user->department }}</div>
+            </div>
         </div>
 
-        <h6 class="text-primary fw-bold border-bottom pb-2 mb-3 mt-4">REPAIR INFORMATION</h6>
+        {{-- Description --}}
+        <div class="info-grid single" style="margin-top:4px;">
+            <div class="info-cell">
+                <div class="cell-label">Description</div>
+                <div class="cell-value">{{ $ticket->description }}</div>
+            </div>
+        </div>
 
-        <div class="info-row">
-            <div class="info-label">Assigned Personnel</div>
-            <div class="info-value">{{ $ticket->assignedStaff?->full_name ?? '—' }}</div>
+        {{-- Repair Info --}}
+        <div class="section-title">Repair Information</div>
+        <div class="info-grid">
+            <div class="info-cell">
+                <div class="cell-label">Assigned Personnel</div>
+                <div class="cell-value">{{ $ticket->assignedStaff?->full_name ?? '—' }}</div>
+            </div>
+            <div class="info-cell">
+                <div class="cell-label">Repair Cost</div>
+                <div class="cell-value highlight">₱{{ $latestLog ? number_format($latestLog->repair_cost, 2) : '0.00' }}</div>
+            </div>
+            @if($latestLog)
+            <div class="info-cell">
+                <div class="cell-label">Action Taken</div>
+                <div class="cell-value">{{ $latestLog->action_taken }}</div>
+            </div>
+            <div class="info-cell">
+                <div class="cell-label">Materials Used</div>
+                <div class="cell-value">{{ $latestLog->materials_used ?? '—' }}</div>
+            </div>
+            @endif
         </div>
-        @if($latestLog)
-        <div class="info-row">
-            <div class="info-label">Action Taken</div>
-            <div class="info-value">{{ $latestLog->action_taken }}</div>
-        </div>
-        <div class="info-row">
-            <div class="info-label">Resolution Notes</div>
-            <div class="info-value">{{ $latestLog->repair_notes ?? '—' }}</div>
-        </div>
-        <div class="info-row">
-            <div class="info-label">Materials Used</div>
-            <div class="info-value">{{ $latestLog->materials_used ?? '—' }}</div>
-        </div>
-        <div class="info-row">
-            <div class="info-label">Repair Cost</div>
-            <div class="info-value fw-bold text-success">₱{{ number_format($latestLog->repair_cost, 2) }}</div>
+
+        @if($latestLog && $latestLog->repair_notes)
+        <div class="info-grid single" style="margin-top:4px;">
+            <div class="info-cell">
+                <div class="cell-label">Resolution Notes</div>
+                <div class="cell-value">{{ $latestLog->repair_notes }}</div>
+            </div>
         </div>
         @endif
-        <div class="info-row">
-            <div class="info-label">Completion Date</div>
-            <div class="info-value">{{ $ticket->completed_at?->format('F d, Y h:i A') ?? '—' }}</div>
+
+        {{-- Signatures --}}
+        <div class="signature-row">
+            <div class="sig-box">
+                <div class="sig-name">{{ $ticket->user->full_name }}</div>
+                <div class="sig-role">Submitted By</div>
+            </div>
+            <div class="sig-box">
+                <div class="sig-name">{{ $ticket->assignedStaff?->full_name ?? '—' }}</div>
+                <div class="sig-role">Performed By</div>
+            </div>
+            <div class="sig-box">
+                <div class="sig-name">{{ $ticket->approvedBy?->full_name ?? 'Administrator' }}</div>
+                <div class="sig-role">Verified By</div>
+            </div>
         </div>
 
-        <!-- Signature Lines -->
-        <div class="row mt-5">
-            <div class="col-4 text-center">
-                <div style="border-top: 1px solid #333; padding-top: 8px;">
-                    <div class="small fw-semibold">Submitted By</div>
-                    <div class="text-muted small">{{ $ticket->user->full_name }}</div>
-                </div>
-            </div>
-            <div class="col-4 text-center">
-                <div style="border-top: 1px solid #333; padding-top: 8px;">
-                    <div class="small fw-semibold">Performed By</div>
-                    <div class="text-muted small">{{ $ticket->assignedStaff?->full_name ?? '—' }}</div>
-                </div>
-            </div>
-            <div class="col-4 text-center">
-                <div style="border-top: 1px solid #333; padding-top: 8px;">
-                    <div class="small fw-semibold">Verified By</div>
-                    <div class="text-muted small">{{ $ticket->approvedBy?->full_name ?? 'Administrator' }}</div>
-                </div>
-            </div>
-        </div>
     </div>
 
-    <!-- Footer -->
+    {{-- Footer --}}
     <div class="receipt-footer">
-        <p class="mb-1 small text-muted">This is an official repair receipt generated by SCC ReportHub.</p>
-        <p class="mb-0 small text-muted">Southern Christian College – Facilities & Maintenance Department</p>
+        This is an official repair receipt generated by SCC ReportHub &nbsp;&bull;&nbsp;
+        Southern Christian College – Facilities &amp; Maintenance Department
     </div>
+
 </div>
 
-<div class="text-center mt-3 no-print">
-    <button onclick="window.print()" class="btn btn-primary me-2">
-        <i class="fas fa-print me-2"></i>Print Receipt
+<div class="no-print">
+    <button class="btn-print" onclick="window.print()">
+        <i class="fas fa-print"></i> Print Receipt
     </button>
-    <button onclick="window.close()" class="btn btn-outline-secondary">Close</button>
+    <button class="btn-close-btn" onclick="window.close()">Close</button>
 </div>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </body>
 </html>
