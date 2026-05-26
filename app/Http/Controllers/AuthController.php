@@ -79,7 +79,10 @@ class AuthController extends Controller
 
         $photoPath = null;
         if ($request->hasFile('profile_photo')) {
-            $photoPath = $request->file('profile_photo')->store('profile_photos', 'public');
+            $uploaded = cloudinary()->upload($request->file('profile_photo')->getRealPath(), [
+                'folder' => 'scc-reporthub/profile_photos',
+            ]);
+            $photoPath = $uploaded->getSecurePath();
         }
 
         $user = User::create([

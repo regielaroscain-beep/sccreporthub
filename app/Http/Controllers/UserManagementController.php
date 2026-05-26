@@ -64,7 +64,10 @@ class UserManagementController extends Controller
 
         $photoPath = null;
         if ($request->hasFile('profile_photo')) {
-            $photoPath = $request->file('profile_photo')->store('profile_photos', 'public');
+            $uploaded = cloudinary()->upload($request->file('profile_photo')->getRealPath(), [
+                'folder' => 'scc-reporthub/profile_photos',
+            ]);
+            $photoPath = $uploaded->getSecurePath();
         }
 
         User::create([
@@ -110,7 +113,10 @@ class UserManagementController extends Controller
         $data = $request->only('role_id', 'first_name', 'last_name', 'email', 'department', 'specialization', 'contact_number', 'status');
 
         if ($request->hasFile('profile_photo')) {
-            $data['profile_photo'] = $request->file('profile_photo')->store('profile_photos', 'public');
+            $uploaded = cloudinary()->upload($request->file('profile_photo')->getRealPath(), [
+                'folder' => 'scc-reporthub/profile_photos',
+            ]);
+            $data['profile_photo'] = $uploaded->getSecurePath();
         }
 
         if ($request->filled('password')) {
@@ -170,7 +176,10 @@ class UserManagementController extends Controller
         $data = $request->only('first_name', 'last_name', 'department', 'contact_number');
 
         if ($request->hasFile('profile_photo')) {
-            $data['profile_photo'] = $request->file('profile_photo')->store('profile_photos', 'public');
+            $uploaded = cloudinary()->upload($request->file('profile_photo')->getRealPath(), [
+                'folder' => 'scc-reporthub/profile_photos',
+            ]);
+            $data['profile_photo'] = $uploaded->getSecurePath();
         }
 
         $user->update($data);
