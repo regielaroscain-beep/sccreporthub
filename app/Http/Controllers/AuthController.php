@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Cloudinary\Cloudinary;
+use Cloudinary\Configuration\Configuration;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -79,10 +81,9 @@ class AuthController extends Controller
 
         $photoPath = null;
         if ($request->hasFile('profile_photo')) {
-            $uploaded = cloudinary()->upload($request->file('profile_photo')->getRealPath(), [
-                'folder' => 'scc-reporthub/profile_photos',
-            ]);
-            $photoPath = $uploaded->getSecurePath();
+            $cloudinary = new Cloudinary(Configuration::instance(env('CLOUDINARY_URL')));
+            $result = $cloudinary->uploadApi()->upload($request->file('profile_photo')->getRealPath(), ['folder' => 'scc-reporthub/profile_photos']);
+            $photoPath = $result['secure_url'];
         }
 
         $user = User::create([
