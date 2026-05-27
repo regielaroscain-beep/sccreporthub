@@ -8,6 +8,8 @@ use App\Http\Controllers\MaintenanceController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\UserManagementController;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,17 +24,32 @@ Route::get('/', fn() => redirect()->route('login'));
 // ─── Authentication Routes ────────────────────────────────────────────────────
 Route::middleware('guest')->group(function () {
     Route::get('/login',    [AuthController::class, 'showLogin'])->name('login');
-    Route::post('/login',   [AuthController::class, 'login'])->name('login.post');
+    Route::post('/login',   [AuthController::class, 'login'])->middleware('throttle:5,1')->name('login.post');
     Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
-    Route::post('/register',[AuthController::class, 'register'])->name('register.post');
+    Route::post('/register',[AuthController::class, 'register'])->middleware('throttle:10,1')->name('register.post');
     Route::get('/forgot-password',  [AuthController::class, 'showForgotPassword'])->name('password.request');
-    Route::post('/forgot-password', [AuthController::class, 'forgotPassword'])->name('password.email');
+    Route::post('/forgot-password', [AuthController::class, 'forgotPassword'])->middleware('throttle:5,1')->name('password.email');
 });
 
 Route::middleware('auth')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('/change-password',  [AuthController::class, 'showChangePassword'])->name('password.change');
     Route::post('/change-password', [AuthController::class, 'changePassword'])->name('password.update');
+
+    // ─── Email Verification ───────────────────────────────────────────────────
+    Route::get('/email/verify', fn() => view('auth.verify-email'))->name('verification.notice');
+    Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+        $request->fulfill();
+        return redirect()->route('login')->with('success', 'Email verified successfully! You can now log in.');
+    })->middleware('signed')->name('verification.verify');
+    Route::post('/email/verification-notification', function (Request $request) {
+        try {
+            $request->user()->sendEmailVerificationNotification();
+            return back()->with('success', 'Verification link sent to your email!');
+        } catch (\Exception $e) {
+            return back()->with('error', 'Failed to send email. Please try again later.');
+        }
+    })->middleware('throttle:3,1')->name('verification.send');
 
     // ─── Profile ──────────────────────────────────────────────────────────────
     Route::get('/profile',  [UserManagementController::class, 'profile'])->name('profile.edit');
@@ -98,7 +115,7 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
 });
 
 // ─── Faculty / Staff Routes ───────────────────────────────────────────────────
-Route::middleware(['auth', 'faculty'])->prefix('faculty')->name('faculty.')->group(function () {
+Route::middleware(['auth', 'verified', 'faculty'])->prefix('faculty')->name('faculty.')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'facultyDashboard'])->name('dashboard');
 
     // Tickets

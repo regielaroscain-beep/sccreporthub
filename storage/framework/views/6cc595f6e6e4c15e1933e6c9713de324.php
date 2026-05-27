@@ -63,7 +63,7 @@ $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>"
-                   value="<?php echo e(old('email')); ?>" placeholder="your@email.com" required>
+                   value="<?php echo e(old('email')); ?>" placeholder="yourname@southernchristiancollege.edu.ph" required>
             <?php $__errorArgs = ['email'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -72,6 +72,10 @@ $message = $__bag->first($__errorArgs[0]); ?><div class="invalid-feedback"><?php
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
+        </div>
+        <div class="form-text mt-1">
+            <i class="fas fa-info-circle me-1"></i>
+            Must use your institutional email (<code>@southernchristiancollege.edu.ph</code>)
         </div>
     </div>
 
@@ -144,6 +148,10 @@ $message = $__bag->first($__errorArgs[0]); ?><div class="invalid-feedback"><?php
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
+        </div>
+        <div class="form-text mt-1">
+            <i class="fas fa-info-circle me-1"></i>
+            Must be at least 8 characters with uppercase, lowercase, number, and special character (e.g. <code>Pass@1234</code>)
         </div>
     </div>
 

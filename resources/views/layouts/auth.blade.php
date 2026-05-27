@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title', 'SCC ReportHub') – Southern Christian College</title>
 
@@ -12,6 +12,41 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     @stack('styles')
+    <style>
+        /* ── Mobile: full white, no scroll, no blue sides ── */
+        @media (max-width: 768px) {
+            html, body.auth-body {
+                height: 100% !important;
+                min-height: 100% !important;
+                overflow: hidden !important;
+                background: #ffffff !important;
+                padding: 0 !important;
+            }
+            body.auth-body::before,
+            body.auth-body::after {
+                display: none !important;
+            }
+            .auth-wrapper {
+                width: 100% !important;
+                max-width: 100% !important;
+                height: 100% !important;
+                display: flex !important;
+                align-items: flex-start !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+            .auth-card {
+                width: 100% !important;
+                height: 100% !important;
+                min-height: 100vh !important;
+                border-radius: 0 !important;
+                box-shadow: none !important;
+                padding: 24px 20px !important;
+                overflow-y: auto !important;
+                background: #ffffff !important;
+            }
+        }
+    </style>
 </head>
 <body class="auth-body" id="authBody">
 

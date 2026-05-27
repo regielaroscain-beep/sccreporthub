@@ -28,8 +28,12 @@
         <div class="input-group">
             <span class="input-group-text"><i class="fas fa-envelope text-muted"></i></span>
             <input type="email" name="email" class="form-control @error('email') is-invalid @enderror"
-                   value="{{ old('email') }}" placeholder="your@email.com" required>
+                   value="{{ old('email') }}" placeholder="yourname@southernchristiancollege.edu.ph" required>
             @error('email')<div class="invalid-feedback">{{ $message }}</div>@enderror
+        </div>
+        <div class="form-text mt-1">
+            <i class="fas fa-info-circle me-1"></i>
+            Must use your institutional email (<code>@southernchristiancollege.edu.ph</code>)
         </div>
     </div>
 
@@ -60,6 +64,10 @@
                 <i class="fas fa-eye text-muted" id="eye1"></i>
             </button>
             @error('password')<div class="invalid-feedback">{{ $message }}</div>@enderror
+        </div>
+        <div class="form-text mt-1">
+            <i class="fas fa-info-circle me-1"></i>
+            Must be at least 8 characters with uppercase, lowercase, number, and special character (e.g. <code>Pass@1234</code>)
         </div>
     </div>
 

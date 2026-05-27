@@ -4,6 +4,21 @@
 <?php $__env->startSection('content'); ?>
 
 
+<?php
+    $ipLockKey = 'login_locked_ip_' . md5(request()->ip());
+    $lockedUntil = session($ipLockKey);
+    $isLocked = $lockedUntil && $lockedUntil > now()->timestamp;
+    $lockSeconds = $isLocked ? ($lockedUntil - now()->timestamp) : 0;
+?>
+
+<?php if($isLocked): ?>
+<div class="alert alert-danger d-flex align-items-center gap-2 mb-3" id="lockoutAlert">
+    <i class="fas fa-lock"></i>
+    <span>Too many failed attempts. Try again in <strong id="lockCountdown"><?php echo e($lockSeconds); ?></strong> second(s).</span>
+</div>
+<?php endif; ?>
+
+
 <div class="text-center mb-3">
     <div class="auth-logo-wrap mx-auto mb-2">
         <img src="<?php echo e(asset('images/scc-logo.png')); ?>" alt="SCC Logo"
@@ -174,6 +189,26 @@ document.querySelectorAll('input[name="login_role"]').forEach(r => {
     r.addEventListener('change', updateRegisterLink);
 });
 updateRegisterLink();
+
+// ── Lockout Countdown ─────────────────────────────────────────────────────────
+const countdownEl = document.getElementById('lockCountdown');
+if (countdownEl) {
+    // Disable submit button while locked
+    const submitBtn = document.querySelector('button[type="submit"]');
+    if (submitBtn) submitBtn.disabled = true;
+
+    let seconds = parseInt(countdownEl.textContent);
+    const timer = setInterval(() => {
+        seconds--;
+        if (seconds <= 0) {
+            clearInterval(timer);
+            // Reload page to clear lockout banner and re-enable form
+            window.location.reload();
+        } else {
+            countdownEl.textContent = seconds;
+        }
+    }, 1000);
+}
 </script>
 <?php $__env->stopPush(); ?>
 

@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use Illuminate\Validation\Rules\Password;
 
 class AuthController extends Controller
@@ -21,6 +22,10 @@ class AuthController extends Controller
         if (Auth::check()) {
             return $this->redirectByRole(Auth::user());
         }
+
+        // ── Pass lockout info to view if locked ───────────────────────────────
+        $lockKey = 'login_locked_' . md5('');
+        // We pass the lock expiry so the view can show countdown
         return view('auth.login');
     }
 
@@ -33,7 +38,23 @@ class AuthController extends Controller
             'password' => ['required'],
         ]);
 
+        // ── Track failed attempts via session ─────────────────────────────────
+        $sessionKey = 'login_attempts_' . md5(Str::lower($request->email));
+        $lockKey    = 'login_locked_' . md5(Str::lower($request->email));
+        $ipLockKey  = 'login_locked_ip_' . md5($request->ip());
+
+        // Check if locked out (by email or IP)
+        $lockedUntil = session($lockKey) ?? session($ipLockKey);
+        if ($lockedUntil && $lockedUntil > now()->timestamp) {
+            $seconds = $lockedUntil - now()->timestamp;
+            return back()->withErrors([
+                'email' => "Too many login attempts. Please try again in {$seconds} seconds.",
+            ])->onlyInput('email');
+        }
+
         if (Auth::attempt($credentials, $request->boolean('remember'))) {
+            // Clear attempts on success
+            session()->forget([$sessionKey, $lockKey, $ipLockKey]);
             $request->session()->regenerate();
 
             $user = Auth::user();
@@ -48,8 +69,25 @@ class AuthController extends Controller
             return $this->redirectByRole($user);
         }
 
+        // ── Increment failed attempts ─────────────────────────────────────────
+        $attempts = session($sessionKey, 0) + 1;
+        session([$sessionKey => $attempts]);
+
+        $remaining = max(0, 5 - $attempts);
+
+        if ($attempts >= 5) {
+            // Lock for 60 seconds — store with IP-based key so it persists on refresh
+            $ipLockKey = 'login_locked_ip_' . md5($request->ip());
+            session([$lockKey => now()->addSeconds(60)->timestamp]);
+            session([$ipLockKey => now()->addSeconds(60)->timestamp]);
+            session()->forget($sessionKey);
+            return back()->withErrors([
+                'email' => 'Too many failed attempts. Please wait 1 minute before trying again.',
+            ])->onlyInput('email');
+        }
+
         return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
+            'email' => "The provided credentials do not match our records. {$remaining} attempt(s) remaining.",
         ])->onlyInput('email');
     }
 
@@ -70,10 +108,14 @@ class AuthController extends Controller
         $request->validate([
             'first_name'     => ['required', 'string', 'max:100'],
             'last_name'      => ['required', 'string', 'max:100'],
-            'email'          => ['required', 'email', 'unique:users,email'],
+            'email'          => ['required', 'email', 'unique:users,email', 'ends_with:@southernchristiancollege.edu.ph'],
             'department'     => ['required', 'string', 'max:150'],
             'contact_number' => ['required', 'string', 'max:20'],
-            'password'       => ['required', 'confirmed', Password::min(8)],
+            'password'       => ['required', 'confirmed', Password::min(8)
+                                    ->mixedCase()
+                                    ->numbers()
+                                    ->symbols()
+                                    ->uncompromised()],
             'profile_photo'  => ['nullable', 'image', 'mimes:jpg,jpeg,png', 'max:10240'],
         ]);
 
@@ -100,8 +142,14 @@ class AuthController extends Controller
 
         Auth::login($user);
 
-        return redirect()->route('faculty.dashboard')
-            ->with('success', 'Welcome to SCC ReportHub! Your account has been created.');
+        try {
+            $user->sendEmailVerificationNotification();
+        } catch (\Exception $e) {
+            // Mail failed but account was created — user can resend from verify page
+        }
+
+        return redirect()->route('verification.notice')
+            ->with('success', 'Account created! Please check your email to verify your account.');
     }
 
     // ─── Logout ───────────────────────────────────────────────────────────────
@@ -148,7 +196,10 @@ class AuthController extends Controller
     {
         $request->validate([
             'current_password' => ['required'],
-            'password'         => ['required', 'confirmed', Password::min(8)],
+            'password'         => ['required', 'confirmed', Password::min(8)
+                                    ->mixedCase()
+                                    ->numbers()
+                                    ->symbols()],
         ]);
 
         $user = Auth::user();
