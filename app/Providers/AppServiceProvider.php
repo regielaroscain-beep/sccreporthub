@@ -4,17 +4,17 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\URL;
-use Illuminate\Support\Facades\Mail;
-use App\Mail\ResendTransport;
-use Symfony\Component\Mailer\Transport\Dsn;
+use Illuminate\Mail\MailManager;
 
 class AppServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
         // Register Resend HTTP transport
-        Mail::extend('resend', function () {
-            return new ResendTransport(env('RESEND_API_KEY', ''));
+        $this->app->afterResolving(MailManager::class, function (MailManager $manager) {
+            $manager->extend('resend', function () {
+                return new \App\Mail\ResendTransport(env('RESEND_API_KEY', ''));
+            });
         });
     }
 
