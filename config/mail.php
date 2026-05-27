@@ -11,7 +11,10 @@ return [
             'encryption' => env('MAIL_ENCRYPTION', 'ssl'),
             'username'   => env('MAIL_USERNAME', 'resend'),
             'password'   => env('MAIL_PASSWORD'),
-            'timeout'    => null,
+            'timeout'    => 10,
+        ],
+        'resend' => [
+            'transport' => 'resend',
         ],
         'log' => [
             'transport' => 'log',
