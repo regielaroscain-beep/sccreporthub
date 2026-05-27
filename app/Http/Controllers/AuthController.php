@@ -142,11 +142,7 @@ class AuthController extends Controller
 
         Auth::login($user);
 
-        try {
-            $user->sendEmailVerificationNotification();
-        } catch (\Exception $e) {
-            \Illuminate\Support\Facades\Log::error('Email verification failed: ' . $e->getMessage());
-        }
+        $user->sendEmailVerificationNotification();
 
         return redirect()->route('verification.notice')
             ->with('success', 'Account created! Please check your email to verify your account.');
