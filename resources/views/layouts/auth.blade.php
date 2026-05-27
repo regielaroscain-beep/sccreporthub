@@ -18,7 +18,7 @@
             html, body.auth-body {
                 height: 100% !important;
                 min-height: 100% !important;
-                overflow: hidden !important;
+                overflow-y: auto !important;
                 background: #ffffff !important;
                 padding: 0 !important;
             }
@@ -29,7 +29,7 @@
             .auth-wrapper {
                 width: 100% !important;
                 max-width: 100% !important;
-                height: 100% !important;
+                min-height: 100% !important;
                 display: flex !important;
                 align-items: flex-start !important;
                 padding: 0 !important;
@@ -37,11 +37,10 @@
             }
             .auth-card {
                 width: 100% !important;
-                height: 100% !important;
                 min-height: 100vh !important;
                 border-radius: 0 !important;
                 box-shadow: none !important;
-                padding: 24px 20px !important;
+                padding: 16px 20px 32px !important;
                 overflow-y: auto !important;
                 background: #ffffff !important;
             }
