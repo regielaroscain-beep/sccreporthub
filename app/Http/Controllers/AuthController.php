@@ -145,19 +145,12 @@ class AuthController extends Controller
 
         try {
             $user->sendEmailVerificationNotification();
-
-            return redirect()->route('verification.notice')
-                ->with('success', 'Account created! Please check your email to verify your account.');
         } catch (\Exception $e) {
             Log::error('Verification email failed: ' . $e->getMessage());
-
-            // Email sending failed (e.g. mail service not configured).
-            // Mark the user as verified so they can still use the system.
-            $user->markEmailAsVerified();
-
-            return redirect()->route('faculty.dashboard')
-                ->with('success', 'Account created successfully! Email verification is currently unavailable, but your account is active.');
         }
+
+        return redirect()->route('verification.notice')
+            ->with('success', 'Account created! Please check your email to verify your account.');
     }
 
     // ─── Logout ───────────────────────────────────────────────────────────────
