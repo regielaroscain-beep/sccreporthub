@@ -16,6 +16,19 @@ class AppServiceProvider extends ServiceProvider
             URL::forceScheme('https');
         }
 
+        // Ensure storage directories exist
+        $dirs = [
+            storage_path('framework/views'),
+            storage_path('framework/sessions'),
+            storage_path('framework/cache/data'),
+            storage_path('logs'),
+        ];
+        foreach ($dirs as $dir) {
+            if (!is_dir($dir)) {
+                mkdir($dir, 0775, true);
+            }
+        }
+
         // Share unread notification count with all views
         view()->composer('*', function ($view) {
             if (auth()->check()) {
