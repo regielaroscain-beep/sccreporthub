@@ -13,6 +13,9 @@ return [
             'password'   => env('MAIL_PASSWORD'),
             'timeout'    => 15,
         ],
+        'resend' => [
+            'transport' => 'resend',
+        ],
         'log' => [
             'transport' => 'log',
             'channel'   => env('MAIL_LOG_CHANNEL'),
