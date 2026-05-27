@@ -7,9 +7,9 @@ cmds = ["composer update --no-dev --optimize-autoloader --no-interaction"]
 [phases.build]
 cmds = [
     "mkdir -p storage/framework/views storage/framework/sessions storage/framework/cache/data storage/logs",
+    "chmod -R 775 storage bootstrap/cache",
     "php artisan config:cache",
-    "php artisan route:cache",
-    "php artisan view:cache"
+    "php artisan route:cache"
 ]
 
 [start]
