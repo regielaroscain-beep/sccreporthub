@@ -4,18 +4,12 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\URL;
-use Illuminate\Mail\MailManager;
 
 class AppServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
-        // Register Resend HTTP transport
-        $this->app->afterResolving(MailManager::class, function (MailManager $manager) {
-            $manager->extend('resend', function () {
-                return new \App\Mail\ResendTransport(env('RESEND_API_KEY', ''));
-            });
-        });
+        //
     }
 
     public function boot(): void

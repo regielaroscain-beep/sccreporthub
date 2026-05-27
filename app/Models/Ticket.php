@@ -36,7 +36,6 @@ class Ticket extends Model
     protected $fillable = [
         'ticket_number',
         'user_id',
-        'category_id',
         'issue_category',
         'location_id',
         'title',
@@ -147,37 +146,5 @@ class Ticket extends Model
     public function feedback()
     {
         return $this->hasOne(Feedback::class);
-    }
-
-    // ─── Scopes ───────────────────────────────────────────────────────────────
-
-    public function scopePending($query)
-    {
-        return $query->where('status', self::STATUS_PENDING);
-    }
-
-    public function scopeApproved($query)
-    {
-        return $query->where('status', self::STATUS_APPROVED);
-    }
-
-    public function scopeAssigned($query)
-    {
-        return $query->where('status', self::STATUS_ASSIGNED);
-    }
-
-    public function scopeOngoing($query)
-    {
-        return $query->where('status', self::STATUS_ONGOING);
-    }
-
-    public function scopeCompleted($query)
-    {
-        return $query->where('status', self::STATUS_COMPLETED);
-    }
-
-    public function scopeUrgent($query)
-    {
-        return $query->where('priority_level', self::PRIORITY_URGENT);
     }
 }

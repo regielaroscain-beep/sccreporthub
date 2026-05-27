@@ -8,7 +8,6 @@ use App\Http\Controllers\MaintenanceController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\UserManagementController;
-use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -35,21 +34,6 @@ Route::middleware('auth')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('/change-password',  [AuthController::class, 'showChangePassword'])->name('password.change');
     Route::post('/change-password', [AuthController::class, 'changePassword'])->name('password.update');
-
-    // ─── Email Verification ───────────────────────────────────────────────────
-    Route::get('/email/verify', fn() => view('auth.verify-email'))->name('verification.notice');
-    Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
-        $request->fulfill();
-        return redirect()->route('login')->with('success', 'Email verified successfully! You can now log in.');
-    })->middleware('signed')->name('verification.verify');
-    Route::post('/email/verification-notification', function (Request $request) {
-        try {
-            $request->user()->sendEmailVerificationNotification();
-            return back()->with('success', 'Verification link sent to your email!');
-        } catch (\Exception $e) {
-            return back()->with('error', 'Failed to send email. Please try again later.');
-        }
-    })->middleware('throttle:3,1')->name('verification.send');
 
     // ─── Profile ──────────────────────────────────────────────────────────────
     Route::get('/profile',  [UserManagementController::class, 'profile'])->name('profile.edit');

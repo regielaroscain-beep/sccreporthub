@@ -9,8 +9,6 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rules\Password;
 
@@ -24,9 +22,6 @@ class AuthController extends Controller
             return $this->redirectByRole(Auth::user());
         }
 
-        // ── Pass lockout info to view if locked ───────────────────────────────
-        $lockKey = 'login_locked_' . md5('');
-        // We pass the lock expiry so the view can show countdown
         return view('auth.login');
     }
 
@@ -173,8 +168,6 @@ class AuthController extends Controller
             'email' => ['required', 'email', 'exists:users,email'],
         ]);
 
-        // In a real deployment, send a password reset email.
-        // For this local system, we show a success message.
         return back()->with('success', 'If an account with that email exists, a reset link has been sent.');
     }
 
