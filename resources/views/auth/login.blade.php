@@ -19,18 +19,18 @@
 @endif
 
 {{-- Logo + Branding --}}
-<div class="text-center mb-2">
+<div class="text-center mb-3">
     <div class="auth-logo-wrap mx-auto mb-2">
         <img src="{{ asset('images/scc-logo.png') }}" alt="SCC Logo"
              id="authLogo"
-             style="width:70px;height:70px;object-fit:contain;"
+             style="width:85px;height:85px;object-fit:contain;"
              onerror="this.style.display='none'">
     </div>
     <h4 class="fw-bold mb-0" style="background:linear-gradient(135deg,#4f46e5,#06b6d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">SCC ReportHub</h4>
     <p class="text-muted small mb-0">Southern Christian College</p>
     <p class="text-muted small mb-0">Campus Facility Status Report & Monitoring System</p>
 </div>
-<hr class="mb-2">
+<hr class="mb-3">
 
 <h5 class="text-center fw-semibold mb-4">Sign In to Your Account</h5>
 
@@ -109,7 +109,8 @@
 </form>
 
 {{-- Show register link only for Faculty/Staff --}}
-<div id="registerLink" class="mt-3 text-center" style="display:none;">
+<div id="registerLink" class="mt-4 text-center" style="display:none;">
+    <hr class="mb-3">
     <p class="text-muted small mb-0">
         Don't have an account?
         <a href="{{ route('register') }}" class="text-primary fw-semibold">Create an account</a>
