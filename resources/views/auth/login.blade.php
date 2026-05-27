@@ -23,7 +23,7 @@
     <div class="auth-logo-wrap mx-auto mb-2">
         <img src="{{ asset('images/scc-logo.png') }}" alt="SCC Logo"
              id="authLogo"
-             style="width:85px;height:85px;object-fit:contain;"
+             style="width:85px;height:85px;object-fit:contain;background:#ffffff;border-radius:50%;padding:4px;"
              onerror="this.style.display='none'">
     </div>
     <h4 class="fw-bold mb-0" style="background:linear-gradient(135deg,#4f46e5,#06b6d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">SCC ReportHub</h4>
