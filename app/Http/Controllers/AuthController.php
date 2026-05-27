@@ -145,7 +145,7 @@ class AuthController extends Controller
         try {
             $user->sendEmailVerificationNotification();
         } catch (\Exception $e) {
-            // Mail failed but account was created — user can resend from verify page
+            \Illuminate\Support\Facades\Log::error('Email verification failed: ' . $e->getMessage());
         }
 
         return redirect()->route('verification.notice')
