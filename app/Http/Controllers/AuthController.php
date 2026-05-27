@@ -9,6 +9,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rules\Password;
@@ -142,10 +143,21 @@ class AuthController extends Controller
 
         Auth::login($user);
 
-        $user->sendEmailVerificationNotification();
+        try {
+            $user->sendEmailVerificationNotification();
 
-        return redirect()->route('verification.notice')
-            ->with('success', 'Account created! Please check your email to verify your account.');
+            return redirect()->route('verification.notice')
+                ->with('success', 'Account created! Please check your email to verify your account.');
+        } catch (\Exception $e) {
+            Log::error('Verification email failed: ' . $e->getMessage());
+
+            // Email sending failed (e.g. mail service not configured).
+            // Mark the user as verified so they can still use the system.
+            $user->markEmailAsVerified();
+
+            return redirect()->route('faculty.dashboard')
+                ->with('success', 'Account created successfully! Email verification is currently unavailable, but your account is active.');
+        }
     }
 
     // ─── Logout ───────────────────────────────────────────────────────────────
