@@ -115,7 +115,7 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
 });
 
 // ─── Faculty / Staff Routes ───────────────────────────────────────────────────
-Route::middleware(['auth', 'verified', 'faculty'])->prefix('faculty')->name('faculty.')->group(function () {
+Route::middleware(['auth', 'faculty'])->prefix('faculty')->name('faculty.')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'facultyDashboard'])->name('dashboard');
 
     // Tickets

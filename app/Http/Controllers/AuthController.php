@@ -143,14 +143,8 @@ class AuthController extends Controller
 
         Auth::login($user);
 
-        try {
-            $user->sendEmailVerificationNotification();
-        } catch (\Exception $e) {
-            Log::error('Verification email failed: ' . $e->getMessage());
-        }
-
-        return redirect()->route('verification.notice')
-            ->with('success', 'Account created! Please check your email to verify your account.');
+        return redirect()->route('faculty.dashboard')
+            ->with('success', 'Account created successfully! Welcome to SCC ReportHub.');
     }
 
     // ─── Logout ───────────────────────────────────────────────────────────────
