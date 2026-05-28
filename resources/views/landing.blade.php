@@ -21,12 +21,13 @@
             position: fixed;
             top: 0; left: 0; right: 0;
             z-index: 1000;
-            padding: 14px 0;
+            padding: 12px 0;
             transition: background 0.3s, box-shadow 0.3s;
+            background: rgba(15,23,42,0.85);
+            backdrop-filter: blur(12px);
         }
         .landing-nav.scrolled {
             background: rgba(15,23,42,0.97);
-            backdrop-filter: blur(12px);
             box-shadow: 0 2px 20px rgba(0,0,0,0.3);
         }
         .nav-brand {
@@ -35,9 +36,9 @@
             gap: 10px;
             text-decoration: none;
         }
-        .nav-brand img { width: 38px; height: 38px; object-fit: contain; border-radius: 50%; }
+        .nav-brand img { width: 36px; height: 36px; object-fit: contain; border-radius: 50%; }
         .nav-brand-text .brand-title {
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 800;
             background: linear-gradient(135deg, #818cf8, #06b6d4);
             -webkit-background-clip: text;
@@ -46,7 +47,7 @@
             line-height: 1.1;
         }
         .nav-brand-text .brand-sub {
-            font-size: 0.65rem;
+            font-size: 0.6rem;
             color: rgba(255,255,255,0.5);
             display: block;
             letter-spacing: 0.05em;
@@ -65,10 +66,14 @@
             color: #fff;
             background: transparent;
             border-radius: 8px;
-            padding: 7px 20px;
+            padding: 7px 18px;
             font-size: 0.875rem;
             font-weight: 600;
             transition: all 0.2s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
         }
         .btn-nav-login:hover {
             background: rgba(255,255,255,0.1);
@@ -80,12 +85,69 @@
             color: #fff;
             border: none;
             border-radius: 8px;
-            padding: 7px 20px;
+            padding: 7px 18px;
             font-size: 0.875rem;
             font-weight: 600;
             transition: opacity 0.2s, transform 0.2s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
         }
         .btn-nav-signup:hover { opacity: 0.9; transform: translateY(-1px); color: #fff; }
+
+        /* ── Mobile fullscreen menu ── */
+        .mobile-menu-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 999;
+            background: rgba(15,23,42,0.98);
+            backdrop-filter: blur(16px);
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0;
+        }
+        .mobile-menu-overlay.open { display: flex; }
+        .mobile-menu-close {
+            position: absolute;
+            top: 18px; right: 20px;
+            background: none;
+            border: none;
+            color: rgba(255,255,255,0.7);
+            font-size: 1.6rem;
+            cursor: pointer;
+            line-height: 1;
+        }
+        .mobile-menu-overlay a.mobile-nav-link {
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            font-size: 1.4rem;
+            font-weight: 600;
+            padding: 14px 0;
+            width: 100%;
+            text-align: center;
+            border-bottom: 1px solid rgba(255,255,255,0.07);
+            transition: color 0.2s;
+        }
+        .mobile-menu-overlay a.mobile-nav-link:hover { color: #fff; }
+        .mobile-menu-cta {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            width: 80%;
+            max-width: 300px;
+            margin-top: 32px;
+        }
+        .mobile-menu-cta .btn-nav-login,
+        .mobile-menu-cta .btn-nav-signup {
+            width: 100%;
+            justify-content: center;
+            padding: 14px 20px;
+            font-size: 1rem;
+            border-radius: 12px;
+        }
 
         /* ── Hero ── */
         .hero-section {
@@ -403,21 +465,7 @@
         .footer-link:hover { color: #fff; }
 
         /* ── Mobile nav ── */
-        .navbar-toggler-icon-custom {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-            padding: 4px;
-        }
-        .navbar-toggler-icon-custom span {
-            display: block;
-            width: 22px;
-            height: 2px;
-            background: rgba(255,255,255,0.8);
-            border-radius: 2px;
-            transition: all 0.3s;
-        }
+        .navbar-toggler-icon-custom { display: none; }
 
         /* Scroll animation */
         .fade-up {
@@ -434,9 +482,29 @@
 <body style="font-family:'Inter','Segoe UI',system-ui,sans-serif;">
 
 <!-- ══════════════════════════════════════════════════════════
+     MOBILE FULLSCREEN MENU OVERLAY
+══════════════════════════════════════════════════════════ -->
+<div class="mobile-menu-overlay" id="mobileMenuOverlay">
+    <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">
+        <i class="fas fa-xmark"></i>
+    </button>
+    <a href="#features" class="mobile-nav-link">Features</a>
+    <a href="#how-it-works" class="mobile-nav-link">How It Works</a>
+    <a href="#roles" class="mobile-nav-link">Who It's For</a>
+    <div class="mobile-menu-cta">
+        <a href="{{ route('login') }}" class="btn-nav-login">
+            <i class="fas fa-arrow-right-to-bracket"></i> Log In
+        </a>
+        <a href="{{ route('register') }}" class="btn-nav-signup">
+            <i class="fas fa-user-plus"></i> Sign Up
+        </a>
+    </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
      NAVBAR
 ══════════════════════════════════════════════════════════ -->
-<nav class="landing-nav" id="landingNav">
+<nav class="landing-nav scrolled" id="landingNav">
     <div class="container">
         <div class="d-flex align-items-center justify-content-between">
 
@@ -459,36 +527,25 @@
 
             <!-- Desktop CTA buttons -->
             <div class="d-none d-md-flex align-items-center gap-2">
-                <a href="{{ route('login') }}" class="btn btn-nav-login">
-                    <i class="fas fa-arrow-right-to-bracket me-1"></i> Log In
+                <a href="{{ route('login') }}" class="btn-nav-login">
+                    <i class="fas fa-arrow-right-to-bracket"></i> Log In
                 </a>
-                <a href="{{ route('register') }}" class="btn btn-nav-signup">
-                    <i class="fas fa-user-plus me-1"></i> Sign Up
+                <a href="{{ route('register') }}" class="btn-nav-signup">
+                    <i class="fas fa-user-plus"></i> Sign Up
                 </a>
             </div>
 
-            <!-- Mobile hamburger -->
-            <button class="btn btn-link d-md-none p-1" id="mobileMenuBtn" aria-label="Toggle menu">
-                <div class="navbar-toggler-icon-custom">
-                    <span></span><span></span><span></span>
-                </div>
-            </button>
-        </div>
-
-        <!-- Mobile menu -->
-        <div id="mobileMenu" style="display:none; padding-top:16px; border-top:1px solid rgba(255,255,255,0.1); margin-top:14px;">
-            <div class="d-flex flex-column gap-2">
-                <a href="#features" class="nav-links" style="color:rgba(255,255,255,0.75);text-decoration:none;padding:8px 0;font-size:0.9rem;">Features</a>
-                <a href="#how-it-works" class="nav-links" style="color:rgba(255,255,255,0.75);text-decoration:none;padding:8px 0;font-size:0.9rem;">How It Works</a>
-                <a href="#roles" class="nav-links" style="color:rgba(255,255,255,0.75);text-decoration:none;padding:8px 0;font-size:0.9rem;">Who It's For</a>
-                <hr style="border-color:rgba(255,255,255,0.15);margin:4px 0;">
-                <a href="{{ route('login') }}" class="btn btn-nav-login text-center">
-                    <i class="fas fa-arrow-right-to-bracket me-1"></i> Log In
+            <!-- Mobile: Login + hamburger -->
+            <div class="d-flex d-md-none align-items-center gap-2">
+                <a href="{{ route('login') }}" class="btn-nav-login" style="padding:6px 14px;font-size:0.8rem;">
+                    <i class="fas fa-arrow-right-to-bracket"></i> Log In
                 </a>
-                <a href="{{ route('register') }}" class="btn btn-nav-signup text-center">
-                    <i class="fas fa-user-plus me-1"></i> Sign Up
-                </a>
+                <button class="btn btn-link p-1" id="mobileMenuBtn" aria-label="Open menu"
+                        style="color:rgba(255,255,255,0.85);font-size:1.3rem;line-height:1;">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
+
         </div>
     </div>
 </nav>
@@ -843,23 +900,42 @@
     window.addEventListener('scroll', () => {
         nav.classList.toggle('scrolled', window.scrollY > 40);
     });
-    // Trigger on load in case page is already scrolled
-    nav.classList.toggle('scrolled', window.scrollY > 40);
 
-    // Mobile menu toggle
-    const mobileBtn = document.getElementById('mobileMenuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
+    // Mobile fullscreen menu
+    const mobileBtn     = document.getElementById('mobileMenuBtn');
+    const mobileOverlay = document.getElementById('mobileMenuOverlay');
+    const mobileClose   = document.getElementById('mobileMenuClose');
+
     mobileBtn.addEventListener('click', () => {
-        const isOpen = mobileMenu.style.display !== 'none';
-        mobileMenu.style.display = isOpen ? 'none' : 'block';
+        mobileOverlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
     });
 
-    // Close mobile menu on link click
-    mobileMenu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => { mobileMenu.style.display = 'none'; });
+    function closeMenu() {
+        mobileOverlay.classList.remove('open');
+        document.body.style.overflow = '';
+    }
+
+    mobileClose.addEventListener('click', closeMenu);
+
+    // Close on nav link click and smooth scroll
+    mobileOverlay.querySelectorAll('a.mobile-nav-link').forEach(link => {
+        link.addEventListener('click', (e) => {
+            const href = link.getAttribute('href');
+            if (href.startsWith('#')) {
+                e.preventDefault();
+                closeMenu();
+                setTimeout(() => {
+                    const target = document.querySelector(href);
+                    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 300);
+            } else {
+                closeMenu();
+            }
+        });
     });
 
-    // Smooth scroll for anchor links
+    // Smooth scroll for desktop anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const target = document.querySelector(this.getAttribute('href'));
