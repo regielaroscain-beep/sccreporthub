@@ -104,7 +104,7 @@
 
         .btn-nav-login {
             border: 1.5px solid var(--border);
-            color: var(--text);
+            color: var(--text-sec);
             background: #fff;
             border-radius: 8px;
             padding: 7px 18px;
@@ -118,22 +118,23 @@
         .btn-nav-login:hover {
             border-color: var(--primary);
             color: var(--primary);
+            background: #fafbff;
         }
         .btn-nav-signup {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            background: var(--primary);
             color: #fff;
             border: none;
             border-radius: 8px;
             padding: 7px 18px;
             font-size: 0.875rem;
             font-weight: 600;
-            transition: opacity 0.15s, transform 0.15s;
+            transition: background 0.15s, transform 0.15s, box-shadow 0.15s;
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            box-shadow: 0 2px 8px rgba(79,70,229,0.3);
+            box-shadow: 0 2px 8px rgba(79,70,229,0.25);
         }
-        .btn-nav-signup:hover { opacity: 0.9; transform: translateY(-1px); color: #fff; }
+        .btn-nav-signup:hover { background: var(--primary-dark); transform: translateY(-1px); box-shadow: 0 4px 14px rgba(79,70,229,0.35); color: #fff; }
 
         /* Mobile overlay menu */
         .mobile-menu-overlay {
@@ -250,20 +251,35 @@
             margin-bottom: 32px;
         }
         .btn-hero-primary {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            background: var(--primary);
             color: #fff;
             border: none;
             border-radius: 10px;
-            padding: 13px 28px;
-            font-size: 0.95rem;
+            padding: 14px 32px;
+            font-size: 1rem;
             font-weight: 700;
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            transition: transform 0.2s, box-shadow 0.2s;
-            box-shadow: 0 4px 14px rgba(79,70,229,0.35);
+            transition: background 0.15s, transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 14px rgba(79,70,229,0.3);
+            letter-spacing: -0.1px;
         }
-        .btn-hero-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(79,70,229,0.4); color: #fff; }
+        .btn-hero-primary:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(79,70,229,0.4); color: #fff; }
+        .btn-hero-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 1.5px solid #c7d2fe;
+            border-radius: 10px;
+            padding: 14px 32px;
+            font-size: 1rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.15s;
+        }
+        .btn-hero-outline:hover { background: #eef2ff; border-color: var(--primary); color: var(--primary-dark); }
         .btn-hero-secondary {
             background: #fff;
             color: var(--text);
@@ -511,8 +527,12 @@
     <a href="#how-it-works" class="mobile-nav-link">How It Works</a>
     <a href="#roles" class="mobile-nav-link">Who It's For</a>
     <div class="mobile-menu-cta">
-        <a href="{{ route('login') }}" class="btn-nav-login"><i class="fas fa-arrow-right-to-bracket"></i> Log In</a>
-        <a href="{{ route('register') }}" class="btn-nav-signup"><i class="fas fa-user-plus"></i> Sign Up</a>
+        <a href="{{ route('register') }}" class="btn-nav-signup" style="width:100%;justify-content:center;padding:13px 20px;font-size:0.95rem;border-radius:10px;">
+            <i class="fas fa-user-plus"></i> Create Account
+        </a>
+        <a href="{{ route('login') }}" class="btn-nav-login" style="width:100%;justify-content:center;padding:13px 20px;font-size:0.95rem;border-radius:10px;">
+            <i class="fas fa-arrow-right-to-bracket"></i> Sign In
+        </a>
     </div>
 </div>
 
@@ -571,12 +591,12 @@
                 </p>
                 <div class="d-flex flex-wrap gap-3 mb-4">
                     <a href="{{ route('register') }}" class="btn-hero-primary">
-                        <i class="fas fa-rocket"></i> Get Started
-                    </a>
-                    <a href="{{ route('login') }}" class="btn-hero-secondary">
-                        <i class="fas fa-arrow-right-to-bracket"></i> Sign In
+                        <i class="fas fa-arrow-right"></i> Get Started — It's Free
                     </a>
                 </div>
+                <p style="font-size:0.82rem;color:var(--text-muted);">
+                    Already have an account? <a href="{{ route('login') }}" style="color:var(--primary);font-weight:600;">Sign in here</a>
+                </p>
                 <div class="d-flex flex-wrap gap-3" style="font-size:0.8rem;color:var(--text-muted);">
                     <span><i class="fas fa-check me-1" style="color:var(--success);"></i>Free for SCC Faculty</span>
                     <span><i class="fas fa-check me-1" style="color:var(--success);"></i>Real-time Updates</span>
@@ -823,9 +843,11 @@
             <h2 class="section-title mb-3">Ready to keep your campus in top shape?</h2>
             <p class="section-desc mb-4" style="margin:0 auto 28px;">Join the SCC community on ReportHub. Create your account and start reporting facility issues in minutes.</p>
             <div class="d-flex flex-wrap gap-3 justify-content-center">
-                <a href="{{ route('register') }}" class="btn-hero-primary"><i class="fas fa-user-plus"></i> Create an Account</a>
-                <a href="{{ route('login') }}" class="btn-hero-secondary"><i class="fas fa-arrow-right-to-bracket"></i> Sign In</a>
+                <a href="{{ route('register') }}" class="btn-hero-primary"><i class="fas fa-arrow-right"></i> Create an Account</a>
             </div>
+            <p class="mt-3 mb-0" style="font-size:0.82rem;color:var(--text-sec);">
+                Already have an account? <a href="{{ route('login') }}" style="color:var(--primary);font-weight:600;">Sign in</a>
+            </p>
         </div>
     </div>
 </section>
