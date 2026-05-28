@@ -72,12 +72,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script>
-// Apply dark mode on auth pages too
-if (localStorage.getItem('darkMode') === 'true') {
-    document.body.classList.add('dark-mode');
-}
-</script>
+{{-- Auth pages are always light mode regardless of dashboard preference --}}
 @stack('scripts')
 </body>
 </html>
