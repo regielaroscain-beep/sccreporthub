@@ -669,7 +669,7 @@
                 </p>
                 <div class="d-flex flex-wrap gap-3 mb-4">
                     <a href="{{ route('register') }}" class="btn-hero-primary">
-                        <i class="fas fa-arrow-right"></i> Get Started — It's Free
+                        <i class="fas fa-arrow-right"></i> Get Started
                     </a>
                 </div>
                 <p style="font-size:0.82rem;color:var(--text-muted);">
