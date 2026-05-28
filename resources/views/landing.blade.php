@@ -586,54 +586,67 @@
                 </div>
             </div>
 
-            <!-- Right: mock dashboard card -->
+            <!-- Right: system overview card -->
             <div class="col-lg-6 hero-visual">
                 <div class="hero-card">
                     <div class="hero-card-header">
                         <div class="hero-card-dot" style="background:#ef4444;"></div>
                         <div class="hero-card-dot" style="background:#f59e0b;"></div>
                         <div class="hero-card-dot" style="background:#10b981;"></div>
-                        <span style="font-size:0.78rem;color:rgba(255,255,255,0.5);margin-left:8px;">Active Tickets</span>
-                        <span class="ms-auto" style="font-size:0.75rem;color:rgba(255,255,255,0.4);">Live</span>
-                        <span style="width:8px;height:8px;background:#10b981;border-radius:50%;display:inline-block;animation:pulse 1.5s infinite;"></span>
+                        <span style="font-size:0.78rem;color:rgba(255,255,255,0.5);margin-left:8px;">Issue Categories</span>
                     </div>
 
-                    <div class="ticket-item">
-                        <div class="ticket-icon" style="background:rgba(239,68,68,0.15);color:#ef4444;">
-                            <i class="fas fa-bolt"></i>
+                    <!-- Real issue categories from the system -->
+                    <div class="row g-2 mb-3">
+                        <div class="col-6">
+                            <div class="ticket-item">
+                                <div class="ticket-icon" style="background:rgba(239,68,68,0.15);color:#ef4444;"><i class="fas fa-bolt"></i></div>
+                                <div class="ticket-info"><div class="ticket-title">Electrical</div></div>
+                            </div>
                         </div>
-                        <div class="ticket-info">
-                            <div class="ticket-title">Electrical outlet not working – Room 204</div>
-                            <div class="ticket-meta">Submitted 10 mins ago · Science Building</div>
+                        <div class="col-6">
+                            <div class="ticket-item">
+                                <div class="ticket-icon" style="background:rgba(6,182,212,0.15);color:#06b6d4;"><i class="fas fa-faucet"></i></div>
+                                <div class="ticket-info"><div class="ticket-title">Plumbing</div></div>
+                            </div>
                         </div>
-                        <span class="ticket-badge" style="background:rgba(239,68,68,0.15);color:#ef4444;">Urgent</span>
+                        <div class="col-6">
+                            <div class="ticket-item">
+                                <div class="ticket-icon" style="background:rgba(245,158,11,0.15);color:#f59e0b;"><i class="fas fa-wind"></i></div>
+                                <div class="ticket-info"><div class="ticket-title">HVAC / Aircon</div></div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="ticket-item">
+                                <div class="ticket-icon" style="background:rgba(168,85,247,0.15);color:#a855f7;"><i class="fas fa-building"></i></div>
+                                <div class="ticket-info"><div class="ticket-title">Structural</div></div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="ticket-item">
+                                <div class="ticket-icon" style="background:rgba(16,185,129,0.15);color:#10b981;"><i class="fas fa-network-wired"></i></div>
+                                <div class="ticket-info"><div class="ticket-title">Network / IT</div></div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="ticket-item">
+                                <div class="ticket-icon" style="background:rgba(99,102,241,0.15);color:#818cf8;"><i class="fas fa-chair"></i></div>
+                                <div class="ticket-info"><div class="ticket-title">Furniture</div></div>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="ticket-item">
-                        <div class="ticket-icon" style="background:rgba(6,182,212,0.15);color:#06b6d4;">
-                            <i class="fas fa-faucet"></i>
+                    <!-- Real ticket statuses -->
+                    <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:14px;">
+                        <div style="font-size:0.7rem;color:rgba(255,255,255,0.4);margin-bottom:10px;text-transform:uppercase;letter-spacing:0.06em;">Ticket Lifecycle</div>
+                        <div class="d-flex flex-wrap gap-2">
+                            <span class="ticket-badge" style="background:rgba(245,158,11,0.15);color:#f59e0b;">Pending</span>
+                            <span class="ticket-badge" style="background:rgba(6,182,212,0.15);color:#06b6d4;">Approved</span>
+                            <span class="ticket-badge" style="background:rgba(79,70,229,0.15);color:#818cf8;">Assigned</span>
+                            <span class="ticket-badge" style="background:rgba(100,116,139,0.15);color:#94a3b8;">Ongoing</span>
+                            <span class="ticket-badge" style="background:rgba(16,185,129,0.15);color:#10b981;">Resolved</span>
+                            <span class="ticket-badge" style="background:rgba(255,255,255,0.1);color:#e2e8f0;">Completed</span>
                         </div>
-                        <div class="ticket-info">
-                            <div class="ticket-title">Leaking faucet in comfort room</div>
-                            <div class="ticket-meta">Assigned to Juan D. · 2 hrs ago</div>
-                        </div>
-                        <span class="ticket-badge" style="background:rgba(6,182,212,0.15);color:#06b6d4;">Ongoing</span>
-                    </div>
-
-                    <div class="ticket-item">
-                        <div class="ticket-icon" style="background:rgba(16,185,129,0.15);color:#10b981;">
-                            <i class="fas fa-wind"></i>
-                        </div>
-                        <div class="ticket-info">
-                            <div class="ticket-title">AC unit not cooling – Faculty Lounge</div>
-                            <div class="ticket-meta">Resolved yesterday · Admin Building</div>
-                        </div>
-                        <span class="ticket-badge" style="background:rgba(16,185,129,0.15);color:#10b981;">Completed</span>
-                    </div>
-
-                    <div class="d-flex align-items-center justify-content-between mt-3 pt-3" style="border-top:1px solid rgba(255,255,255,0.08);">
-                        <span style="font-size:0.75rem;color:rgba(255,255,255,0.4);">Showing 3 of 24 active tickets</span>
-                        <span style="font-size:0.75rem;color:#818cf8;cursor:pointer;">View all →</span>
                     </div>
                 </div>
             </div>
@@ -649,16 +662,16 @@
     <div class="container">
         <div class="row g-4 text-center">
             <div class="col-6 col-md-3 stat-item fade-up">
-                <div class="stat-number">500+</div>
-                <div class="stat-label">Tickets Resolved</div>
+                <div class="stat-number">8</div>
+                <div class="stat-label">Issue Categories</div>
             </div>
             <div class="col-6 col-md-3 stat-item fade-up" style="transition-delay:0.1s;">
                 <div class="stat-number">3</div>
-                <div class="stat-label">User Roles Supported</div>
+                <div class="stat-label">User Roles</div>
             </div>
             <div class="col-6 col-md-3 stat-item fade-up" style="transition-delay:0.2s;">
-                <div class="stat-number">24/7</div>
-                <div class="stat-label">System Availability</div>
+                <div class="stat-number">6</div>
+                <div class="stat-label">Ticket Statuses</div>
             </div>
             <div class="col-6 col-md-3 stat-item fade-up" style="transition-delay:0.3s;">
                 <div class="stat-number">100%</div>
