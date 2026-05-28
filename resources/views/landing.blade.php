@@ -679,18 +679,7 @@
                     </a>
                 </div>
 
-                <!-- Mobile-only: compact category badges -->
-                <div class="d-lg-none mt-4 pt-3" style="border-top:1px solid var(--border);">
-                    <p style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);margin-bottom:10px;">Issue Categories</p>
-                    <div class="d-flex flex-wrap gap-2">
-                        <span style="display:inline-flex;align-items:center;gap:5px;background:#fef2f2;color:#ef4444;border-radius:8px;padding:5px 10px;font-size:0.75rem;font-weight:600;"><i class="fas fa-bolt"></i>Electrical</span>
-                        <span style="display:inline-flex;align-items:center;gap:5px;background:#eff6ff;color:#3b82f6;border-radius:8px;padding:5px 10px;font-size:0.75rem;font-weight:600;"><i class="fas fa-faucet"></i>Plumbing</span>
-                        <span style="display:inline-flex;align-items:center;gap:5px;background:#fffbeb;color:#f59e0b;border-radius:8px;padding:5px 10px;font-size:0.75rem;font-weight:600;"><i class="fas fa-wind"></i>HVAC</span>
-                        <span style="display:inline-flex;align-items:center;gap:5px;background:#fdf4ff;color:#a855f7;border-radius:8px;padding:5px 10px;font-size:0.75rem;font-weight:600;"><i class="fas fa-building"></i>Structural</span>
-                        <span style="display:inline-flex;align-items:center;gap:5px;background:#ecfdf5;color:#10b981;border-radius:8px;padding:5px 10px;font-size:0.75rem;font-weight:600;"><i class="fas fa-network-wired"></i>Network</span>
-                        <span style="display:inline-flex;align-items:center;gap:5px;background:#eef2ff;color:#4f46e5;border-radius:8px;padding:5px 10px;font-size:0.75rem;font-weight:600;"><i class="fas fa-chair"></i>Furniture</span>
-                    </div>
-                </div>
+
                 <div class="d-flex flex-wrap gap-3 hero-checks" style="font-size:0.8rem;color:var(--text-muted);">
                     <span><i class="fas fa-check me-1" style="color:var(--success);"></i>Free for SCC Faculty</span>
                     <span><i class="fas fa-check me-1" style="color:var(--success);"></i>Real-time Updates</span>
@@ -698,64 +687,8 @@
                 </div>
             </div>
 
-            <!-- Right: real system card -->
-            <div class="col-lg-6 hero-visual d-none d-lg-block">
-                <div class="hero-card">
-                    <div class="hero-card-header">
-                        <i class="fas fa-layer-group" style="color:var(--primary);font-size:0.9rem;"></i>
-                        <span class="hero-card-title">Issue Categories</span>
-                    </div>
-                    <div class="row g-2 mb-3">
-                        <div class="col-6">
-                            <div class="cat-item">
-                                <div class="cat-icon" style="background:#fef2f2;color:#ef4444;"><i class="fas fa-bolt"></i></div>
-                                <span class="cat-label">Electrical</span>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="cat-item">
-                                <div class="cat-icon" style="background:#eff6ff;color:#3b82f6;"><i class="fas fa-faucet"></i></div>
-                                <span class="cat-label">Plumbing</span>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="cat-item">
-                                <div class="cat-icon" style="background:#fffbeb;color:#f59e0b;"><i class="fas fa-wind"></i></div>
-                                <span class="cat-label">HVAC / Aircon</span>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="cat-item">
-                                <div class="cat-icon" style="background:#fdf4ff;color:#a855f7;"><i class="fas fa-building"></i></div>
-                                <span class="cat-label">Structural</span>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="cat-item">
-                                <div class="cat-icon" style="background:#ecfdf5;color:#10b981;"><i class="fas fa-network-wired"></i></div>
-                                <span class="cat-label">Network / IT</span>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="cat-item">
-                                <div class="cat-icon" style="background:#eef2ff;color:#4f46e5;"><i class="fas fa-chair"></i></div>
-                                <span class="cat-label">Furniture</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div style="border-top:1px solid var(--border);padding-top:14px;">
-                        <div style="font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-muted);margin-bottom:10px;">Ticket Lifecycle</div>
-                        <div class="d-flex flex-wrap gap-2">
-                            <span class="status-badge" style="background:#fffbeb;color:#92400e;">Pending</span>
-                            <span class="status-badge" style="background:#eff6ff;color:#1e40af;">Approved</span>
-                            <span class="status-badge" style="background:#eef2ff;color:#3730a3;">Assigned</span>
-                            <span class="status-badge" style="background:#f1f5f9;color:#475569;">Ongoing</span>
-                            <span class="status-badge" style="background:#ecfdf5;color:#065f46;">Resolved</span>
-                            <span class="status-badge" style="background:#f8fafc;color:#0f172a;">Completed</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <!-- Right: hidden, no card needed -->
+            <div class="col-lg-6 d-none d-lg-block"></div>
 
         </div>
     </div>
