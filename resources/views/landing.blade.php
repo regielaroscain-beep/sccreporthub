@@ -36,7 +36,7 @@
             gap: 10px;
             text-decoration: none;
         }
-        .nav-brand img { width: 36px; height: 36px; object-fit: contain; border-radius: 50%; }
+        .nav-brand img { width: 36px; height: 36px; object-fit: contain; border-radius: 50%; background: #fff; padding: 3px; }
         .nav-brand-text .brand-title {
             font-size: 1rem;
             font-weight: 800;
