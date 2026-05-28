@@ -17,8 +17,8 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 */
 
-// ─── Root Redirect ────────────────────────────────────────────────────────────
-Route::get('/', fn() => redirect()->route('login'));
+// ─── Landing Page ─────────────────────────────────────────────────────────────
+Route::get('/', fn() => view('landing'))->name('landing');
 
 // ─── Authentication Routes ────────────────────────────────────────────────────
 Route::middleware('guest')->group(function () {
