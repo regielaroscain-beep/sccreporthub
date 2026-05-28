@@ -678,9 +678,6 @@
                         Get Started
                     </a>
                 </div>
-                <p style="font-size:0.82rem;color:var(--text-muted);">
-                    Already have an account? <a href="{{ route('login') }}" style="color:var(--primary);font-weight:600;">Sign in here</a>
-                </p>
 
                 <!-- Mobile-only: compact category badges -->
                 <div class="d-lg-none mt-4 pt-3" style="border-top:1px solid var(--border);">
@@ -942,10 +939,6 @@
             <div class="d-flex flex-wrap gap-3 justify-content-center">
                 <a href="{{ route('register') }}" class="btn-hero-primary">Create an Account</a>
             </div>
-            <p class="mt-3 mb-0" style="font-size:0.82rem;color:var(--text-sec);">
-                Already have an account? <a href="{{ route('login') }}" style="color:var(--primary);font-weight:600;">Sign in</a>
-            </p>
-        </div>
     </div>
 </section>
 
