@@ -18,7 +18,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 // ─── Landing Page ─────────────────────────────────────────────────────────────
-Route::get('/', fn() => view('landing'))->name('landing');
+Route::get('/', function () {
+    if (auth()->check()) {
+        $user = auth()->user();
+        return match (true) {
+            $user->isAdmin()       => redirect()->route('admin.dashboard'),
+            $user->isMaintenance() => redirect()->route('maintenance.dashboard'),
+            default                => redirect()->route('faculty.dashboard'),
+        };
+    }
+    return view('landing');
+})->name('landing');
 
 // ─── Authentication Routes ────────────────────────────────────────────────────
 Route::middleware('guest')->group(function () {
