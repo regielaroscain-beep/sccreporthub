@@ -612,10 +612,10 @@
     <a href="#roles" class="mobile-nav-link">Who It's For</a>
     <div class="mobile-menu-cta">
         <a href="{{ route('register') }}" class="btn-nav-signup" style="width:100%;justify-content:center;padding:13px 20px;font-size:0.95rem;border-radius:10px;">
-            <i class="fas fa-user-plus"></i> Create Account
+            Sign Up
         </a>
         <a href="{{ route('login') }}" class="btn-nav-login" style="width:100%;justify-content:center;padding:13px 20px;font-size:0.95rem;border-radius:10px;">
-            <i class="fas fa-arrow-right-to-bracket"></i> Sign In
+            Sign In
         </a>
     </div>
 </div>
@@ -645,7 +645,7 @@
 
             <div class="d-flex d-md-none align-items-center gap-2">
                 <a href="{{ route('login') }}" class="btn-nav-login" style="padding:6px 12px;font-size:0.8rem;">
-                    <i class="fas fa-arrow-right-to-bracket"></i> Log In
+                    Sign In
                 </a>
                 <button class="btn btn-link p-1" id="mobileMenuBtn" style="color:var(--text-sec);font-size:1.2rem;">
                     <i class="fas fa-bars"></i>
