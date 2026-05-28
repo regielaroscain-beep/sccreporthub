@@ -254,18 +254,24 @@
             background: var(--primary);
             color: #fff;
             border: none;
-            border-radius: 10px;
-            padding: 14px 32px;
-            font-size: 1rem;
-            font-weight: 700;
+            border-radius: 8px;
+            padding: 13px 32px;
+            font-size: 0.95rem;
+            font-weight: 600;
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 8px;
-            transition: background 0.15s, transform 0.2s, box-shadow 0.2s;
-            box-shadow: 0 4px 14px rgba(79,70,229,0.3);
-            letter-spacing: -0.1px;
+            transition: background 0.15s, box-shadow 0.15s, transform 0.15s;
+            box-shadow: 0 2px 8px rgba(79,70,229,0.25);
+            letter-spacing: 0.01em;
         }
-        .btn-hero-primary:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(79,70,229,0.4); color: #fff; }
+        .btn-hero-primary:hover {
+            background: var(--primary-dark);
+            box-shadow: 0 6px 20px rgba(79,70,229,0.35);
+            transform: translateY(-1px);
+            color: #fff;
+        }
         .btn-hero-outline {
             background: transparent;
             color: var(--primary);
@@ -669,7 +675,7 @@
                 </p>
                 <div class="d-flex flex-wrap gap-3 mb-4">
                     <a href="{{ route('register') }}" class="btn-hero-primary">
-                        <i class="fas fa-arrow-right"></i> Get Started
+                        Get Started
                     </a>
                 </div>
                 <p style="font-size:0.82rem;color:var(--text-muted);">
@@ -934,7 +940,7 @@
             <h2 class="section-title mb-3">Ready to keep your campus in top shape?</h2>
             <p class="section-desc mb-4" style="margin:0 auto 28px;">Join the SCC community on ReportHub. Create your account and start reporting facility issues in minutes.</p>
             <div class="d-flex flex-wrap gap-3 justify-content-center">
-                <a href="{{ route('register') }}" class="btn-hero-primary"><i class="fas fa-arrow-right"></i> Create an Account</a>
+                <a href="{{ route('register') }}" class="btn-hero-primary">Create an Account</a>
             </div>
             <p class="mt-3 mb-0" style="font-size:0.82rem;color:var(--text-sec);">
                 Already have an account? <a href="{{ route('login') }}" style="color:var(--primary);font-weight:600;">Sign in</a>
