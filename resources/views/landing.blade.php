@@ -512,9 +512,87 @@
 
         /* ══ RESPONSIVE ══════════════════════════════════════════ */
         @media (max-width: 767px) {
-            .hero-section { padding-top: 64px; min-height: auto; padding-bottom: 48px; }
-            .cta-inner { padding: 36px 20px; }
-            .features-section, .how-section, .roles-section, .cta-section { padding: 56px 0; }
+            .hero-section {
+                padding-top: 64px;
+                min-height: auto;
+                padding-bottom: 40px;
+            }
+            .hero-section .container {
+                padding-top: 28px !important;
+                padding-bottom: 32px !important;
+            }
+            .hero-badge {
+                font-size: 0.7rem;
+                padding: 4px 12px;
+                margin-bottom: 14px;
+            }
+            .hero-title {
+                font-size: 1.75rem;
+                margin-bottom: 12px;
+                letter-spacing: -0.3px;
+            }
+            .hero-desc {
+                font-size: 0.875rem;
+                margin-bottom: 22px;
+                line-height: 1.6;
+            }
+            .btn-hero-primary {
+                width: 100%;
+                justify-content: center;
+                padding: 12px 24px;
+                font-size: 0.9rem;
+            }
+            .hero-checks {
+                font-size: 0.75rem !important;
+                gap: 10px !important;
+            }
+            .hero-visual {
+                margin-top: 8px;
+            }
+            .hero-card {
+                padding: 18px;
+            }
+            .cat-item {
+                padding: 8px 10px;
+            }
+            .cat-label {
+                font-size: 0.75rem;
+            }
+            .cat-icon {
+                width: 28px; height: 28px;
+                font-size: 0.72rem;
+            }
+            .stats-strip { padding: 28px 0; }
+            .stat-number { font-size: 1.7rem; }
+            .stat-label { font-size: 0.72rem; }
+            .features-section,
+            .how-section,
+            .roles-section,
+            .cta-section { padding: 48px 0; }
+            .section-title { font-size: 1.35rem; }
+            .section-desc { font-size: 0.875rem; }
+            .feature-card { padding: 20px; }
+            .feature-icon { width: 42px; height: 42px; font-size: 1rem; margin-bottom: 12px; }
+            .feature-title { font-size: 0.875rem; }
+            .feature-desc { font-size: 0.8rem; }
+            .step-number { width: 40px; height: 40px; font-size: 1rem; }
+            .step-title { font-size: 0.82rem; }
+            .step-desc { font-size: 0.78rem; }
+            .role-card { padding: 22px 18px; }
+            .role-icon { width: 50px; height: 50px; font-size: 1.3rem; margin-bottom: 14px; }
+            .role-title { font-size: 0.9rem; }
+            .role-desc { font-size: 0.8rem; }
+            .cta-inner { padding: 32px 20px; border-radius: 16px; }
+            .cta-inner .section-title { font-size: 1.3rem; }
+            .cta-inner .btn-hero-primary { width: 100%; justify-content: center; }
+            .landing-footer { padding: 28px 0; }
+            .landing-footer .row > div { text-align: center !important; }
+            .landing-footer .d-flex { justify-content: center !important; }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title { font-size: 1.55rem; }
+            .nav-brand-sub { display: none; }
         }
     </style>
 </head>
@@ -577,7 +655,7 @@
         <div class="row align-items-center g-5">
 
             <!-- Left -->
-            <div class="col-lg-6">
+            <div class="col-lg-6 col-12">
                 <div class="hero-badge">
                     <i class="fas fa-building"></i> Campus Facility Management System
                 </div>
@@ -597,7 +675,20 @@
                 <p style="font-size:0.82rem;color:var(--text-muted);">
                     Already have an account? <a href="{{ route('login') }}" style="color:var(--primary);font-weight:600;">Sign in here</a>
                 </p>
-                <div class="d-flex flex-wrap gap-3" style="font-size:0.8rem;color:var(--text-muted);">
+
+                <!-- Mobile-only: compact category badges -->
+                <div class="d-lg-none mt-4 pt-3" style="border-top:1px solid var(--border);">
+                    <p style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);margin-bottom:10px;">Issue Categories</p>
+                    <div class="d-flex flex-wrap gap-2">
+                        <span style="display:inline-flex;align-items:center;gap:5px;background:#fef2f2;color:#ef4444;border-radius:8px;padding:5px 10px;font-size:0.75rem;font-weight:600;"><i class="fas fa-bolt"></i>Electrical</span>
+                        <span style="display:inline-flex;align-items:center;gap:5px;background:#eff6ff;color:#3b82f6;border-radius:8px;padding:5px 10px;font-size:0.75rem;font-weight:600;"><i class="fas fa-faucet"></i>Plumbing</span>
+                        <span style="display:inline-flex;align-items:center;gap:5px;background:#fffbeb;color:#f59e0b;border-radius:8px;padding:5px 10px;font-size:0.75rem;font-weight:600;"><i class="fas fa-wind"></i>HVAC</span>
+                        <span style="display:inline-flex;align-items:center;gap:5px;background:#fdf4ff;color:#a855f7;border-radius:8px;padding:5px 10px;font-size:0.75rem;font-weight:600;"><i class="fas fa-building"></i>Structural</span>
+                        <span style="display:inline-flex;align-items:center;gap:5px;background:#ecfdf5;color:#10b981;border-radius:8px;padding:5px 10px;font-size:0.75rem;font-weight:600;"><i class="fas fa-network-wired"></i>Network</span>
+                        <span style="display:inline-flex;align-items:center;gap:5px;background:#eef2ff;color:#4f46e5;border-radius:8px;padding:5px 10px;font-size:0.75rem;font-weight:600;"><i class="fas fa-chair"></i>Furniture</span>
+                    </div>
+                </div>
+                <div class="d-flex flex-wrap gap-3 hero-checks" style="font-size:0.8rem;color:var(--text-muted);">
                     <span><i class="fas fa-check me-1" style="color:var(--success);"></i>Free for SCC Faculty</span>
                     <span><i class="fas fa-check me-1" style="color:var(--success);"></i>Real-time Updates</span>
                     <span><i class="fas fa-check me-1" style="color:var(--success);"></i>No App Needed</span>
@@ -605,7 +696,7 @@
             </div>
 
             <!-- Right: real system card -->
-            <div class="col-lg-6 hero-visual">
+            <div class="col-lg-6 hero-visual d-none d-lg-block">
                 <div class="hero-card">
                     <div class="hero-card-header">
                         <i class="fas fa-layer-group" style="color:var(--primary);font-size:0.9rem;"></i>
