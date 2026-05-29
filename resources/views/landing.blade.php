@@ -104,21 +104,11 @@
             color: var(--t1); line-height: 1.12; letter-spacing: -.5px; margin-bottom: 16px;
         }
         .hero-badge {
-            display: inline-flex; align-items: center; gap: 0;
-            background: none; border: none; padding: 0 0 6px 0;
-            font-size: 0.7rem; font-weight: 700;
-            letter-spacing: 0.18em; text-transform: uppercase;
-            background: linear-gradient(135deg, var(--p), var(--ac));
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+            display: inline-flex; align-items: center; gap: 7px;
+            background: #eef2ff; border: 1px solid #c7d2fe; color: var(--p);
+            border-radius: 6px; padding: 5px 12px;
+            font-size: 0.7rem; font-weight: 600; letter-spacing: .04em;
             margin-bottom: 22px;
-            position: relative;
-        }
-        .hero-badge::after {
-            content: '';
-            position: absolute; bottom: 0; left: 0;
-            width: 100%; height: 2px;
-            background: linear-gradient(90deg, var(--p), var(--ac));
-            border-radius: 2px;
         }
         .hero-h span {
             background: linear-gradient(135deg, var(--p), var(--ac));
@@ -349,7 +339,7 @@
         <div class="hero-body">
             <div class="row align-items-end g-5">
                 <div class="col-lg-5">
-                    <div class="hero-badge">Campus Facility Management System</div>
+                    <div class="hero-badge"><i class="fas fa-building"></i> Campus Facility Management</div>
                     <h1 class="hero-h">Report issues.<br><span>Resolve faster.</span></h1>
                     <p class="hero-p">SCC ReportHub connects faculty, admins, and maintenance staff in one platform. Submit tickets, track repairs, and keep the campus running smoothly.</p>
                     <div class="d-flex align-items-center gap-3 flex-wrap">
