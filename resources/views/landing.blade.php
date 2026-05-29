@@ -48,7 +48,11 @@
         .lnav-i { display: flex; align-items: center; justify-content: space-between; width: 100%; }
         .lnav-brand { display: flex; align-items: center; gap: 10px; }
         .lnav-brand img { width: 34px; height: 34px; border-radius: 50%; object-fit: contain; background: #fff; padding: 2px; border: 1px solid var(--border); }
-        .lnav-brand-name { font-size: 1rem; font-weight: 800; color: var(--p); letter-spacing: -.3px; }
+        .lnav-brand-name {
+            font-size: 1rem; font-weight: 800; letter-spacing: -.3px;
+            background: linear-gradient(135deg, var(--p), var(--ac));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
         .lnav-brand-sub { font-size: 0.58rem; font-weight: 600; color: var(--t3); text-transform: uppercase; letter-spacing: .8px; display: block; }
         .lnav-links { display: flex; gap: 28px; }
         .lnav-links a { font-size: 0.845rem; font-weight: 500; color: var(--t2); transition: color .15s; }
@@ -99,13 +103,13 @@
         .hero-p { font-size: 0.975rem; color: var(--t2); line-height: 1.75; margin-bottom: 28px; max-width: 420px; }
         .btn-hero {
             display: inline-flex; align-items: center; gap: 8px;
-            background: var(--p);
+            background: linear-gradient(135deg, var(--p), var(--ac));
             color: #fff; border: none; border-radius: 8px;
             padding: 12px 26px; font-size: 0.875rem; font-weight: 600;
             box-shadow: 0 2px 12px rgba(79,70,229,.3);
-            transition: background .15s, transform .15s, box-shadow .15s;
+            transition: opacity .15s, transform .15s, box-shadow .15s;
         }
-        .btn-hero:hover { background: var(--pd); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(79,70,229,.4); color: #fff; }
+        .btn-hero:hover { opacity: .9; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(79,70,229,.4); color: #fff; }
         .btn-hero2 {
             display: inline-flex; align-items: center; gap: 8px;
             background: var(--card); color: var(--t2);
