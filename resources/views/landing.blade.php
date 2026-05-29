@@ -639,8 +639,8 @@
             </div>
 
             <div class="d-none d-md-flex align-items-center gap-2">
-                <a href="{{ route('login') }}" class="btn-nav-login"><i class="fas fa-arrow-right-to-bracket"></i> Log In</a>
-                <a href="{{ route('register') }}" class="btn-nav-signup"><i class="fas fa-user-plus"></i> Sign Up</a>
+                <a href="{{ route('login') }}" class="btn-nav-login">Sign In</a>
+                <a href="{{ route('register') }}" class="btn-nav-signup">Sign Up</a>
             </div>
 
             <div class="d-flex d-md-none align-items-center gap-2">
@@ -673,13 +673,11 @@
                     SCC ReportHub streamlines facility issue reporting at Southern Christian College.
                     Submit tickets, monitor repairs in real time, and keep the campus running smoothly.
                 </p>
-                <div class="d-flex flex-wrap gap-3 mb-4">
+                <div class="d-flex flex-wrap gap-3 mb-3">
                     <a href="{{ route('register') }}" class="btn-hero-primary">
                         Get Started
                     </a>
                 </div>
-
-
                 <div class="d-flex flex-wrap gap-3 hero-checks" style="font-size:0.8rem;color:var(--text-muted);">
                     <span><i class="fas fa-check me-1" style="color:var(--success);"></i>Free for SCC Faculty</span>
                     <span><i class="fas fa-check me-1" style="color:var(--success);"></i>Real-time Updates</span>
