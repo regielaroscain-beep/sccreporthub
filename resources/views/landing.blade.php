@@ -57,8 +57,8 @@
         .lnav-links { display: flex; gap: 28px; }
         .lnav-links a { font-size: 0.845rem; font-weight: 500; color: var(--t2); transition: color .15s; }
         .lnav-links a:hover { color: var(--p); }
-        .btn-si { border: 1.5px solid #c7d2fe; color: var(--p); background: #eef2ff; border-radius: 8px; padding: 7px 18px; font-size: 0.845rem; font-weight: 600; transition: all .15s; display: inline-flex; align-items: center; }
-        .btn-si:hover { background: #e0e7ff; border-color: var(--p); color: var(--pd); }
+        .btn-si { border: 1.5px solid var(--border); color: var(--t1); background: var(--card); border-radius: 8px; padding: 7px 18px; font-size: 0.845rem; font-weight: 600; transition: all .15s; display: inline-flex; align-items: center; }
+        .btn-si:hover { border-color: var(--p); color: var(--p); }
         .btn-su { background: linear-gradient(135deg, var(--p), var(--ac)); color: #fff; border: none; border-radius: 8px; padding: 7px 18px; font-size: 0.845rem; font-weight: 600; box-shadow: 0 2px 8px rgba(79,70,229,.3); transition: opacity .15s, transform .15s; display: inline-flex; align-items: center; }
         .btn-su:hover { opacity: .9; transform: translateY(-1px); color: #fff; }
 
@@ -312,7 +312,6 @@
                 <a href="{{ route('register') }}" class="btn-su">Sign Up</a>
             </div>
             <div class="d-flex d-md-none align-items-center gap-2">
-                <a href="{{ route('login') }}" class="btn-si" style="padding:5px 12px;font-size:0.78rem;">Sign In</a>
                 <button class="btn btn-link p-1" id="mmO" style="color:var(--t2);font-size:1.1rem;"><i class="fas fa-bars"></i></button>
             </div>
         </div>
