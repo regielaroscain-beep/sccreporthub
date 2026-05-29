@@ -121,13 +121,22 @@
         }
         .hero-desc { font-size: 1rem; color: var(--text-sec); line-height: 1.75; max-width: 480px; margin-bottom: 36px; }
         .btn-hero-primary {
-            background: var(--primary); color: #fff; border: none;
+            background: rgba(79,70,229,0.12);
+            color: var(--primary);
+            border: 1.5px solid rgba(79,70,229,0.25);
             border-radius: 9px; padding: 13px 36px; font-size: 0.95rem; font-weight: 600;
             display: inline-flex; align-items: center; justify-content: center;
-            transition: background 0.15s, box-shadow 0.15s, transform 0.15s;
-            box-shadow: 0 3px 12px rgba(79,70,229,0.3); letter-spacing: 0.01em;
+            backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+            transition: background 0.15s, border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+            letter-spacing: 0.01em;
         }
-        .btn-hero-primary:hover { background: var(--primary-dark); box-shadow: 0 6px 20px rgba(79,70,229,0.4); transform: translateY(-1px); color: #fff; }
+        .btn-hero-primary:hover {
+            background: rgba(79,70,229,0.18);
+            border-color: rgba(79,70,229,0.45);
+            box-shadow: 0 4px 20px rgba(79,70,229,0.15);
+            transform: translateY(-1px);
+            color: var(--primary);
+        }
 
         /* ── HOLO CARDS ─────────────────────────────────────────── */
         .holo-stack { display: flex; flex-direction: column; gap: 14px; }
