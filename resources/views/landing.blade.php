@@ -87,10 +87,12 @@
         .hero-body { padding: 48px 0 0; position: relative; z-index: 1; }
         .hero-badge {
             display: inline-flex; align-items: center; gap: 7px;
-            background: transparent;
-            border: none;
+            background: rgba(79,70,229,0.06);
+            border: 1px solid rgba(79,70,229,0.15);
+            backdrop-filter: blur(8px);
+            border-radius: 50px;
+            padding: 5px 14px;
             color: var(--t2);
-            padding: 0;
             font-size: 0.72rem; font-weight: 500; letter-spacing: .04em;
             margin-bottom: 22px;
         }
