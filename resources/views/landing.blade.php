@@ -87,10 +87,17 @@
         .hero-body { padding: 48px 0 0; position: relative; z-index: 1; }
         .hero-badge {
             display: inline-flex; align-items: center; gap: 7px;
-            background: #eef2ff; border: 1px solid #c7d2fe; color: var(--p);
-            border-radius: 6px; padding: 5px 12px;
-            font-size: 0.7rem; font-weight: 600; letter-spacing: .04em;
+            background: transparent;
+            border: none;
+            color: var(--t2);
+            padding: 0;
+            font-size: 0.72rem; font-weight: 500; letter-spacing: .04em;
             margin-bottom: 22px;
+        }
+        .hero-badge-dot {
+            width: 7px; height: 7px; border-radius: 50%;
+            background: linear-gradient(135deg, var(--p), var(--ac));
+            flex-shrink: 0;
         }
         .hero-h {
             font-size: clamp(2rem, 4vw, 3rem); font-weight: 800;
@@ -325,7 +332,7 @@
         <div class="hero-body">
             <div class="row align-items-end g-5">
                 <div class="col-lg-5">
-                    <div class="hero-badge"><i class="fas fa-building"></i> Campus Facility Management</div>
+                    <div class="hero-badge"><span class="hero-badge-dot"></span> Campus Facility Management System</div>
                     <h1 class="hero-h">Report issues.<br><span>Resolve faster.</span></h1>
                     <p class="hero-p">SCC ReportHub connects faculty, admins, and maintenance staff in one platform. Submit tickets, track repairs, and keep the campus running smoothly.</p>
                     <div class="d-flex align-items-center gap-3 flex-wrap">
