@@ -91,7 +91,7 @@
         }
         .hero-badge {
             display: inline-flex; align-items: center; gap: 7px;
-            background: #eef2ff; border: 1px solid #c7d2fe; color: var(--p);
+            background: #eef2ff; border: 1px solid #c7d2fe; color: var(--t1);
             border-radius: 6px; padding: 5px 12px;
             font-size: 0.7rem; font-weight: 600; letter-spacing: .04em;
             margin-bottom: 22px;
