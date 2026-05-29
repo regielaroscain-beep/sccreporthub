@@ -332,10 +332,6 @@
                         <a href="{{ route('register') }}" class="btn-hero">Get Started Free</a>
                         <a href="{{ route('login') }}" class="btn-hero2">Sign In <i class="fas fa-arrow-right fa-xs"></i></a>
                     </div>
-                    <div class="social-proof">
-                        <img src="{{ asset('images/scc-logo.png') }}" alt="SCC" onerror="this.style.display='none'">
-                        Used by faculty &amp; staff at Southern Christian College
-                    </div>
                 </div>
                 <div class="col-lg-7">
                     <div class="preview-wrap">
