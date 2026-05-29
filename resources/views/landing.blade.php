@@ -55,7 +55,7 @@
         .lnav-links a:hover { color: var(--p); }
         .btn-si { border: 1.5px solid var(--border); color: var(--t2); background: var(--card); border-radius: 8px; padding: 7px 18px; font-size: 0.845rem; font-weight: 600; transition: all .15s; display: inline-flex; align-items: center; }
         .btn-si:hover { border-color: var(--p); color: var(--p); }
-        .btn-su { background: linear-gradient(135deg, var(--p), var(--pd)); color: #fff; border: none; border-radius: 8px; padding: 7px 18px; font-size: 0.845rem; font-weight: 600; box-shadow: 0 2px 8px rgba(79,70,229,.3); transition: opacity .15s, transform .15s; display: inline-flex; align-items: center; }
+        .btn-su { background: linear-gradient(135deg, var(--p), var(--ac)); color: #fff; border: none; border-radius: 8px; padding: 7px 18px; font-size: 0.845rem; font-weight: 600; box-shadow: 0 2px 8px rgba(79,70,229,.3); transition: opacity .15s, transform .15s; display: inline-flex; align-items: center; }
         .btn-su:hover { opacity: .9; transform: translateY(-1px); color: #fff; }
 
         /* ── MOBILE MENU ── */
@@ -92,7 +92,10 @@
             font-size: clamp(2rem, 4vw, 3rem); font-weight: 800;
             color: var(--t1); line-height: 1.12; letter-spacing: -.5px; margin-bottom: 16px;
         }
-        .hero-h span { color: var(--p); }
+        .hero-h span {
+            background: linear-gradient(135deg, var(--p), var(--ac));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
         .hero-p { font-size: 0.975rem; color: var(--t2); line-height: 1.75; margin-bottom: 28px; max-width: 420px; }
         .btn-hero {
             display: inline-flex; align-items: center; gap: 8px;
@@ -220,7 +223,7 @@
         }
         @media (max-width: 767px) {
             .hero-body { padding: 32px 0 0; }
-            .hero-h { font-size: 1.85rem; }
+            .hero-h { font-size: 1.65rem; }
             .hero-p { font-size: 0.875rem; margin-bottom: 22px; }
             .preview-card { margin-top: 28px; }
             .pstat-row { grid-template-columns: repeat(2,1fr); }
