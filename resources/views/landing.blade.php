@@ -177,18 +177,9 @@
         .holo-card:nth-child(2) { transform: none; }
         .holo-card:nth-child(3) { transform: none; }
         .holo-card:hover { box-shadow: 0 10px 36px rgba(79,70,229,0.13), 0 2px 8px rgba(0,0,0,0.05); transform: translateY(-2px); }
-        .holo-card:nth-child(1):hover { transform: translateY(-2px); }
-        .holo-card:nth-child(2):hover { transform: translateY(-2px); }
+        .holo-card:nth-child(1):hover,
+        .holo-card:nth-child(2):hover,
         .holo-card:nth-child(3):hover { transform: translateY(-2px); }
-
-        @media (min-width: 992px) {
-            .holo-card:nth-child(1) { transform: translateX(0); }
-            .holo-card:nth-child(2) { transform: translateX(20px); }
-            .holo-card:nth-child(3) { transform: translateX(10px); }
-            .holo-card:nth-child(1):hover { transform: translateX(4px) translateY(-2px); }
-            .holo-card:nth-child(2):hover { transform: translateX(24px) translateY(-2px); }
-            .holo-card:nth-child(3):hover { transform: translateX(14px) translateY(-2px); }
-        }
         .holo-glow { position: absolute; width: 100px; height: 100px; border-radius: 50%; opacity: 0.1; right: -16px; top: -16px; pointer-events: none; }
         .holo-icon { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.15rem; flex-shrink: 0; }
         .holo-info { flex: 1; }
