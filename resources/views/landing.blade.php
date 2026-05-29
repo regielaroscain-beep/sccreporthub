@@ -228,7 +228,7 @@
                                 <div class="ptb-dot" style="background:#ff5f57;"></div>
                                 <div class="ptb-dot" style="background:#febc2e;"></div>
                                 <div class="ptb-dot" style="background:#28c840;"></div>
-                                <div class="ptb-url">scc-reporthub.up.railway.app/admin/dashboard</div>
+                                <div class="ptb-url">scc-reporthub-production.up.railway.app/admin/dashboard</div>
                             </div>
                             <div class="preview-body">
                                 <div class="preview-header">Dashboard Overview</div>
