@@ -121,20 +121,35 @@
         }
         .hero-desc { font-size: 1rem; color: var(--text-sec); line-height: 1.75; max-width: 480px; margin-bottom: 36px; }
         .btn-hero-primary {
-            background: rgba(255,255,255,0.45);
+            background: rgba(255,255,255,0.15);
             color: var(--primary);
-            border: 1.5px solid rgba(79,70,229,0.2);
-            border-radius: 9px; padding: 13px 36px; font-size: 0.95rem; font-weight: 600;
+            border: 1px solid rgba(255,255,255,0.6);
+            border-radius: 9px; padding: 13px 36px; font-size: 0.95rem; font-weight: 700;
             display: inline-flex; align-items: center; justify-content: center;
-            backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-            box-shadow: 0 2px 12px rgba(79,70,229,0.08), inset 0 1px 0 rgba(255,255,255,0.8);
-            transition: background 0.15s, border-color 0.15s, box-shadow 0.15s, transform 0.15s;
-            letter-spacing: 0.01em;
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            box-shadow:
+                0 4px 16px rgba(79,70,229,0.1),
+                inset 0 1px 0 rgba(255,255,255,0.7),
+                inset 0 -1px 0 rgba(79,70,229,0.08);
+            transition: all 0.2s ease;
+            letter-spacing: 0.02em;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-hero-primary::before {
+            content: '';
+            position: absolute; inset: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0.05) 100%);
+            pointer-events: none;
         }
         .btn-hero-primary:hover {
-            background: rgba(255,255,255,0.65);
-            border-color: rgba(79,70,229,0.35);
-            box-shadow: 0 6px 24px rgba(79,70,229,0.12), inset 0 1px 0 rgba(255,255,255,0.9);
+            background: rgba(255,255,255,0.28);
+            border-color: rgba(255,255,255,0.85);
+            box-shadow:
+                0 8px 28px rgba(79,70,229,0.14),
+                inset 0 1px 0 rgba(255,255,255,0.9),
+                inset 0 -1px 0 rgba(79,70,229,0.06);
             transform: translateY(-1px);
             color: var(--primary);
         }
