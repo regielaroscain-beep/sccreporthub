@@ -84,7 +84,7 @@
                 radial-gradient(ellipse 55% 50% at 85% 20%, rgba(79,70,229,.07) 0%, transparent 60%),
                 radial-gradient(ellipse 35% 35% at 10% 85%, rgba(6,182,212,.05) 0%, transparent 55%);
         }
-        .hero-body { padding: 80px 0 0; position: relative; z-index: 1; }
+        .hero-body { padding: 48px 0 0; position: relative; z-index: 1; }
         .hero-badge {
             display: inline-flex; align-items: center; gap: 7px;
             background: #eef2ff; border: 1px solid #c7d2fe; color: var(--p);
