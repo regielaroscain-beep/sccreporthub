@@ -242,7 +242,7 @@
         }
         @media (max-width: 767px) {
             .hero-section { align-items: flex-start; min-height: auto; }
-            .hero-inner { padding-top: 20px; padding-bottom: 36px; }
+            .hero-inner { padding-top: 56px; padding-bottom: 36px; }
             .hero-badge { font-size: 0.68rem; padding: 4px 12px; margin-bottom: 14px; }
             .hero-title { font-size: 1.85rem; margin-bottom: 14px; }
             .hero-desc { font-size: 0.875rem; margin-bottom: 24px; }
