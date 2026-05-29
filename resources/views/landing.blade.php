@@ -142,20 +142,6 @@
             color: #fff;
         }
 
-        /* ── HOLO WRAPPER BOX ───────────────────────────────────── */
-        .holo-wrapper {
-            background: rgba(255,255,255,0.55);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255,255,255,0.85);
-            border-radius: 24px;
-            padding: 20px;
-            box-shadow:
-                0 8px 32px rgba(79,70,229,0.08),
-                0 2px 8px rgba(0,0,0,0.04),
-                inset 0 1px 0 rgba(255,255,255,0.9);
-        }
-
         /* ── HOLO CARDS ─────────────────────────────────────────── */
         .holo-stack { display: flex; flex-direction: column; gap: 14px; }
         .holo-card {
@@ -349,8 +335,7 @@
                 <a href="{{ route('register') }}" class="btn-hero-primary">Get Started</a>
             </div>
             <div class="col-lg-6 col-12">
-                <div class="holo-wrapper">
-                    <div class="holo-stack">
+                <div class="holo-stack">
                         <div class="holo-card">
                             <div class="holo-glow" style="background:#4f46e5;"></div>
                             <div class="holo-icon" style="background:#eef2ff;color:#4f46e5;"><i class="fas fa-user-shield"></i></div>
