@@ -70,47 +70,65 @@
         /* ── HERO ── */
         .hero {
             padding-top: 64px;
-            background: var(--card);
+            background: linear-gradient(160deg, #fff 0%, #f8faff 50%, #eef2ff 100%);
             border-bottom: 1px solid var(--border);
+            position: relative; overflow: hidden;
         }
-        .hero-body { padding: 72px 0 0; }
+        .hero::before {
+            content: ''; position: absolute; inset: 0; pointer-events: none;
+            background:
+                radial-gradient(ellipse 55% 50% at 85% 20%, rgba(79,70,229,.07) 0%, transparent 60%),
+                radial-gradient(ellipse 35% 35% at 10% 85%, rgba(6,182,212,.05) 0%, transparent 55%);
+        }
+        .hero-body { padding: 80px 0 0; position: relative; z-index: 1; }
         .hero-badge {
             display: inline-flex; align-items: center; gap: 7px;
             background: #eef2ff; border: 1px solid #c7d2fe; color: var(--p);
-            border-radius: 6px; padding: 4px 12px;
+            border-radius: 6px; padding: 5px 12px;
             font-size: 0.7rem; font-weight: 600; letter-spacing: .04em;
-            margin-bottom: 20px;
+            margin-bottom: 22px;
         }
         .hero-h {
-            font-size: clamp(2rem, 4.5vw, 3.2rem); font-weight: 800;
+            font-size: clamp(2rem, 4vw, 3rem); font-weight: 800;
             color: var(--t1); line-height: 1.12; letter-spacing: -.5px; margin-bottom: 16px;
         }
         .hero-h span { color: var(--p); }
-        .hero-p { font-size: 1rem; color: var(--t2); line-height: 1.75; margin-bottom: 28px; max-width: 440px; }
+        .hero-p { font-size: 0.975rem; color: var(--t2); line-height: 1.75; margin-bottom: 28px; max-width: 420px; }
         .btn-hero {
             display: inline-flex; align-items: center; gap: 8px;
-            background: linear-gradient(135deg, var(--p), var(--pd));
+            background: var(--p);
             color: #fff; border: none; border-radius: 8px;
-            padding: 12px 28px; font-size: 0.9rem; font-weight: 600;
+            padding: 12px 26px; font-size: 0.875rem; font-weight: 600;
             box-shadow: 0 2px 12px rgba(79,70,229,.3);
-            transition: opacity .15s, transform .15s;
+            transition: background .15s, transform .15s, box-shadow .15s;
         }
-        .btn-hero:hover { opacity: .9; transform: translateY(-1px); color: #fff; }
+        .btn-hero:hover { background: var(--pd); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(79,70,229,.4); color: #fff; }
         .btn-hero2 {
             display: inline-flex; align-items: center; gap: 8px;
-            background: transparent; color: var(--t2);
+            background: var(--card); color: var(--t2);
             border: 1.5px solid var(--border); border-radius: 8px;
-            padding: 12px 22px; font-size: 0.9rem; font-weight: 500;
+            padding: 12px 22px; font-size: 0.875rem; font-weight: 500;
             transition: border-color .15s, color .15s;
         }
         .btn-hero2:hover { border-color: var(--p); color: var(--p); }
 
-        /* Dashboard preview — same card style as dashboard */
+        /* Dashboard preview */
+        .preview-wrap {
+            position: relative;
+            padding: 0 0 0 24px;
+        }
+        .preview-wrap::before {
+            content: ''; position: absolute;
+            top: 20px; left: 0; right: -20px; bottom: -20px;
+            background: linear-gradient(135deg, #eef2ff, #e0f2fe);
+            border-radius: 16px; z-index: 0;
+        }
         .preview-card {
             background: var(--card); border: 1px solid var(--border);
-            border-radius: 14px 14px 0 0;
-            box-shadow: 0 -4px 24px rgba(0,0,0,.06);
-            overflow: hidden; margin-top: 48px;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(79,70,229,.12), 0 2px 8px rgba(0,0,0,.06);
+            overflow: hidden; margin-top: 40px;
+            position: relative; z-index: 1;
         }
         .preview-topbar {
             background: var(--bg); border-bottom: 1px solid var(--border);
@@ -197,12 +215,14 @@
         /* Responsive */
         @media (max-width: 991px) {
             .hero-body { padding: 52px 0 0; }
+            .preview-wrap { padding: 0; }
+            .preview-wrap::before { display: none; }
         }
         @media (max-width: 767px) {
             .hero-body { padding: 32px 0 0; }
             .hero-h { font-size: 1.85rem; }
             .hero-p { font-size: 0.875rem; margin-bottom: 22px; }
-            .preview-card { margin-top: 32px; }
+            .preview-card { margin-top: 28px; }
             .pstat-row { grid-template-columns: repeat(2,1fr); }
             .sec { padding: 56px 0; }
             .sec-h { font-size: 1.4rem; }
@@ -279,7 +299,8 @@
                     </div>
                 </div>
                 <div class="col-lg-7">
-                    <div class="preview-card">
+                    <div class="preview-wrap">
+                        <div class="preview-card">
                         <div class="preview-topbar">
                             <div class="ptb-dot" style="background:#ff5f57;"></div>
                             <div class="ptb-dot" style="background:#febc2e;"></div>
@@ -337,6 +358,7 @@
                                 </tbody>
                             </table>
                         </div>
+                    </div>
                     </div>
                 </div>
             </div>
