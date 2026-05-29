@@ -102,7 +102,23 @@
         .hero-h {
             font-size: clamp(2rem, 4vw, 3rem); font-weight: 800;
             color: var(--t1); line-height: 1.12; letter-spacing: -.5px; margin-bottom: 16px;
-            text-shadow: 0 2px 12px rgba(79,70,229,.08), 0 1px 3px rgba(0,0,0,.06);
+        }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 0;
+            background: none; border: none; padding: 0 0 6px 0;
+            font-size: 0.7rem; font-weight: 700;
+            letter-spacing: 0.18em; text-transform: uppercase;
+            background: linear-gradient(135deg, var(--p), var(--ac));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+            margin-bottom: 22px;
+            position: relative;
+        }
+        .hero-badge::after {
+            content: '';
+            position: absolute; bottom: 0; left: 0;
+            width: 100%; height: 2px;
+            background: linear-gradient(90deg, var(--p), var(--ac));
+            border-radius: 2px;
         }
         .hero-h span {
             background: linear-gradient(135deg, var(--p), var(--ac));
