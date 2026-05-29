@@ -246,7 +246,7 @@
             .hero-badge { font-size: 0.68rem; padding: 4px 12px; margin-bottom: 14px; }
             .hero-title { font-size: 1.85rem; margin-bottom: 14px; }
             .hero-desc { font-size: 0.875rem; margin-bottom: 24px; }
-            .btn-hero-primary { width: 100%; padding: 13px 24px; }
+            .btn-hero-primary { padding: 12px 28px; }
             .holo-stack { gap: 10px; margin-top: 4px; }
             .holo-card { padding: 13px 15px; gap: 12px; }
             .holo-icon { width: 36px; height: 36px; font-size: 0.95rem; border-radius: 9px; }
@@ -268,7 +268,7 @@
             .role-desc { font-size: 0.8rem; }
             .cta-inner { padding: 40px 24px; border-radius: 16px; }
             .cta-inner .section-title { font-size: 1.3rem; }
-            .cta-inner .btn-hero-primary { width: 100%; }
+            .cta-inner .btn-hero-primary { padding: 12px 28px; }
             .landing-footer { padding: 32px 0; }
             .landing-footer .col-md-4 { text-align: center !important; }
             .landing-footer .d-flex { justify-content: center !important; }
