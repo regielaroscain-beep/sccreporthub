@@ -121,19 +121,20 @@
         }
         .hero-desc { font-size: 1rem; color: var(--text-sec); line-height: 1.75; max-width: 480px; margin-bottom: 36px; }
         .btn-hero-primary {
-            background: rgba(79,70,229,0.12);
+            background: rgba(255,255,255,0.45);
             color: var(--primary);
-            border: 1.5px solid rgba(79,70,229,0.25);
+            border: 1.5px solid rgba(79,70,229,0.2);
             border-radius: 9px; padding: 13px 36px; font-size: 0.95rem; font-weight: 600;
             display: inline-flex; align-items: center; justify-content: center;
-            backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+            box-shadow: 0 2px 12px rgba(79,70,229,0.08), inset 0 1px 0 rgba(255,255,255,0.8);
             transition: background 0.15s, border-color 0.15s, box-shadow 0.15s, transform 0.15s;
             letter-spacing: 0.01em;
         }
         .btn-hero-primary:hover {
-            background: rgba(79,70,229,0.18);
-            border-color: rgba(79,70,229,0.45);
-            box-shadow: 0 4px 20px rgba(79,70,229,0.15);
+            background: rgba(255,255,255,0.65);
+            border-color: rgba(79,70,229,0.35);
+            box-shadow: 0 6px 24px rgba(79,70,229,0.12), inset 0 1px 0 rgba(255,255,255,0.9);
             transform: translateY(-1px);
             color: var(--primary);
         }
