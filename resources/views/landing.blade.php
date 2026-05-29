@@ -465,7 +465,8 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script>
     const mm=document.getElementById('mm');
-    document.getElementById('mmO').addEventListener('click',()=>{mm.classList.add('on');document.body.style.overflow='hidden'});
+    const mmOBtn=document.getElementById('mmO');
+    if(mmOBtn) mmOBtn.addEventListener('click',()=>{mm.classList.add('on');document.body.style.overflow='hidden'});
     document.getElementById('mmX').addEventListener('click',()=>{mm.classList.remove('on');document.body.style.overflow=''});
     mm.querySelectorAll('a.ml').forEach(l=>{
         l.addEventListener('click',e=>{
