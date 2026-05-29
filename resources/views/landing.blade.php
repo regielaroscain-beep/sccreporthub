@@ -6,231 +6,219 @@
     <title>SCC ReportHub – Southern Christian College</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
+        /* ── Same tokens as dashboard ── */
         :root {
-            --cream:  #faf8f5;
-            --white:  #ffffff;
-            --sand:   #f0ebe3;
-            --border: #e8e2d9;
-            --ink:    #1a1a2e;
-            --ink2:   #4a4a6a;
-            --ink3:   #9090a8;
-            --blue:   #2d5be3;
-            --blue-l: #eef2fd;
-            --teal:   #0d9488;
-            --teal-l: #f0fdfa;
-            --amber:  #d97706;
-            --amber-l:#fffbeb;
-            --rose:   #e11d48;
-            --rose-l: #fff1f2;
-            --violet: #7c3aed;
-            --violet-l:#f5f3ff;
+            --p:      #4f46e5;
+            --pd:     #3730a3;
+            --pl:     #818cf8;
+            --ac:     #06b6d4;
+            --ok:     #10b981;
+            --warn:   #f59e0b;
+            --err:    #ef4444;
+            --bg:     #f1f5f9;
+            --card:   #ffffff;
+            --border: #e2e8f0;
+            --t1:     #0f172a;
+            --t2:     #64748b;
+            --t3:     #94a3b8;
+            --dark:   #0f172a;
         }
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; }
         body {
-            font-family: 'DM Sans', system-ui, sans-serif;
-            background: var(--cream); color: var(--ink);
-            line-height: 1.65; -webkit-font-smoothing: antialiased; overflow-x: hidden;
+            font-family: 'Inter', system-ui, sans-serif;
+            background: var(--bg); color: var(--t1);
+            font-size: 0.875rem; line-height: 1.6;
+            -webkit-font-smoothing: antialiased; overflow-x: hidden;
         }
-        h1,h2,h3 { font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; }
-        a { text-decoration: none; color: var(--blue); }
+        a { text-decoration: none; color: var(--p); }
 
-        /* ── NAV ─────────────────────────────────────────────── */
-        .nav {
+        /* ── NAVBAR — exact dashboard topbar style ── */
+        .lnav {
             position: fixed; top: 0; left: 0; right: 0; z-index: 900;
-            height: 64px; background: rgba(250,248,245,0.92);
-            backdrop-filter: blur(12px); border-bottom: 1px solid var(--border);
+            height: 64px; background: var(--card);
+            border-bottom: 1px solid var(--border);
+            box-shadow: 0 1px 3px rgba(0,0,0,.05);
             display: flex; align-items: center;
         }
-        .nav-i { display: flex; align-items: center; justify-content: space-between; width: 100%; }
-        .nbrand { display: flex; align-items: center; gap: 10px; }
-        .nbrand img { width: 34px; height: 34px; border-radius: 8px; object-fit: contain; background: #fff; padding: 2px; border: 1px solid var(--border); }
-        .nbrand-name { font-family: 'DM Sans', sans-serif; font-size: 0.92rem; font-weight: 700; color: var(--ink); letter-spacing: -.2px; }
-        .nbrand-sub { font-size: 0.54rem; font-weight: 500; color: var(--ink3); text-transform: uppercase; letter-spacing: .7px; display: block; }
-        .nlinks { display: flex; gap: 28px; }
-        .nlinks a { font-size: 0.85rem; font-weight: 500; color: var(--ink2); transition: color .15s; }
-        .nlinks a:hover { color: var(--blue); }
-        .btn-si { background: transparent; border: 1.5px solid var(--border); color: var(--ink2); border-radius: 8px; padding: 7px 18px; font-size: 0.85rem; font-weight: 600; transition: all .15s; }
-        .btn-si:hover { border-color: var(--blue); color: var(--blue); }
-        .btn-su { background: var(--ink); color: #fff; border: none; border-radius: 8px; padding: 7px 18px; font-size: 0.85rem; font-weight: 600; transition: background .15s, transform .15s; }
-        .btn-su:hover { background: #2d2d4e; transform: translateY(-1px); color: #fff; }
+        .lnav-i { display: flex; align-items: center; justify-content: space-between; width: 100%; }
+        .lnav-brand { display: flex; align-items: center; gap: 10px; }
+        .lnav-brand img { width: 34px; height: 34px; border-radius: 50%; object-fit: contain; background: #fff; padding: 2px; border: 1px solid var(--border); }
+        .lnav-brand-name { font-size: 1rem; font-weight: 800; color: var(--p); letter-spacing: -.3px; }
+        .lnav-brand-sub { font-size: 0.58rem; font-weight: 600; color: var(--t3); text-transform: uppercase; letter-spacing: .8px; display: block; }
+        .lnav-links { display: flex; gap: 28px; }
+        .lnav-links a { font-size: 0.845rem; font-weight: 500; color: var(--t2); transition: color .15s; }
+        .lnav-links a:hover { color: var(--p); }
+        .btn-si { border: 1.5px solid var(--border); color: var(--t2); background: var(--card); border-radius: 8px; padding: 7px 18px; font-size: 0.845rem; font-weight: 600; transition: all .15s; display: inline-flex; align-items: center; }
+        .btn-si:hover { border-color: var(--p); color: var(--p); }
+        .btn-su { background: linear-gradient(135deg, var(--p), var(--pd)); color: #fff; border: none; border-radius: 8px; padding: 7px 18px; font-size: 0.845rem; font-weight: 600; box-shadow: 0 2px 8px rgba(79,70,229,.3); transition: opacity .15s, transform .15s; display: inline-flex; align-items: center; }
+        .btn-su:hover { opacity: .9; transform: translateY(-1px); color: #fff; }
 
-        /* ── MOBILE MENU ─────────────────────────────────────── */
-        .mm { display: none; position: fixed; inset: 0; z-index: 1100; background: var(--white); flex-direction: column; align-items: center; justify-content: center; }
+        /* ── MOBILE MENU ── */
+        .mm { display: none; position: fixed; inset: 0; z-index: 1100; background: var(--card); flex-direction: column; align-items: center; justify-content: center; }
         .mm.on { display: flex; }
-        .mm-x { position: absolute; top: 18px; right: 18px; background: none; border: none; font-size: 1.3rem; color: var(--ink2); cursor: pointer; }
-        .mm a.ml { display: block; font-size: 1.1rem; font-weight: 600; color: var(--ink); padding: 14px 0; width: 100%; text-align: center; border-bottom: 1px solid var(--border); transition: color .15s; }
-        .mm a.ml:hover { color: var(--blue); }
+        .mm-x { position: absolute; top: 18px; right: 18px; background: none; border: none; font-size: 1.3rem; color: var(--t2); cursor: pointer; }
+        .mm a.ml { display: block; font-size: 1.05rem; font-weight: 600; color: var(--t1); padding: 14px 0; width: 100%; text-align: center; border-bottom: 1px solid var(--border); transition: color .15s; }
+        .mm a.ml:hover { color: var(--p); }
         .mm-cta { display: flex; flex-direction: column; gap: 10px; width: 70%; max-width: 240px; margin-top: 24px; }
-        .mm-cta .btn-su, .mm-cta .btn-si { width: 100%; text-align: center; padding: 12px; font-size: 0.875rem; border-radius: 10px; }
+        .mm-cta .btn-su, .mm-cta .btn-si { width: 100%; justify-content: center; padding: 12px; font-size: 0.875rem; border-radius: 10px; }
 
-        /* ── HERO ────────────────────────────────────────────── */
+        /* ── HERO ── */
         .hero {
             padding-top: 64px;
-            background: var(--white);
+            background: var(--card);
             border-bottom: 1px solid var(--border);
         }
-        .hero-inner { padding: 72px 0 0; }
-        .hero-kicker {
-            display: inline-flex; align-items: center; gap: 8px;
-            background: var(--blue-l); color: var(--blue);
-            border-radius: 6px; padding: 5px 12px;
-            font-size: 0.72rem; font-weight: 600; letter-spacing: .04em;
+        .hero-body { padding: 72px 0 0; }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 7px;
+            background: #eef2ff; border: 1px solid #c7d2fe; color: var(--p);
+            border-radius: 6px; padding: 4px 12px;
+            font-size: 0.7rem; font-weight: 600; letter-spacing: .04em;
             margin-bottom: 20px;
         }
         .hero-h {
-            font-size: clamp(2.4rem, 5vw, 3.8rem); color: var(--ink);
-            line-height: 1.12; letter-spacing: -.5px; margin-bottom: 18px;
+            font-size: clamp(2rem, 4.5vw, 3.2rem); font-weight: 800;
+            color: var(--t1); line-height: 1.12; letter-spacing: -.5px; margin-bottom: 16px;
         }
-        .hero-p { font-size: 1.05rem; color: var(--ink2); line-height: 1.75; margin-bottom: 32px; max-width: 480px; }
-        .btn-primary {
+        .hero-h span { color: var(--p); }
+        .hero-p { font-size: 1rem; color: var(--t2); line-height: 1.75; margin-bottom: 28px; max-width: 440px; }
+        .btn-hero {
             display: inline-flex; align-items: center; gap: 8px;
-            background: var(--blue); color: #fff; border: none; border-radius: 8px;
-            padding: 13px 28px; font-size: 0.9rem; font-weight: 600;
-            box-shadow: 0 2px 12px rgba(45,91,227,.3);
-            transition: background .15s, transform .15s, box-shadow .15s;
+            background: linear-gradient(135deg, var(--p), var(--pd));
+            color: #fff; border: none; border-radius: 8px;
+            padding: 12px 28px; font-size: 0.9rem; font-weight: 600;
+            box-shadow: 0 2px 12px rgba(79,70,229,.3);
+            transition: opacity .15s, transform .15s;
         }
-        .btn-primary:hover { background: #1e4bd4; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(45,91,227,.4); color: #fff; }
-        .btn-secondary {
+        .btn-hero:hover { opacity: .9; transform: translateY(-1px); color: #fff; }
+        .btn-hero2 {
             display: inline-flex; align-items: center; gap: 8px;
-            background: transparent; color: var(--ink2); border: 1.5px solid var(--border);
-            border-radius: 8px; padding: 13px 24px; font-size: 0.9rem; font-weight: 500;
+            background: transparent; color: var(--t2);
+            border: 1.5px solid var(--border); border-radius: 8px;
+            padding: 12px 22px; font-size: 0.9rem; font-weight: 500;
             transition: border-color .15s, color .15s;
         }
-        .btn-secondary:hover { border-color: var(--ink); color: var(--ink); }
+        .btn-hero2:hover { border-color: var(--p); color: var(--p); }
 
-        /* Hero image area */
-        .hero-img-wrap {
-            background: var(--cream);
-            border: 1px solid var(--border);
-            border-bottom: none;
-            border-radius: 12px 12px 0 0;
-            padding: 20px 20px 0;
-            margin-top: 48px;
+        /* Dashboard preview — same card style as dashboard */
+        .preview-card {
+            background: var(--card); border: 1px solid var(--border);
+            border-radius: 14px 14px 0 0;
             box-shadow: 0 -4px 24px rgba(0,0,0,.06);
-            overflow: hidden;
+            overflow: hidden; margin-top: 48px;
         }
-        .hero-img-bar {
-            background: var(--white); border: 1px solid var(--border);
-            border-radius: 8px 8px 0 0; padding: 10px 16px;
-            display: flex; align-items: center; gap: 8px;
-            border-bottom: 1px solid var(--border);
+        .preview-topbar {
+            background: var(--bg); border-bottom: 1px solid var(--border);
+            padding: 10px 16px; display: flex; align-items: center; gap: 6px;
         }
-        .hib-dot { width: 10px; height: 10px; border-radius: 50%; }
-        .hib-url { flex: 1; background: var(--cream); border: 1px solid var(--border); border-radius: 4px; padding: 4px 10px; font-size: 0.68rem; color: var(--ink3); margin: 0 8px; }
-        .hero-img-body { background: var(--white); padding: 20px; }
-        /* Mini dashboard inside */
-        .mini-dash { display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; margin-bottom: 16px; }
-        .mini-stat { background: var(--cream); border: 1px solid var(--border); border-radius: 8px; padding: 12px; }
-        .mini-stat-n { font-size: 1.3rem; font-weight: 700; color: var(--ink); font-family: 'DM Sans', sans-serif; }
-        .mini-stat-l { font-size: 0.62rem; color: var(--ink3); text-transform: uppercase; letter-spacing: .05em; margin-top: 2px; }
-        .mini-table { width: 100%; border-collapse: collapse; font-size: 0.72rem; }
-        .mini-table th { text-align: left; padding: 6px 8px; color: var(--ink3); font-weight: 600; text-transform: uppercase; letter-spacing: .05em; border-bottom: 1px solid var(--border); }
-        .mini-table td { padding: 8px; color: var(--ink2); border-bottom: 1px solid var(--border); }
-        .mini-table tr:last-child td { border-bottom: none; }
-        .mbadge { font-size: 0.6rem; font-weight: 600; padding: 2px 7px; border-radius: 4px; }
+        .ptb-dot { width: 10px; height: 10px; border-radius: 50%; }
+        .ptb-url { flex: 1; background: var(--card); border: 1px solid var(--border); border-radius: 4px; padding: 3px 10px; font-size: 0.65rem; color: var(--t3); margin: 0 8px; }
+        .preview-body { padding: 18px; }
+        .preview-header { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--t3); margin-bottom: 12px; }
+        .pstat-row { display: grid; grid-template-columns: repeat(4,1fr); gap: 8px; margin-bottom: 14px; }
+        .pstat { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px; }
+        .pstat-n { font-size: 1.2rem; font-weight: 800; color: var(--t1); letter-spacing: -.3px; line-height: 1; }
+        .pstat-l { font-size: 0.6rem; color: var(--t3); text-transform: uppercase; letter-spacing: .05em; margin-top: 3px; font-weight: 500; }
+        .ptable { width: 100%; border-collapse: collapse; font-size: 0.72rem; }
+        .ptable th { text-align: left; padding: 6px 8px; color: var(--t3); font-weight: 600; text-transform: uppercase; letter-spacing: .05em; border-bottom: 1px solid var(--border); font-size: 0.65rem; }
+        .ptable td { padding: 8px; color: var(--t2); border-bottom: 1px solid #f1f5f9; }
+        .ptable tr:last-child td { border-bottom: none; }
+        .pbadge { font-size: 0.6rem; font-weight: 600; padding: 2px 7px; border-radius: 20px; }
 
-        /* ── FEATURES ────────────────────────────────────────── */
-        .sec { padding: 88px 0; }
-        .sec-alt { background: var(--white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-        .sec-label { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: .1em; color: var(--blue); margin-bottom: 10px; }
-        .sec-h { font-size: clamp(1.7rem, 3vw, 2.3rem); color: var(--ink); line-height: 1.2; letter-spacing: -.2px; }
-        .sec-p { font-size: 0.95rem; color: var(--ink2); max-width: 520px; margin: 0 auto; line-height: 1.7; }
+        /* ── SECTIONS ── */
+        .sec { padding: 80px 0; }
+        .sec-w { background: var(--card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+        .sec-label { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: var(--p); margin-bottom: 8px; }
+        .sec-h { font-size: clamp(1.5rem, 2.8vw, 2rem); font-weight: 800; color: var(--t1); line-height: 1.2; letter-spacing: -.3px; }
+        .sec-p { font-size: 0.9rem; color: var(--t2); max-width: 500px; margin: 0 auto; line-height: 1.7; }
 
+        /* Feature cards — same as dashboard .card */
         .fc {
-            background: var(--white); border: 1px solid var(--border);
-            border-radius: 12px; padding: 26px; height: 100%;
+            background: var(--card); border: 1px solid var(--border);
+            border-radius: 14px; padding: 24px; height: 100%;
+            box-shadow: 0 1px 3px rgba(0,0,0,.04);
             transition: transform .2s, box-shadow .2s, border-color .2s;
         }
-        .fc:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(0,0,0,.07); border-color: #c8d8f8; }
-        .fc-icon { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; margin-bottom: 16px; }
-        .fc-h { font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 700; color: var(--ink); margin-bottom: 7px; }
-        .fc-p { font-size: 0.835rem; color: var(--ink2); line-height: 1.65; }
+        .fc:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(79,70,229,.09); border-color: #c7d2fe; }
+        .fc-icon { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; margin-bottom: 14px; }
+        .fc-h { font-size: 0.875rem; font-weight: 700; color: var(--t1); margin-bottom: 6px; }
+        .fc-p { font-size: 0.82rem; color: var(--t2); line-height: 1.65; }
 
-        /* ── HOW IT WORKS ────────────────────────────────────── */
-        .how-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 20px; }
+        /* How it works */
         .how-card {
-            background: var(--cream); border: 1px solid var(--border);
-            border-radius: 12px; padding: 24px; display: flex; gap: 16px;
+            background: var(--card); border: 1px solid var(--border);
+            border-radius: 12px; padding: 22px; display: flex; gap: 14px;
+            box-shadow: 0 1px 3px rgba(0,0,0,.04);
             transition: border-color .2s;
         }
-        .how-card:hover { border-color: #c8d8f8; }
-        .how-num {
-            width: 32px; height: 32px; border-radius: 8px; flex-shrink: 0;
-            background: var(--blue); color: #fff;
-            font-family: 'DM Sans', sans-serif; font-size: 0.8rem; font-weight: 700;
-            display: flex; align-items: center; justify-content: center;
-        }
-        .how-h { font-family: 'DM Sans', sans-serif; font-size: 0.875rem; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
-        .how-p { font-size: 0.8rem; color: var(--ink2); line-height: 1.6; }
+        .how-card:hover { border-color: #c7d2fe; }
+        .how-n { width: 32px; height: 32px; border-radius: 8px; flex-shrink: 0; background: linear-gradient(135deg, var(--p), var(--pd)); color: #fff; font-size: 0.8rem; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+        .how-h { font-size: 0.845rem; font-weight: 700; color: var(--t1); margin-bottom: 4px; }
+        .how-p { font-size: 0.78rem; color: var(--t2); line-height: 1.6; }
 
-        /* ── ROLES ───────────────────────────────────────────── */
+        /* Role cards */
         .rocard {
-            background: var(--white); border: 1px solid var(--border);
-            border-radius: 14px; padding: 32px 24px; height: 100%;
-            transition: transform .2s, box-shadow .2s;
+            background: var(--card); border: 1px solid var(--border);
+            border-radius: 14px; padding: 28px 22px; height: 100%;
+            box-shadow: 0 1px 3px rgba(0,0,0,.04);
+            transition: transform .2s, box-shadow .2s, border-color .2s;
         }
-        .rocard:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(0,0,0,.07); }
-        .ro-icon { width: 56px; height: 56px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: 18px; }
-        .ro-h { font-family: 'DM Sans', sans-serif; font-size: 0.95rem; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
-        .ro-p { font-size: 0.835rem; color: var(--ink2); line-height: 1.65; margin-bottom: 16px; }
-        .ro-tag { font-size: 0.67rem; font-weight: 600; padding: 3px 9px; border-radius: 5px; display: inline-block; margin: 2px; }
+        .rocard:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(79,70,229,.09); border-color: #c7d2fe; }
+        .ro-icon { width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 16px; }
+        .ro-h { font-size: 0.9rem; font-weight: 700; color: var(--t1); margin-bottom: 6px; }
+        .ro-p { font-size: 0.82rem; color: var(--t2); line-height: 1.65; margin-bottom: 14px; }
+        .ro-tag { font-size: 0.65rem; font-weight: 600; padding: 2px 8px; border-radius: 20px; display: inline-block; margin: 2px; }
 
-        /* ── CTA ─────────────────────────────────────────────── */
-        .cta-wrap {
-            background: var(--ink); border-radius: 16px;
-            padding: 64px 48px; text-align: center;
+        /* CTA */
+        .cta-box {
+            background: linear-gradient(135deg, var(--dark) 0%, #1e1b4b 50%, #312e81 100%);
+            border-radius: 16px; padding: 60px 40px; text-align: center;
             position: relative; overflow: hidden;
         }
-        .cta-wrap::before {
-            content: ''; position: absolute; inset: 0; pointer-events: none;
-            background: radial-gradient(ellipse 60% 60% at 50% 0%, rgba(45,91,227,.25) 0%, transparent 65%);
-        }
+        .cta-box::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 60% at 50% 0%, rgba(79,70,229,.3) 0%, transparent 65%); pointer-events: none; }
 
-        /* ── FOOTER ──────────────────────────────────────────── */
-        footer { background: var(--ink); color: rgba(255,255,255,.4); padding: 48px 0 28px; font-size: 0.82rem; border-top: 1px solid rgba(255,255,255,.06); }
-        .ft-name { font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 700; color: #fff; }
+        /* Footer */
+        footer { background: var(--dark); color: rgba(255,255,255,.4); padding: 44px 0 24px; font-size: 0.82rem; }
+        .ft-name { font-size: 0.9rem; font-weight: 800; color: #fff; }
         .ft-link { color: rgba(255,255,255,.4); transition: color .15s; display: block; margin-bottom: 8px; }
-        .ft-link:hover { color: rgba(255,255,255,.85); }
-        .ft-col-h { font-size: 0.62rem; font-weight: 600; text-transform: uppercase; letter-spacing: .1em; color: rgba(255,255,255,.2); margin-bottom: 14px; }
-        footer hr { border-color: rgba(255,255,255,.07) !important; margin: 28px 0 20px; }
+        .ft-link:hover { color: rgba(255,255,255,.8); }
+        .ft-col-h { font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: rgba(255,255,255,.2); margin-bottom: 12px; }
+        footer hr { border-color: rgba(255,255,255,.07) !important; margin: 24px 0 18px; }
 
-        /* ── ANIMATION ───────────────────────────────────────── */
-        .fu { opacity: 0; transform: translateY(16px); transition: opacity .5s ease, transform .5s ease; }
+        /* Animation */
+        .fu { opacity: 0; transform: translateY(14px); transition: opacity .45s ease, transform .45s ease; }
         .fu.in { opacity: 1; transform: translateY(0); }
 
-        /* ── RESPONSIVE ──────────────────────────────────────── */
+        /* Responsive */
         @media (max-width: 991px) {
-            .hero-inner { padding: 56px 0 0; }
-            .how-grid { grid-template-columns: 1fr; }
+            .hero-body { padding: 52px 0 0; }
         }
         @media (max-width: 767px) {
-            .hero-inner { padding: 36px 0 0; }
-            .hero-h { font-size: 2rem; }
-            .hero-p { font-size: 0.9rem; margin-bottom: 24px; }
-            .btn-primary, .btn-secondary { padding: 12px 22px; font-size: 0.875rem; }
-            .hero-img-wrap { margin-top: 32px; padding: 14px 14px 0; }
-            .mini-dash { grid-template-columns: repeat(2,1fr); }
-            .sec { padding: 60px 0; }
-            .sec-h { font-size: 1.5rem; }
+            .hero-body { padding: 32px 0 0; }
+            .hero-h { font-size: 1.85rem; }
+            .hero-p { font-size: 0.875rem; margin-bottom: 22px; }
+            .preview-card { margin-top: 32px; }
+            .pstat-row { grid-template-columns: repeat(2,1fr); }
+            .sec { padding: 56px 0; }
+            .sec-h { font-size: 1.4rem; }
             .fc { padding: 20px; }
-            .fc-icon { width: 38px; height: 38px; font-size: 0.95rem; margin-bottom: 12px; }
-            .how-card { padding: 18px; gap: 12px; }
-            .rocard { padding: 24px 18px; }
-            .ro-icon { width: 48px; height: 48px; font-size: 1.2rem; margin-bottom: 14px; }
-            .cta-wrap { padding: 44px 24px; border-radius: 12px; }
-            .cta-wrap .sec-h { font-size: 1.4rem; }
-            footer { padding: 36px 0 20px; }
+            .fc-icon { width: 38px; height: 38px; font-size: 0.95rem; margin-bottom: 10px; }
+            .how-card { padding: 18px; }
+            .rocard { padding: 22px 18px; }
+            .ro-icon { width: 44px; height: 44px; font-size: 1.1rem; margin-bottom: 12px; }
+            .cta-box { padding: 40px 20px; border-radius: 12px; }
+            footer { padding: 32px 0 18px; }
             footer .col-md-3, footer .col-md-4 { text-align: center !important; }
         }
         @media (max-width: 480px) {
-            .hero-h { font-size: 1.75rem; }
-            .nbrand-sub { display: none; }
-            .mini-table { display: none; }
+            .hero-h { font-size: 1.65rem; }
+            .lnav-brand-sub { display: none; }
+            .ptable { display: none; }
         }
     </style>
 </head>
@@ -249,17 +237,17 @@
 </div>
 
 <!-- NAVBAR -->
-<nav class="nav">
+<nav class="lnav">
     <div class="container">
-        <div class="nav-i">
-            <a href="{{ route('landing') }}" class="nbrand">
+        <div class="lnav-i">
+            <a href="{{ route('landing') }}" class="lnav-brand">
                 <img src="{{ asset('images/scc-logo.png') }}" alt="SCC" onerror="this.style.display='none'">
                 <div>
-                    <span class="nbrand-name">SCC ReportHub</span>
-                    <span class="nbrand-sub">Southern Christian College</span>
+                    <span class="lnav-brand-name">SCC ReportHub</span>
+                    <span class="lnav-brand-sub">Southern Christian College</span>
                 </div>
             </a>
-            <div class="nlinks d-none d-lg-flex">
+            <div class="lnav-links d-none d-lg-flex">
                 <a href="#features">Features</a>
                 <a href="#how-it-works">How It Works</a>
                 <a href="#roles">Who It's For</a>
@@ -270,7 +258,7 @@
             </div>
             <div class="d-flex d-md-none align-items-center gap-2">
                 <a href="{{ route('login') }}" class="btn-si" style="padding:5px 12px;font-size:0.78rem;">Sign In</a>
-                <button class="btn btn-link p-1" id="mmO" style="color:var(--ink2);font-size:1.1rem;"><i class="fas fa-bars"></i></button>
+                <button class="btn btn-link p-1" id="mmO" style="color:var(--t2);font-size:1.1rem;"><i class="fas fa-bars"></i></button>
             </div>
         </div>
     </div>
@@ -279,56 +267,51 @@
 <!-- HERO -->
 <section class="hero">
     <div class="container">
-        <div class="hero-inner">
+        <div class="hero-body">
             <div class="row align-items-end g-5">
-
-                <!-- Left -->
-                <div class="col-lg-6">
-                    <div class="hero-kicker"><i class="fas fa-building"></i> Campus Facility Management</div>
-                    <h1 class="hero-h">
-                        Keep your campus<br>running smoothly.
-                    </h1>
-                    <p class="hero-p">SCC ReportHub makes it easy for faculty to report facility issues, for admins to manage repairs, and for maintenance staff to stay on top of their work.</p>
+                <div class="col-lg-5">
+                    <div class="hero-badge"><i class="fas fa-building"></i> Campus Facility Management</div>
+                    <h1 class="hero-h">Report issues.<br><span>Resolve faster.</span></h1>
+                    <p class="hero-p">SCC ReportHub connects faculty, admins, and maintenance staff in one platform. Submit tickets, track repairs, and keep the campus running smoothly.</p>
                     <div class="d-flex align-items-center gap-3 flex-wrap">
-                        <a href="{{ route('register') }}" class="btn-primary">Get Started Free</a>
-                        <a href="{{ route('login') }}" class="btn-secondary">Sign In <i class="fas fa-arrow-right fa-xs"></i></a>
+                        <a href="{{ route('register') }}" class="btn-hero">Get Started Free</a>
+                        <a href="{{ route('login') }}" class="btn-hero2">Sign In <i class="fas fa-arrow-right fa-xs"></i></a>
                     </div>
                 </div>
-
-                <!-- Right: browser mockup -->
-                <div class="col-lg-6">
-                    <div class="hero-img-wrap">
-                        <div class="hero-img-bar">
-                            <div class="hib-dot" style="background:#ff5f57;"></div>
-                            <div class="hib-dot" style="background:#febc2e;"></div>
-                            <div class="hib-dot" style="background:#28c840;"></div>
-                            <div class="hib-url">scc-reporthub.up.railway.app/admin/dashboard</div>
+                <div class="col-lg-7">
+                    <div class="preview-card">
+                        <div class="preview-topbar">
+                            <div class="ptb-dot" style="background:#ff5f57;"></div>
+                            <div class="ptb-dot" style="background:#febc2e;"></div>
+                            <div class="ptb-dot" style="background:#28c840;"></div>
+                            <div class="ptb-url">scc-reporthub.up.railway.app/admin/dashboard</div>
                         </div>
-                        <div class="hero-img-body">
-                            <div style="font-size:0.7rem;font-weight:600;color:var(--ink3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px;">Dashboard Overview</div>
-                            <div class="mini-dash">
-                                <div class="mini-stat">
-                                    <div class="mini-stat-n" style="color:var(--blue);">24</div>
-                                    <div class="mini-stat-l">Total</div>
+                        <div class="preview-body">
+                            <div class="preview-header">Dashboard Overview</div>
+                            <div class="pstat-row">
+                                <div class="pstat">
+                                    <div class="pstat-n" style="color:var(--p);">24</div>
+                                    <div class="pstat-l">Total</div>
                                 </div>
-                                <div class="mini-stat">
-                                    <div class="mini-stat-n" style="color:var(--amber);">8</div>
-                                    <div class="mini-stat-l">Pending</div>
+                                <div class="pstat">
+                                    <div class="pstat-n" style="color:var(--warn);">8</div>
+                                    <div class="pstat-l">Pending</div>
                                 </div>
-                                <div class="mini-stat">
-                                    <div class="mini-stat-n" style="color:var(--teal);">10</div>
-                                    <div class="mini-stat-l">Ongoing</div>
+                                <div class="pstat">
+                                    <div class="pstat-n" style="color:var(--ac);">10</div>
+                                    <div class="pstat-l">Ongoing</div>
                                 </div>
-                                <div class="mini-stat">
-                                    <div class="mini-stat-n" style="color:var(--blue);">12</div>
-                                    <div class="mini-stat-l">Resolved</div>
+                                <div class="pstat">
+                                    <div class="pstat-n" style="color:var(--ok);">12</div>
+                                    <div class="pstat-l">Resolved</div>
                                 </div>
                             </div>
-                            <table class="mini-table">
+                            <table class="ptable">
                                 <thead>
                                     <tr>
                                         <th>Issue</th>
                                         <th>Location</th>
+                                        <th>Priority</th>
                                         <th>Status</th>
                                     </tr>
                                 </thead>
@@ -336,24 +319,26 @@
                                     <tr>
                                         <td>Electrical outlet</td>
                                         <td>Room 204</td>
-                                        <td><span class="mbadge" style="background:var(--rose-l);color:var(--rose);">Urgent</span></td>
+                                        <td><span class="pbadge" style="background:#fef2f2;color:var(--err);">Urgent</span></td>
+                                        <td><span class="pbadge" style="background:#fffbeb;color:#92400e;">Pending</span></td>
                                     </tr>
                                     <tr>
                                         <td>Leaking faucet</td>
                                         <td>Comfort Room B</td>
-                                        <td><span class="mbadge" style="background:var(--blue-l);color:var(--blue);">Ongoing</span></td>
+                                        <td><span class="pbadge" style="background:#fffbeb;color:#92400e;">High</span></td>
+                                        <td><span class="pbadge" style="background:#ecfdf5;color:#065f46;">Ongoing</span></td>
                                     </tr>
                                     <tr>
                                         <td>AC unit repair</td>
                                         <td>Faculty Lounge</td>
-                                        <td><span class="mbadge" style="background:var(--teal-l);color:var(--teal);">Done</span></td>
+                                        <td><span class="pbadge" style="background:#ecfdf5;color:#065f46;">Normal</span></td>
+                                        <td><span class="pbadge" style="background:#eef2ff;color:var(--pd);">Completed</span></td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
@@ -362,56 +347,56 @@
 <!-- FEATURES -->
 <section class="sec" id="features">
     <div class="container">
-        <div class="row align-items-center g-5 mb-5">
+        <div class="row align-items-end g-4 mb-5">
             <div class="col-md-6 fu">
                 <div class="sec-label">Features</div>
-                <h2 class="sec-h">Everything the campus needs in one place</h2>
+                <h2 class="sec-h">Everything you need,<br>nothing extra.</h2>
             </div>
-            <div class="col-md-6 fu" style="transition-delay:.08s">
-                <p class="sec-p" style="margin:0;">From ticket submission to resolution, ReportHub covers the full maintenance lifecycle for Southern Christian College.</p>
+            <div class="col-md-6 fu" style="transition-delay:.06s">
+                <p class="sec-p" style="margin:0;">A focused set of tools built specifically for campus facility management at Southern Christian College.</p>
             </div>
         </div>
         <div class="row g-3">
             <div class="col-md-6 col-lg-4 fu">
                 <div class="fc">
-                    <div class="fc-icon" style="background:var(--blue-l);color:var(--blue);"><i class="fas fa-ticket-alt"></i></div>
-                    <div class="fc-h">Easy Ticket Submission</div>
-                    <div class="fc-p">Report facility issues in seconds — attach photos, set priority, and choose the affected area.</div>
+                    <div class="fc-icon" style="background:#eef2ff;color:var(--p);"><i class="fas fa-ticket-alt"></i></div>
+                    <div class="fc-h">Ticket Submission</div>
+                    <div class="fc-p">Report issues in seconds — attach photos, set priority, and choose the affected area.</div>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4 fu" style="transition-delay:.06s">
                 <div class="fc">
-                    <div class="fc-icon" style="background:var(--teal-l);color:var(--teal);"><i class="fas fa-magnifying-glass-chart"></i></div>
+                    <div class="fc-icon" style="background:#ecfdf5;color:var(--ok);"><i class="fas fa-magnifying-glass-chart"></i></div>
                     <div class="fc-h">Real-Time Monitoring</div>
                     <div class="fc-p">Track every ticket from submission to completion. Know who's working on it and the current status.</div>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4 fu" style="transition-delay:.12s">
                 <div class="fc">
-                    <div class="fc-icon" style="background:var(--amber-l);color:var(--amber);"><i class="fas fa-bell"></i></div>
-                    <div class="fc-h">Instant Notifications</div>
-                    <div class="fc-p">Get notified when your ticket is approved, assigned, or resolved — no manual follow-up needed.</div>
+                    <div class="fc-icon" style="background:#fffbeb;color:var(--warn);"><i class="fas fa-bell"></i></div>
+                    <div class="fc-h">Notifications</div>
+                    <div class="fc-p">Get notified when your ticket is approved, assigned, or resolved — no follow-up needed.</div>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4 fu" style="transition-delay:.06s">
                 <div class="fc">
-                    <div class="fc-icon" style="background:var(--violet-l);color:var(--violet);"><i class="fas fa-chart-pie"></i></div>
+                    <div class="fc-icon" style="background:#eef2ff;color:var(--p);"><i class="fas fa-chart-pie"></i></div>
                     <div class="fc-h">Admin Dashboard</div>
-                    <div class="fc-p">Full overview with charts, stats, and complete control over tickets, users, and facilities.</div>
+                    <div class="fc-p">Charts, stats, and full control over tickets, users, and facilities in one view.</div>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4 fu" style="transition-delay:.12s">
                 <div class="fc">
-                    <div class="fc-icon" style="background:var(--blue-l);color:var(--blue);"><i class="fas fa-screwdriver-wrench"></i></div>
-                    <div class="fc-h">Maintenance Task Management</div>
-                    <div class="fc-p">Maintenance staff see assigned tasks, update repair progress, and mark jobs complete.</div>
+                    <div class="fc-icon" style="background:#ecfdf5;color:var(--ok);"><i class="fas fa-screwdriver-wrench"></i></div>
+                    <div class="fc-h">Maintenance Tasks</div>
+                    <div class="fc-p">Maintenance staff see assigned tasks, update progress, and mark jobs complete.</div>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4 fu" style="transition-delay:.18s">
                 <div class="fc">
-                    <div class="fc-icon" style="background:var(--rose-l);color:var(--rose);"><i class="fas fa-star"></i></div>
+                    <div class="fc-icon" style="background:#fef2f2;color:var(--err);"><i class="fas fa-star"></i></div>
                     <div class="fc-h">Feedback & Ratings</div>
-                    <div class="fc-p">Faculty rate resolved tickets — helping admins continuously improve maintenance quality.</div>
+                    <div class="fc-p">Faculty rate resolved tickets — helping admins improve maintenance quality over time.</div>
                 </div>
             </div>
         </div>
@@ -419,40 +404,48 @@
 </section>
 
 <!-- HOW IT WORKS -->
-<section class="sec sec-alt" id="how-it-works">
+<section class="sec sec-w" id="how-it-works">
     <div class="container">
         <div class="text-center mb-5 fu">
             <div class="sec-label">How It Works</div>
-            <h2 class="sec-h mb-3">Simple process, fast results</h2>
-            <p class="sec-p">Four straightforward steps from reporting an issue to getting it resolved.</p>
+            <h2 class="sec-h mb-2">Four steps, start to finish.</h2>
+            <p class="sec-p">Simple process, fast results.</p>
         </div>
-        <div class="how-grid fu">
-            <div class="how-card">
-                <div class="how-num">1</div>
-                <div>
-                    <div class="how-h">Submit a Ticket</div>
-                    <div class="how-p">Describe the issue, set priority level, and attach a photo if needed. Takes less than a minute.</div>
+        <div class="row g-3 fu">
+            <div class="col-md-6">
+                <div class="how-card">
+                    <div class="how-n">1</div>
+                    <div>
+                        <div class="how-h">Submit a Ticket</div>
+                        <div class="how-p">Describe the issue, set priority, and attach a photo. Takes under a minute.</div>
+                    </div>
                 </div>
             </div>
-            <div class="how-card">
-                <div class="how-num">2</div>
-                <div>
-                    <div class="how-h">Admin Reviews & Assigns</div>
-                    <div class="how-p">Admin approves the ticket and assigns it to the right maintenance staff based on specialization.</div>
+            <div class="col-md-6">
+                <div class="how-card">
+                    <div class="how-n">2</div>
+                    <div>
+                        <div class="how-h">Admin Reviews & Assigns</div>
+                        <div class="how-p">Admin approves and assigns it to the right maintenance staff.</div>
+                    </div>
                 </div>
             </div>
-            <div class="how-card">
-                <div class="how-num">3</div>
-                <div>
-                    <div class="how-h">Repair in Progress</div>
-                    <div class="how-p">Maintenance staff works on the task, logs updates, and marks progress in real time.</div>
+            <div class="col-md-6">
+                <div class="how-card">
+                    <div class="how-n">3</div>
+                    <div>
+                        <div class="how-h">Repair in Progress</div>
+                        <div class="how-p">Maintenance staff works on the task and updates progress in real time.</div>
+                    </div>
                 </div>
             </div>
-            <div class="how-card">
-                <div class="how-num">4</div>
-                <div>
-                    <div class="how-h">Verified & Rated</div>
-                    <div class="how-p">Admin verifies completion. Faculty rates the service quality. Ticket closed.</div>
+            <div class="col-md-6">
+                <div class="how-card">
+                    <div class="how-n">4</div>
+                    <div>
+                        <div class="how-h">Verified & Rated</div>
+                        <div class="how-p">Admin verifies completion. Faculty rates the service. Ticket closed.</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -464,43 +457,43 @@
     <div class="container">
         <div class="text-center mb-5 fu">
             <div class="sec-label">Who It's For</div>
-            <h2 class="sec-h mb-3">A portal for every role</h2>
-            <p class="sec-p">Three dedicated portals, each built around how that role works with facility management.</p>
+            <h2 class="sec-h mb-2">A portal for every role.</h2>
+            <p class="sec-p">Three dedicated portals, each built around how that role works.</p>
         </div>
-        <div class="row g-4">
+        <div class="row g-3">
             <div class="col-md-4 fu">
                 <div class="rocard">
-                    <div class="ro-icon" style="background:var(--blue-l);color:var(--blue);"><i class="fas fa-user-shield"></i></div>
+                    <div class="ro-icon" style="background:#eef2ff;color:var(--p);"><i class="fas fa-user-shield"></i></div>
                     <div class="ro-h">Admin</div>
-                    <div class="ro-p">Full control over tickets, users, and facilities. Approve requests, assign staff, monitor progress, and view analytics.</div>
+                    <div class="ro-p">Full control over tickets, users, and facilities. Approve requests, assign staff, and view analytics.</div>
                     <div>
-                        <span class="ro-tag" style="background:var(--blue-l);color:var(--blue);">Dashboard</span>
-                        <span class="ro-tag" style="background:var(--blue-l);color:var(--blue);">User Management</span>
-                        <span class="ro-tag" style="background:var(--blue-l);color:var(--blue);">Analytics</span>
+                        <span class="ro-tag" style="background:#eef2ff;color:var(--pd);">Dashboard</span>
+                        <span class="ro-tag" style="background:#eef2ff;color:var(--pd);">Users</span>
+                        <span class="ro-tag" style="background:#eef2ff;color:var(--pd);">Analytics</span>
                     </div>
                 </div>
             </div>
             <div class="col-md-4 fu" style="transition-delay:.08s">
                 <div class="rocard">
-                    <div class="ro-icon" style="background:var(--violet-l);color:var(--violet);"><i class="fas fa-chalkboard-user"></i></div>
+                    <div class="ro-icon" style="background:#ecfdf5;color:var(--ok);"><i class="fas fa-chalkboard-user"></i></div>
                     <div class="ro-h">Faculty / Staff</div>
-                    <div class="ro-p">Report facility issues, track ticket status in real time, and rate the service once your request is resolved.</div>
+                    <div class="ro-p">Report facility issues, track ticket status in real time, and rate the service once resolved.</div>
                     <div>
-                        <span class="ro-tag" style="background:var(--violet-l);color:var(--violet);">Submit Tickets</span>
-                        <span class="ro-tag" style="background:var(--violet-l);color:var(--violet);">Track Status</span>
-                        <span class="ro-tag" style="background:var(--violet-l);color:var(--violet);">Feedback</span>
+                        <span class="ro-tag" style="background:#ecfdf5;color:#065f46;">Submit</span>
+                        <span class="ro-tag" style="background:#ecfdf5;color:#065f46;">Track</span>
+                        <span class="ro-tag" style="background:#ecfdf5;color:#065f46;">Feedback</span>
                     </div>
                 </div>
             </div>
             <div class="col-md-4 fu" style="transition-delay:.16s">
                 <div class="rocard">
-                    <div class="ro-icon" style="background:var(--teal-l);color:var(--teal);"><i class="fas fa-hard-hat"></i></div>
+                    <div class="ro-icon" style="background:#fffbeb;color:var(--warn);"><i class="fas fa-hard-hat"></i></div>
                     <div class="ro-h">Maintenance Staff</div>
-                    <div class="ro-p">View assigned tasks, update repair progress, and mark jobs complete — everything in one place.</div>
+                    <div class="ro-p">View assigned tasks, update repair progress, and mark jobs complete — all in one place.</div>
                     <div>
-                        <span class="ro-tag" style="background:var(--teal-l);color:var(--teal);">Task Queue</span>
-                        <span class="ro-tag" style="background:var(--teal-l);color:var(--teal);">Progress Updates</span>
-                        <span class="ro-tag" style="background:var(--teal-l);color:var(--teal);">History</span>
+                        <span class="ro-tag" style="background:#fffbeb;color:#92400e;">Tasks</span>
+                        <span class="ro-tag" style="background:#fffbeb;color:#92400e;">Progress</span>
+                        <span class="ro-tag" style="background:#fffbeb;color:#92400e;">History</span>
                     </div>
                 </div>
             </div>
@@ -509,14 +502,14 @@
 </section>
 
 <!-- CTA -->
-<section class="sec sec-alt">
+<section class="sec sec-w">
     <div class="container">
-        <div class="cta-wrap fu">
+        <div class="cta-box fu">
             <div style="position:relative;z-index:1;">
-                <div class="sec-label" style="color:#93c5fd;display:flex;justify-content:center;">Get Started</div>
-                <h2 class="sec-h mt-2 mb-3" style="color:#fff;font-family:'DM Serif Display',serif;">Ready to get started?</h2>
-                <p class="sec-p mb-4" style="color:rgba(255,255,255,.55);">Create your account and start reporting facility issues in minutes. Free for all SCC faculty and staff.</p>
-                <a href="{{ route('register') }}" style="display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--blue);border:none;border-radius:8px;padding:13px 32px;font-size:0.9rem;font-weight:700;box-shadow:0 4px 14px rgba(0,0,0,.15);transition:transform .15s,box-shadow .15s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,.2)'" onmouseout="this.style.transform='';this.style.boxShadow='0 4px 14px rgba(0,0,0,.15)'">
+                <div class="sec-label" style="color:#a5b4fc;display:flex;justify-content:center;">Get Started</div>
+                <h2 class="sec-h mt-2 mb-3" style="color:#fff;">Ready to get started?</h2>
+                <p class="sec-p mb-4" style="color:rgba(255,255,255,.55);">Free for all SCC faculty and staff. Create your account and start reporting in minutes.</p>
+                <a href="{{ route('register') }}" style="display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--p);border:none;border-radius:8px;padding:12px 28px;font-size:0.9rem;font-weight:700;box-shadow:0 2px 12px rgba(0,0,0,.15);transition:transform .15s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
                     <i class="fas fa-user-plus"></i> Create an Account
                 </a>
             </div>
@@ -529,11 +522,11 @@
     <div class="container">
         <div class="row g-4">
             <div class="col-md-5">
-                <div class="d-flex align-items-center gap-2 mb-3">
-                    <img src="{{ asset('images/scc-logo.png') }}" alt="SCC" width="26" height="26" style="border-radius:6px;object-fit:contain;background:#fff;padding:2px;" onerror="this.style.display='none'">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                    <img src="{{ asset('images/scc-logo.png') }}" alt="SCC" width="26" height="26" style="border-radius:50%;object-fit:contain;background:#fff;padding:2px;" onerror="this.style.display='none'">
                     <span class="ft-name">SCC ReportHub</span>
                 </div>
-                <p style="font-size:0.78rem;line-height:1.65;max-width:260px;">Campus Facility Status Report &amp; Monitoring System — Southern Christian College, Midsayap, Cotabato.</p>
+                <p style="font-size:0.78rem;line-height:1.6;max-width:260px;">Campus Facility Status Report &amp; Monitoring System — Southern Christian College, Midsayap, Cotabato.</p>
             </div>
             <div class="col-6 col-md-3 offset-md-1">
                 <div class="ft-col-h">Navigation</div>
