@@ -339,7 +339,7 @@
         <div class="row align-items-center g-4 g-lg-5">
             <div class="col-lg-6 col-12">
                 <div class="hero-badge"><i class="fas fa-building"></i> Campus Facility Management System</div>
-                <h1 class="hero-title">Smarter Facility<br><span class="gradient-text">Management Starts Here.</span></h1>
+                <h1 class="hero-title">Report. Track.<br><span class="gradient-text">Resolve Faster.</span></h1>
                 <p class="hero-desc">SCC ReportHub streamlines facility issue reporting at Southern Christian College. Submit tickets, monitor repairs in real time, and keep the campus running smoothly.</p>
                 <a href="{{ route('register') }}" class="btn-hero-primary">Get Started</a>
             </div>
