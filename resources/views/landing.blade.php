@@ -51,27 +51,21 @@
         .mob-btns { display: flex; flex-direction: column; gap: 10px; width: 72%; max-width: 240px; margin-top: 24px; }
         .mob-btns .btn-su, .mob-btns .btn-si { width: 100%; text-align: center; padding: 12px; font-size: 0.875rem; border-radius: 10px; }
 
-        /* HERO — split layout */
+        /* HERO — full dark */
         .hero {
             padding-top: 60px;
             min-height: 100vh;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            position: relative;
-            overflow: hidden;
-        }
-        .hero-left {
             background: linear-gradient(145deg, #0f172a 0%, #1e1b4b 50%, #312e81 100%);
             display: flex; align-items: center;
-            padding: 80px 60px 80px 0;
             position: relative; overflow: hidden;
         }
-        .hero-left::before {
-            content: ''; position: absolute; inset: 0;
-            background: radial-gradient(ellipse 70% 60% at 80% 40%, rgba(79,70,229,.35) 0%, transparent 65%);
-            pointer-events: none;
+        .hero::before {
+            content: ''; position: absolute; inset: 0; pointer-events: none;
+            background:
+                radial-gradient(ellipse 60% 60% at 80% 30%, rgba(79,70,229,.4) 0%, transparent 65%),
+                radial-gradient(ellipse 40% 40% at 15% 80%, rgba(6,182,212,.2) 0%, transparent 65%);
         }
-        .hero-left-inner { position: relative; z-index: 1; max-width: 520px; margin-left: auto; padding-right: 48px; }
+        .hero-body { padding: 80px 0; position: relative; z-index: 1; width: 100%; }
         .hero-pill {
             display: inline-flex; align-items: center; gap: 7px;
             background: rgba(79,70,229,.2); border: 1px solid rgba(129,140,248,.4);
@@ -79,60 +73,21 @@
             font-size: 0.68rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
             margin-bottom: 28px;
         }
-        .hero-h1 { font-size: clamp(2.4rem, 3.5vw, 3.6rem); font-weight: 900; color: #fff; line-height: 1.08; letter-spacing: -.8px; margin-bottom: 20px; }
+        .hero-h1 { font-size: clamp(2.6rem, 5.5vw, 4rem); font-weight: 900; color: #fff; line-height: 1.08; letter-spacing: -.8px; margin-bottom: 20px; }
         .hero-h1 span { background: linear-gradient(135deg, #818cf8, #06b6d4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-        .hero-p { font-size: 1rem; color: rgba(255,255,255,.65); line-height: 1.75; margin-bottom: 36px; max-width: 420px; }
+        .hero-p { font-size: 1.05rem; color: rgba(255,255,255,.65); line-height: 1.75; margin-bottom: 36px; max-width: 560px; }
         .btn-cta {
             display: inline-flex; align-items: center; gap: 8px;
             background: linear-gradient(135deg, var(--p), var(--pd));
             color: #fff; border: none; border-radius: 10px;
-            padding: 14px 32px; font-size: 0.95rem; font-weight: 700;
-            box-shadow: 0 4px 18px rgba(79,70,229,.45);
+            padding: 14px 36px; font-size: 0.95rem; font-weight: 700;
+            box-shadow: 0 4px 18px rgba(79,70,229,.5);
             transition: transform .15s, box-shadow .15s, opacity .15s;
         }
-        .btn-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(79,70,229,.55); opacity: .95; color: #fff; }
-        .hero-trust { display: flex; align-items: center; gap: 20px; margin-top: 28px; }
-        .hero-trust span { font-size: 0.75rem; color: rgba(255,255,255,.45); display: flex; align-items: center; gap: 5px; }
+        .btn-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(79,70,229,.6); opacity: .95; color: #fff; }
+        .hero-trust { display: flex; align-items: center; gap: 24px; margin-top: 28px; flex-wrap: wrap; }
+        .hero-trust span { font-size: 0.78rem; color: rgba(255,255,255,.45); display: flex; align-items: center; gap: 6px; }
         .hero-trust i { color: var(--ok); }
-
-        .hero-right {
-            background: var(--bg);
-            display: flex; align-items: center; justify-content: center;
-            padding: 80px 48px 80px 60px;
-            position: relative;
-        }
-        .hero-right::before {
-            content: ''; position: absolute; inset: 0;
-            background: radial-gradient(ellipse 60% 50% at 20% 60%, rgba(79,70,229,.05) 0%, transparent 65%);
-            pointer-events: none;
-        }
-        .hero-right-inner { width: 100%; max-width: 420px; position: relative; z-index: 1; }
-
-        /* Role cards on right */
-        .rstack { display: flex; flex-direction: column; gap: 14px; }
-        .rc {
-            background: #fff; border: 1px solid var(--border);
-            border-radius: 14px; padding: 18px 20px;
-            display: flex; align-items: center; gap: 14px;
-            box-shadow: 0 2px 12px rgba(0,0,0,.05);
-            transition: transform .2s, box-shadow .2s, border-color .2s;
-            position: relative; overflow: hidden;
-        }
-        .rc::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; opacity: 0; transition: opacity .2s; }
-        .rc:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(79,70,229,.1); border-color: #c7d2fe; }
-        .rc:hover::before { opacity: 1; }
-        .rc:nth-child(1)::before { background: linear-gradient(90deg, var(--p), #818cf8); }
-        .rc:nth-child(2)::before { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
-        .rc:nth-child(3)::before { background: linear-gradient(90deg, var(--ok), #34d399); }
-        .rc-icon { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
-        .rc-body { flex: 1; }
-        .rc-title { font-size: 0.875rem; font-weight: 700; color: var(--t1); margin-bottom: 3px; }
-        .rc-desc { font-size: 0.72rem; color: var(--t2); line-height: 1.45; }
-        .rc-arrow { color: var(--t3); font-size: 0.75rem; transition: color .15s, transform .15s; }
-        .rc:hover .rc-arrow { color: var(--p); transform: translateX(3px); }
-
-        /* Section label above right panel */
-        .panel-label { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: var(--t3); margin-bottom: 16px; }
 
         /* FEATURES */
         .sec { padding: 96px 0; }
@@ -202,24 +157,14 @@
 
         /* RESPONSIVE */
         @media (max-width: 991px) {
-            .hero { grid-template-columns: 1fr; min-height: auto; }
-            .hero-left { padding: 80px 0 60px; }
-            .hero-left-inner { margin: 0 auto; padding: 0 24px; max-width: 600px; }
-            .hero-right { padding: 40px 0 64px; }
-            .hero-right-inner { max-width: 600px; padding: 0 24px; }
-            .timeline-row::before { display: none; }
+            .hero-body { padding: 60px 0; }
         }
         @media (max-width: 767px) {
-            .hero-left { padding: 48px 0 40px; }
+            .hero-body { padding: 40px 0 48px; }
             .hero-h1 { font-size: 2rem; }
             .hero-p { font-size: 0.9rem; margin-bottom: 24px; }
             .btn-cta { padding: 13px 28px; font-size: 0.9rem; }
-            .hero-trust { flex-wrap: wrap; gap: 12px; }
-            .hero-right { padding: 32px 0 52px; }
-            .rc { padding: 14px 16px; gap: 12px; }
-            .rc-icon { width: 38px; height: 38px; font-size: 0.95rem; border-radius: 9px; }
-            .rc-title { font-size: 0.82rem; }
-            .rc-desc { font-size: 0.7rem; }
+            .hero-trust { gap: 14px; }
             .sec { padding: 60px 0; }
             .sec-h { font-size: 1.45rem; }
             .fc { padding: 22px; }
@@ -284,23 +229,21 @@
     </div>
 </nav>
 
-<!-- HERO — dark left / light right split -->
+<!-- HERO — full dark -->
 <section class="hero">
-
-    <!-- LEFT: dark panel -->
-    <div class="hero-left">
-        <div class="container-fluid px-0">
-            <div class="hero-left-inner">
+    <div class="container hero-body">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-xl-7 text-center text-lg-start">
                 <div class="hero-pill"><i class="fas fa-shield-halved"></i> Campus Facility Management</div>
                 <h1 class="hero-h1">
                     Report. Track.<br>
                     <span>Resolve Faster.</span>
                 </h1>
-                <p class="hero-p">SCC ReportHub streamlines facility issue reporting at Southern Christian College. Submit tickets, monitor repairs in real time, and keep the campus running smoothly.</p>
+                <p class="hero-p mx-auto mx-lg-0">SCC ReportHub streamlines facility issue reporting at Southern Christian College. Submit tickets, monitor repairs in real time, and keep the campus running smoothly.</p>
                 <a href="{{ route('register') }}" class="btn-cta">
                     <i class="fas fa-rocket"></i> Get Started Free
                 </a>
-                <div class="hero-trust">
+                <div class="hero-trust justify-content-center justify-content-lg-start">
                     <span><i class="fas fa-check-circle"></i> Free for SCC Faculty</span>
                     <span><i class="fas fa-check-circle"></i> No App Needed</span>
                     <span><i class="fas fa-check-circle"></i> Real-time Updates</span>
@@ -308,62 +251,6 @@
             </div>
         </div>
     </div>
-
-    <!-- RIGHT: light panel with role cards -->
-    <div class="hero-right">
-        <div class="hero-right-inner">
-            <div class="panel-label"><i class="fas fa-users me-1"></i> Who uses ReportHub?</div>
-            <div class="rstack">
-                <div class="rc">
-                    <div class="rc-icon" style="background:#eef2ff;color:#4f46e5;"><i class="fas fa-user-shield"></i></div>
-                    <div class="rc-body">
-                        <div class="rc-title">Admin</div>
-                        <div class="rc-desc">Manage tickets, users, facilities, and view analytics.</div>
-                    </div>
-                    <i class="fas fa-chevron-right rc-arrow"></i>
-                </div>
-                <div class="rc">
-                    <div class="rc-icon" style="background:#eff6ff;color:#3b82f6;"><i class="fas fa-chalkboard-user"></i></div>
-                    <div class="rc-body">
-                        <div class="rc-title">Faculty / Staff</div>
-                        <div class="rc-desc">Submit tickets and track repair status in real time.</div>
-                    </div>
-                    <i class="fas fa-chevron-right rc-arrow"></i>
-                </div>
-                <div class="rc">
-                    <div class="rc-icon" style="background:#ecfdf5;color:#10b981;"><i class="fas fa-hard-hat"></i></div>
-                    <div class="rc-body">
-                        <div class="rc-title">Maintenance Staff</div>
-                        <div class="rc-desc">View assigned tasks and update repair progress.</div>
-                    </div>
-                    <i class="fas fa-chevron-right rc-arrow"></i>
-                </div>
-            </div>
-
-            <!-- Mini stats -->
-            <div class="row g-2 mt-4">
-                <div class="col-4">
-                    <div style="background:#fff;border:1px solid var(--border);border-radius:12px;padding:14px 12px;text-align:center;">
-                        <div style="font-size:1.4rem;font-weight:900;color:var(--p);letter-spacing:-.5px;">8</div>
-                        <div style="font-size:0.65rem;font-weight:600;color:var(--t3);text-transform:uppercase;letter-spacing:.05em;margin-top:2px;">Categories</div>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div style="background:#fff;border:1px solid var(--border);border-radius:12px;padding:14px 12px;text-align:center;">
-                        <div style="font-size:1.4rem;font-weight:900;color:var(--p);letter-spacing:-.5px;">6</div>
-                        <div style="font-size:0.65rem;font-weight:600;color:var(--t3);text-transform:uppercase;letter-spacing:.05em;margin-top:2px;">Statuses</div>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div style="background:#fff;border:1px solid var(--border);border-radius:12px;padding:14px 12px;text-align:center;">
-                        <div style="font-size:1.4rem;font-weight:900;color:var(--p);letter-spacing:-.5px;">3</div>
-                        <div style="font-size:0.65rem;font-weight:600;color:var(--t3);text-transform:uppercase;letter-spacing:.05em;margin-top:2px;">Roles</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
 </section>
 
 <!-- FEATURES -->
