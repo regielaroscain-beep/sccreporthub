@@ -162,29 +162,51 @@
         .sec-h { font-size: clamp(1.5rem, 2.8vw, 2rem); font-weight: 800; color: var(--t1); line-height: 1.2; letter-spacing: -.3px; }
         .sec-p { font-size: 0.9rem; color: var(--t2); max-width: 500px; margin: 0 auto; line-height: 1.7; }
 
-        /* Feature cards — same as dashboard .card */
+        /* Feature cards — colored left border */
         .fc {
             background: var(--card); border: 1px solid var(--border);
             border-radius: 14px; padding: 24px; height: 100%;
             box-shadow: 0 1px 3px rgba(0,0,0,.04);
             transition: transform .2s, box-shadow .2s, border-color .2s;
+            border-left: 3px solid transparent;
         }
         .fc:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(79,70,229,.09); border-color: #c7d2fe; }
+        .fc:nth-child(1) .fc-inner, .fc:nth-child(4) .fc-inner { border-left-color: var(--p); }
+        .fc-left-p { border-left-color: var(--p) !important; }
+        .fc-left-ok { border-left-color: var(--ok) !important; }
+        .fc-left-warn { border-left-color: var(--warn) !important; }
+        .fc-left-err { border-left-color: var(--err) !important; }
         .fc-icon { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; margin-bottom: 14px; }
         .fc-h { font-size: 0.875rem; font-weight: 700; color: var(--t1); margin-bottom: 6px; }
         .fc-p { font-size: 0.82rem; color: var(--t2); line-height: 1.65; }
 
-        /* How it works */
+        /* How it works — with arrows */
         .how-card {
             background: var(--card); border: 1px solid var(--border);
             border-radius: 12px; padding: 22px; display: flex; gap: 14px;
             box-shadow: 0 1px 3px rgba(0,0,0,.04);
-            transition: border-color .2s;
+            transition: border-color .2s; position: relative;
         }
         .how-card:hover { border-color: #c7d2fe; }
-        .how-n { width: 32px; height: 32px; border-radius: 8px; flex-shrink: 0; background: linear-gradient(135deg, var(--p), var(--pd)); color: #fff; font-size: 0.8rem; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+        .how-arrow {
+            display: none;
+            position: absolute; right: -18px; top: 50%;
+            transform: translateY(-50%); z-index: 2;
+            color: var(--t3); font-size: 0.75rem;
+        }
+        @media (min-width: 768px) {
+            .col-md-6:nth-child(odd) .how-arrow { display: block; }
+        }
+        .how-n { width: 32px; height: 32px; border-radius: 8px; flex-shrink: 0; background: linear-gradient(135deg, var(--p), var(--ac)); color: #fff; font-size: 0.8rem; font-weight: 700; display: flex; align-items: center; justify-content: center; }
         .how-h { font-size: 0.845rem; font-weight: 700; color: var(--t1); margin-bottom: 4px; }
         .how-p { font-size: 0.78rem; color: var(--t2); line-height: 1.6; }
+
+        /* Social proof */
+        .social-proof {
+            display: flex; align-items: center; gap: 8px; margin-top: 20px;
+            font-size: 0.75rem; color: var(--t3);
+        }
+        .social-proof img { width: 20px; height: 20px; border-radius: 50%; object-fit: contain; background: #fff; border: 1px solid var(--border); padding: 1px; }
 
         /* Role cards */
         .rocard {
@@ -208,7 +230,15 @@
         .cta-box::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 60% at 50% 0%, rgba(79,70,229,.3) 0%, transparent 65%); pointer-events: none; }
 
         /* Footer */
-        footer { background: var(--dark); color: rgba(255,255,255,.4); padding: 44px 0 24px; font-size: 0.82rem; }
+        footer {
+            background: var(--dark); color: rgba(255,255,255,.4);
+            padding: 44px 0 24px; font-size: 0.82rem;
+            position: relative;
+        }
+        footer::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+            background: linear-gradient(90deg, var(--p), var(--ac));
+        }
         .ft-name { font-size: 0.9rem; font-weight: 800; color: #fff; }
         .ft-link { color: rgba(255,255,255,.4); transition: color .15s; display: block; margin-bottom: 8px; }
         .ft-link:hover { color: rgba(255,255,255,.8); }
@@ -302,6 +332,10 @@
                         <a href="{{ route('register') }}" class="btn-hero">Get Started Free</a>
                         <a href="{{ route('login') }}" class="btn-hero2">Sign In <i class="fas fa-arrow-right fa-xs"></i></a>
                     </div>
+                    <div class="social-proof">
+                        <img src="{{ asset('images/scc-logo.png') }}" alt="SCC" onerror="this.style.display='none'">
+                        Used by faculty &amp; staff at Southern Christian College
+                    </div>
                 </div>
                 <div class="col-lg-7">
                     <div class="preview-wrap">
@@ -385,42 +419,42 @@
         </div>
         <div class="row g-3">
             <div class="col-md-6 col-lg-4 fu">
-                <div class="fc">
+                <div class="fc fc-left-p">
                     <div class="fc-icon" style="background:#eef2ff;color:var(--p);"><i class="fas fa-ticket-alt"></i></div>
                     <div class="fc-h">Ticket Submission</div>
                     <div class="fc-p">Report issues in seconds — attach photos, set priority, and choose the affected area.</div>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4 fu" style="transition-delay:.06s">
-                <div class="fc">
+                <div class="fc fc-left-ok">
                     <div class="fc-icon" style="background:#ecfdf5;color:var(--ok);"><i class="fas fa-magnifying-glass-chart"></i></div>
                     <div class="fc-h">Real-Time Monitoring</div>
                     <div class="fc-p">Track every ticket from submission to completion. Know who's working on it and the current status.</div>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4 fu" style="transition-delay:.12s">
-                <div class="fc">
+                <div class="fc fc-left-warn">
                     <div class="fc-icon" style="background:#fffbeb;color:var(--warn);"><i class="fas fa-bell"></i></div>
                     <div class="fc-h">Notifications</div>
                     <div class="fc-p">Get notified when your ticket is approved, assigned, or resolved — no follow-up needed.</div>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4 fu" style="transition-delay:.06s">
-                <div class="fc">
+                <div class="fc fc-left-p">
                     <div class="fc-icon" style="background:#eef2ff;color:var(--p);"><i class="fas fa-chart-pie"></i></div>
                     <div class="fc-h">Admin Dashboard</div>
                     <div class="fc-p">Charts, stats, and full control over tickets, users, and facilities in one view.</div>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4 fu" style="transition-delay:.12s">
-                <div class="fc">
+                <div class="fc fc-left-ok">
                     <div class="fc-icon" style="background:#ecfdf5;color:var(--ok);"><i class="fas fa-screwdriver-wrench"></i></div>
                     <div class="fc-h">Maintenance Tasks</div>
                     <div class="fc-p">Maintenance staff see assigned tasks, update progress, and mark jobs complete.</div>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4 fu" style="transition-delay:.18s">
-                <div class="fc">
+                <div class="fc fc-left-err">
                     <div class="fc-icon" style="background:#fef2f2;color:var(--err);"><i class="fas fa-star"></i></div>
                     <div class="fc-h">Feedback & Ratings</div>
                     <div class="fc-p">Faculty rate resolved tickets — helping admins improve maintenance quality over time.</div>
@@ -439,7 +473,7 @@
             <p class="sec-p">Simple process, fast results.</p>
         </div>
         <div class="row g-3 fu">
-            <div class="col-md-6">
+            <div class="col-md-6" style="position:relative;">
                 <div class="how-card">
                     <div class="how-n">1</div>
                     <div>
@@ -447,8 +481,9 @@
                         <div class="how-p">Describe the issue, set priority, and attach a photo. Takes under a minute.</div>
                     </div>
                 </div>
+                <div class="how-arrow"><i class="fas fa-chevron-right"></i></div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6" style="position:relative;">
                 <div class="how-card">
                     <div class="how-n">2</div>
                     <div>
@@ -457,7 +492,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6" style="position:relative;">
                 <div class="how-card">
                     <div class="how-n">3</div>
                     <div>
@@ -465,6 +500,7 @@
                         <div class="how-p">Maintenance staff works on the task and updates progress in real time.</div>
                     </div>
                 </div>
+                <div class="how-arrow"><i class="fas fa-chevron-right"></i></div>
             </div>
             <div class="col-md-6">
                 <div class="how-card">
