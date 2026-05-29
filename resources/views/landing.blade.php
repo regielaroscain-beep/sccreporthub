@@ -102,6 +102,7 @@
         .hero-h {
             font-size: clamp(2rem, 4vw, 3rem); font-weight: 800;
             color: var(--t1); line-height: 1.12; letter-spacing: -.5px; margin-bottom: 16px;
+            text-shadow: 0 2px 12px rgba(79,70,229,.08), 0 1px 3px rgba(0,0,0,.06);
         }
         .hero-h span {
             background: linear-gradient(135deg, var(--p), var(--ac));
