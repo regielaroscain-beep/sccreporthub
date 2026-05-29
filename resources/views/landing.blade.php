@@ -330,7 +330,6 @@
                     <p class="hero-p">SCC ReportHub connects faculty, admins, and maintenance staff in one platform. Submit tickets, track repairs, and keep the campus running smoothly.</p>
                     <div class="d-flex align-items-center gap-3 flex-wrap">
                         <a href="{{ route('register') }}" class="btn-hero">Get Started Free</a>
-                        <a href="{{ route('login') }}" class="btn-hero2">Sign In <i class="fas fa-arrow-right fa-xs"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-7">
