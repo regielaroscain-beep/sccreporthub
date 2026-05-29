@@ -85,20 +85,6 @@
                 radial-gradient(ellipse 35% 35% at 10% 85%, rgba(6,182,212,.05) 0%, transparent 55%);
         }
         .hero-body { padding: 48px 0 0; position: relative; z-index: 1; }
-        .hero-badge {
-            display: inline-flex; align-items: center; gap: 0;
-            background: none; border: none; padding: 0;
-            font-size: 0.7rem; font-weight: 700;
-            letter-spacing: 0.18em; text-transform: uppercase;
-            background: linear-gradient(135deg, var(--p), var(--ac));
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-            margin-bottom: 22px;
-        }
-        .hero-badge-dot {
-            width: 7px; height: 7px; border-radius: 50%;
-            background: linear-gradient(135deg, var(--p), var(--ac));
-            flex-shrink: 0;
-        }
         .hero-h {
             font-size: clamp(2rem, 4vw, 3rem); font-weight: 800;
             color: var(--t1); line-height: 1.12; letter-spacing: -.5px; margin-bottom: 16px;
