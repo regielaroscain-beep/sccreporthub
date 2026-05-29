@@ -192,8 +192,13 @@
                 <a href="#how-it-works">How It Works</a>
                 <a href="#roles">Who It's For</a>
             </div>
-            <div class="d-flex align-items-center gap-2">
-                <button class="btn btn-link p-1" id="mmO" style="color:var(--t2);font-size:1.1rem;"><i class="fas fa-bars"></i></button>
+            <div class="d-none d-md-flex align-items-center gap-2">
+                <a href="{{ route('login') }}" class="btn-si">Sign In</a>
+                <a href="{{ route('register') }}" class="btn-su">Sign Up</a>
+            </div>
+            <div class="d-flex d-md-none align-items-center gap-2">
+                <a href="{{ route('login') }}" class="btn-si" style="padding:5px 12px;font-size:0.78rem;">Sign In</a>
+                <a href="{{ route('register') }}" class="btn-su" style="padding:5px 12px;font-size:0.78rem;">Sign Up</a>
             </div>
         </div>
     </div>
