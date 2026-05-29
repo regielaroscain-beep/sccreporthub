@@ -49,7 +49,12 @@
         .nav-inner { display: flex; align-items: center; justify-content: space-between; width: 100%; }
         .nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
         .nav-brand img { width: 34px; height: 34px; object-fit: contain; border-radius: 50%; background: #fff; padding: 2px; border: 1px solid var(--border); }
-        .nav-brand-title { font-size: 0.95rem; font-weight: 800; color: var(--primary); line-height: 1.1; letter-spacing: -0.3px; }
+        .nav-brand-title {
+            font-size: 0.95rem; font-weight: 800;
+            background: linear-gradient(135deg, var(--primary) 0%, #6366f1 50%, var(--accent) 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+            line-height: 1.1; letter-spacing: -0.3px;
+        }
         .nav-brand-sub { font-size: 0.58rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.8px; display: block; }
         .nav-links { display: flex; align-items: center; gap: 28px; }
         .nav-links a { color: var(--text-sec); font-size: 0.875rem; font-weight: 500; transition: color 0.15s; }
@@ -283,7 +288,6 @@
         }
         @media (max-width: 480px) {
             .hero-title { font-size: 1.65rem; }
-            .nav-brand-sub { display: none; }
         }
     </style>
 </head>
