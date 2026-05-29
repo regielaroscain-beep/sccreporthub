@@ -226,7 +226,7 @@
             .preview-wrap::before { display: none; }
         }
         @media (max-width: 767px) {
-            .hero-body { padding: 32px 0 0; }
+            .hero-body { padding: 24px 0 0; }
             .hero-h { font-size: 1.65rem; }
             .hero-p { font-size: 0.875rem; margin-bottom: 22px; }
             .preview-card { margin-top: 28px; }
@@ -244,8 +244,6 @@
         }
         @media (max-width: 480px) {
             .hero-h { font-size: 1.65rem; }
-            .lnav-brand-sub { display: none; }
-            .ptable { display: none; }
         }
     </style>
 </head>
