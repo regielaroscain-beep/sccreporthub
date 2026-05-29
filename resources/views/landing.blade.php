@@ -301,84 +301,80 @@
         }
         .btn-hero-secondary:hover { border-color: var(--primary); color: var(--primary); }
 
-        /* Hero card — matches dashboard card style */
-        .hero-visual { position: relative; z-index: 1; }
-        .hero-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
+        /* ══ HOLOGRAM ROLE CARDS ═════════════════════════════════ */
+        .holo-stack {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        .holo-card {
+            background: rgba(255,255,255,0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255,255,255,0.9);
             border-radius: 16px;
-            padding: 24px;
-            box-shadow: 0 4px 24px rgba(0,0,0,0.07);
-        }
-        .hero-card-header {
+            padding: 18px 22px;
             display: flex;
             align-items: center;
-            gap: 8px;
-            margin-bottom: 18px;
-            padding-bottom: 14px;
-            border-bottom: 1px solid var(--border);
+            gap: 16px;
+            box-shadow:
+                0 4px 24px rgba(79,70,229,0.08),
+                0 1px 4px rgba(0,0,0,0.04),
+                inset 0 1px 0 rgba(255,255,255,0.8);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            position: relative;
+            overflow: hidden;
         }
-        .hero-card-title {
-            font-size: 0.8rem;
-            font-weight: 700;
-            color: var(--text-sec);
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            margin-left: 4px;
+        .holo-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, transparent 60%);
+            pointer-events: none;
         }
-        .cat-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 10px 12px;
-            background: var(--body-bg);
-            border-radius: 10px;
-            border: 1px solid var(--border);
+        .holo-card:hover {
+            transform: translateY(-3px) translateX(4px);
+            box-shadow:
+                0 12px 40px rgba(79,70,229,0.14),
+                0 2px 8px rgba(0,0,0,0.06),
+                inset 0 1px 0 rgba(255,255,255,0.9);
         }
-        .cat-icon {
-            width: 32px; height: 32px;
-            border-radius: 8px;
+        .holo-card:nth-child(1) { transform: translateX(0px); }
+        .holo-card:nth-child(2) { transform: translateX(16px); }
+        .holo-card:nth-child(3) { transform: translateX(8px); }
+        .holo-card:nth-child(1):hover { transform: translateX(4px) translateY(-3px); }
+        .holo-card:nth-child(2):hover { transform: translateX(20px) translateY(-3px); }
+        .holo-card:nth-child(3):hover { transform: translateX(12px) translateY(-3px); }
+        .holo-icon {
+            width: 46px; height: 46px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.8rem;
+            font-size: 1.2rem;
             flex-shrink: 0;
         }
-        .cat-label {
-            font-size: 0.8rem;
-            font-weight: 600;
+        .holo-info { flex: 1; }
+        .holo-title {
+            font-size: 0.9rem;
+            font-weight: 700;
             color: var(--text);
+            margin-bottom: 2px;
         }
-        .status-badge {
-            font-size: 0.68rem;
-            font-weight: 600;
-            padding: 3px 10px;
-            border-radius: 50px;
-            white-space: nowrap;
+        .holo-desc {
+            font-size: 0.75rem;
+            color: var(--text-sec);
+            line-height: 1.4;
         }
-
-        /* ══ STATS STRIP ═════════════════════════════════════════ */
-        .stats-strip {
-            background: var(--card-bg);
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-            padding: 44px 0;
-        }
-        .stat-item { text-align: center; }
-        .stat-number {
-            font-size: 2.2rem;
-            font-weight: 800;
-            color: var(--primary);
-            line-height: 1;
-            letter-spacing: -0.5px;
-        }
-        .stat-label {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            margin-top: 6px;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.4px;
+        .holo-glow {
+            position: absolute;
+            width: 120px; height: 120px;
+            border-radius: 50%;
+            opacity: 0.12;
+            right: -20px; top: -20px;
+            pointer-events: none;
         }
 
         /* ══ SECTIONS ════════════════════════════════════════════ */
@@ -681,33 +677,42 @@
 
             </div>
 
-            <!-- Right: hidden, no card needed -->
-            <div class="col-lg-6 d-none d-lg-block"></div>
+            <!-- Right: hologram role cards -->
+            <div class="col-lg-6 d-none d-lg-flex align-items-center justify-content-center">
+                <div class="holo-stack" style="width:100%;max-width:380px;">
+                    <div class="holo-card">
+                        <div class="holo-glow" style="background:#4f46e5;"></div>
+                        <div class="holo-icon" style="background:#eef2ff;color:#4f46e5;">
+                            <i class="fas fa-user-shield"></i>
+                        </div>
+                        <div class="holo-info">
+                            <div class="holo-title">Admin</div>
+                            <div class="holo-desc">Manage tickets, users, facilities, and view analytics.</div>
+                        </div>
+                    </div>
+                    <div class="holo-card">
+                        <div class="holo-glow" style="background:#3b82f6;"></div>
+                        <div class="holo-icon" style="background:#eff6ff;color:#3b82f6;">
+                            <i class="fas fa-chalkboard-user"></i>
+                        </div>
+                        <div class="holo-info">
+                            <div class="holo-title">Faculty / Staff</div>
+                            <div class="holo-desc">Submit tickets and track repair status in real time.</div>
+                        </div>
+                    </div>
+                    <div class="holo-card">
+                        <div class="holo-glow" style="background:#10b981;"></div>
+                        <div class="holo-icon" style="background:#ecfdf5;color:#10b981;">
+                            <i class="fas fa-hard-hat"></i>
+                        </div>
+                        <div class="holo-info">
+                            <div class="holo-title">Maintenance Staff</div>
+                            <div class="holo-desc">View assigned tasks and update repair progress.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-        </div>
-    </div>
-</section>
-
-<!-- ══ STATS STRIP ════════════════════════════════════════════ -->
-<section class="stats-strip">
-    <div class="container">
-        <div class="row g-4 text-center">
-            <div class="col-6 col-md-3 stat-item fade-up">
-                <div class="stat-number">8</div>
-                <div class="stat-label">Issue Categories</div>
-            </div>
-            <div class="col-6 col-md-3 stat-item fade-up" style="transition-delay:0.1s;">
-                <div class="stat-number">3</div>
-                <div class="stat-label">User Roles</div>
-            </div>
-            <div class="col-6 col-md-3 stat-item fade-up" style="transition-delay:0.2s;">
-                <div class="stat-number">6</div>
-                <div class="stat-label">Ticket Statuses</div>
-            </div>
-            <div class="col-6 col-md-3 stat-item fade-up" style="transition-delay:0.3s;">
-                <div class="stat-number">100%</div>
-                <div class="stat-label">Web-Based</div>
-            </div>
         </div>
     </div>
 </section>
