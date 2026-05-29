@@ -124,7 +124,18 @@
             background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
         }
-        .hero-desc { font-size: 1rem; color: var(--text-sec); line-height: 1.75; max-width: 480px; margin-bottom: 36px; }
+        .hero-desc { font-size: 1rem; color: var(--text-sec); line-height: 1.75; max-width: 480px; margin-bottom: 0; }
+        .hero-desc-glass {
+            background: rgba(255,255,255,0.5);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.75);
+            border-radius: 14px;
+            padding: 18px 22px;
+            margin-bottom: 32px;
+            box-shadow: 0 2px 12px rgba(79,70,229,0.06), inset 0 1px 0 rgba(255,255,255,0.8);
+            max-width: 480px;
+        }
         .btn-hero-primary {
             background: linear-gradient(135deg, var(--primary) 0%, #6366f1 50%, var(--accent) 100%);
             color: #fff;
@@ -331,7 +342,9 @@
             <div class="col-lg-6 col-12">
                 <div class="hero-badge"><i class="fas fa-building"></i> Campus Facility Management System</div>
                 <h1 class="hero-title">Report. Track.<br><span class="gradient-text">Resolve Faster.</span></h1>
-                <p class="hero-desc">SCC ReportHub streamlines facility issue reporting at Southern Christian College. Submit tickets, monitor repairs in real time, and keep the campus running smoothly.</p>
+                <div class="hero-desc-glass">
+                    <p class="hero-desc mb-0">SCC ReportHub streamlines facility issue reporting at Southern Christian College. Submit tickets, monitor repairs in real time, and keep the campus running smoothly.</p>
+                </div>
                 <a href="{{ route('register') }}" class="btn-hero-primary">Get Started</a>
             </div>
             <div class="col-lg-6 col-12">
