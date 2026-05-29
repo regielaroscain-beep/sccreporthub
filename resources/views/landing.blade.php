@@ -678,11 +678,7 @@
                         Get Started
                     </a>
                 </div>
-                <div class="d-flex flex-wrap gap-3 hero-checks" style="font-size:0.8rem;color:var(--text-muted);">
-                    <span><i class="fas fa-check me-1" style="color:var(--success);"></i>Free for SCC Faculty</span>
-                    <span><i class="fas fa-check me-1" style="color:var(--success);"></i>Real-time Updates</span>
-                    <span><i class="fas fa-check me-1" style="color:var(--success);"></i>No App Needed</span>
-                </div>
+
             </div>
 
             <!-- Right: hidden, no card needed -->
