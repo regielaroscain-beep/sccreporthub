@@ -197,24 +197,11 @@
             position: relative;
             overflow: hidden;
         }
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            width: 600px; height: 600px;
-            background: radial-gradient(circle, rgba(79,70,229,0.07) 0%, transparent 70%);
-            top: -100px; right: -100px;
-            border-radius: 50%;
-            pointer-events: none;
+        .hero-inner {
+            padding-top: 56px;
+            padding-bottom: 72px;
         }
-        .hero-section::after {
-            content: '';
-            position: absolute;
-            width: 400px; height: 400px;
-            background: radial-gradient(circle, rgba(6,182,212,0.06) 0%, transparent 70%);
-            bottom: -100px; left: -100px;
-            border-radius: 50%;
-            pointer-events: none;
-        }
+
         .hero-badge {
             display: inline-flex;
             align-items: center;
@@ -513,87 +500,53 @@
         .fade-up.visible { opacity: 1; transform: translateY(0); }
 
         /* ══ RESPONSIVE ══════════════════════════════════════════ */
+        @media (max-width: 991px) {
+            .holo-card:nth-child(1),
+            .holo-card:nth-child(2),
+            .holo-card:nth-child(3) { transform: none; }
+            .holo-card:nth-child(1):hover,
+            .holo-card:nth-child(2):hover,
+            .holo-card:nth-child(3):hover { transform: translateY(-2px); }
+        }
+
         @media (max-width: 767px) {
-            .hero-section {
-                padding-top: 64px;
-                min-height: auto;
-                padding-bottom: 40px;
-            }
-            .hero-section .container {
-                padding-top: 28px !important;
-                padding-bottom: 32px !important;
-            }
-            .hero-badge {
-                font-size: 0.7rem;
-                padding: 4px 12px;
-                margin-bottom: 14px;
-            }
-            .hero-title {
-                font-size: 1.75rem;
-                margin-bottom: 12px;
-                letter-spacing: -0.3px;
-            }
-            .hero-desc {
-                font-size: 0.875rem;
-                margin-bottom: 22px;
-                line-height: 1.6;
-            }
-            .btn-hero-primary {
-                width: 100%;
-                justify-content: center;
-                padding: 12px 24px;
-                font-size: 0.9rem;
-            }
-            .hero-checks {
-                font-size: 0.75rem !important;
-                gap: 10px !important;
-            }
-            .hero-visual {
-                margin-top: 8px;
-            }
-            .hero-card {
-                padding: 18px;
-            }
-            .cat-item {
-                padding: 8px 10px;
-            }
-            .cat-label {
-                font-size: 0.75rem;
-            }
-            .cat-icon {
-                width: 28px; height: 28px;
-                font-size: 0.72rem;
-            }
-            .stats-strip { padding: 28px 0; }
-            .stat-number { font-size: 1.7rem; }
-            .stat-label { font-size: 0.72rem; }
+            .hero-inner { padding-top: 32px; padding-bottom: 40px; }
+            .hero-badge { font-size: 0.7rem; padding: 4px 12px; margin-bottom: 14px; }
+            .hero-title { font-size: 1.8rem; margin-bottom: 14px; }
+            .hero-desc { font-size: 0.875rem; margin-bottom: 24px; }
+            .btn-hero-primary { width: 100%; padding: 12px 24px; font-size: 0.9rem; }
+            .holo-stack { gap: 10px; }
+            .holo-card { padding: 14px 16px; gap: 12px; }
+            .holo-icon { width: 38px; height: 38px; font-size: 1rem; border-radius: 10px; }
+            .holo-title { font-size: 0.85rem; }
+            .holo-desc { font-size: 0.72rem; }
             .features-section,
             .how-section,
             .roles-section,
-            .cta-section { padding: 48px 0; }
-            .section-title { font-size: 1.35rem; }
+            .cta-section { padding: 52px 0; }
+            .section-title { font-size: 1.4rem; }
             .section-desc { font-size: 0.875rem; }
             .feature-card { padding: 20px; }
             .feature-icon { width: 42px; height: 42px; font-size: 1rem; margin-bottom: 12px; }
             .feature-title { font-size: 0.875rem; }
             .feature-desc { font-size: 0.8rem; }
             .step-number { width: 40px; height: 40px; font-size: 1rem; }
-            .step-title { font-size: 0.82rem; }
+            .step-title { font-size: 0.85rem; }
             .step-desc { font-size: 0.78rem; }
             .role-card { padding: 22px 18px; }
             .role-icon { width: 50px; height: 50px; font-size: 1.3rem; margin-bottom: 14px; }
             .role-title { font-size: 0.9rem; }
             .role-desc { font-size: 0.8rem; }
-            .cta-inner { padding: 32px 20px; border-radius: 16px; }
+            .cta-inner { padding: 36px 20px; border-radius: 16px; }
             .cta-inner .section-title { font-size: 1.3rem; }
-            .cta-inner .btn-hero-primary { width: 100%; justify-content: center; }
+            .cta-inner .btn-hero-primary { width: 100%; }
             .landing-footer { padding: 28px 0; }
             .landing-footer .row > div { text-align: center !important; }
             .landing-footer .d-flex { justify-content: center !important; }
         }
 
         @media (max-width: 480px) {
-            .hero-title { font-size: 1.55rem; }
+            .hero-title { font-size: 1.6rem; }
             .nav-brand-sub { display: none; }
         }
     </style>
@@ -651,10 +604,9 @@
     </div>
 </nav>
 
-<!-- ══ HERO ═══════════════════════════════════════════════════ -->
 <section class="hero-section">
-    <div class="container position-relative" style="z-index:1;padding-top:48px;padding-bottom:64px;">
-        <div class="row align-items-center g-5">
+    <div class="container position-relative hero-inner">
+        <div class="row align-items-center g-4 g-lg-5">
 
             <!-- Left -->
             <div class="col-lg-6 col-12">
@@ -669,17 +621,14 @@
                     SCC ReportHub streamlines facility issue reporting at Southern Christian College.
                     Submit tickets, monitor repairs in real time, and keep the campus running smoothly.
                 </p>
-                <div class="d-flex flex-wrap gap-3 mb-3">
-                    <a href="{{ route('register') }}" class="btn-hero-primary">
-                        Get Started
-                    </a>
-                </div>
-
+                <a href="{{ route('register') }}" class="btn-hero-primary">
+                    Get Started
+                </a>
             </div>
 
-            <!-- Right: hologram role cards -->
-            <div class="col-lg-6 d-none d-lg-flex align-items-center justify-content-center">
-                <div class="holo-stack" style="width:100%;max-width:380px;">
+            <!-- Right: hologram role cards (desktop + mobile) -->
+            <div class="col-lg-6 col-12">
+                <div class="holo-stack">
                     <div class="holo-card">
                         <div class="holo-glow" style="background:#4f46e5;"></div>
                         <div class="holo-icon" style="background:#eef2ff;color:#4f46e5;">
