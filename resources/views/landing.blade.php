@@ -510,7 +510,7 @@
         }
 
         @media (max-width: 767px) {
-            .hero-inner { padding-top: 32px; padding-bottom: 40px; }
+            .hero-inner { padding-top: 16px; padding-bottom: 32px; }
             .hero-badge { font-size: 0.7rem; padding: 4px 12px; margin-bottom: 14px; }
             .hero-title { font-size: 1.8rem; margin-bottom: 14px; }
             .hero-desc { font-size: 0.875rem; margin-bottom: 24px; }
