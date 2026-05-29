@@ -261,11 +261,11 @@
         @media (max-width: 991px) {
             .holo-card:nth-child(1),
             .holo-card:nth-child(2),
-            .holo-card:nth-child(3) { transform: none; }
+            .holo-card:nth-child(3) { transform: none !important; }
             .holo-card:hover,
             .holo-card:nth-child(1):hover,
             .holo-card:nth-child(2):hover,
-            .holo-card:nth-child(3):hover { transform: translateY(-2px); }
+            .holo-card:nth-child(3):hover { transform: translateY(-2px) !important; }
         }
         @media (max-width: 767px) {
             .hero-section { align-items: flex-start; min-height: auto; }
