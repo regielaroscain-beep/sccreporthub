@@ -57,8 +57,26 @@
         }
         .nav-brand-sub { font-size: 0.58rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.8px; display: block; }
         .nav-links { display: flex; align-items: center; gap: 28px; }
-        .nav-links a { color: var(--text-sec); font-size: 0.875rem; font-weight: 500; transition: color 0.15s; }
+        .nav-links a {
+            color: var(--text);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.01em;
+            transition: color 0.15s;
+            position: relative;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 2px;
+            transform: scaleX(0);
+            transition: transform 0.2s ease;
+        }
         .nav-links a:hover { color: var(--primary); }
+        .nav-links a:hover::after { transform: scaleX(1); }
         .btn-nav-login {
             border: 1.5px solid var(--border); color: var(--text-sec); background: #fff;
             border-radius: 8px; padding: 7px 18px; font-size: 0.875rem; font-weight: 600;
@@ -339,7 +357,7 @@
         <div class="row align-items-center g-4 g-lg-5">
             <div class="col-lg-6 col-12">
                 <div class="hero-badge"><i class="fas fa-building"></i> Campus Facility Management System</div>
-                <h1 class="hero-title">Report. Track.<br><span class="gradient-text">Resolve Faster.</span></h1>
+                <h1 class="hero-title">One Platform for<br><span class="gradient-text">Campus Facility Care.</span></h1>
                 <p class="hero-desc">SCC ReportHub streamlines facility issue reporting at Southern Christian College. Submit tickets, monitor repairs in real time, and keep the campus running smoothly.</p>
                 <a href="{{ route('register') }}" class="btn-hero-primary">Get Started</a>
             </div>
