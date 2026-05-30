@@ -854,7 +854,6 @@
                 <div class="brand-text">
                     <span class="brand-school">Southern Christian College</span>
                     <span class="brand-name">SCC ReportHub</span>
-                    <span class="brand-sub">Campus Issue Management</span>
                 </div>
             </a>
 
@@ -896,7 +895,7 @@
             <!-- Left: Text -->
             <div class="col-lg-6">
                 <div class="fade-in-up">
-                    <span class="section-label"><i class="fas fa-shield-alt me-1"></i> Campus Issue Management</span>
+                    <span class="section-label"><i class="fas fa-shield-alt me-1"></i> Campus Facility Management</span>
                     <h1 class="hero-headline mt-2">
                         Report, Track, and Resolve
                         <span class="gradient-text"> Campus Concerns</span>
