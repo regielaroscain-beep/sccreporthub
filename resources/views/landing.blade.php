@@ -62,31 +62,31 @@ a{text-decoration:none;color:inherit}
 
 /* ── HERO ── */
 .hero{padding-top:60px;background:var(--white);overflow:hidden;position:relative}
-.hero-bg{position:absolute;inset:0;pointer-events:none;background:linear-gradient(135deg,var(--blue-l) 0%,rgba(14,165,233,0.06) 40%,transparent 70%)}
-.hero-inner{padding:72px 0 0;position:relative;z-index:1}
+.hero-bg{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 70% 60% at 60% 0%,rgba(37,99,235,0.06) 0%,transparent 65%),radial-gradient(ellipse 40% 40% at 10% 100%,rgba(14,165,233,0.04) 0%,transparent 60%)}
+.hero-inner{padding:56px 0 0;position:relative;z-index:1}
 
 .hero-tag{display:inline-flex;align-items:center;gap:6px;background:var(--blue-l);color:var(--blue);border-radius:6px;padding:4px 12px;font-size:0.68rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:20px}
 
-.hero-h{font-size:clamp(2.2rem,5vw,3.8rem);font-weight:900;color:var(--ink);line-height:1.05;letter-spacing:-1px;margin-bottom:18px}
+.hero-h{font-size:clamp(2.4rem,5vw,3.8rem);font-weight:800;color:var(--ink);line-height:1.05;letter-spacing:-1.5px;margin-bottom:20px}
 .hero-h .blue{color:var(--blue)}
-.hero-h .sky{color:var(--sky)}
+.hero-h .sky{background:linear-gradient(135deg,var(--blue),var(--sky));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 
-.hero-p{font-size:1.05rem;color:var(--gray600);line-height:1.7;margin-bottom:32px;max-width:460px;font-weight:400}
+.hero-p{font-size:1rem;color:var(--gray600);line-height:1.75;margin-bottom:32px;max-width:440px;font-weight:400}
 
-.btn-cta{display:inline-flex;align-items:center;gap:8px;background:var(--blue);color:#fff;border:none;border-radius:10px;padding:14px 30px;font-size:0.95rem;font-weight:700;box-shadow:0 4px 16px rgba(37,99,235,0.3);transition:background .15s,transform .15s,box-shadow .15s;font-family:'Outfit',sans-serif}
+.btn-cta{display:inline-flex;align-items:center;gap:8px;background:var(--blue);color:#fff;border:none;border-radius:9px;padding:13px 28px;font-size:0.9rem;font-weight:600;box-shadow:0 4px 16px rgba(37,99,235,0.3);transition:background .15s,transform .15s,box-shadow .15s;font-family:'Outfit',sans-serif}
 .btn-cta:hover{background:var(--blue-d);transform:translateY(-2px);box-shadow:0 8px 24px rgba(37,99,235,0.4);color:#fff}
-.btn-ghost{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--gray600);border:1.5px solid var(--gray200);border-radius:10px;padding:14px 24px;font-size:0.95rem;font-weight:500;transition:border-color .15s,color .15s;font-family:'Outfit',sans-serif}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--gray600);border:1.5px solid var(--gray200);border-radius:9px;padding:13px 22px;font-size:0.9rem;font-weight:500;transition:border-color .15s,color .15s;font-family:'Outfit',sans-serif}
 .btn-ghost:hover{border-color:var(--blue);color:var(--blue)}
 
 /* Hero image panel */
-.hero-panel{background:var(--gray50);border:1px solid var(--gray200);border-radius:16px 16px 0 0;overflow:hidden;margin-top:48px;box-shadow:0 -8px 40px rgba(0,0,0,0.08)}
-.panel-bar{background:var(--white);border-bottom:1px solid var(--gray200);padding:10px 16px;display:flex;align-items:center;gap:6px}
+.hero-panel{background:var(--white);border:1px solid var(--gray200);border-radius:14px 14px 0 0;overflow:hidden;margin-top:44px;box-shadow:0 -4px 32px rgba(37,99,235,0.08),0 -1px 0 var(--gray200)}
+.panel-bar{background:var(--gray50);border-bottom:1px solid var(--gray200);padding:10px 16px;display:flex;align-items:center;gap:6px}
 .p-dot{width:10px;height:10px;border-radius:50%}
-.p-url{flex:1;background:var(--gray100);border-radius:4px;padding:3px 10px;font-size:0.62rem;color:var(--gray400);margin:0 8px;font-family:monospace}
+.p-url{flex:1;background:var(--white);border:1px solid var(--gray200);border-radius:4px;padding:3px 10px;font-size:0.62rem;color:var(--gray400);margin:0 8px;font-family:monospace}
 .panel-body{padding:18px}
 .panel-title{font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--gray400);margin-bottom:10px}
 .p-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:14px}
-.p-stat{background:var(--white);border:1px solid var(--gray200);border-radius:10px;padding:10px 12px}
+.p-stat{background:var(--gray50);border:1px solid var(--gray200);border-radius:10px;padding:10px 12px}
 .p-stat-n{font-size:1.2rem;font-weight:800;line-height:1;letter-spacing:-0.3px}
 .p-stat-l{font-size:0.58rem;color:var(--gray400);text-transform:uppercase;letter-spacing:0.05em;margin-top:3px;font-weight:500}
 .p-table{width:100%;border-collapse:collapse;font-size:0.7rem}
@@ -173,10 +173,10 @@ footer hr{border-color:rgba(255,255,255,0.07)!important;margin:28px 0 20px}
   .steps-grid::before{display:none}
 }
 @media(max-width:767px){
-  .hero-inner{padding:28px 0 0}
-  .hero-h{font-size:2rem;letter-spacing:-0.5px}
+  .hero-inner{padding:24px 0 0}
+  .hero-h{font-size:1.9rem;letter-spacing:-0.5px}
   .hero-p{font-size:0.9rem;margin-bottom:24px}
-  .btn-cta,.btn-ghost{padding:12px 22px;font-size:0.875rem}
+  .btn-cta,.btn-ghost{padding:12px 20px;font-size:0.875rem}
   .hero-panel{margin-top:28px}
   .p-stats{grid-template-columns:repeat(2,1fr)}
   .bento{grid-template-columns:1fr}
@@ -250,9 +250,8 @@ footer hr{border-color:rgba(255,255,255,0.07)!important;margin:28px 0 20px}
         <div class="col-lg-5">
           <div class="hero-tag"><i class="fas fa-building-columns"></i> Campus Facility System</div>
           <h1 class="hero-h">
-            Smarter<br>
-            <span class="blue">facility</span><br>
-            <span class="sky">management.</span>
+            Smarter campus<br>
+            <span class="sky">facility management.</span>
           </h1>
           <p class="hero-p">SCC ReportHub gives faculty, administrators, and maintenance staff a single platform to report, track, and resolve campus facility issues — fast.</p>
           <div class="d-flex align-items-center gap-3 flex-wrap">
