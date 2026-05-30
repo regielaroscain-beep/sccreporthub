@@ -854,7 +854,7 @@
                 <div class="brand-text">
                     <span class="brand-school">Southern Christian College</span>
                     <span class="brand-name">SCC ReportHub</span>
-                    <span class="brand-sub">Campus Facility Management</span>
+                    <span class="brand-sub">Campus Issue Management</span>
                 </div>
             </a>
 
