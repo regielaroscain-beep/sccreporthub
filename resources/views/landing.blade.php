@@ -306,7 +306,7 @@
         <img src="{{ asset('images/scc-logo.png') }}" alt="SCC Logo" class="hero-logo fade-in">
         <h1 class="hero-title fade-in fade-in-delay-1">SCC ReportHub</h1>
         <h2 class="hero-subtitle fade-in fade-in-delay-2">
-            A Centralized Facility Maintenance and Issue Reporting System<br class="d-none d-md-block"> for Southern Christian College
+            A Web-Based Facility Campus Status Report and Monitoring System<br class="d-none d-md-block"> for Southern Christian College
         </h2>
         <p class="hero-desc fade-in fade-in-delay-3">
             Streamline facility concerns, track maintenance requests in real time, and keep your campus running smoothly — all in one place.
