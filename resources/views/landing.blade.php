@@ -1,600 +1,1616 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SCC ReportHub — Campus Facility Management</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<style>
-:root{
-  --sky:#e8f4fd;
-  --sky2:#d0eaf9;
-  --sky3:#b8dff5;
-  --blue:#1a73e8;
-  --blue2:#1557b0;
-  --blue3:#4a9edd;
-  --gold:#f5a623;
-  --gold2:#e8941a;
-  --gold3:#ffc947;
-  --gold-l:#fff8e7;
-  --white:#ffffff;
-  --ink:#1a2332;
-  --ink2:#4a5568;
-  --ink3:#8a9ab0;
-  --border:#dde8f5;
-  --card:#ffffff;
-}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:'Poppins',system-ui,sans-serif;background:var(--sky);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-a{text-decoration:none;color:inherit}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCC ReportHub - Report, Track, and Resolve Campus Concerns</title>
+    <meta name="description" content="SCC ReportHub empowers students, faculty, and administrators to report environmental issues and campus concerns in real-time.">
 
-/* ── NAV ── */
-.nav{position:fixed;top:0;left:0;right:0;z-index:900;height:66px;background:rgba(255,255,255,0.95);backdrop-filter:blur(16px);border-bottom:2px solid var(--border);display:flex;align-items:center;box-shadow:0 2px 20px rgba(26,115,232,0.08)}
-.nav-i{display:flex;align-items:center;justify-content:space-between;width:100%}
-.brand{display:flex;align-items:center;gap:10px}
-.brand img{width:36px;height:36px;border-radius:10px;object-fit:contain;background:var(--sky);padding:3px;border:2px solid var(--border)}
-.brand-name{font-size:1rem;font-weight:800;color:var(--blue);letter-spacing:-0.3px}
-.brand-sub{font-size:0.52rem;font-weight:600;color:var(--ink3);text-transform:uppercase;letter-spacing:.8px;display:block}
-.nav-links{display:flex;gap:28px}
-.nav-links a{font-size:0.85rem;font-weight:600;color:var(--ink2);transition:color .15s}
-.nav-links a:hover{color:var(--blue)}
-.btn-si{background:transparent;border:2px solid var(--border);color:var(--ink2);border-radius:50px;padding:7px 20px;font-size:0.82rem;font-weight:700;transition:all .15s;font-family:'Poppins',sans-serif}
-.btn-si:hover{border-color:var(--blue);color:var(--blue)}
-.btn-su{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#fff;border:none;border-radius:50px;padding:7px 20px;font-size:0.82rem;font-weight:700;box-shadow:0 4px 14px rgba(245,166,35,0.4);transition:opacity .15s,transform .15s;font-family:'Poppins',sans-serif}
-.btn-su:hover{opacity:.9;transform:translateY(-1px);color:#fff}
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-/* ── MOBILE MENU ── */
-.mm{display:none;position:fixed;inset:0;z-index:1100;background:#fff;flex-direction:column;align-items:center;justify-content:center}
-.mm.on{display:flex}
-.mm-x{position:absolute;top:18px;right:18px;background:none;border:none;font-size:1.3rem;color:var(--ink2);cursor:pointer}
-.mm a.ml{display:block;font-size:1.1rem;font-weight:700;color:var(--ink);padding:14px 0;width:100%;text-align:center;border-bottom:1px solid var(--border);transition:color .15s}
-.mm a.ml:hover{color:var(--blue)}
-.mm-cta{display:flex;flex-direction:column;gap:10px;width:72%;max-width:260px;margin-top:24px}
-.mm-cta .btn-su,.mm-cta .btn-si{width:100%;text-align:center;padding:13px;font-size:0.9rem}
+    <!-- Bootstrap 5.3.2 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-/* ── HERO ── */
-.hero{padding-top:66px;background:linear-gradient(160deg,var(--white) 0%,var(--sky) 40%,var(--sky2) 100%);min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden}
+    <!-- Font Awesome 6.5 -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
-/* Decorative circles */
-.deco-circle{position:absolute;border-radius:50%;pointer-events:none}
-.dc1{width:500px;height:500px;background:radial-gradient(circle,rgba(26,115,232,0.06) 0%,transparent 70%);top:-150px;right:-100px}
-.dc2{width:300px;height:300px;background:radial-gradient(circle,rgba(245,166,35,0.08) 0%,transparent 70%);bottom:-80px;left:-60px}
-.dc3{width:200px;height:200px;background:radial-gradient(circle,rgba(26,115,232,0.05) 0%,transparent 70%);top:40%;left:40%}
+    <style>
+        /* ===== CSS CUSTOM PROPERTIES ===== */
+        :root {
+            --blue-dark:    #1e40af;
+            --blue-mid:     #2563eb;
+            --blue-light:   #3b82f6;
+            --purple-dark:  #7c3aed;
+            --purple-light: #a855f7;
+            --white:        #ffffff;
+            --gray-50:      #f8fafc;
+            --gray-100:     #f1f5f9;
+            --gray-200:     #e2e8f0;
+            --gray-600:     #475569;
+            --gray-700:     #334155;
+            --gray-900:     #0f172a;
+            --gradient-main: linear-gradient(135deg, var(--blue-dark), var(--purple-dark));
+            --gradient-light: linear-gradient(135deg, #eff6ff, #f5f3ff);
+            --glass-bg:     rgba(255,255,255,0.1);
+            --glass-border: rgba(255,255,255,0.2);
+            --shadow-card:  0 8px 32px rgba(0,0,0,0.1);
+            --shadow-hover: 0 20px 60px rgba(0,0,0,0.15);
+            --radius-card:  16px;
+            --radius-lg:    20px;
+            --transition:   all 0.3s ease;
+        }
 
-.hero-inner{padding:60px 0 40px;position:relative;z-index:1;width:100%}
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-/* Left copy */
-.hero-tag{display:inline-flex;align-items:center;gap:8px;background:var(--gold-l);border:2px solid rgba(245,166,35,0.3);color:var(--gold2);border-radius:50px;padding:5px 16px;font-size:0.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:22px}
-.hero-tag i{font-size:0.8rem}
+        html { scroll-behavior: smooth; }
 
-.hero-h{font-size:clamp(2.2rem,5vw,3.6rem);font-weight:900;color:var(--ink);line-height:1.08;letter-spacing:-1px;margin-bottom:8px}
-.hero-h .gold{color:var(--gold)}
-.hero-h .blue{color:var(--blue)}
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--gray-700);
+            background: var(--white);
+            overflow-x: hidden;
+        }
 
-.hero-sub{font-size:1.1rem;font-weight:600;color:var(--blue3);margin-bottom:18px}
-.hero-p{font-size:0.95rem;color:var(--ink2);line-height:1.75;margin-bottom:32px;max-width:440px}
+        /* ===== UTILITY ===== */
+        .gradient-text {
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
 
-.btn-hero{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--blue),var(--blue2));color:#fff;border:none;border-radius:50px;padding:14px 32px;font-size:0.95rem;font-weight:700;box-shadow:0 6px 20px rgba(26,115,232,0.35);transition:transform .15s,box-shadow .15s,opacity .15s;font-family:'Poppins',sans-serif}
-.btn-hero:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(26,115,232,0.45);opacity:.95;color:#fff}
-.btn-hero-out{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--blue);border:2px solid var(--blue3);border-radius:50px;padding:14px 28px;font-size:0.95rem;font-weight:600;transition:all .15s;font-family:'Poppins',sans-serif}
-.btn-hero-out:hover{background:var(--blue);color:#fff;border-color:var(--blue)}
+        .btn-gradient {
+            background: var(--gradient-main);
+            color: var(--white);
+            border: none;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-gradient:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(30,64,175,0.4);
+            color: var(--white);
+        }
 
-/* Hero right — illustration area */
-.hero-right{position:relative;display:flex;align-items:center;justify-content:center}
+        .btn-outline-white {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid rgba(255,255,255,0.6);
+            padding: 10px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-outline-white:hover {
+            background: rgba(255,255,255,0.15);
+            border-color: var(--white);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
 
-/* SVG Cartoon character */
-.cartoon-wrap{position:relative;z-index:2}
+        .btn-outline-primary-custom {
+            background: transparent;
+            color: var(--blue-dark);
+            border: 2px solid var(--blue-dark);
+            padding: 10px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-outline-primary-custom:hover {
+            background: var(--blue-dark);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
 
-/* Floating stat cards */
-.stat-float{position:absolute;background:var(--white);border-radius:16px;padding:14px 18px;box-shadow:0 8px 32px rgba(26,115,232,0.15);border:2px solid var(--border);z-index:3;animation:floatUp 3s ease-in-out infinite}
-.stat-float:nth-child(2){animation-delay:.8s}
-.stat-float:nth-child(3){animation-delay:1.6s}
-@keyframes floatUp{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
-.sf1{top:5%;left:-10%}
-.sf2{bottom:15%;right:-8%}
-.sf3{top:45%;right:-15%}
-.sf-icon{font-size:1.4rem;margin-bottom:4px}
-.sf-val{font-size:1.3rem;font-weight:900;color:var(--ink);line-height:1;letter-spacing:-0.5px}
-.sf-label{font-size:0.6rem;font-weight:600;color:var(--ink3);text-transform:uppercase;letter-spacing:.06em;margin-top:2px}
+        .section-padding { padding: 96px 0; }
+        @media (max-width: 768px) { .section-padding { padding: 60px 0; } }
 
-/* ── WAVE DIVIDER ── */
-.wave{display:block;width:100%;overflow:hidden;line-height:0}
-.wave svg{display:block}
+        /* ===== FADE-IN ANIMATION ===== */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .fade-in-up.delay-1 { transition-delay: 0.1s; }
+        .fade-in-up.delay-2 { transition-delay: 0.2s; }
+        .fade-in-up.delay-3 { transition-delay: 0.3s; }
+        .fade-in-up.delay-4 { transition-delay: 0.4s; }
+        .fade-in-up.delay-5 { transition-delay: 0.5s; }
+        .fade-in-up.delay-6 { transition-delay: 0.6s; }
+        .fade-in-up.delay-7 { transition-delay: 0.7s; }
+        .fade-in-up.delay-8 { transition-delay: 0.8s; }
 
-/* ── FEATURES ── */
-.sec-features{background:var(--white);padding:88px 0}
-.sec-tag{font-size:0.67rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--gold2);margin-bottom:8px}
-.sec-h{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:900;color:var(--ink);line-height:1.15;letter-spacing:-0.4px}
-.sec-p{font-size:0.9rem;color:var(--ink2);max-width:520px;margin:0 auto;line-height:1.7}
+        /* ===== NAVBAR ===== */
+        #mainNav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            padding: 14px 0;
+            background: rgba(255,255,255,0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+            transition: var(--transition);
+        }
+        #mainNav.scrolled {
+            padding: 10px 0;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.08);
+        }
+        .navbar-brand-custom {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+        .navbar-brand-custom img {
+            height: 40px;
+            width: auto;
+        }
+        .navbar-brand-custom span {
+            font-size: 1.2rem;
+            font-weight: 800;
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .nav-link-custom {
+            color: var(--gray-700) !important;
+            font-weight: 500;
+            font-size: 0.92rem;
+            padding: 6px 14px !important;
+            border-radius: 8px;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+        .nav-link-custom:hover {
+            color: var(--blue-dark) !important;
+            background: rgba(30,64,175,0.06);
+        }
+        .navbar-toggler-custom {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 6px;
+            display: none;
+        }
+        .navbar-toggler-custom span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--gray-700);
+            margin: 5px 0;
+            transition: var(--transition);
+            border-radius: 2px;
+        }
 
-.fc{background:var(--sky);border:2px solid var(--border);border-radius:20px;padding:28px;height:100%;transition:transform .2s,box-shadow .2s,border-color .2s,background .2s}
-.fc:hover{transform:translateY(-5px);box-shadow:0 16px 40px rgba(26,115,232,0.12);border-color:var(--blue3);background:var(--white)}
-.fc-icon{width:52px;height:52px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:16px}
-.fc-h{font-size:0.9rem;font-weight:800;color:var(--ink);margin-bottom:7px}
-.fc-p{font-size:0.82rem;color:var(--ink2);line-height:1.65}
+        /* Mobile overlay menu */
+        .mobile-menu-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(15,23,42,0.97);
+            z-index: 2000;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 28px;
+        }
+        .mobile-menu-overlay.open { display: flex; }
+        .mobile-menu-overlay a {
+            color: var(--white);
+            font-size: 1.4rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        .mobile-menu-overlay a:hover { color: var(--blue-light); }
+        .mobile-close-btn {
+            position: absolute;
+            top: 24px; right: 24px;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
 
-/* ── HOW IT WORKS ── */
-.sec-how{background:linear-gradient(135deg,var(--sky) 0%,var(--sky2) 100%);padding:88px 0;border-top:2px solid var(--border);border-bottom:2px solid var(--border)}
-.step-wrap{text-align:center;padding:0 12px}
-.step-num{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--blue3));color:#fff;font-size:1.1rem;font-weight:900;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;box-shadow:0 6px 18px rgba(26,115,232,0.35)}
-.step-h{font-size:0.9rem;font-weight:800;color:var(--ink);margin-bottom:6px}
-.step-p{font-size:0.8rem;color:var(--ink2);line-height:1.6}
-.step-connector{display:none}
-@media(min-width:768px){
-  .step-connector{display:block;position:absolute;top:26px;left:calc(50% + 32px);right:calc(-50% + 32px);height:2px;background:linear-gradient(90deg,var(--blue3),var(--gold3));opacity:.4}
-}
+        @media (max-width: 991px) {
+            .navbar-toggler-custom { display: block; }
+            .nav-links-desktop { display: none !important; }
+        }
 
-/* ── ROLES ── */
-.sec-roles{background:var(--white);padding:88px 0}
-.rcard{border-radius:24px;padding:36px 28px;height:100%;transition:transform .2s,box-shadow .2s;position:relative;overflow:hidden}
-.rcard.r1{background:linear-gradient(145deg,#e8f4fd,#d0eaf9);border:2px solid #b8dff5}
-.rcard.r2{background:linear-gradient(145deg,#fff8e7,#ffefc4);border:2px solid #ffd980}
-.rcard.r3{background:linear-gradient(145deg,#e8fdf4,#c8f5e4);border:2px solid #86efca}
-.rcard:hover{transform:translateY(-5px);box-shadow:0 16px 40px rgba(0,0,0,0.1)}
-.rcard-icon{width:60px;height:60px;border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:18px;box-shadow:0 4px 14px rgba(0,0,0,0.1)}
-.rcard-h{font-size:1rem;font-weight:800;color:var(--ink);margin-bottom:8px}
-.rcard-p{font-size:0.835rem;color:var(--ink2);line-height:1.65;margin-bottom:16px}
-.rcard-tag{font-size:0.65rem;font-weight:700;padding:4px 10px;border-radius:50px;display:inline-block;margin:2px;background:rgba(255,255,255,0.7);color:var(--ink2);border:1px solid rgba(0,0,0,0.08)}
+        /* ===== HERO ===== */
+        #hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f0f4ff 0%, #faf5ff 50%, #eff6ff 100%);
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-circle {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.12;
+            animation: floatCircle 8s ease-in-out infinite;
+        }
+        .hero-circle-1 {
+            width: 500px; height: 500px;
+            background: var(--gradient-main);
+            top: -150px; right: -100px;
+            animation-delay: 0s;
+        }
+        .hero-circle-2 {
+            width: 300px; height: 300px;
+            background: linear-gradient(135deg, var(--blue-light), var(--purple-light));
+            bottom: -80px; left: -80px;
+            animation-delay: 3s;
+        }
+        .hero-circle-3 {
+            width: 180px; height: 180px;
+            background: var(--purple-light);
+            top: 30%; left: 40%;
+            animation-delay: 5s;
+        }
+        @keyframes floatCircle {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-20px) scale(1.03); }
+        }
+        .hero-headline {
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            font-weight: 900;
+            line-height: 1.15;
+            color: var(--gray-900);
+            margin-bottom: 20px;
+        }
+        .hero-sub {
+            font-size: 1.05rem;
+            color: var(--gray-600);
+            line-height: 1.75;
+            margin-bottom: 36px;
+            max-width: 520px;
+        }
+        .hero-cta-group { display: flex; gap: 14px; flex-wrap: wrap; }
 
-/* ── CTA ── */
-.sec-cta{background:linear-gradient(135deg,var(--blue) 0%,#1557b0 50%,#0d47a1 100%);padding:88px 0;position:relative;overflow:hidden}
-.sec-cta::before{content:'';position:absolute;width:600px;height:600px;border-radius:50%;background:rgba(255,255,255,0.04);top:-200px;right:-200px}
-.sec-cta::after{content:'';position:absolute;width:400px;height:400px;border-radius:50%;background:rgba(245,166,35,0.08);bottom:-150px;left:-100px}
-.btn-cta-gold{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--gold),var(--gold2));color:#fff;border:none;border-radius:50px;padding:15px 36px;font-size:0.95rem;font-weight:800;box-shadow:0 6px 20px rgba(245,166,35,0.4);transition:transform .15s,box-shadow .15s;font-family:'Poppins',sans-serif}
-.btn-cta-gold:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(245,166,35,0.5);color:#fff}
+        /* Dashboard Mockup */
+        .dashboard-mockup {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            box-shadow: 0 30px 80px rgba(30,64,175,0.18);
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        .mockup-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--gray-100);
+        }
+        .mockup-dot {
+            width: 10px; height: 10px;
+            border-radius: 50%;
+        }
+        .mockup-title {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--gray-700);
+            margin-left: 6px;
+        }
+        .mockup-stat-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+        .mockup-stat-card {
+            border-radius: 10px;
+            padding: 12px;
+            text-align: center;
+        }
+        .mockup-stat-card .stat-num {
+            font-size: 1.3rem;
+            font-weight: 800;
+            display: block;
+        }
+        .mockup-stat-card .stat-lbl {
+            font-size: 0.65rem;
+            font-weight: 500;
+            opacity: 0.8;
+        }
+        .mockup-stat-card.blue  { background: linear-gradient(135deg,#dbeafe,#eff6ff); color: var(--blue-dark); }
+        .mockup-stat-card.green { background: linear-gradient(135deg,#dcfce7,#f0fdf4); color: #166534; }
+        .mockup-stat-card.amber { background: linear-gradient(135deg,#fef9c3,#fefce8); color: #92400e; }
+        .mockup-stat-card.purple{ background: linear-gradient(135deg,#f3e8ff,#faf5ff); color: var(--purple-dark); }
+        .mockup-ticket-list { display: flex; flex-direction: column; gap: 7px; }
+        .mockup-ticket {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 10px;
+            background: var(--gray-50);
+            border-radius: 8px;
+            font-size: 0.72rem;
+        }
+        .mockup-ticket-dot {
+            width: 7px; height: 7px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        .mockup-ticket-text { flex: 1; color: var(--gray-700); font-weight: 500; }
+        .mockup-badge {
+            font-size: 0.6rem;
+            padding: 2px 7px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+        .badge-resolved  { background: #dcfce7; color: #166534; }
+        .badge-pending   { background: #fef9c3; color: #92400e; }
+        .badge-open      { background: #dbeafe; color: var(--blue-dark); }
 
-/* ── FOOTER ── */
-footer{background:#0d1b2e;color:rgba(255,255,255,0.4);padding:48px 0 28px;font-size:0.82rem}
-.ft-name{font-size:0.9rem;font-weight:800;color:#fff}
-.ft-link{color:rgba(255,255,255,0.4);transition:color .15s;display:block;margin-bottom:8px}
-.ft-link:hover{color:rgba(255,255,255,0.85)}
-.ft-col-h{font-size:0.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,0.2);margin-bottom:14px}
-footer hr{border-color:rgba(255,255,255,0.07)!important;margin:28px 0 20px}
+        /* ===== FEATURES ===== */
+        #features { background: var(--gray-50); }
+        .section-label {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(30,64,175,0.1), rgba(124,58,237,0.1));
+            color: var(--blue-dark);
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 6px 16px;
+            border-radius: 50px;
+            margin-bottom: 14px;
+        }
+        .section-title {
+            font-size: clamp(1.7rem, 3vw, 2.5rem);
+            font-weight: 800;
+            color: var(--gray-900);
+            margin-bottom: 14px;
+            line-height: 1.2;
+        }
+        .section-sub {
+            font-size: 1rem;
+            color: var(--gray-600);
+            max-width: 560px;
+            margin: 0 auto 56px;
+            line-height: 1.7;
+        }
+        .feature-card {
+            background: var(--white);
+            border-radius: var(--radius-card);
+            padding: 32px 28px;
+            box-shadow: var(--shadow-card);
+            transition: var(--transition);
+            height: 100%;
+            border: 1px solid var(--gray-100);
+        }
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+            border-color: rgba(59,130,246,0.2);
+        }
+        .feature-icon-wrap {
+            width: 56px; height: 56px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 18px;
+            font-size: 1.3rem;
+            color: var(--white);
+        }
+        .feature-card h5 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 10px;
+        }
+        .feature-card p {
+            font-size: 0.88rem;
+            color: var(--gray-600);
+            line-height: 1.65;
+            margin: 0;
+        }
 
-/* ── ANIMATE ── */
-.fu{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease}
-.fu.in{opacity:1;transform:translateY(0)}
+        /* ===== HOW IT WORKS ===== */
+        #how-it-works { background: var(--white); }
+        .steps-wrapper {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+        }
+        .steps-line {
+            position: absolute;
+            top: 36px;
+            left: 10%;
+            right: 10%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--blue-dark), var(--purple-dark));
+            z-index: 0;
+            border-radius: 2px;
+        }
+        .step-item {
+            flex: 1;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        .step-circle {
+            width: 72px; height: 72px;
+            border-radius: 50%;
+            background: var(--gradient-main);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            font-size: 1.3rem;
+            box-shadow: 0 8px 24px rgba(30,64,175,0.3);
+            position: relative;
+        }
+        .step-num {
+            position: absolute;
+            top: -6px; right: -6px;
+            width: 22px; height: 22px;
+            background: var(--white);
+            border: 2px solid var(--blue-dark);
+            border-radius: 50%;
+            font-size: 0.65rem;
+            font-weight: 800;
+            color: var(--blue-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .step-item h6 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 8px;
+        }
+        .step-item p {
+            font-size: 0.8rem;
+            color: var(--gray-600);
+            line-height: 1.6;
+        }
+        @media (max-width: 768px) {
+            .steps-wrapper { flex-direction: column; align-items: center; }
+            .steps-line { display: none; }
+            .step-item { width: 100%; max-width: 320px; }
+        }
 
-/* ── RESPONSIVE ── */
-@media(max-width:991px){
-  .hero-inner{padding:44px 0 32px}
-  .sf1,.sf2,.sf3{display:none}
-}
-@media(max-width:767px){
-  .hero-inner{padding:28px 0 24px}
-  .hero-h{font-size:2rem;letter-spacing:-0.5px}
-  .hero-sub{font-size:0.95rem}
-  .hero-p{font-size:0.875rem;margin-bottom:24px}
-  .btn-hero,.btn-hero-out{padding:12px 24px;font-size:0.875rem}
-  .sec-features,.sec-how,.sec-roles,.sec-cta{padding:60px 0}
-  .sec-h{font-size:1.5rem}
-  .fc{padding:22px}
-  .rcard{padding:28px 22px}
-  footer{padding:36px 0 20px}
-  footer .col-md-3,footer .col-md-4{text-align:center!important}
-}
-@media(max-width:480px){
-  .hero-h{font-size:1.75rem}
-  .brand-sub{display:none}
-}
-</style>
+        /* ===== ABOUT ===== */
+        #about { background: var(--gradient-light); }
+        .about-visual {
+            background: var(--gradient-main);
+            border-radius: var(--radius-lg);
+            padding: 40px 32px;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+        .about-visual::before {
+            content: '';
+            position: absolute;
+            top: -40px; right: -40px;
+            width: 200px; height: 200px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 50%;
+        }
+        .about-visual::after {
+            content: '';
+            position: absolute;
+            bottom: -60px; left: -30px;
+            width: 250px; height: 250px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+        }
+        .about-stat-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 24px;
+            position: relative;
+            z-index: 1;
+        }
+        .about-stat-box {
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+        }
+        .about-stat-box .num {
+            font-size: 1.6rem;
+            font-weight: 800;
+            display: block;
+        }
+        .about-stat-box .lbl {
+            font-size: 0.75rem;
+            opacity: 0.85;
+        }
+        .mission-quote {
+            background: var(--white);
+            border-left: 4px solid var(--blue-dark);
+            border-radius: 0 12px 12px 0;
+            padding: 20px 24px;
+            margin-top: 28px;
+            box-shadow: var(--shadow-card);
+        }
+        .mission-quote p {
+            font-size: 0.95rem;
+            font-style: italic;
+            color: var(--gray-700);
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* ===== STATISTICS ===== */
+        #statistics {
+            background: linear-gradient(135deg, var(--gray-900) 0%, #1e1b4b 50%, #1e3a5f 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        #statistics::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .stat-counter-card {
+            background: rgba(255,255,255,0.07);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: var(--radius-card);
+            padding: 40px 28px;
+            text-align: center;
+            transition: var(--transition);
+        }
+        .stat-counter-card:hover {
+            background: rgba(255,255,255,0.12);
+            transform: translateY(-6px);
+        }
+        .stat-icon {
+            width: 60px; height: 60px;
+            border-radius: 50%;
+            background: var(--gradient-main);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            font-size: 1.4rem;
+            color: var(--white);
+        }
+        .stat-number {
+            font-size: 2.8rem;
+            font-weight: 900;
+            color: var(--white);
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+        .stat-suffix { color: var(--blue-light); }
+        .stat-label {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.65);
+            font-weight: 500;
+        }
+
+        /* ===== USER ROLES ===== */
+        #roles { background: var(--gray-50); }
+        .role-card {
+            background: var(--white);
+            border-radius: var(--radius-card);
+            padding: 36px 28px;
+            box-shadow: var(--shadow-card);
+            transition: var(--transition);
+            height: 100%;
+            border-top: 4px solid transparent;
+        }
+        .role-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+        }
+        .role-card.student  { border-top-color: var(--blue-light); }
+        .role-card.faculty  { border-top-color: var(--purple-dark); }
+        .role-card.admin    { border-top-color: #059669; }
+        .role-icon-wrap {
+            width: 70px; height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 1.6rem;
+        }
+        .role-card.student .role-icon-wrap  { background: linear-gradient(135deg,#dbeafe,#eff6ff); color: var(--blue-dark); }
+        .role-card.faculty .role-icon-wrap  { background: linear-gradient(135deg,#f3e8ff,#faf5ff); color: var(--purple-dark); }
+        .role-card.admin   .role-icon-wrap  { background: linear-gradient(135deg,#dcfce7,#f0fdf4); color: #059669; }
+        .role-card h4 { font-size: 1.15rem; font-weight: 800; color: var(--gray-900); margin-bottom: 10px; }
+        .role-card .role-desc { font-size: 0.88rem; color: var(--gray-600); line-height: 1.65; margin-bottom: 20px; }
+        .role-list { list-style: none; padding: 0; margin: 0; }
+        .role-list li {
+            font-size: 0.85rem;
+            color: var(--gray-700);
+            padding: 6px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-bottom: 1px solid var(--gray-100);
+        }
+        .role-list li:last-child { border-bottom: none; }
+        .role-list li i { font-size: 0.75rem; color: var(--blue-light); }
+
+        /* ===== TESTIMONIALS ===== */
+        #testimonials { background: var(--white); }
+        .testimonial-card {
+            background: var(--white);
+            border-radius: var(--radius-card);
+            padding: 32px 28px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+            border: 1px solid var(--gray-100);
+            transition: var(--transition);
+            height: 100%;
+        }
+        .testimonial-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-hover);
+        }
+        .quote-icon {
+            font-size: 2.5rem;
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 16px;
+        }
+        .testimonial-text {
+            font-size: 0.92rem;
+            color: var(--gray-600);
+            line-height: 1.75;
+            font-style: italic;
+            margin-bottom: 24px;
+        }
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .author-avatar {
+            width: 44px; height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--white);
+            flex-shrink: 0;
+        }
+        .author-name { font-size: 0.9rem; font-weight: 700; color: var(--gray-900); }
+        .author-role { font-size: 0.78rem; color: var(--gray-600); }
+
+        /* ===== FOOTER ===== */
+        #footer {
+            background: var(--gray-900);
+            color: rgba(255,255,255,0.75);
+        }
+        .footer-brand img { height: 44px; margin-bottom: 14px; }
+        .footer-brand p { font-size: 0.88rem; line-height: 1.7; color: rgba(255,255,255,0.6); }
+        .footer-heading {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--white);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 18px;
+        }
+        .footer-links { list-style: none; padding: 0; margin: 0; }
+        .footer-links li { margin-bottom: 10px; }
+        .footer-links a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 0.88rem;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .footer-links a:hover { color: var(--blue-light); padding-left: 4px; }
+        .footer-contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 12px;
+            font-size: 0.88rem;
+            color: rgba(255,255,255,0.6);
+        }
+        .footer-contact-item i { color: var(--blue-light); margin-top: 2px; flex-shrink: 0; }
+        .social-icons { display: flex; gap: 10px; margin-top: 16px; }
+        .social-icon {
+            width: 38px; height: 38px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+        .social-icon:hover {
+            background: var(--gradient-main);
+            border-color: transparent;
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.08);
+            padding: 20px 0;
+            margin-top: 48px;
+            text-align: center;
+            font-size: 0.83rem;
+            color: rgba(255,255,255,0.4);
+        }
+        .footer-bottom a { color: var(--blue-light); text-decoration: none; }
+
+        /* ===== BACK TO TOP ===== */
+        #backToTop {
+            position: fixed;
+            bottom: 28px; right: 28px;
+            width: 44px; height: 44px;
+            background: var(--gradient-main);
+            color: var(--white);
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: var(--transition);
+            z-index: 999;
+            box-shadow: 0 4px 16px rgba(30,64,175,0.4);
+        }
+        #backToTop.visible { opacity: 1; transform: translateY(0); }
+        #backToTop:hover { transform: translateY(-3px); }
+    </style>
 </head>
 <body>
 
-<!-- MOBILE MENU -->
-<div class="mm" id="mm">
-  <button class="mm-x" id="mmX"><i class="fas fa-xmark"></i></button>
-  <a href="#features" class="ml">Features</a>
-  <a href="#how-it-works" class="ml">How It Works</a>
-  <a href="#roles" class="ml">Who It's For</a>
-  <div class="mm-cta">
-    <a href="{{ route('register') }}" class="btn-su">Sign Up</a>
-    <a href="{{ route('login') }}" class="btn-si">Sign In</a>
-  </div>
+<!-- ===== BACK TO TOP ===== -->
+<button id="backToTop" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button>
+
+<!-- ===== MOBILE MENU OVERLAY ===== -->
+<div class="mobile-menu-overlay" id="mobileMenu">
+    <button class="mobile-close-btn" id="mobileClose" aria-label="Close menu"><i class="fas fa-times"></i></button>
+    <a href="#features" onclick="closeMobileMenu()">Features</a>
+    <a href="#how-it-works" onclick="closeMobileMenu()">How It Works</a>
+    <a href="#roles" onclick="closeMobileMenu()">Roles</a>
+    <a href="#about" onclick="closeMobileMenu()">About</a>
+    <div style="display:flex;gap:14px;margin-top:10px;flex-wrap:wrap;justify-content:center;">
+        <a href="{{ route('login') }}" class="btn-outline-white">Sign In</a>
+        <a href="{{ route('register') }}" class="btn-gradient">Get Started</a>
+    </div>
 </div>
 
-<!-- NAV -->
-<nav class="nav">
-  <div class="container">
-    <div class="nav-i">
-      <a href="{{ route('landing') }}" class="brand">
-        <img src="{{ asset('images/scc-logo.png') }}" alt="SCC" onerror="this.style.display='none'">
-        <div>
-          <span class="brand-name">SCC ReportHub</span>
-          <span class="brand-sub">Southern Christian College</span>
+<!-- ===== NAVBAR ===== -->
+<nav id="mainNav">
+    <div class="container">
+        <div class="d-flex align-items-center justify-content-between">
+            <!-- Brand -->
+            <a href="{{ route('landing') }}" class="navbar-brand-custom">
+                <img src="{{ asset('images/scc-logo.png') }}" alt="SCC Logo">
+                <span>SCC ReportHub</span>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <div class="nav-links-desktop d-flex align-items-center gap-1">
+                <a href="#features"    class="nav-link-custom">Features</a>
+                <a href="#how-it-works" class="nav-link-custom">How It Works</a>
+                <a href="#roles"       class="nav-link-custom">Roles</a>
+                <a href="#about"       class="nav-link-custom">About</a>
+            </div>
+
+            <!-- Desktop CTA -->
+            <div class="nav-links-desktop d-flex align-items-center gap-2">
+                <a href="{{ route('login') }}" class="btn-outline-primary-custom" style="padding:8px 22px;font-size:0.88rem;">
+                    <i class="fas fa-sign-in-alt"></i> Sign In
+                </a>
+                <a href="{{ route('register') }}" class="btn-gradient" style="padding:8px 22px;font-size:0.88rem;">
+                    <i class="fas fa-rocket"></i> Get Started
+                </a>
+            </div>
+
+            <!-- Mobile Hamburger -->
+            <button class="navbar-toggler-custom" id="mobileToggle" aria-label="Open menu">
+                <span></span><span></span><span></span>
+            </button>
         </div>
-      </a>
-      <div class="nav-links d-none d-lg-flex">
-        <a href="#features">Features</a>
-        <a href="#how-it-works">How It Works</a>
-        <a href="#roles">Who It's For</a>
-      </div>
-      <div class="d-none d-md-flex align-items-center gap-2">
-        <a href="{{ route('login') }}" class="btn-si">Sign In</a>
-        <a href="{{ route('register') }}" class="btn-su">Sign Up ✨</a>
-      </div>
-      <div class="d-flex d-md-none">
-        <button class="btn btn-link p-1" id="mmO" style="color:var(--ink2);font-size:1.15rem;"><i class="fas fa-bars"></i></button>
-      </div>
     </div>
-  </div>
 </nav>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="deco-circle dc1"></div>
-  <div class="deco-circle dc2"></div>
-  <div class="deco-circle dc3"></div>
+<!-- ===== HERO ===== -->
+<section id="hero">
+    <!-- Decorative circles -->
+    <div class="hero-circle hero-circle-1"></div>
+    <div class="hero-circle hero-circle-2"></div>
+    <div class="hero-circle hero-circle-3"></div>
 
-  <div class="container">
-    <div class="hero-inner">
-      <div class="row align-items-center g-5">
+    <div class="container py-5">
+        <div class="row align-items-center g-5">
+            <!-- Left: Text -->
+            <div class="col-lg-6">
+                <div class="fade-in-up">
+                    <span class="section-label"><i class="fas fa-shield-alt me-1"></i> Campus Issue Management</span>
+                    <h1 class="hero-headline mt-2">
+                        Report, Track, and Resolve
+                        <span class="gradient-text"> Campus Concerns</span>
+                        Efficiently
+                    </h1>
+                    <p class="hero-sub">
+                        SCC ReportHub empowers students, faculty, and administrators to report environmental issues and campus concerns in real-time — keeping Southern Christian College safe, clean, and responsive.
+                    </p>
+                    <div class="hero-cta-group">
+                        <a href="{{ route('register') }}" class="btn-gradient">
+                            <i class="fas fa-rocket"></i> Get Started Free
+                        </a>
+                        <a href="{{ route('login') }}" class="btn-outline-primary-custom">
+                            <i class="fas fa-sign-in-alt"></i> Sign In
+                        </a>
+                    </div>
+                    <div class="d-flex align-items-center gap-4 mt-4" style="flex-wrap:wrap;">
+                        <div class="d-flex align-items-center gap-2">
+                            <i class="fas fa-check-circle" style="color:var(--blue-dark);"></i>
+                            <span style="font-size:0.85rem;color:var(--gray-600);">Free to use</span>
+                        </div>
+                        <div class="d-flex align-items-center gap-2">
+                            <i class="fas fa-check-circle" style="color:var(--blue-dark);"></i>
+                            <span style="font-size:0.85rem;color:var(--gray-600);">Real-time tracking</span>
+                        </div>
+                        <div class="d-flex align-items-center gap-2">
+                            <i class="fas fa-check-circle" style="color:var(--blue-dark);"></i>
+                            <span style="font-size:0.85rem;color:var(--gray-600);">Secure & private</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-        <!-- LEFT -->
-        <div class="col-lg-6">
-          <div class="hero-tag"><i class="fas fa-star"></i> Campus Facility Management System</div>
-          <h1 class="hero-h">
-            Report. Track.<br>
-            <span class="gold">Resolve</span> <span class="blue">Faster.</span>
-          </h1>
-          <div class="hero-sub">Smarter campus maintenance for SCC 🏫</div>
-          <p class="hero-p">SCC ReportHub connects faculty, administrators, and maintenance staff in one easy platform. Submit tickets, track repairs, and keep Southern Christian College running at its best.</p>
-          <div class="d-flex align-items-center gap-3 flex-wrap">
-            <a href="{{ route('register') }}" class="btn-hero">
-              <i class="fas fa-rocket"></i> Get Started Free
+            <!-- Right: Dashboard Mockup -->
+            <div class="col-lg-6 fade-in-up delay-3">
+                <div class="dashboard-mockup">
+                    <div class="mockup-header">
+                        <div class="mockup-dot" style="background:#ef4444;"></div>
+                        <div class="mockup-dot" style="background:#f59e0b;"></div>
+                        <div class="mockup-dot" style="background:#22c55e;"></div>
+                        <span class="mockup-title"><i class="fas fa-tachometer-alt me-1" style="color:var(--blue-dark);"></i> Admin Dashboard — SCC ReportHub</span>
+                    </div>
+                    <div class="mockup-stat-grid">
+                        <div class="mockup-stat-card blue">
+                            <span class="stat-num">248</span>
+                            <span class="stat-lbl"><i class="fas fa-ticket-alt me-1"></i>Total Reports</span>
+                        </div>
+                        <div class="mockup-stat-card green">
+                            <span class="stat-num">189</span>
+                            <span class="stat-lbl"><i class="fas fa-check-circle me-1"></i>Resolved</span>
+                        </div>
+                        <div class="mockup-stat-card amber">
+                            <span class="stat-num">42</span>
+                            <span class="stat-lbl"><i class="fas fa-clock me-1"></i>Pending</span>
+                        </div>
+                        <div class="mockup-stat-card purple">
+                            <span class="stat-num">156</span>
+                            <span class="stat-lbl"><i class="fas fa-users me-1"></i>Active Users</span>
+                        </div>
+                    </div>
+                    <div style="font-size:0.72rem;font-weight:700;color:var(--gray-700);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.5px;">
+                        <i class="fas fa-list me-1" style="color:var(--blue-dark);"></i> Recent Reports
+                    </div>
+                    <div class="mockup-ticket-list">
+                        <div class="mockup-ticket">
+                            <div class="mockup-ticket-dot" style="background:#22c55e;"></div>
+                            <span class="mockup-ticket-text">Broken classroom projector — Rm 204</span>
+                            <span class="mockup-badge badge-resolved">Resolved</span>
+                        </div>
+                        <div class="mockup-ticket">
+                            <div class="mockup-ticket-dot" style="background:#f59e0b;"></div>
+                            <span class="mockup-ticket-text">Leaking pipe near canteen area</span>
+                            <span class="mockup-badge badge-pending">Pending</span>
+                        </div>
+                        <div class="mockup-ticket">
+                            <div class="mockup-ticket-dot" style="background:#3b82f6;"></div>
+                            <span class="mockup-ticket-text">Broken bench — Main Corridor</span>
+                            <span class="mockup-badge badge-open">Open</span>
+                        </div>
+                        <div class="mockup-ticket">
+                            <div class="mockup-ticket-dot" style="background:#22c55e;"></div>
+                            <span class="mockup-ticket-text">Faulty electrical outlet — Lab 3</span>
+                            <span class="mockup-badge badge-resolved">Resolved</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FEATURES ===== -->
+<section id="features" class="section-padding">
+    <div class="container">
+        <div class="text-center fade-in-up">
+            <span class="section-label"><i class="fas fa-star me-1"></i> Features</span>
+            <h2 class="section-title">Everything You Need to Manage Campus Issues</h2>
+            <p class="section-sub">A comprehensive platform built for Southern Christian College to streamline issue reporting, tracking, and resolution.</p>
+        </div>
+        <div class="row g-4">
+            <!-- Feature 1 -->
+            <div class="col-lg-4 col-md-6 fade-in-up delay-1">
+                <div class="feature-card">
+                    <div class="feature-icon-wrap" style="background:linear-gradient(135deg,#1e40af,#3b82f6);">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h5>Real-Time Issue Reporting</h5>
+                    <p>Submit campus concerns instantly from any device. Reports are logged in real-time and immediately visible to administrators for swift action.</p>
+                </div>
+            </div>
+            <!-- Feature 2 -->
+            <div class="col-lg-4 col-md-6 fade-in-up delay-2">
+                <div class="feature-card">
+                    <div class="feature-icon-wrap" style="background:linear-gradient(135deg,#7c3aed,#a855f7);">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <h5>Complaint Tracking System</h5>
+                    <p>Follow every report from submission to resolution. A transparent ticket system keeps all stakeholders informed at every stage of the process.</p>
+                </div>
+            </div>
+            <!-- Feature 3 -->
+            <div class="col-lg-4 col-md-6 fade-in-up delay-3">
+                <div class="feature-card">
+                    <div class="feature-icon-wrap" style="background:linear-gradient(135deg,#0891b2,#06b6d4);">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h5>Image Evidence Upload</h5>
+                    <p>Attach photos directly to your reports to provide clear visual evidence. Images help administrators assess and prioritize issues more accurately.</p>
+                </div>
+            </div>
+            <!-- Feature 4 -->
+            <div class="col-lg-4 col-md-6 fade-in-up delay-4">
+                <div class="feature-card">
+                    <div class="feature-icon-wrap" style="background:linear-gradient(135deg,#059669,#10b981);">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h5>Status Monitoring</h5>
+                    <p>Track the live status of every submitted report — Open, In Progress, or Resolved. Get notified when your report status changes.</p>
+                </div>
+            </div>
+            <!-- Feature 5 -->
+            <div class="col-lg-4 col-md-6 fade-in-up delay-5">
+                <div class="feature-card">
+                    <div class="feature-icon-wrap" style="background:linear-gradient(135deg,#dc2626,#ef4444);">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h5>Administrative Dashboard</h5>
+                    <p>A powerful admin panel gives administrators a bird's-eye view of all reports, user activity, and facility status across the entire campus.</p>
+                </div>
+            </div>
+            <!-- Feature 6 -->
+            <div class="col-lg-4 col-md-6 fade-in-up delay-6">
+                <div class="feature-card">
+                    <div class="feature-icon-wrap" style="background:linear-gradient(135deg,#d97706,#f59e0b);">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h5>Analytics and Reports</h5>
+                    <p>Generate detailed reports and visualize trends in campus issues. Data-driven insights help administrators make informed maintenance decisions.</p>
+                </div>
+            </div>
+            <!-- Feature 7 -->
+            <div class="col-lg-4 col-md-6 fade-in-up delay-7">
+                <div class="feature-card">
+                    <div class="feature-icon-wrap" style="background:linear-gradient(135deg,#7c3aed,#1e40af);">
+                        <i class="fas fa-users-cog"></i>
+                    </div>
+                    <h5>Multi-Role Access Management</h5>
+                    <p>Distinct roles for Students, Faculty, and Administrators ensure each user sees only what's relevant to them, with appropriate permissions.</p>
+                </div>
+            </div>
+            <!-- Feature 8 -->
+            <div class="col-lg-4 col-md-6 fade-in-up delay-8">
+                <div class="feature-card">
+                    <div class="feature-icon-wrap" style="background:linear-gradient(135deg,#0f172a,#1e3a5f);">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h5>Secure Data Storage</h5>
+                    <p>All reports and user data are stored securely with encryption and access controls. Your information is protected and only accessible to authorized personnel.</p>
+                </div>
+            </div>
+            <!-- Feature 9 - centered -->
+            <div class="col-lg-4 col-md-6 mx-auto fade-in-up delay-1">
+                <div class="feature-card">
+                    <div class="feature-icon-wrap" style="background:linear-gradient(135deg,#0891b2,#7c3aed);">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <h5>Instant Notifications</h5>
+                    <p>Receive real-time notifications when your report is reviewed, updated, or resolved. Stay informed without having to manually check the system.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== HOW IT WORKS ===== -->
+<section id="how-it-works" class="section-padding">
+    <div class="container">
+        <div class="text-center fade-in-up">
+            <span class="section-label"><i class="fas fa-map-signs me-1"></i> Process</span>
+            <h2 class="section-title">How SCC ReportHub Works</h2>
+            <p class="section-sub">A simple, transparent five-step process that takes your concern from submission to resolution.</p>
+        </div>
+
+        <div class="steps-wrapper fade-in-up delay-2">
+            <!-- Connecting line (desktop only) -->
+            <div class="steps-line"></div>
+
+            <!-- Step 1 -->
+            <div class="step-item">
+                <div class="step-circle">
+                    <i class="fas fa-file-alt"></i>
+                    <span class="step-num">1</span>
+                </div>
+                <h6>Submit a Report</h6>
+                <p>Fill out the report form with details about the issue, attach photos, and select the affected facility or area on campus.</p>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="step-item">
+                <div class="step-circle">
+                    <i class="fas fa-user-check"></i>
+                    <span class="step-num">2</span>
+                </div>
+                <h6>Review by Administrator</h6>
+                <p>An administrator receives and reviews your report, assessing the severity and assigning it to the appropriate maintenance team.</p>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="step-item">
+                <div class="step-circle">
+                    <i class="fas fa-search"></i>
+                    <span class="step-num">3</span>
+                </div>
+                <h6>Verification Process</h6>
+                <p>The maintenance team verifies the issue on-site, confirms the details, and updates the report status to "In Progress".</p>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="step-item">
+                <div class="step-circle">
+                    <i class="fas fa-tools"></i>
+                    <span class="step-num">4</span>
+                </div>
+                <h6>Resolution and Updates</h6>
+                <p>The issue is addressed and resolved. The reporter receives a notification and the report is marked as "Resolved" with notes.</p>
+            </div>
+
+            <!-- Step 5 -->
+            <div class="step-item">
+                <div class="step-circle">
+                    <i class="fas fa-chart-line"></i>
+                    <span class="step-num">5</span>
+                </div>
+                <h6>Status Tracking</h6>
+                <p>All stakeholders can track the full history of any report at any time, ensuring complete transparency and accountability.</p>
+            </div>
+        </div>
+
+        <!-- CTA below steps -->
+        <div class="text-center mt-5 fade-in-up delay-4">
+            <a href="{{ route('register') }}" class="btn-gradient">
+                <i class="fas fa-rocket"></i> Start Reporting Now
             </a>
-            <a href="{{ route('login') }}" class="btn-hero-out">
-              Sign In <i class="fas fa-arrow-right fa-xs"></i>
-            </a>
-          </div>
         </div>
-
-        <!-- RIGHT: cartoon + floating cards -->
-        <div class="col-lg-6 hero-right">
-
-          <!-- Floating stat cards -->
-          <div class="stat-float sf1">
-            <div class="sf-icon">🎫</div>
-            <div class="sf-val">24</div>
-            <div class="sf-label">Active Tickets</div>
-          </div>
-          <div class="stat-float sf2">
-            <div class="sf-icon">✅</div>
-            <div class="sf-val">12</div>
-            <div class="sf-label">Resolved Today</div>
-          </div>
-          <div class="stat-float sf3">
-            <div class="sf-icon">⚡</div>
-            <div class="sf-val">3</div>
-            <div class="sf-label">Urgent</div>
-          </div>
-
-          <!-- SVG Cartoon Character — maintenance worker -->
-          <div class="cartoon-wrap">
-            <svg viewBox="0 0 400 420" width="100%" style="max-width:420px;filter:drop-shadow(0 20px 40px rgba(26,115,232,0.15))" xmlns="http://www.w3.org/2000/svg">
-              <!-- Ground shadow -->
-              <ellipse cx="200" cy="410" rx="120" ry="12" fill="rgba(26,115,232,0.08)"/>
-
-              <!-- Body / shirt (blue) -->
-              <rect x="130" y="220" width="140" height="130" rx="20" fill="#1a73e8"/>
-              <!-- Shirt collar -->
-              <polygon points="200,220 175,250 200,240 225,250" fill="#1557b0"/>
-              <!-- Shirt pocket -->
-              <rect x="155" y="250" width="35" height="28" rx="6" fill="#1557b0"/>
-              <line x1="172" y1="250" x2="172" y2="278" stroke="#1a73e8" stroke-width="1.5"/>
-
-              <!-- Pants (dark blue) -->
-              <rect x="130" y="330" width="60" height="80" rx="10" fill="#1557b0"/>
-              <rect x="210" y="330" width="60" height="80" rx="10" fill="#1557b0"/>
-              <!-- Belt -->
-              <rect x="130" y="325" width="140" height="14" rx="4" fill="#0d47a1"/>
-              <rect x="188" y="326" width="24" height="12" rx="3" fill="#f5a623"/>
-
-              <!-- Shoes -->
-              <ellipse cx="160" cy="408" rx="36" ry="12" fill="#0d1b2e"/>
-              <ellipse cx="240" cy="408" rx="36" ry="12" fill="#0d1b2e"/>
-
-              <!-- Arms -->
-              <rect x="80" y="225" width="55" height="28" rx="14" fill="#1a73e8" transform="rotate(20,80,225)"/>
-              <rect x="265" y="225" width="55" height="28" rx="14" fill="#1a73e8" transform="rotate(-20,320,225)"/>
-
-              <!-- Hands -->
-              <circle cx="88" cy="278" r="18" fill="#fdbcb4"/>
-              <circle cx="312" cy="278" r="18" fill="#fdbcb4"/>
-
-              <!-- Wrench in right hand -->
-              <rect x="302" y="260" width="10" height="40" rx="5" fill="#94a3b8" transform="rotate(30,307,280)"/>
-              <rect x="296" y="256" width="22" height="10" rx="4" fill="#64748b" transform="rotate(30,307,261)"/>
-              <rect x="296" y="282" width="22" height="10" rx="4" fill="#64748b" transform="rotate(30,307,287)"/>
-
-              <!-- Clipboard in left hand -->
-              <rect x="62" y="262" width="44" height="56" rx="6" fill="#fff" stroke="#e2e8f0" stroke-width="2"/>
-              <rect x="68" y="256" width="32" height="10" rx="4" fill="#94a3b8"/>
-              <rect x="68" y="276" width="32" height="3" rx="2" fill="#e2e8f0"/>
-              <rect x="68" y="284" width="24" height="3" rx="2" fill="#e2e8f0"/>
-              <rect x="68" y="292" width="28" height="3" rx="2" fill="#e2e8f0"/>
-              <rect x="68" y="300" width="20" height="3" rx="2" fill="#1a73e8"/>
-
-              <!-- Neck -->
-              <rect x="182" y="195" width="36" height="30" rx="8" fill="#fdbcb4"/>
-
-              <!-- Head -->
-              <ellipse cx="200" cy="165" rx="62" ry="68" fill="#fdbcb4"/>
-
-              <!-- Hair (hard hat) -->
-              <ellipse cx="200" cy="118" rx="68" ry="22" fill="#f5a623"/>
-              <rect x="132" y="108" width="136" height="28" rx="8" fill="#f5a623"/>
-              <rect x="122" y="126" width="156" height="12" rx="6" fill="#e8941a"/>
-              <!-- Hard hat brim -->
-              <ellipse cx="200" cy="136" rx="76" ry="10" fill="#e8941a"/>
-              <!-- Hard hat logo -->
-              <circle cx="200" cy="118" r="12" fill="#1a73e8"/>
-              <text x="200" y="123" text-anchor="middle" font-size="10" font-weight="900" fill="#fff" font-family="Poppins,sans-serif">SCC</text>
-
-              <!-- Eyes -->
-              <ellipse cx="178" cy="168" rx="10" ry="11" fill="#fff"/>
-              <ellipse cx="222" cy="168" rx="10" ry="11" fill="#fff"/>
-              <circle cx="180" cy="170" r="6" fill="#1a2332"/>
-              <circle cx="224" cy="170" r="6" fill="#1a2332"/>
-              <circle cx="182" cy="168" r="2" fill="#fff"/>
-              <circle cx="226" cy="168" r="2" fill="#fff"/>
-
-              <!-- Eyebrows -->
-              <path d="M168 155 Q178 149 188 155" stroke="#8b6914" stroke-width="3" fill="none" stroke-linecap="round"/>
-              <path d="M212 155 Q222 149 232 155" stroke="#8b6914" stroke-width="3" fill="none" stroke-linecap="round"/>
-
-              <!-- Smile -->
-              <path d="M182 188 Q200 202 218 188" stroke="#c97b4b" stroke-width="3" fill="none" stroke-linecap="round"/>
-
-              <!-- Cheeks -->
-              <ellipse cx="168" cy="185" rx="12" ry="8" fill="rgba(255,150,100,0.25)"/>
-              <ellipse cx="232" cy="185" rx="12" ry="8" fill="rgba(255,150,100,0.25)"/>
-
-              <!-- Speech bubble -->
-              <rect x="240" y="60" width="140" height="60" rx="16" fill="#fff" stroke="#dde8f5" stroke-width="2"/>
-              <polygon points="255,120 265,120 260,135" fill="#fff" stroke="#dde8f5" stroke-width="2"/>
-              <polygon points="255,120 265,120 260,133" fill="#fff"/>
-              <text x="310" y="84" text-anchor="middle" font-size="11" font-weight="700" fill="#1a73e8" font-family="Poppins,sans-serif">Need a repair?</text>
-              <text x="310" y="100" text-anchor="middle" font-size="10" font-weight="600" fill="#4a5568" font-family="Poppins,sans-serif">Report it in seconds!</text>
-              <text x="310" y="114" text-anchor="middle" font-size="13" font-family="Poppins,sans-serif">🔧 ✅ 🏫</text>
-            </svg>
-          </div>
-
-        </div>
-      </div>
     </div>
-  </div>
 </section>
 
-<!-- WAVE -->
-<div class="wave">
-  <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="height:60px;width:100%">
-    <path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="#ffffff"/>
-  </svg>
-</div>
+<!-- ===== ABOUT ===== -->
+<section id="about" class="section-padding">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <!-- Left: Text -->
+            <div class="col-lg-6 fade-in-up">
+                <span class="section-label"><i class="fas fa-info-circle me-1"></i> About</span>
+                <h2 class="section-title mt-2">A Centralized Platform for Campus Concerns</h2>
+                <p style="color:var(--gray-600);line-height:1.8;margin-bottom:18px;">
+                    SCC ReportHub is a dedicated issue management system developed for <strong>Southern Christian College</strong> in Midsayap, Cotabato. It bridges the gap between campus community members and administrators by providing a structured, transparent channel for reporting and resolving environmental and facility concerns.
+                </p>
+                <p style="color:var(--gray-600);line-height:1.8;margin-bottom:24px;">
+                    Whether it's a broken classroom fixture, a safety hazard, or a maintenance request, SCC ReportHub ensures every concern is heard, tracked, and resolved — creating a safer and better-maintained campus for everyone.
+                </p>
+                <div class="mission-quote">
+                    <p>"Our mission is to empower every member of the SCC community to actively participate in maintaining a safe, clean, and functional campus environment through technology-driven transparency and accountability."</p>
+                </div>
+                <div class="d-flex gap-3 mt-4 flex-wrap">
+                    <a href="{{ route('register') }}" class="btn-gradient">
+                        <i class="fas fa-user-plus"></i> Join the Community
+                    </a>
+                    <a href="#features" class="btn-outline-primary-custom">
+                        <i class="fas fa-eye"></i> Explore Features
+                    </a>
+                </div>
+            </div>
 
-<!-- FEATURES -->
-<section class="sec-features" id="features">
-  <div class="container">
-    <div class="text-center mb-5 fu">
-      <div class="sec-tag">✨ Features</div>
-      <h2 class="sec-h mb-3">Everything your campus needs 🏫</h2>
-      <p class="sec-p">A focused set of tools built specifically for campus facility management at Southern Christian College.</p>
+            <!-- Right: Visual -->
+            <div class="col-lg-6 fade-in-up delay-3">
+                <div class="about-visual">
+                    <div style="position:relative;z-index:1;">
+                        <div style="font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;opacity:0.8;margin-bottom:8px;">
+                            <i class="fas fa-university me-2"></i>Southern Christian College
+                        </div>
+                        <h3 style="font-size:1.6rem;font-weight:800;margin-bottom:8px;">SCC ReportHub</h3>
+                        <p style="font-size:0.9rem;opacity:0.85;line-height:1.7;margin-bottom:0;">
+                            Transforming how campus issues are reported, managed, and resolved — one report at a time.
+                        </p>
+                    </div>
+                    <div class="about-stat-row">
+                        <div class="about-stat-box">
+                            <span class="num">500+</span>
+                            <span class="lbl">Registered Users</span>
+                        </div>
+                        <div class="about-stat-box">
+                            <span class="num">1,200+</span>
+                            <span class="lbl">Reports Submitted</span>
+                        </div>
+                        <div class="about-stat-box">
+                            <span class="num">98%</span>
+                            <span class="lbl">Resolution Rate</span>
+                        </div>
+                        <div class="about-stat-box">
+                            <span class="num">24/7</span>
+                            <span class="lbl">System Availability</span>
+                        </div>
+                    </div>
+                    <div style="margin-top:24px;position:relative;z-index:1;">
+                        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+                            <div style="width:36px;height:36px;background:rgba(255,255,255,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;">
+                                <i class="fas fa-check" style="font-size:0.85rem;"></i>
+                            </div>
+                            <span style="font-size:0.88rem;opacity:0.9;">Multi-role access for Students, Faculty & Admins</span>
+                        </div>
+                        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+                            <div style="width:36px;height:36px;background:rgba(255,255,255,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;">
+                                <i class="fas fa-check" style="font-size:0.85rem;"></i>
+                            </div>
+                            <span style="font-size:0.88rem;opacity:0.9;">Real-time notifications and status updates</span>
+                        </div>
+                        <div style="display:flex;align-items:center;gap:10px;">
+                            <div style="width:36px;height:36px;background:rgba(255,255,255,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;">
+                                <i class="fas fa-check" style="font-size:0.85rem;"></i>
+                            </div>
+                            <span style="font-size:0.88rem;opacity:0.9;">Secure, encrypted data storage and privacy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="row g-4">
-      <div class="col-md-6 col-lg-4 fu">
-        <div class="fc">
-          <div class="fc-icon" style="background:linear-gradient(135deg,#dbeafe,#bfdbfe);color:#1a73e8">🎫</div>
-          <div class="fc-h">Quick Ticket Submission</div>
-          <div class="fc-p">Report any facility issue in under a minute — add photos, set priority, and pick the location.</div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4 fu" style="transition-delay:.06s">
-        <div class="fc">
-          <div class="fc-icon" style="background:linear-gradient(135deg,#d1fae5,#a7f3d0);color:#059669">📡</div>
-          <div class="fc-h">Live Status Tracking</div>
-          <div class="fc-p">See exactly where your ticket stands — from submission to completion — in real time.</div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4 fu" style="transition-delay:.12s">
-        <div class="fc">
-          <div class="fc-icon" style="background:linear-gradient(135deg,#fef3c7,#fde68a);color:#d97706">🔔</div>
-          <div class="fc-h">Smart Notifications</div>
-          <div class="fc-p">Automatic alerts when your ticket is approved, assigned, or resolved. No chasing needed.</div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4 fu" style="transition-delay:.06s">
-        <div class="fc">
-          <div class="fc-icon" style="background:linear-gradient(135deg,#ede9fe,#ddd6fe);color:#7c3aed">📊</div>
-          <div class="fc-h">Admin Control Center</div>
-          <div class="fc-p">Full visibility with charts, stats, and complete control over tickets, users, and facilities.</div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4 fu" style="transition-delay:.12s">
-        <div class="fc">
-          <div class="fc-icon" style="background:linear-gradient(135deg,#e0f2fe,#bae6fd);color:#0284c7">🔧</div>
-          <div class="fc-h">Maintenance Workflow</div>
-          <div class="fc-p">Maintenance staff get a clear task queue, progress tools, and completion tracking.</div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4 fu" style="transition-delay:.18s">
-        <div class="fc">
-          <div class="fc-icon" style="background:linear-gradient(135deg,#ffe4e6,#fecdd3);color:#e11d48">⭐</div>
-          <div class="fc-h">Service Ratings</div>
-          <div class="fc-p">Faculty rate completed repairs — giving admins the data to improve service quality.</div>
-        </div>
-      </div>
-    </div>
-  </div>
 </section>
 
-<!-- HOW IT WORKS -->
-<section class="sec-how" id="how-it-works">
-  <div class="container">
-    <div class="text-center mb-5 fu">
-      <div class="sec-tag">🗺️ How It Works</div>
-      <h2 class="sec-h mb-3">Four simple steps 🚀</h2>
+<!-- ===== STATISTICS ===== -->
+<section id="statistics" class="section-padding">
+    <div class="container" style="position:relative;z-index:1;">
+        <div class="text-center fade-in-up mb-5">
+            <span class="section-label" style="background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.9);border:1px solid rgba(255,255,255,0.2);">
+                <i class="fas fa-chart-bar me-1"></i> By the Numbers
+            </span>
+            <h2 class="section-title mt-2" style="color:var(--white);">SCC ReportHub in Action</h2>
+            <p class="section-sub" style="color:rgba(255,255,255,0.65);">Real impact across the Southern Christian College campus community.</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6 fade-in-up delay-1">
+                <div class="stat-counter-card">
+                    <div class="stat-icon"><i class="fas fa-users"></i></div>
+                    <div class="stat-number">
+                        <span class="counter" data-target="500">0</span><span class="stat-suffix">+</span>
+                    </div>
+                    <div class="stat-label">Registered Users</div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 fade-in-up delay-2">
+                <div class="stat-counter-card">
+                    <div class="stat-icon"><i class="fas fa-ticket-alt"></i></div>
+                    <div class="stat-number">
+                        <span class="counter" data-target="1200">0</span><span class="stat-suffix">+</span>
+                    </div>
+                    <div class="stat-label">Reports Submitted</div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 fade-in-up delay-3">
+                <div class="stat-counter-card">
+                    <div class="stat-icon"><i class="fas fa-check-double"></i></div>
+                    <div class="stat-number">
+                        <span class="counter" data-target="980">0</span><span class="stat-suffix">+</span>
+                    </div>
+                    <div class="stat-label">Resolved Cases</div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 fade-in-up delay-4">
+                <div class="stat-counter-card">
+                    <div class="stat-icon"><i class="fas fa-user-clock"></i></div>
+                    <div class="stat-number">
+                        <span class="counter" data-target="320">0</span><span class="stat-suffix">+</span>
+                    </div>
+                    <div class="stat-label">Active Users</div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="row g-4 fu">
-      <div class="col-6 col-md-3">
-        <div class="step-wrap position-relative">
-          <div class="step-connector"></div>
-          <div class="step-num">1</div>
-          <div class="step-h">Submit 📝</div>
-          <div class="step-p">Faculty reports the issue with details, priority, and a photo.</div>
-        </div>
-      </div>
-      <div class="col-6 col-md-3">
-        <div class="step-wrap position-relative">
-          <div class="step-connector"></div>
-          <div class="step-num">2</div>
-          <div class="step-h">Review 👀</div>
-          <div class="step-p">Admin approves and assigns to the right maintenance staff.</div>
-        </div>
-      </div>
-      <div class="col-6 col-md-3">
-        <div class="step-wrap position-relative">
-          <div class="step-connector"></div>
-          <div class="step-num">3</div>
-          <div class="step-h">Repair 🔨</div>
-          <div class="step-p">Maintenance works on the task and logs real-time progress.</div>
-        </div>
-      </div>
-      <div class="col-6 col-md-3">
-        <div class="step-wrap">
-          <div class="step-num">4</div>
-          <div class="step-h">Done! ✅</div>
-          <div class="step-p">Admin confirms. Faculty rates the service. Ticket closed.</div>
-        </div>
-      </div>
-    </div>
-  </div>
 </section>
 
-<!-- ROLES -->
-<section class="sec-roles" id="roles">
-  <div class="container">
-    <div class="text-center mb-5 fu">
-      <div class="sec-tag">👥 Who It's For</div>
-      <h2 class="sec-h mb-3">One platform, three portals 🎯</h2>
-      <p class="sec-p">Each role gets a dedicated experience built around their specific responsibilities.</p>
+<!-- ===== USER ROLES ===== -->
+<section id="roles" class="section-padding">
+    <div class="container">
+        <div class="text-center fade-in-up">
+            <span class="section-label"><i class="fas fa-id-badge me-1"></i> User Roles</span>
+            <h2 class="section-title mt-2">Built for Every Campus Member</h2>
+            <p class="section-sub">SCC ReportHub provides tailored experiences for each type of user, ensuring everyone has the right tools for their role.</p>
+        </div>
+        <div class="row g-4 justify-content-center">
+            <!-- Student -->
+            <div class="col-lg-4 col-md-6 fade-in-up delay-1">
+                <div class="role-card student">
+                    <div class="role-icon-wrap"><i class="fas fa-user-graduate"></i></div>
+                    <h4>Student Reporter</h4>
+                    <p class="role-desc">Students are the eyes and ears of the campus. They can quickly report any issue they encounter and track its progress until resolution.</p>
+                    <ul class="role-list">
+                        <li><i class="fas fa-chevron-right"></i> Submit campus issue reports with photos</li>
+                        <li><i class="fas fa-chevron-right"></i> Track the status of submitted reports</li>
+                        <li><i class="fas fa-chevron-right"></i> Receive notifications on report updates</li>
+                        <li><i class="fas fa-chevron-right"></i> View history of all personal reports</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Faculty -->
+            <div class="col-lg-4 col-md-6 fade-in-up delay-2">
+                <div class="role-card faculty">
+                    <div class="role-icon-wrap"><i class="fas fa-chalkboard-teacher"></i></div>
+                    <h4>Faculty Member</h4>
+                    <p class="role-desc">Faculty members can report issues in their classrooms and departments, and have visibility into reports relevant to their areas of responsibility.</p>
+                    <ul class="role-list">
+                        <li><i class="fas fa-chevron-right"></i> Report facility and equipment issues</li>
+                        <li><i class="fas fa-chevron-right"></i> Monitor reports in assigned areas</li>
+                        <li><i class="fas fa-chevron-right"></i> Provide additional context to reports</li>
+                        <li><i class="fas fa-chevron-right"></i> Access departmental report summaries</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Admin -->
+            <div class="col-lg-4 col-md-6 fade-in-up delay-3">
+                <div class="role-card admin">
+                    <div class="role-icon-wrap"><i class="fas fa-user-shield"></i></div>
+                    <h4>Administrator</h4>
+                    <p class="role-desc">Administrators have full control over the system — managing reports, users, facilities, and generating insights to improve campus operations.</p>
+                    <ul class="role-list">
+                        <li><i class="fas fa-chevron-right"></i> Manage and resolve all campus reports</li>
+                        <li><i class="fas fa-chevron-right"></i> Assign reports to maintenance teams</li>
+                        <li><i class="fas fa-chevron-right"></i> Manage user accounts and permissions</li>
+                        <li><i class="fas fa-chevron-right"></i> Generate analytics and export reports</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="row g-4">
-      <div class="col-md-4 fu">
-        <div class="rcard r1">
-          <div class="rcard-icon" style="background:linear-gradient(135deg,#1a73e8,#1557b0);color:#fff">👨‍💼</div>
-          <div class="rcard-h">Administrator</div>
-          <div class="rcard-p">Oversee all tickets, manage users and facilities, assign maintenance staff, and monitor performance through analytics.</div>
-          <div>
-            <span class="rcard-tag">🎫 Ticket Control</span>
-            <span class="rcard-tag">👥 User Management</span>
-            <span class="rcard-tag">📊 Analytics</span>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 fu" style="transition-delay:.08s">
-        <div class="rcard r2">
-          <div class="rcard-icon" style="background:linear-gradient(135deg,#f5a623,#e8941a);color:#fff">👩‍🏫</div>
-          <div class="rcard-h">Faculty & Staff</div>
-          <div class="rcard-p">Submit facility issues, track repair status in real time, and rate the service quality once your request is resolved.</div>
-          <div>
-            <span class="rcard-tag">📝 Submit Issues</span>
-            <span class="rcard-tag">📡 Track Status</span>
-            <span class="rcard-tag">⭐ Rate Service</span>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 fu" style="transition-delay:.16s">
-        <div class="rcard r3">
-          <div class="rcard-icon" style="background:linear-gradient(135deg,#059669,#047857);color:#fff">👷</div>
-          <div class="rcard-h">Maintenance Staff</div>
-          <div class="rcard-p">View your assigned task queue, log repair progress, and mark jobs complete — all from one clean interface.</div>
-          <div>
-            <span class="rcard-tag">📋 Task Queue</span>
-            <span class="rcard-tag">🔧 Log Progress</span>
-            <span class="rcard-tag">📁 Job History</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 </section>
 
-<!-- CTA -->
-<section class="sec-cta">
-  <div class="container text-center" style="position:relative;z-index:1;">
-    <div class="fu">
-      <div style="font-size:2rem;margin-bottom:12px;">🎉</div>
-      <div style="font-size:0.67rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:rgba(255,255,255,0.6);margin-bottom:10px;">Get Started Today</div>
-      <h2 style="font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;color:#fff;letter-spacing:-0.5px;margin-bottom:14px;">Ready to transform your campus? 🏫</h2>
-      <p style="font-size:0.95rem;color:rgba(255,255,255,0.75);max-width:480px;margin:0 auto 32px;line-height:1.7;">Free for all SCC faculty and staff. Create your account and start reporting facility issues in minutes.</p>
-      <a href="{{ route('register') }}" class="btn-cta-gold">
-        🚀 Create an Account — It's Free
-      </a>
+<!-- ===== TESTIMONIALS ===== -->
+<section id="testimonials" class="section-padding" style="background:var(--gray-50);">
+    <div class="container">
+        <div class="text-center fade-in-up">
+            <span class="section-label"><i class="fas fa-comments me-1"></i> Testimonials</span>
+            <h2 class="section-title mt-2">What the SCC Community Says</h2>
+            <p class="section-sub">Hear from students, faculty, and administrators who use SCC ReportHub every day.</p>
+        </div>
+        <div class="row g-4">
+            <!-- Testimonial 1 -->
+            <div class="col-lg-4 col-md-6 fade-in-up delay-1">
+                <div class="testimonial-card">
+                    <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                    <p class="testimonial-text">"SCC ReportHub has completely changed how I report issues on campus. I submitted a report about a broken chair in our classroom and it was fixed within two days. The real-time tracking feature is incredibly reassuring."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar" style="background:linear-gradient(135deg,#1e40af,#3b82f6);">M</div>
+                        <div>
+                            <div class="author-name">Maria Santos</div>
+                            <div class="author-role">3rd Year Student, BSIT</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Testimonial 2 -->
+            <div class="col-lg-4 col-md-6 fade-in-up delay-2">
+                <div class="testimonial-card">
+                    <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                    <p class="testimonial-text">"As a faculty member, I used to have to call multiple offices just to report a projector issue. Now I just open ReportHub, submit the report with a photo, and the maintenance team handles it. It's saved me so much time."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar" style="background:linear-gradient(135deg,#7c3aed,#a855f7);">R</div>
+                        <div>
+                            <div class="author-name">Prof. Roberto Cruz</div>
+                            <div class="author-role">Faculty, College of Engineering</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Testimonial 3 -->
+            <div class="col-lg-4 col-md-6 mx-auto fade-in-up delay-3">
+                <div class="testimonial-card">
+                    <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                    <p class="testimonial-text">"The administrative dashboard gives me a complete picture of all campus issues at a glance. The analytics help us identify recurring problems and plan preventive maintenance. This system has significantly improved our response time."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar" style="background:linear-gradient(135deg,#059669,#10b981);">A</div>
+                        <div>
+                            <div class="author-name">Admin. Ana Reyes</div>
+                            <div class="author-role">Campus Facilities Administrator</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </section>
 
-<!-- FOOTER -->
-<footer>
-  <div class="container">
-    <div class="row g-4">
-      <div class="col-md-5">
-        <div class="d-flex align-items-center gap-2 mb-2">
-          <img src="{{ asset('images/scc-logo.png') }}" alt="SCC" width="26" height="26" style="border-radius:8px;object-fit:contain;background:rgba(255,255,255,0.1);padding:2px;" onerror="this.style.display='none'">
-          <span class="ft-name">SCC ReportHub</span>
+<!-- ===== CTA BANNER ===== -->
+<section style="background:var(--gradient-main);padding:72px 0;position:relative;overflow:hidden;">
+    <div style="position:absolute;top:-60px;right:-60px;width:300px;height:300px;background:rgba(255,255,255,0.05);border-radius:50%;"></div>
+    <div style="position:absolute;bottom:-80px;left:-40px;width:250px;height:250px;background:rgba(255,255,255,0.04);border-radius:50%;"></div>
+    <div class="container text-center" style="position:relative;z-index:1;">
+        <div class="fade-in-up">
+            <h2 style="font-size:clamp(1.6rem,3vw,2.4rem);font-weight:800;color:var(--white);margin-bottom:14px;">
+                Ready to Make Your Campus Better?
+            </h2>
+            <p style="font-size:1rem;color:rgba(255,255,255,0.85);max-width:520px;margin:0 auto 32px;line-height:1.7;">
+                Join hundreds of SCC community members already using ReportHub to keep the campus safe, clean, and well-maintained.
+            </p>
+            <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+                <a href="{{ route('register') }}" style="background:var(--white);color:var(--blue-dark);padding:13px 32px;border-radius:50px;font-weight:700;font-size:0.95rem;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:var(--transition);"
+                   onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 12px 35px rgba(0,0,0,0.2)'"
+                   onmouseout="this.style.transform='';this.style.boxShadow=''">
+                    <i class="fas fa-rocket"></i> Get Started Free
+                </a>
+                <a href="{{ route('login') }}" class="btn-outline-white">
+                    <i class="fas fa-sign-in-alt"></i> Sign In
+                </a>
+            </div>
         </div>
-        <p style="font-size:0.78rem;line-height:1.65;max-width:260px;">Campus Facility Status Report &amp; Monitoring System — Southern Christian College, Midsayap, Cotabato.</p>
-      </div>
-      <div class="col-6 col-md-3 offset-md-1">
-        <div class="ft-col-h">Navigation</div>
-        <a href="#features" class="ft-link">Features</a>
-        <a href="#how-it-works" class="ft-link">How It Works</a>
-        <a href="#roles" class="ft-link">Who It's For</a>
-      </div>
-      <div class="col-6 col-md-3">
-        <div class="ft-col-h">Account</div>
-        <a href="{{ route('login') }}" class="ft-link">Sign In</a>
-        <a href="{{ route('register') }}" class="ft-link">Create Account</a>
-      </div>
     </div>
-    <hr>
-    <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-2" style="font-size:.74rem;">
-      <span>&copy; {{ date('Y') }} Southern Christian College. All rights reserved.</span>
-      <span>Midsayap, Cotabato, Philippines 🇵🇭</span>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer id="footer" style="padding:64px 0 0;">
+    <div class="container">
+        <div class="row g-5">
+            <!-- Brand Column -->
+            <div class="col-lg-4 col-md-6">
+                <div class="footer-brand">
+                    <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+                        <img src="{{ asset('images/scc-logo.png') }}" alt="SCC Logo" style="height:44px;">
+                        <span style="font-size:1.1rem;font-weight:800;color:var(--white);">SCC ReportHub</span>
+                    </div>
+                    <p>A centralized campus issue management platform for Southern Christian College — empowering the community to report, track, and resolve concerns efficiently.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="col-lg-2 col-md-6">
+                <h6 class="footer-heading">Quick Links</h6>
+                <ul class="footer-links">
+                    <li><a href="#features"><i class="fas fa-chevron-right" style="font-size:0.65rem;"></i> Features</a></li>
+                    <li><a href="#how-it-works"><i class="fas fa-chevron-right" style="font-size:0.65rem;"></i> How It Works</a></li>
+                    <li><a href="#roles"><i class="fas fa-chevron-right" style="font-size:0.65rem;"></i> User Roles</a></li>
+                    <li><a href="#about"><i class="fas fa-chevron-right" style="font-size:0.65rem;"></i> About</a></li>
+                    <li><a href="{{ route('login') }}"><i class="fas fa-chevron-right" style="font-size:0.65rem;"></i> Sign In</a></li>
+                    <li><a href="{{ route('register') }}"><i class="fas fa-chevron-right" style="font-size:0.65rem;"></i> Register</a></li>
+                </ul>
+            </div>
+
+            <!-- Platform -->
+            <div class="col-lg-2 col-md-6">
+                <h6 class="footer-heading">Platform</h6>
+                <ul class="footer-links">
+                    <li><a href="{{ route('login') }}"><i class="fas fa-chevron-right" style="font-size:0.65rem;"></i> Student Portal</a></li>
+                    <li><a href="{{ route('login') }}"><i class="fas fa-chevron-right" style="font-size:0.65rem;"></i> Faculty Portal</a></li>
+                    <li><a href="{{ route('login') }}"><i class="fas fa-chevron-right" style="font-size:0.65rem;"></i> Admin Dashboard</a></li>
+                    <li><a href="#statistics"><i class="fas fa-chevron-right" style="font-size:0.65rem;"></i> Statistics</a></li>
+                    <li><a href="#testimonials"><i class="fas fa-chevron-right" style="font-size:0.65rem;"></i> Testimonials</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact -->
+            <div class="col-lg-4 col-md-6">
+                <h6 class="footer-heading">Contact & Location</h6>
+                <div class="footer-contact-item">
+                    <i class="fas fa-university"></i>
+                    <span>Southern Christian College<br>Midsayap, Cotabato, Philippines</span>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Poblacion, Midsayap<br>North Cotabato, 9410</span>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>reporthub@scc.edu.ph</span>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>(064) 229-8888</span>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fas fa-clock"></i>
+                    <span>Mon – Fri: 7:00 AM – 5:00 PM</span>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+        <div class="container">
+            <p style="margin:0;">
+                &copy; {{ date('Y') }} <a href="{{ route('landing') }}">SCC ReportHub</a> — Southern Christian College, Midsayap, Cotabato.
+                All rights reserved. Built with <i class="fas fa-heart" style="color:#ef4444;"></i> for the SCC Community.
+            </p>
+        </div>
+    </div>
 </footer>
 
+<!-- ===== SCRIPTS ===== -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-const mm=document.getElementById('mm');
-const mmO=document.getElementById('mmO');
-if(mmO) mmO.addEventListener('click',()=>{mm.classList.add('on');document.body.style.overflow='hidden'});
-document.getElementById('mmX').addEventListener('click',()=>{mm.classList.remove('on');document.body.style.overflow=''});
-mm.querySelectorAll('a.ml').forEach(l=>{
-  l.addEventListener('click',e=>{
-    if(l.getAttribute('href').startsWith('#')){
-      e.preventDefault();mm.classList.remove('on');document.body.style.overflow='';
-      setTimeout(()=>{const t=document.querySelector(l.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth'})},260);
-    }else{mm.classList.remove('on');document.body.style.overflow=''}
-  });
+document.addEventListener('DOMContentLoaded', function () {
+
+    /* ---- NAVBAR SCROLL ---- */
+    const nav = document.getElementById('mainNav');
+    window.addEventListener('scroll', () => {
+        nav.classList.toggle('scrolled', window.scrollY > 40);
+        document.getElementById('backToTop').classList.toggle('visible', window.scrollY > 400);
+    });
+
+    /* ---- BACK TO TOP ---- */
+    document.getElementById('backToTop').addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    /* ---- MOBILE MENU ---- */
+    document.getElementById('mobileToggle').addEventListener('click', () => {
+        document.getElementById('mobileMenu').classList.add('open');
+        document.body.style.overflow = 'hidden';
+    });
+    document.getElementById('mobileClose').addEventListener('click', closeMobileMenu);
+
+    /* ---- SMOOTH SCROLL for nav links ---- */
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                e.preventDefault();
+                const offset = 80;
+                const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                window.scrollTo({ top, behavior: 'smooth' });
+            }
+        });
+    });
+
+    /* ---- INTERSECTION OBSERVER: fade-in-up ---- */
+    const fadeEls = document.querySelectorAll('.fade-in-up');
+    const fadeObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                fadeObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12 });
+    fadeEls.forEach(el => fadeObserver.observe(el));
+
+    /* ---- ANIMATED COUNTERS ---- */
+    const counters = document.querySelectorAll('.counter');
+    let countersStarted = false;
+
+    function animateCounters() {
+        counters.forEach(counter => {
+            const target = parseInt(counter.getAttribute('data-target'));
+            const duration = 2000;
+            const step = target / (duration / 16);
+            let current = 0;
+            const timer = setInterval(() => {
+                current += step;
+                if (current >= target) {
+                    counter.textContent = target.toLocaleString();
+                    clearInterval(timer);
+                } else {
+                    counter.textContent = Math.floor(current).toLocaleString();
+                }
+            }, 16);
+        });
+    }
+
+    const statsSection = document.getElementById('statistics');
+    if (statsSection) {
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !countersStarted) {
+                    countersStarted = true;
+                    animateCounters();
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+        statsObserver.observe(statsSection);
+    }
+
+    /* ---- ACTIVE NAV LINK on scroll ---- */
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link-custom');
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 120;
+            if (window.pageYOffset >= sectionTop) {
+                current = section.getAttribute('id');
+            }
+        });
+        navLinks.forEach(link => {
+            link.style.color = '';
+            link.style.background = '';
+            if (link.getAttribute('href') === '#' + current) {
+                link.style.color = 'var(--blue-dark)';
+                link.style.background = 'rgba(30,64,175,0.06)';
+            }
+        });
+    });
 });
-document.querySelectorAll('a[href^="#"]').forEach(a=>{
-  a.addEventListener('click',e=>{
-    const t=document.querySelector(a.getAttribute('href'));
-    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}
-  });
-});
-const io=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
-},{threshold:0.08});
-document.querySelectorAll('.fu').forEach(el=>io.observe(el));
+
+function closeMobileMenu() {
+    document.getElementById('mobileMenu').classList.remove('open');
+    document.body.style.overflow = '';
+}
 </script>
 </body>
 </html>
