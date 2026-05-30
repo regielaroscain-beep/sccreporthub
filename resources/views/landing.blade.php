@@ -171,13 +171,28 @@
             height: 40px;
             width: auto;
         }
-        .navbar-brand-custom span {
-            font-size: 1.2rem;
+        .navbar-brand-custom .brand-text { display: flex; flex-direction: column; line-height: 1.2; }
+        .navbar-brand-custom .brand-school {
+            font-size: 0.58rem;
+            font-weight: 600;
+            color: var(--gray-600);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+        .navbar-brand-custom .brand-name {
+            font-size: 1rem;
             font-weight: 800;
             background: var(--gradient-main);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            letter-spacing: -0.3px;
+        }
+        .navbar-brand-custom .brand-sub {
+            font-size: 0.55rem;
+            font-weight: 500;
+            color: var(--gray-600);
+            letter-spacing: 0.3px;
         }
         .nav-link-custom {
             color: var(--gray-700) !important;
@@ -836,7 +851,11 @@
             <!-- Brand -->
             <a href="{{ route('landing') }}" class="navbar-brand-custom">
                 <img src="{{ asset('images/scc-logo.png') }}" alt="SCC Logo">
-                <span>SCC ReportHub</span>
+                <div class="brand-text">
+                    <span class="brand-school">Southern Christian College</span>
+                    <span class="brand-name">SCC ReportHub</span>
+                    <span class="brand-sub">Campus Facility Management</span>
+                </div>
             </a>
 
             <!-- Desktop Nav Links -->
