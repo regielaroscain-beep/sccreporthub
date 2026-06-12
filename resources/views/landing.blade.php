@@ -419,7 +419,6 @@
             border-radius: 50%;
             opacity: 0.4;
         }
-    </style>
 
         /* ═══════════════════════════════════════
            MARQUEE STRIP
