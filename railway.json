@@ -1,10 +1,13 @@
 {
+    "$schema": "https://railway.com/railway.schema.json",
     "build": {
-        "builder": "NIXPACKS",
-        "nixpacksConfigPath": "nixpacks.toml"
+        "builder": "RAILPACK",
+        "buildCommand": "mkdir -p storage/framework/views storage/framework/sessions storage/framework/cache/data storage/logs && chmod -R 775 storage bootstrap/cache && php artisan config:clear && php artisan route:clear && php artisan view:clear && php artisan config:cache && php artisan route:cache && php artisan view:cache"
     },
     "deploy": {
+        "startCommand": "php artisan config:clear && php artisan route:clear && php artisan view:clear && php artisan migrate --force && php artisan config:cache && php artisan route:cache && php -S 0.0.0.0:$PORT -t public",
         "restartPolicyType": "ON_FAILURE",
         "restartPolicyMaxRetries": 10
     }
 }
+
