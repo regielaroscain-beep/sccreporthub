@@ -258,7 +258,6 @@
             <a href="{{ route('landing') }}" class="nav-brand-wrap">
                 <img src="{{ asset('images/scc-logo.png') }}" alt="SCC Logo" class="nav-brand-logo">
                 <div class="nav-brand-text">
-                    <span class="nav-brand-school">Southern Christian College</span>
                     <span class="nav-brand-name">SCC ReportHub</span>
                 </div>
             </a>
