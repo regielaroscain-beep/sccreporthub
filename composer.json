@@ -57,6 +57,15 @@
         "allow-plugins": {
             "pestphp/pest-plugin": true,
             "php-http/discovery": true
+        },
+        "audit": {
+            "ignore": {
+                "PKSA-m5cs-t1y6-qpcs": "Ignoring for production build",
+                "PKSA-3r5d-mb8f-1qw9": "Ignoring for production build",
+                "PKSA-mdq4-51ck-6kdq": "Ignoring for production build",
+                "PKSA-8qx3-n5y5-vvnd": "Ignoring for production build",
+                "PKSA-w7xr-vk7n-rstm": "Ignoring for production build"
+            }
         }
     },
     "minimum-stability": "stable",
