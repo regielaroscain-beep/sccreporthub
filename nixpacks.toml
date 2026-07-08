@@ -10,13 +10,7 @@ cmds = ["composer install --no-dev --optimize-autoloader --no-interaction --igno
 [phases.build]
 cmds = [
     "mkdir -p storage/framework/views storage/framework/sessions storage/framework/cache/data storage/logs",
-    "chmod -R 775 storage bootstrap/cache",
-    "php artisan config:clear",
-    "php artisan route:clear",
-    "php artisan view:clear",
-    "php artisan config:cache",
-    "php artisan route:cache",
-    "php artisan view:cache"
+    "chmod -R 775 storage bootstrap/cache"
 ]
 
 [start]
