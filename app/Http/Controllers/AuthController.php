@@ -4,14 +4,12 @@ namespace App\Http\Controllers;
 
 use Cloudinary\Cloudinary;
 use Cloudinary\Configuration\Configuration;
-use App\Mail\PasswordResetMail;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rules\Password;
 
@@ -192,10 +190,49 @@ class AuthController extends Controller
                 'email' => $user->email,
             ]);
 
-            Mail::to($user->email)->send(new PasswordResetMail($resetUrl, $user->first_name));
+            $this->sendBrevoEmail(
+                toEmail: $user->email,
+                toName:  $user->first_name,
+                subject: 'SCC ReportHub – Password Reset Request',
+                htmlContent: $this->buildResetEmailHtml($user->first_name, $resetUrl),
+            );
         }
 
         return back()->with('success', 'If an account with that email exists, a reset link has been sent. Please check your inbox (and spam folder).');
+    }
+
+    // ─── Send Email via Brevo HTTP API (bypasses SMTP port restrictions) ──────
+
+    private function sendBrevoEmail(string $toEmail, string $toName, string $subject, string $htmlContent): void
+    {
+        $client = new \GuzzleHttp\Client();
+
+        $client->post('https://api.brevo.com/v3/smtp/email', [
+            'headers' => [
+                'accept'      => 'application/json',
+                'api-key'     => env('BREVO_API_KEY'),
+                'content-type'=> 'application/json',
+            ],
+            'json' => [
+                'sender'      => [
+                    'name'  => config('mail.from.name'),
+                    'email' => config('mail.from.address'),
+                ],
+                'to'          => [['email' => $toEmail, 'name' => $toName]],
+                'subject'     => $subject,
+                'htmlContent' => $htmlContent,
+            ],
+        ]);
+    }
+
+    // ─── Build Reset Email HTML ───────────────────────────────────────────────
+
+    private function buildResetEmailHtml(string $userName, string $resetUrl): string
+    {
+        return view('emails.password-reset', [
+            'userName' => $userName,
+            'resetUrl' => $resetUrl,
+        ])->render();
     }
 
     // ─── Show Reset Password Form ─────────────────────────────────────────────
