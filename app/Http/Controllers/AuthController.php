@@ -186,6 +186,9 @@ class AuthController extends Controller
 
         $user->markEmailAsVerified();
 
+        // Auto-login the user after verification
+        Auth::login($user);
+
         return redirect()->route('verification.success');
     }
 
