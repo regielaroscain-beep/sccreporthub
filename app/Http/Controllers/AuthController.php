@@ -197,7 +197,7 @@ class AuthController extends Controller
             );
         }
 
-        return back()->with('success', 'If an account with that email exists, a reset link has been sent. Please check your inbox (and spam folder).');
+        return back()->with('success', true)->with('sent_email', $request->email);
     }
 
     // ─── Send Email via Brevo HTTP API (bypasses SMTP port restrictions) ──────
