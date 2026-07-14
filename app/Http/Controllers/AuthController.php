@@ -63,6 +63,14 @@ class AuthController extends Controller
                 ])->onlyInput('email');
             }
 
+            // Block unverified faculty from logging in
+            if (! $user->hasVerifiedEmail() && $user->isFaculty()) {
+                Auth::logout();
+                return redirect()->route('verification.notice')
+                    ->with('sent_email', $user->email)
+                    ->with('error', 'Please verify your email address before logging in.');
+            }
+
             return $this->redirectByRole($user);
         }
 
@@ -136,10 +144,86 @@ class AuthController extends Controller
             'status'         => 'active',
         ]);
 
-        Auth::login($user);
+        // Send verification email via Brevo
+        $this->sendVerificationEmail($user);
 
-        return redirect()->route('faculty.dashboard')
-            ->with('success', 'Account created successfully! Welcome to SCC ReportHub.');
+        return redirect()->route('verification.notice')
+            ->with('sent_email', $user->email);
+    }
+
+    // ─── Show Email Verification Notice ──────────────────────────────────────
+
+    public function verificationNotice()
+    {
+        if (Auth::check() && Auth::user()->hasVerifiedEmail()) {
+            return $this->redirectByRole(Auth::user());
+        }
+
+        return view('auth.verify-email');
+    }
+
+    // ─── Verify Email via Signed Link ────────────────────────────────────────
+
+    public function verifyEmail(Request $request, int $id, string $hash)
+    {
+        $user = User::findOrFail($id);
+
+        if (! hash_equals(sha1($user->email), $hash)) {
+            abort(403, 'Invalid verification link.');
+        }
+
+        if ($user->hasVerifiedEmail()) {
+            return redirect()->route('login')
+                ->with('success', 'Your email is already verified. Please log in.');
+        }
+
+        $user->markEmailAsVerified();
+
+        return redirect()->route('login')
+            ->with('success', 'Email verified successfully! You can now log in.');
+    }
+
+    // ─── Resend Verification Email ────────────────────────────────────────────
+
+    public function resendVerification(Request $request)
+    {
+        $request->validate(['email' => ['required', 'email']]);
+
+        $user = User::where('email', $request->email)->first();
+
+        if ($user && ! $user->hasVerifiedEmail()) {
+            $this->sendVerificationEmail($user);
+        }
+
+        return back()->with('success', true)->with('sent_email', $request->email);
+    }
+
+    // ─── Send Verification Email via Brevo ───────────────────────────────────
+
+    private function sendVerificationEmail(User $user): void
+    {
+        $hash       = sha1($user->email);
+        $verifyUrl  = route('verification.verify', [
+            'id'   => $user->id,
+            'hash' => $hash,
+        ]);
+
+        $this->sendBrevoEmail(
+            toEmail:     $user->email,
+            toName:      $user->first_name,
+            subject:     'SCC ReportHub – Verify Your Email Address',
+            htmlContent: $this->buildVerificationEmailHtml($user->first_name, $verifyUrl),
+        );
+    }
+
+    // ─── Build Verification Email HTML ───────────────────────────────────────
+
+    private function buildVerificationEmailHtml(string $userName, string $verifyUrl): string
+    {
+        return view('emails.verify-email', [
+            'userName'  => $userName,
+            'verifyUrl' => $verifyUrl,
+        ])->render();
     }
 
     // ─── Logout ───────────────────────────────────────────────────────────────

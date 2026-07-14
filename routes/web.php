@@ -39,6 +39,11 @@ Route::middleware('guest')->group(function () {
     Route::post('/forgot-password', [AuthController::class, 'forgotPassword'])->middleware('throttle:5,1')->name('password.email');
     Route::get('/reset-password/{token}',  [AuthController::class, 'showResetPassword'])->name('password.reset');
     Route::post('/reset-password', [AuthController::class, 'resetPassword'])->middleware('throttle:5,1')->name('password.update');
+
+    // Email Verification
+    Route::get('/verify-email',              [AuthController::class, 'verificationNotice'])->name('verification.notice');
+    Route::get('/verify-email/{id}/{hash}',  [AuthController::class, 'verifyEmail'])->name('verification.verify');
+    Route::post('/resend-verification',      [AuthController::class, 'resendVerification'])->middleware('throttle:3,1')->name('verification.resend');
 });
 
 Route::middleware('auth')->group(function () {
