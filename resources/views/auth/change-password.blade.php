@@ -10,7 +10,7 @@
     <div class="col-md-6">
         <div class="card shadow-sm">
             <div class="card-body p-4">
-                <form method="POST" action="{{ route('password.update') }}">
+                <form method="POST" action="{{ route('password.change.update') }}">
                     @csrf
                     <div class="mb-3">
                         <label class="form-label">Current Password</label>
