@@ -151,6 +151,13 @@ class AuthController extends Controller
             ->with('sent_email', $user->email);
     }
 
+    // ─── Show Email Verified Success Page ────────────────────────────────────
+
+    public function verificationSuccess()
+    {
+        return view('auth.email-verified');
+    }
+
     // ─── Show Email Verification Notice ──────────────────────────────────────
 
     public function verificationNotice()
@@ -179,8 +186,7 @@ class AuthController extends Controller
 
         $user->markEmailAsVerified();
 
-        return redirect()->route('login')
-            ->with('success', 'Email verified successfully! You can now log in.');
+        return redirect()->route('verification.success');
     }
 
     // ─── Resend Verification Email ────────────────────────────────────────────

@@ -43,6 +43,7 @@ Route::middleware('guest')->group(function () {
     // Email Verification
     Route::get('/verify-email',              [AuthController::class, 'verificationNotice'])->name('verification.notice');
     Route::get('/verify-email/{id}/{hash}',  [AuthController::class, 'verifyEmail'])->name('verification.verify');
+    Route::get('/email-verified',            [AuthController::class, 'verificationSuccess'])->name('verification.success');
     Route::post('/resend-verification',      [AuthController::class, 'resendVerification'])->middleware('throttle:3,1')->name('verification.resend');
 });
 
