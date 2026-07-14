@@ -8,7 +8,6 @@ use App\Http\Controllers\MaintenanceController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\UserManagementController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*

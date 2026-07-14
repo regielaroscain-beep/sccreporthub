@@ -73,8 +73,7 @@ class AuthController extends Controller
         $remaining = max(0, 5 - $attempts);
 
         if ($attempts >= 5) {
-            // Lock for 60 seconds — store with IP-based key so it persists on refresh
-            $ipLockKey = 'login_locked_ip_' . md5($request->ip());
+            // Lock for 60 seconds
             session([$lockKey => now()->addSeconds(60)->timestamp]);
             session([$ipLockKey => now()->addSeconds(60)->timestamp]);
             session()->forget($sessionKey);
