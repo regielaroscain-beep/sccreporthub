@@ -200,6 +200,41 @@ class AuthController extends Controller
         return back()->with('success', true)->with('sent_email', $request->email);
     }
 
+    // ─── Resend Reset Link ────────────────────────────────────────────────────
+
+    public function resendResetLink(Request $request)
+    {
+        $request->validate(['email' => ['required', 'email']]);
+
+        $user = User::where('email', $request->email)->first();
+
+        if ($user) {
+            DB::table('password_reset_tokens')->where('email', $user->email)->delete();
+
+            $token = Str::random(64);
+
+            DB::table('password_reset_tokens')->insert([
+                'email'      => $user->email,
+                'token'      => Hash::make($token),
+                'created_at' => now(),
+            ]);
+
+            $resetUrl = route('password.reset', [
+                'token' => $token,
+                'email' => $user->email,
+            ]);
+
+            $this->sendBrevoEmail(
+                toEmail:     $user->email,
+                toName:      $user->first_name,
+                subject:     'SCC ReportHub – Password Reset Request',
+                htmlContent: $this->buildResetEmailHtml($user->first_name, $resetUrl),
+            );
+        }
+
+        return back()->with('success', true)->with('sent_email', $request->email);
+    }
+
     // ─── Send Email via Brevo HTTP API (bypasses SMTP port restrictions) ──────
 
     private function sendBrevoEmail(string $toEmail, string $toName, string $subject, string $htmlContent): void

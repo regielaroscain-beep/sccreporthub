@@ -21,6 +21,17 @@
             <i class="fas fa-circle-info text-primary me-2"></i>
             The link will expire in <strong>60 minutes</strong>. If you don't see it, check your spam folder.
         </div>
+
+        {{-- Resend form with cooldown --}}
+        <form method="POST" action="{{ route('password.resend') }}" class="mb-3">
+            @csrf
+            <input type="hidden" name="email" value="{{ session('sent_email') }}">
+            <button type="submit" class="btn btn-outline-primary w-100 py-2" id="resendBtn" disabled>
+                <i class="fas fa-paper-plane me-2"></i>
+                Resend Email <span id="cooldownText">(wait <span id="timer">120</span>s)</span>
+            </button>
+        </form>
+
         <a href="{{ route('password.request') }}" class="btn btn-outline-secondary w-100 py-2 mb-3">
             <i class="fas fa-rotate-left me-2"></i>Try a different email
         </a>
@@ -73,3 +84,25 @@
 @endif
 
 @endsection
+
+@push('scripts')
+<script>
+    @if(session('success'))
+    // 2-minute cooldown for resend button
+    let seconds = 120;
+    const btn          = document.getElementById('resendBtn');
+    const timerEl      = document.getElementById('timer');
+    const cooldownText = document.getElementById('cooldownText');
+
+    const interval = setInterval(() => {
+        seconds--;
+        timerEl.textContent = seconds;
+        if (seconds <= 0) {
+            clearInterval(interval);
+            btn.disabled = false;
+            cooldownText.style.display = 'none';
+        }
+    }, 1000);
+    @endif
+</script>
+@endpush
