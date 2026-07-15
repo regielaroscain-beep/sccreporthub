@@ -63,14 +63,6 @@ class AuthController extends Controller
                 ])->onlyInput('email');
             }
 
-            // Block unverified faculty from logging in
-            if (! $user->hasVerifiedEmail() && $user->isFaculty()) {
-                Auth::logout();
-                return redirect()->route('verification.notice')
-                    ->with('sent_email', $user->email)
-                    ->with('error', 'Please verify your email address before logging in.');
-            }
-
             return $this->redirectByRole($user);
         }
 
