@@ -13,76 +13,92 @@
 <!-- ─── Stats Cards ─────────────────────────────────────────────────────────── -->
 <div class="row g-3 mb-4">
     <div class="col-6 col-md-3">
-        <div class="stat-card stat-primary">
-            <div class="stat-icon"><i class="fas fa-ticket-alt"></i></div>
-            <div class="stat-info">
-                <div class="stat-value">{{ $stats['total_tickets'] }}</div>
-                <div class="stat-label">Total Tickets</div>
+        <a href="{{ route('admin.tickets.index') }}" class="text-decoration-none">
+            <div class="stat-card stat-primary" style="cursor:pointer;">
+                <div class="stat-icon"><i class="fas fa-ticket-alt"></i></div>
+                <div class="stat-info">
+                    <div class="stat-value">{{ $stats['total_tickets'] }}</div>
+                    <div class="stat-label">Total Tickets</div>
+                </div>
             </div>
-        </div>
+        </a>
     </div>
     <div class="col-6 col-md-3">
-        <div class="stat-card stat-warning">
-            <div class="stat-icon"><i class="fas fa-clock"></i></div>
-            <div class="stat-info">
-                <div class="stat-value">{{ $stats['pending_tickets'] }}</div>
-                <div class="stat-label">Pending</div>
+        <a href="{{ route('admin.tickets.index') }}?status=pending" class="text-decoration-none">
+            <div class="stat-card stat-warning" style="cursor:pointer;">
+                <div class="stat-icon"><i class="fas fa-clock"></i></div>
+                <div class="stat-info">
+                    <div class="stat-value">{{ $stats['pending_tickets'] }}</div>
+                    <div class="stat-label">Pending</div>
+                </div>
             </div>
-        </div>
+        </a>
     </div>
     <div class="col-6 col-md-3">
-        <div class="stat-card stat-info">
-            <div class="stat-icon"><i class="fas fa-tools"></i></div>
-            <div class="stat-info">
-                <div class="stat-value">{{ $stats['ongoing_tickets'] }}</div>
-                <div class="stat-label">Ongoing</div>
+        <a href="{{ route('admin.monitoring.index') }}" class="text-decoration-none">
+            <div class="stat-card stat-info" style="cursor:pointer;">
+                <div class="stat-icon"><i class="fas fa-tools"></i></div>
+                <div class="stat-info">
+                    <div class="stat-value">{{ $stats['ongoing_tickets'] }}</div>
+                    <div class="stat-label">Ongoing</div>
+                </div>
             </div>
-        </div>
+        </a>
     </div>
     <div class="col-6 col-md-3">
-        <div class="stat-card stat-success">
-            <div class="stat-icon"><i class="fas fa-check-circle"></i></div>
-            <div class="stat-info">
-                <div class="stat-value">{{ $stats['completed_tickets'] }}</div>
-                <div class="stat-label">Completed</div>
+        <a href="{{ route('admin.history') }}" class="text-decoration-none">
+            <div class="stat-card stat-success" style="cursor:pointer;">
+                <div class="stat-icon"><i class="fas fa-check-circle"></i></div>
+                <div class="stat-info">
+                    <div class="stat-value">{{ $stats['completed_tickets'] }}</div>
+                    <div class="stat-label">Completed</div>
+                </div>
             </div>
-        </div>
+        </a>
     </div>
     <div class="col-6 col-md-3">
-        <div class="stat-card stat-danger">
-            <div class="stat-icon"><i class="fas fa-exclamation-triangle"></i></div>
-            <div class="stat-info">
-                <div class="stat-value">{{ $stats['urgent_tickets'] }}</div>
-                <div class="stat-label">Urgent Active</div>
+        <a href="{{ route('admin.tickets.index') }}?priority=urgent" class="text-decoration-none">
+            <div class="stat-card stat-danger" style="cursor:pointer;">
+                <div class="stat-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                <div class="stat-info">
+                    <div class="stat-value">{{ $stats['urgent_tickets'] }}</div>
+                    <div class="stat-label">Urgent Active</div>
+                </div>
             </div>
-        </div>
+        </a>
     </div>
     <div class="col-6 col-md-3">
-        <div class="stat-card stat-secondary">
-            <div class="stat-icon"><i class="fas fa-times-circle"></i></div>
-            <div class="stat-info">
-                <div class="stat-value">{{ $stats['rejected_tickets'] }}</div>
-                <div class="stat-label">Rejected</div>
+        <a href="{{ route('admin.history') }}" class="text-decoration-none">
+            <div class="stat-card stat-secondary" style="cursor:pointer;">
+                <div class="stat-icon"><i class="fas fa-times-circle"></i></div>
+                <div class="stat-info">
+                    <div class="stat-value">{{ $stats['rejected_tickets'] }}</div>
+                    <div class="stat-label">Rejected</div>
+                </div>
             </div>
-        </div>
+        </a>
     </div>
     <div class="col-6 col-md-3">
-        <div class="stat-card stat-primary">
-            <div class="stat-icon"><i class="fas fa-users"></i></div>
-            <div class="stat-info">
-                <div class="stat-value">{{ $stats['total_users'] }}</div>
-                <div class="stat-label">Faculty/Staff</div>
+        <a href="{{ route('admin.users.index') }}?role=faculty" class="text-decoration-none">
+            <div class="stat-card stat-primary" style="cursor:pointer;">
+                <div class="stat-icon"><i class="fas fa-users"></i></div>
+                <div class="stat-info">
+                    <div class="stat-value">{{ $stats['total_users'] }}</div>
+                    <div class="stat-label">Faculty/Staff</div>
+                </div>
             </div>
-        </div>
+        </a>
     </div>
     <div class="col-6 col-md-3">
-        <div class="stat-card stat-info">
-            <div class="stat-icon"><i class="fas fa-hard-hat"></i></div>
-            <div class="stat-info">
-                <div class="stat-value">{{ $stats['maintenance_staff'] }}</div>
-                <div class="stat-label">Maintenance Staff</div>
+        <a href="{{ route('admin.users.index') }}?role=maintenance" class="text-decoration-none">
+            <div class="stat-card stat-info" style="cursor:pointer;">
+                <div class="stat-icon"><i class="fas fa-hard-hat"></i></div>
+                <div class="stat-info">
+                    <div class="stat-value">{{ $stats['maintenance_staff'] }}</div>
+                    <div class="stat-label">Maintenance Staff</div>
+                </div>
             </div>
-        </div>
+        </a>
     </div>
 </div>
 

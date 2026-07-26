@@ -19,40 +19,48 @@
 <!-- Stats -->
 <div class="row g-3 mb-4">
     <div class="col-6 col-md-3">
-        <div class="stat-card stat-primary">
-            <div class="stat-icon"><i class="fas fa-tasks"></i></div>
-            <div class="stat-info">
-                <div class="stat-value">{{ $stats['assigned_tasks'] }}</div>
-                <div class="stat-label">Active Tasks</div>
+        <a href="{{ route('maintenance.tasks.index') }}" class="text-decoration-none">
+            <div class="stat-card stat-primary" style="cursor:pointer;">
+                <div class="stat-icon"><i class="fas fa-tasks"></i></div>
+                <div class="stat-info">
+                    <div class="stat-value">{{ $stats['assigned_tasks'] }}</div>
+                    <div class="stat-label">Active Tasks</div>
+                </div>
             </div>
-        </div>
+        </a>
     </div>
     <div class="col-6 col-md-3">
-        <div class="stat-card stat-danger">
-            <div class="stat-icon"><i class="fas fa-exclamation-triangle"></i></div>
-            <div class="stat-info">
-                <div class="stat-value">{{ $stats['urgent_tasks'] }}</div>
-                <div class="stat-label">Urgent Tasks</div>
+        <a href="{{ route('maintenance.tasks.index') }}?priority=urgent" class="text-decoration-none">
+            <div class="stat-card stat-danger" style="cursor:pointer;">
+                <div class="stat-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                <div class="stat-info">
+                    <div class="stat-value">{{ $stats['urgent_tasks'] }}</div>
+                    <div class="stat-label">Urgent Tasks</div>
+                </div>
             </div>
-        </div>
+        </a>
     </div>
     <div class="col-6 col-md-3">
-        <div class="stat-card stat-info">
-            <div class="stat-icon"><i class="fas fa-check"></i></div>
-            <div class="stat-info">
-                <div class="stat-value">{{ $stats['resolved_tasks'] }}</div>
-                <div class="stat-label">Resolved</div>
+        <a href="{{ route('maintenance.tasks.completed') }}" class="text-decoration-none">
+            <div class="stat-card stat-info" style="cursor:pointer;">
+                <div class="stat-icon"><i class="fas fa-check"></i></div>
+                <div class="stat-info">
+                    <div class="stat-value">{{ $stats['resolved_tasks'] }}</div>
+                    <div class="stat-label">Resolved</div>
+                </div>
             </div>
-        </div>
+        </a>
     </div>
     <div class="col-6 col-md-3">
-        <div class="stat-card stat-success">
-            <div class="stat-icon"><i class="fas fa-check-double"></i></div>
-            <div class="stat-info">
-                <div class="stat-value">{{ $stats['completed_tasks'] }}</div>
-                <div class="stat-label">Completed</div>
+        <a href="{{ route('maintenance.tasks.completed') }}" class="text-decoration-none">
+            <div class="stat-card stat-success" style="cursor:pointer;">
+                <div class="stat-icon"><i class="fas fa-check-double"></i></div>
+                <div class="stat-info">
+                    <div class="stat-value">{{ $stats['completed_tasks'] }}</div>
+                    <div class="stat-label">Completed</div>
+                </div>
             </div>
-        </div>
+        </a>
     </div>
 </div>
 

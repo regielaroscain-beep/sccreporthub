@@ -15,40 +15,48 @@
 <!-- Stats -->
 <div class="row g-2 mb-4">
     <div class="col-6">
-        <div class="stat-card stat-primary">
-            <div class="stat-icon"><i class="fas fa-clipboard-list"></i></div>
-            <div class="stat-info">
-                <div class="stat-value">{{ $stats['total_tickets'] }}</div>
-                <div class="stat-label">Total</div>
+        <a href="{{ route('faculty.tickets.index') }}" class="text-decoration-none">
+            <div class="stat-card stat-primary" style="cursor:pointer;">
+                <div class="stat-icon"><i class="fas fa-clipboard-list"></i></div>
+                <div class="stat-info">
+                    <div class="stat-value">{{ $stats['total_tickets'] }}</div>
+                    <div class="stat-label">Total</div>
+                </div>
             </div>
-        </div>
+        </a>
     </div>
     <div class="col-6">
-        <div class="stat-card stat-warning">
-            <div class="stat-icon"><i class="fas fa-clock"></i></div>
-            <div class="stat-info">
-                <div class="stat-value">{{ $stats['pending_tickets'] }}</div>
-                <div class="stat-label">Pending</div>
+        <a href="{{ route('faculty.tickets.index') }}" class="text-decoration-none">
+            <div class="stat-card stat-warning" style="cursor:pointer;">
+                <div class="stat-icon"><i class="fas fa-clock"></i></div>
+                <div class="stat-info">
+                    <div class="stat-value">{{ $stats['pending_tickets'] }}</div>
+                    <div class="stat-label">Pending</div>
+                </div>
             </div>
-        </div>
+        </a>
     </div>
     <div class="col-6">
-        <div class="stat-card stat-info">
-            <div class="stat-icon"><i class="fas fa-screwdriver-wrench"></i></div>
-            <div class="stat-info">
-                <div class="stat-value">{{ $stats['ongoing_tickets'] }}</div>
-                <div class="stat-label">In Progress</div>
+        <a href="{{ route('faculty.tickets.index') }}" class="text-decoration-none">
+            <div class="stat-card stat-info" style="cursor:pointer;">
+                <div class="stat-icon"><i class="fas fa-screwdriver-wrench"></i></div>
+                <div class="stat-info">
+                    <div class="stat-value">{{ $stats['ongoing_tickets'] }}</div>
+                    <div class="stat-label">In Progress</div>
+                </div>
             </div>
-        </div>
+        </a>
     </div>
     <div class="col-6">
-        <div class="stat-card stat-success">
-            <div class="stat-icon"><i class="fas fa-circle-check"></i></div>
-            <div class="stat-info">
-                <div class="stat-value">{{ $stats['completed_tickets'] }}</div>
-                <div class="stat-label">Completed</div>
+        <a href="{{ route('faculty.history') }}" class="text-decoration-none">
+            <div class="stat-card stat-success" style="cursor:pointer;">
+                <div class="stat-icon"><i class="fas fa-circle-check"></i></div>
+                <div class="stat-info">
+                    <div class="stat-value">{{ $stats['completed_tickets'] }}</div>
+                    <div class="stat-label">Completed</div>
+                </div>
             </div>
-        </div>
+        </a>
     </div>
 </div>
 
