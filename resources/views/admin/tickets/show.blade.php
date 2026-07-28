@@ -280,21 +280,31 @@
                     <select name="assigned_to" class="form-select" required>
                         <option value="">-- Select Staff --</option>
                         @php
-                            $matched = $maintenanceStaff->filter(fn($s) =>
-                                $s->specialization &&
-                                in_array($ticket->issue_category, \App\Models\User::SPECIALIZATION_CATEGORIES[$s->specialization] ?? [])
-                            );
-                            $others = $maintenanceStaff->filter(fn($s) =>
-                                !$s->specialization ||
-                                !in_array($ticket->issue_category, \App\Models\User::SPECIALIZATION_CATEGORIES[$s->specialization] ?? [])
-                            );
+                            $matched = $maintenanceStaff->filter(function($s) use ($ticket) {
+                                $specs = $s->specialization ?? [];
+                                if (is_string($specs)) $specs = [$specs];
+                                foreach ($specs as $spec) {
+                                    $cats = \App\Models\User::SPECIALIZATION_CATEGORIES[$spec] ?? [];
+                                    if (in_array($ticket->issue_category, $cats)) return true;
+                                }
+                                return false;
+                            });
+                            $others = $maintenanceStaff->filter(function($s) use ($ticket) {
+                                $specs = $s->specialization ?? [];
+                                if (is_string($specs)) $specs = [$specs];
+                                foreach ($specs as $spec) {
+                                    $cats = \App\Models\User::SPECIALIZATION_CATEGORIES[$spec] ?? [];
+                                    if (in_array($ticket->issue_category, $cats)) return false;
+                                }
+                                return true;
+                            });
                         @endphp
 
                         @if($matched->count())
                         <optgroup label="✓ Matched Specialization">
                             @foreach($matched as $staff)
                             <option value="{{ $staff->id }}">
-                                ✓ {{ $staff->full_name }} — {{ \App\Models\User::SPECIALIZATIONS[$staff->specialization] ?? $staff->specialization }}
+                                ✓ {{ $staff->full_name }} — {{ $staff->specialization_labels }}
                             </option>
                             @endforeach
                         </optgroup>
@@ -305,10 +315,8 @@
                             @foreach($others as $staff)
                             <option value="{{ $staff->id }}">
                                 {{ $staff->full_name }}
-                                @if($staff->specialization)
-                                    — {{ \App\Models\User::SPECIALIZATIONS[$staff->specialization] ?? $staff->specialization }}
-                                @else
-                                    — General
+                                @if(!empty($staff->specialization))
+                                    — {{ $staff->specialization_labels }}
                                 @endif
                             </option>
                             @endforeach

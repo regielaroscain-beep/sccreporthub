@@ -6,9 +6,9 @@
     <div>
         <h4 class="fw-bold mb-0"><i class="fas fa-chart-pie me-2 text-primary"></i>Dashboard</h4>
         <p class="text-muted small mb-0">Welcome, {{ auth()->user()->full_name }}
-            @if(auth()->user()->specialization)
+            @if(!empty(auth()->user()->specialization))
             &nbsp;·&nbsp;<span class="badge bg-primary">
-                <i class="fas fa-id-badge me-1"></i>{{ \App\Models\User::SPECIALIZATIONS[auth()->user()->specialization] ?? auth()->user()->specialization }}
+                <i class="fas fa-id-badge me-1"></i>{{ auth()->user()->specialization_labels }}
             </span>
             @endif
         </p>

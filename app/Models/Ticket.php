@@ -13,11 +13,9 @@ class Ticket extends Model
     const CATEGORIES = [
         'electrical' => 'Electrical',
         'plumbing'   => 'Plumbing',
-        'structural' => 'Structural',
-        'hvac'       => 'HVAC / Aircon',
-        'furniture'  => 'Furniture',
-        'sanitation' => 'Sanitation',
-        'network'    => 'Network / IT',
+        'carpentry'  => 'Carpentry',
+        'masonry'    => 'Masonry',
+        'welding'    => 'Welding',
         'others'     => 'Others',
     ];
 
@@ -25,11 +23,9 @@ class Ticket extends Model
     const CATEGORY_ICONS = [
         'electrical' => 'fa-bolt',
         'plumbing'   => 'fa-faucet',
-        'structural' => 'fa-building',
-        'hvac'       => 'fa-wind',
-        'furniture'  => 'fa-chair',
-        'sanitation' => 'fa-broom',
-        'network'    => 'fa-network-wired',
+        'carpentry'  => 'fa-hammer',
+        'masonry'    => 'fa-border-all',
+        'welding'    => 'fa-fire',
         'others'     => 'fa-wrench',
     ];
 

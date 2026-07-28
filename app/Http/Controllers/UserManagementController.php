@@ -53,15 +53,16 @@ class UserManagementController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'role_id'        => ['required', 'exists:roles,id'],
-            'first_name'     => ['required', 'string', 'max:100'],
-            'last_name'      => ['required', 'string', 'max:100'],
-            'email'          => ['required', 'email', 'unique:users,email'],
-            'department'     => ['required', 'string', 'max:150'],
-            'specialization' => ['nullable', 'string', 'max:100'],
-            'contact_number' => ['required', 'string', 'max:20'],
-            'password'       => ['required', 'confirmed', Password::min(8)],
-            'profile_photo'  => ['nullable', 'image', 'mimes:jpg,jpeg,png', 'max:10240'],
+            'role_id'         => ['required', 'exists:roles,id'],
+            'first_name'      => ['required', 'string', 'max:100'],
+            'last_name'       => ['required', 'string', 'max:100'],
+            'email'           => ['required', 'email', 'unique:users,email'],
+            'department'      => ['required', 'string', 'max:150'],
+            'specialization'  => ['nullable', 'array'],
+            'specialization.*'=> ['string', 'in:' . implode(',', array_keys(\App\Models\User::SPECIALIZATIONS))],
+            'contact_number'  => ['required', 'string', 'max:20'],
+            'password'        => ['required', 'confirmed', Password::min(8)],
+            'profile_photo'   => ['nullable', 'image', 'mimes:jpg,jpeg,png', 'max:10240'],
         ]);
 
         $photoPath = null;
@@ -78,7 +79,7 @@ class UserManagementController extends Controller
             'email'          => $request->email,
             'password'       => Hash::make($request->password),
             'department'     => $request->department,
-            'specialization' => $request->specialization,
+            'specialization' => $request->filled('specialization') ? $request->specialization : null,
             'contact_number' => $request->contact_number,
             'profile_photo'  => $photoPath ?? null,
             'status'         => 'active',
@@ -100,18 +101,20 @@ class UserManagementController extends Controller
     public function update(Request $request, User $user)
     {
         $request->validate([
-            'role_id'        => ['required', 'exists:roles,id'],
-            'first_name'     => ['required', 'string', 'max:100'],
-            'last_name'      => ['required', 'string', 'max:100'],
-            'email'          => ['required', 'email', 'unique:users,email,' . $user->id],
-            'department'     => ['required', 'string', 'max:150'],
-            'specialization' => ['nullable', 'string', 'max:100'],
-            'contact_number' => ['required', 'string', 'max:20'],
-            'status'         => ['required', 'in:active,inactive'],
-            'profile_photo'  => ['nullable', 'image', 'mimes:jpg,jpeg,png', 'max:10240'],
+            'role_id'         => ['required', 'exists:roles,id'],
+            'first_name'      => ['required', 'string', 'max:100'],
+            'last_name'       => ['required', 'string', 'max:100'],
+            'email'           => ['required', 'email', 'unique:users,email,' . $user->id],
+            'department'      => ['required', 'string', 'max:150'],
+            'specialization'  => ['nullable', 'array'],
+            'specialization.*'=> ['string', 'in:' . implode(',', array_keys(\App\Models\User::SPECIALIZATIONS))],
+            'contact_number'  => ['required', 'string', 'max:20'],
+            'status'          => ['required', 'in:active,inactive'],
+            'profile_photo'   => ['nullable', 'image', 'mimes:jpg,jpeg,png', 'max:10240'],
         ]);
 
-        $data = $request->only('role_id', 'first_name', 'last_name', 'email', 'department', 'specialization', 'contact_number', 'status');
+        $data = $request->only('role_id', 'first_name', 'last_name', 'email', 'department', 'contact_number', 'status');
+        $data['specialization'] = $request->filled('specialization') ? $request->specialization : null;
 
         if ($request->hasFile('profile_photo')) {
             $cloudinary = new Cloudinary(Configuration::instance(env('CLOUDINARY_URL')));

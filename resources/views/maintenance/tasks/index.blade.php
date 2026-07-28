@@ -5,10 +5,10 @@
 <div class="page-header mb-4">
     <div>
         <h4 class="fw-bold mb-0"><i class="fas fa-screwdriver-wrench me-2 text-primary"></i>Assigned Maintenance Tasks</h4>
-        @if(auth()->user()->specialization)
+        @if(!empty(auth()->user()->specialization))
         <p class="text-muted small mb-0">
             <i class="fas fa-id-badge me-1"></i>
-            Specialization: <strong>{{ \App\Models\User::SPECIALIZATIONS[auth()->user()->specialization] ?? auth()->user()->specialization }}</strong>
+            Specialization: <strong>{{ auth()->user()->specialization_labels }}</strong>
             @if($isFiltered)
                 — <span class="text-primary">Showing matched tasks only</span>
             @else

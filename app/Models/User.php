@@ -12,33 +12,59 @@ class User extends Authenticatable
     // ─── Specialization → Issue Category mapping ──────────────────────────────
 
     const SPECIALIZATIONS = [
-        'electrician'      => 'Electrician',
-        'plumber'          => 'Plumber',
-        'carpenter'        => 'Carpenter',
-        'hvac_technician'  => 'HVAC Technician',
-        'janitor'          => 'Janitor',
-        'it_technician'    => 'IT Technician',
-        'general'          => 'General (All)',
+        'electrician' => 'Electrician',
+        'plumber'     => 'Plumber',
+        'carpenter'   => 'Carpenter',
+        'mason'       => 'Mason',
+        'welder'      => 'Welder',
     ];
 
     const SPECIALIZATION_CATEGORIES = [
-        'electrician'      => ['electrical'],
-        'plumber'          => ['plumbing'],
-        'carpenter'        => ['structural', 'furniture'],
-        'hvac_technician'  => ['hvac'],
-        'janitor'          => ['sanitation'],
-        'it_technician'    => ['network'],
-        'general'          => [], // empty = sees all
+        'electrician' => ['electrical'],
+        'plumber'     => ['plumbing'],
+        'carpenter'   => ['carpentry'],
+        'mason'       => ['masonry'],
+        'welder'      => ['welding'],
     ];
 
     /**
-     * Returns the issue_category values this user's specialization covers.
-     * Empty array means no filter (sees all).
+     * Returns merged issue_category values from all specializations.
+     * Supports multiple specializations stored as JSON array.
+     * Empty array means no filter (sees all tickets).
      */
     public function getSpecializationCategoriesAttribute(): array
     {
-        if (!$this->specialization) return [];
-        return self::SPECIALIZATION_CATEGORIES[$this->specialization] ?? [];
+        $specs = $this->specialization;
+        if (empty($specs)) return [];
+
+        // Support both old string and new array format
+        if (is_string($specs)) {
+            $specs = [$specs];
+        }
+
+        $categories = [];
+        foreach ($specs as $spec) {
+            $cats = self::SPECIALIZATION_CATEGORIES[$spec] ?? [];
+            $categories = array_unique(array_merge($categories, $cats));
+        }
+
+        return $categories;
+    }
+
+    /**
+     * Returns human-readable labels for all specializations.
+     */
+    public function getSpecializationLabelsAttribute(): string
+    {
+        $specs = $this->specialization;
+        if (empty($specs)) return 'None';
+
+        if (is_string($specs)) {
+            $specs = [$specs];
+        }
+
+        $labels = array_map(fn($s) => self::SPECIALIZATIONS[$s] ?? $s, $specs);
+        return implode(', ', $labels);
     }
 
     protected $fillable = [
@@ -62,6 +88,7 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password'          => 'hashed',
+        'specialization'    => 'array',
     ];
 
     // ─── Accessors ────────────────────────────────────────────────────────────

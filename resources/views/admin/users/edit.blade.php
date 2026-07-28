@@ -44,14 +44,24 @@
                             @error('department')<div class="invalid-feedback">{{ $message }}</div>@enderror
                         </div>
                         <div class="col-md-6" id="specializationField">
-                            <label class="form-label">Specialization</label>
-                            <select name="specialization" class="form-select @error('specialization') is-invalid @enderror">
-                                <option value="">-- Select Specialization --</option>
+                            <label class="form-label">Specializations <span class="text-muted small">(select all that apply)</span></label>
+                            <div class="border rounded p-2" style="max-height:160px; overflow-y:auto;">
+                                @php
+                                    $currentSpecs = old('specialization', $user->specialization ?? []);
+                                    if (is_string($currentSpecs)) $currentSpecs = [$currentSpecs];
+                                @endphp
                                 @foreach(\App\Models\User::SPECIALIZATIONS as $value => $label)
-                                <option value="{{ $value }}" {{ old('specialization', $user->specialization) == $value ? 'selected' : '' }}>{{ $label }}</option>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox"
+                                        name="specialization[]"
+                                        value="{{ $value }}"
+                                        id="spec_{{ $value }}"
+                                        {{ in_array($value, $currentSpecs) ? 'checked' : '' }}>
+                                    <label class="form-check-label" for="spec_{{ $value }}">{{ $label }}</label>
+                                </div>
                                 @endforeach
-                            </select>
-                            @error('specialization')<div class="invalid-feedback">{{ $message }}</div>@enderror
+                            </div>
+                            @error('specialization')<div class="text-danger small mt-1">{{ $message }}</div>@enderror
                         </div>
                         <div class="col-md-6">
                             <label class="form-label">Contact Number <span class="text-danger">*</span></label>
