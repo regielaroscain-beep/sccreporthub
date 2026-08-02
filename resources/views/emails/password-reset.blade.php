@@ -84,6 +84,7 @@
 <body>
     <div class="wrapper">
         <div class="header">
+            <img src="{{ config('app.url') }}/images/scc-logo.png" alt="SCC Logo" style="height:60px;margin-bottom:12px;display:block;margin-left:auto;margin-right:auto;">
             <h1>SCC ReportHub</h1>
         </div>
         <div class="body">

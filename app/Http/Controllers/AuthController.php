@@ -247,6 +247,11 @@ class AuthController extends Controller
             ?? ($_ENV['BREVO_API_KEY'] ?? null)
             ?? ($_SERVER['BREVO_API_KEY'] ?? null);
 
+        if (empty($apiKey)) {
+            \Illuminate\Support\Facades\Log::error('BREVO_API_KEY is not configured. Cannot send email to ' . $toEmail);
+            return;
+        }
+
         $client->post('https://api.brevo.com/v3/smtp/email', [
             'headers' => [
                 'accept'       => 'application/json',

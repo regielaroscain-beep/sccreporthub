@@ -3,11 +3,10 @@
 
 @section('content')
 <div class="text-center mb-4">
-    <div class="mb-3">
-        <span class="rounded-circle d-inline-flex align-items-center justify-content-center bg-primary bg-opacity-10"
-              style="width:56px;height:56px;">
-            <i class="fas fa-lock-open text-primary fs-4"></i>
-        </span>
+    <div class="auth-logo-wrap mx-auto mb-2">
+        <img src="{{ asset('images/scc-logo.png') }}" alt="SCC Logo"
+             style="width:85px;height:85px;object-fit:contain;background:transparent;border-radius:50%;"
+             onerror="this.style.display='none'">
     </div>
     <h5 class="fw-semibold mb-1">Set New Password</h5>
     <p class="text-muted small mb-0">Must be at least 8 characters with uppercase, number &amp; symbol.</p>
