@@ -243,9 +243,9 @@ class AuthController extends Controller
 
         $client->post('https://api.brevo.com/v3/smtp/email', [
             'headers' => [
-                'accept'      => 'application/json',
-                'api-key'     => env('BREVO_API_KEY'),
-                'content-type'=> 'application/json',
+                'accept'       => 'application/json',
+                'api-key'      => env('BREVO_API_KEY'),
+                'content-type' => 'application/json',
             ],
             'json' => [
                 'sender'      => [
