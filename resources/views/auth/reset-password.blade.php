@@ -4,9 +4,9 @@
 @section('content')
 <div class="text-center mb-4">
     <div class="mb-3">
-        <span class="d-inline-flex align-items-center justify-content-center rounded-circle bg-primary bg-opacity-10"
-              style="width:64px;height:64px;">
-            <i class="fas fa-lock-open text-primary" style="font-size:1.6rem;"></i>
+        <span class="d-inline-flex align-items-center justify-content-center rounded-circle"
+              style="width:72px;height:72px;background:linear-gradient(135deg,#4f46e5,#06b6d4);">
+            <i class="fas fa-lock-open text-white" style="font-size:1.8rem;"></i>
         </span>
     </div>
     <h5 class="fw-semibold mb-1">Set New Password</h5>
