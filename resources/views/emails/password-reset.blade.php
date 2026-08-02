@@ -84,7 +84,9 @@
 <body>
     <div class="wrapper">
         <div class="header">
-            <img src="{{ config('app.url') }}/images/scc-logo.png" alt="SCC Logo" style="height:60px;margin-bottom:12px;display:block;margin-left:auto;margin-right:auto;">
+            <div style="width:76px;height:76px;background:#ffffff;border-radius:50%;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;padding:6px;">
+                <img src="{{ config('app.url') }}/images/scc-logo.png" alt="SCC Logo" style="width:64px;height:64px;object-fit:contain;display:block;">
+            </div>
             <h1>SCC ReportHub</h1>
         </div>
         <div class="body">
