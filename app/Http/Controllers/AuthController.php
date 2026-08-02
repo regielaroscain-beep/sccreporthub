@@ -241,16 +241,22 @@ class AuthController extends Controller
     {
         $client = new \GuzzleHttp\Client();
 
+        // Try all possible ways to get the key
+        $apiKey = env('BREVO_API_KEY')
+            ?? getenv('BREVO_API_KEY')
+            ?? ($_ENV['BREVO_API_KEY'] ?? null)
+            ?? ($_SERVER['BREVO_API_KEY'] ?? null);
+
         $client->post('https://api.brevo.com/v3/smtp/email', [
             'headers' => [
                 'accept'       => 'application/json',
-                'api-key'      => env('BREVO_API_KEY'),
+                'api-key'      => $apiKey,
                 'content-type' => 'application/json',
             ],
             'json' => [
                 'sender'      => [
-                    'name'  => config('mail.from.name'),
-                    'email' => config('mail.from.address'),
+                    'name'  => env('MAIL_FROM_NAME', 'SCC ReportHub'),
+                    'email' => env('MAIL_FROM_ADDRESS', 'sccreporthub@gmail.com'),
                 ],
                 'to'          => [['email' => $toEmail, 'name' => $toName]],
                 'subject'     => $subject,
