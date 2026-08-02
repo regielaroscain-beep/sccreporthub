@@ -310,7 +310,7 @@ class AuthController extends Controller
         // Check token exists, matches, and is not older than 60 minutes
         if (! $record
             || ! Hash::check($request->token, $record->token)
-            || now()->diffInMinutes($record->created_at) > 60
+            || now()->diffInMinutes(\Carbon\Carbon::parse($record->created_at)) > 60
         ) {
             return back()->withErrors([
                 'email' => 'This password reset link is invalid or has expired. Please request a new one.',
